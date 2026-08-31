@@ -1,0 +1,1394 @@
+COD_ESTRUTURADO,NOME_UNIDADE,NOME_CENTRO,SIGLA_CENTRO,TIPO_UNIDADE,SITUACAO
+07.67.00.00.0.0,Departamento de Computação Aplicada,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.37.00.00.0.0,Departamento de Eletromecânica e Sistemas de Potência,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.38.00.00.0.0,Departamento de Eletrônica e Computação,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.36.00.00.0.0,Departamento de Engenharia de Produção e Sistemas,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.35.00.00.0.0,Departamento de Engenharia Mecânica,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.34.00.00.0.0,Departamento de Engenharia Química,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.63.00.00.0.0,Departamento de Engenharia Sanitária e Ambiental,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.31.00.00.0.0,Departamento de Estruturas e Construção Civil,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.30.00.00.0.0,Departamento de Expressão Gráfica,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.66.00.00.0.0,Departamento de Linguagens e Sistemas de Computação,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.54.00.00.0.0,Departamento de Processamento de Energia Elétrica,Centro de Tecnologia,CT,Departamento Didático,Formal
+07.33.00.00.0.0,Departamento de Transportes,Centro de Tecnologia,CT,Departamento Didático,Formal
+32.17.00.00.0.0,Departamento de Administração - PM,Campus da UFSM em Palmeira Das Missões,PM,Departamento Didático,Formal
+32.20.00.00.0.0,Departamento de Alimentos e Nutrição - PM,Campus da UFSM em Palmeira Das Missões,PM,Departamento Didático,Formal
+32.18.00.00.0.0,Departamento de Ciências da Saúde - PM,Campus da UFSM em Palmeira Das Missões,PM,Departamento Didático,Formal
+32.21.00.00.0.0,Departamento de Ciências Econômicas - PM,Campus da UFSM em Palmeira Das Missões,PM,Departamento Didático,Formal
+32.19.00.00.0.0,Departamento de Zootecnia e Ciências Biológicas - PM,Campus da UFSM em Palmeira Das Missões,PM,Departamento Didático,Formal
+33.21.00.00.0.0,Departamento de Ciências Agronômicas e Ambientais - FW,Campus da UFSM em Frederico Westphalen,FW,Departamento Didático,Formal
+33.23.00.00.0.0,Departamento de Ciências da Comunicação - FW,Campus da UFSM em Frederico Westphalen,FW,Departamento Didático,Formal
+33.25.00.00.0.0,Departamento de Engenharia e Tecnologia Ambiental - FW,Campus da UFSM em Frederico Westphalen,FW,Departamento Didático,Formal
+33.22.00.00.0.0,Departamento de Engenharia Florestal - FW,Campus da UFSM em Frederico Westphalen,FW,Departamento Didático,Formal
+33.24.00.00.0.0,Departamento de Tecnologia da Informação - FW,Campus da UFSM em Frederico Westphalen,FW,Departamento Didático,Formal
+04.03.00.00.0.0,Vice-Direção do CCS,Centro de Ciências da Saúde,CCS,Direção de Unidade de Ensino,Formal
+06.03.00.00.0.0,Vice-Direção do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Direção de Unidade de Ensino,Formal
+05.03.00.00.0.0,Vice-Direção do CE,Centro de Educação,CE,Direção de Unidade de Ensino,Formal
+09.03.00.00.0.0,Vice-Direção do CEFD,Centro de Educação Física e Desportos,CEFD,Direção de Unidade de Ensino,Formal
+07.03.00.00.0.0,Vice-Direção do CT,Centro de Tecnologia,CT,Direção de Unidade de Ensino,Formal
+26.07.00.00.0.0,Vice-Direção do Colégio Politécnico,Colégio Politécnico,POLI,Direção de Unidade de Ensino,Formal
+25.07.00.00.0.0,Vice-Direção Colégio Técnico Industrial - CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Direção de Unidade de Ensino,Formal
+29.07.00.00.0.0,Vice-Direção Unidade de Educação Infantil Ipê Amarelo,Unidade de Educação Infantil Ipê Amarelo,UEIIA,Direção de Unidade de Ensino,Formal
+31.03.00.00.0.0,Vice-Direção do Campus em Cachoeira do Sul,Campus da UFSM em Cachoeira do Sul,CS,Direção de Unidade de Ensino,Formal
+16.02.00.00.0.0,Direção do CESNORS - FW,Centro de Educação Superior Norte-RS/UFSM -CESNORS,CESNORS,Direção de Centro,Formal
+08.03.00.00.0.0,Vice-Direção do CAL,Centro de Artes e Letras,CAL,Direção de Unidade de Ensino,Formal
+02.03.00.00.0.0,Vice-Direção do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Direção de Unidade de Ensino,Formal
+03.03.00.00.0.0,Vice-Direção do CCR,Centro de Ciências Rurais,CCR,Direção de Unidade de Ensino,Formal
+33.03.00.00.0.0,Vice-Direção do Campus- FW,Campus da UFSM em Frederico Westphalen,FW,Direção de Unidade de Ensino,Formal
+10.01.00.00.0.0,Direção Hospital Universitário-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Outros Órgãos,Formal
+95.00.00.00.0.0,Cursos Anteriores ao Sie,Reitoria,REITORIA,Outros Órgãos,Informal
+95.01.00.00.0.0,Cursos de Graduação,Reitoria,REITORIA,Outros Órgãos,Informal
+95.02.00.00.0.0,Cursos de Pós-Graduação,Reitoria,REITORIA,Outros Órgãos,Informal
+95.10.00.00.0.0,Cursos Técnicos,Reitoria,REITORIA,Outros Órgãos,Informal
+99.99.00.00.0.0,Sem Unidade Administrativa,Reitoria,REITORIA,Outros Órgãos,Informal
+03.01.03.00.0.0,Comissão de Legislação e Normas do CCR,Centro de Ciências Rurais,CCR,Órgão Colegiado,Formal
+03.11.02.00.0.0,Comissão de Pesquisa do CCR,Centro de Ciências Rurais,CCR,Órgão Colegiado,Formal
+03.01.00.00.0.0,Conselho do Centro de Ciências Rurais,Centro de Ciências Rurais,CCR,Órgão Colegiado,Formal
+04.05.03.00.0.0,Comissão de Ensino e Pesquisa do CCS,Centro de Ciências da Saúde,CCS,Órgão Colegiado,Formal
+08.05.05.00.0.0,Comissão Permanente da Sala de Exposições Cláudio Carriconde,Centro de Artes e Letras,CAL,Órgão Colegiado,Formal
+08.05.01.00.0.0,"Comissão Permanente de Ensino, Pesquisa e Extensão do CAL",Centro de Artes e Letras,CAL,Órgão Colegiado,Formal
+08.05.03.00.0.0,Comissão Permanente de Espaço Físico do CAL,Centro de Artes e Letras,CAL,Órgão Colegiado,Formal
+08.05.02.00.0.0,Comissão Permanente de Legislação e Normas do CAL,Centro de Artes e Letras,CAL,Órgão Colegiado,Formal
+08.05.04.00.0.0,Comissão Permanente do Teatro Caixa Preta,Centro de Artes e Letras,CAL,Órgão Colegiado,Formal
+08.05.00.00.0.0,Conselho do Centro de Artes e Letras,Centro de Artes e Letras,CAL,Órgão Colegiado,Formal
+02.05.02.00.0.0,"Comissão de Ensino, Pesquisa e Extensão do CCNE",Centro de Ciências Naturais e Exatas,CCNE,Órgão Colegiado,Formal
+02.12.02.00.0.0,Comissão de Extensão do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Órgão Colegiado,Formal
+02.05.01.00.0.0,Comissão de Legislação e Normas do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Órgão Colegiado,Formal
+02.12.01.00.0.0,Comissão de Pesquisa do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Órgão Colegiado,Formal
+02.05.00.00.0.0,Conselho do Centro de Ciências Naturais e Exatas,Centro de Ciências Naturais e Exatas,CCNE,Órgão Colegiado,Formal
+03.11.01.00.0.0,Comissão de Ensino do CCR,Centro de Ciências Rurais,CCR,Órgão Colegiado,Formal
+03.01.04.00.0.0,Comissão de Espaço Físico do CCR,Centro de Ciências Rurais,CCR,Órgão Colegiado,Formal
+03.11.03.00.0.0,Comissão de Extensão do CCR,Centro de Ciências Rurais,CCR,Órgão Colegiado,Formal
+04.05.02.00.0.0,Comissão de Extensão do CCS,Centro de Ciências da Saúde,CCS,Órgão Colegiado,Formal
+04.05.01.00.0.0,Comissão de Legislação e Normas do CCS,Centro de Ciências da Saúde,CCS,Órgão Colegiado,Formal
+04.05.00.00.0.0,Conselho do Centro de Ciências da Saúde,Centro de Ciências da Saúde,CCS,Órgão Colegiado,Formal
+06.13.01.00.0.0,Comissão Permanente de Ensino do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Órgão Colegiado,Formal
+06.13.03.00.0.0,Comissão Permanente de Extensão do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Órgão Colegiado,Formal
+06.13.04.00.0.0,Comissão Permanente de Legislação e Normas do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Órgão Colegiado,Formal
+06.13.05.00.0.0,Comissão Permanente de Orçamento do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Órgão Colegiado,Formal
+06.13.02.00.0.0,Comissão Permanente de Pesquisa do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Órgão Colegiado,Formal
+06.13.00.00.0.0,Conselho do Centro de Ciências Sociais e Humanas,Centro de Ciências Sociais e Humanas,CCSH,Órgão Colegiado,Formal
+05.18.01.00.0.0,"Comissão de Ensino, Pesquisa e Extensão",Centro de Educação,CE,Órgão Colegiado,Formal
+05.19.03.00.0.0,Comissão do Núcleo de Estudos e Pesquisa em Educação e Infância,Centro de Educação,CE,Órgão Colegiado,Formal
+05.19.02.00.0.0,Comissão dos Laboratórios de Educação Especial,Centro de Educação,CE,Órgão Colegiado,Formal
+05.19.01.00.0.0,Comissão dos Laboratórios de Metodologia de Ensino,Centro de Educação,CE,Órgão Colegiado,Formal
+05.06.01.00.0.0,"Comissão Permanente de Ensino, Pesquisa e Extensão do CE",Centro de Educação,CE,Órgão Colegiado,Formal
+05.06.02.00.0.0,Comissão Permanente de Legislação e Normas do CE,Centro de Educação,CE,Órgão Colegiado,Formal
+05.17.01.00.0.0,Comissão Setorial de Avaliação,Centro de Educação,CE,Órgão Colegiado,Formal
+05.05.00.00.0.0,Comitê Descentralizado de Internacionalização,Centro de Educação,CE,Órgão Colegiado,Formal
+05.06.00.00.0.0,Conselho do Centro de Educação,Centro de Educação,CE,Órgão Colegiado,Formal
+09.05.02.00.0.0,"Comissão de Ensino, Pesquisa e Extensão do CEFD",Centro de Educação Física e Desportos,CEFD,Órgão Colegiado,Formal
+09.05.03.00.0.0,Comissão de Espaço Físico do CEFD,Centro de Educação Física e Desportos,CEFD,Órgão Colegiado,Formal
+09.05.01.00.0.0,Comissão de Legislação e Normas do CEFD,Centro de Educação Física e Desportos,CEFD,Órgão Colegiado,Formal
+09.05.00.00.0.0,Conselho do Centro de Educação Física e Desportos,Centro de Educação Física e Desportos,CEFD,Órgão Colegiado,Formal
+07.92.00.00.0.0,Centro de Cooperação Brasil-Alemanha,Centro de Tecnologia,CT,Órgão Colegiado,Formal
+07.14.02.00.0.0,Comissão Permanente de Ensino do CT,Centro de Tecnologia,CT,Órgão Colegiado,Formal
+07.05.01.00.0.0,"Comissão Permanente de Ensino, Pesquisa e Extensão do CT",Centro de Tecnologia,CT,Órgão Colegiado,Formal
+07.14.01.00.0.0,Comissão Permanente de Extensão do CT,Centro de Tecnologia,CT,Órgão Colegiado,Formal
+07.00.01.00.0.0,Comissão Permanente de Inovação no Ensino de Graduação,Centro de Tecnologia,CT,Órgão Colegiado,Formal
+07.05.02.00.0.0,Comissão Permanente de Legislação e Normas do CT,Centro de Tecnologia,CT,Órgão Colegiado,Formal
+07.14.03.00.0.0,Comissão Permanente de Pesquisa e Inovação do CT,Centro de Tecnologia,CT,Órgão Colegiado,Formal
+07.05.00.00.0.0,Conselho do Centro de Tecnologia,Centro de Tecnologia,CT,Órgão Colegiado,Formal
+01.07.00.03.0.0,Câmara de Extensão,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.08.00.05.0.0,Câmara de Licenciaturas,Reitoria,REITORIA,Órgão Colegiado,Formal
+42.01.00.00.0.0,Comissão de Acompanhamento e Análise de Processos,Reitoria,REITORIA,Órgão Colegiado,Formal
+41.01.00.00.0.0,"Comissão de Ensino, Pesquisa e Extensão",Reitoria,REITORIA,Órgão Colegiado,Formal
+44.00.00.00.0.0,Comissão de Ética,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.09.20.00.0.0,Comissão de Ética de Uso de Animais,Reitoria,REITORIA,Órgão Colegiado,Formal
+41.02.00.00.0.0,Comissão de Legislação e Normas,Reitoria,REITORIA,Órgão Colegiado,Formal
+40.01.00.00.0.0,Comissão de Legislação e Regimentos,Reitoria,REITORIA,Órgão Colegiado,Formal
+40.02.00.00.0.0,Comissão de Orçamento e Regência Patrimonial,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.09.01.02.0.0,Comissão de Residência Multiprofissional,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.26.00.06.2.0,Comissão Especial de Avaliação para Concessão do Rsc - PROGEP,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.26.00.06.1.0,Comissão Examinadora para Avaliação de Desempenho de Prof Associado - PROGEP,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.01.99.00.0.0,Comissão Gestora do Plano de Logística,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.09.18.00.0.0,Comissão Interna de Biossegurança,Reitoria,REITORIA,Órgão Colegiado,Formal
+45.00.00.00.0.0,Comissão Interna de Conservação de Energia,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.83.00.00.0.0,Comissão Interna de Supervisão da Carreira,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.33.00.00.0.0,Comissão Permanente de Acumulação Cargos,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.84.00.02.0.0,Comissão Permanente de Avaliação de Documentos,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.01.40.00.0.0,"Comitê de Governança, Riscos e Controles",Reitoria,REITORIA,Órgão Colegiado,Formal
+01.07.08.03.2.0,Comitê de Igualdade de Gênero,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.09.25.01.0.0,Comitê de Iniciação Científica,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.09.16.00.0.0,Comitê de Pesquisa da Pró-Reitoria de Pós-Graduação e Pesquisa,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.01.41.00.0.0,Comitê de Saúde Mental,Reitoria,REITORIA,Órgão Colegiado,Formal
+46.00.00.00.0.0,Comitê de Segurança da Informação,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.01.43.00.0.0,Comitê Gestor de Implantação da Agenda 2030 e Seus Objetivos de Desenvolvimento Sustentável,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.09.17.00.0.0,Comitê Gestor de Infraestruturas Multiusuárias,Reitoria,REITORIA,Órgão Colegiado,Formal
+48.00.00.00.0.0,Comitê Gestor de Proteção de Dados Pessoais,Reitoria,REITORIA,Órgão Colegiado,Formal
+43.00.00.00.0.0,Comitê Gestor de Tecnologias de Informação e Comunicação,Reitoria,REITORIA,Órgão Colegiado,Formal
+47.00.00.00.0.0,Comitê Gestor do Acervo Acadêmico,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.07.06.01.2.0,Comitê Gestor do Centro de Convenções,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.28.02.00.0.0,Comitê Institucional de Iniciação à Inovação Tecnológica e Desenvolvimento,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.17.01.00.0.0,"Conselho de Área de Educação Básica, Técnica e Tecnológica",Reitoria,REITORIA,Órgão Colegiado,Formal
+41.00.00.00.0.0,"Conselho de Ensino, Pesquisa e Extensão",Reitoria,REITORIA,Órgão Colegiado,Formal
+01.15.01.00.0.0,Conselho Editorial da Editora,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.28.03.01.0.0,Conselho Estratégico do Pict,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.28.03.02.0.0,Conselho Fiscal do Pict,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.28.01.00.0.0,Conselho Superior da PROINOVA,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.05.10.00.0.0,Comissão Permanente de Avaliação e Baixa Patrimonial de Bens Móveis,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.09.15.00.0.0,Comitê Assessor da Pró-Reitoria de Pós-Graduação e Pesquisa,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.84.00.03.0.0,Comitê Consultivo do Siarq,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.09.19.00.0.0,Comitê de Ética em Pesquisa com Seres Humanos,Reitoria,REITORIA,Órgão Colegiado,Formal
+25.16.00.00.0.0,Comissão Permanente de Exames de Seleção do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Órgão Colegiado,Formal
+25.14.00.00.0.0,Conselho Diretor do Colégio Técnico Industrial de Santa Maria,Colégio Técnico Industrial de Santa Maria,CTISM,Órgão Colegiado,Formal
+29.01.00.00.0.0,Conselho Diretor UEIIA,Unidade de Educação Infantil Ipê Amarelo,UEIIA,Órgão Colegiado,Formal
+31.07.01.00.0.0,"Comissão de Ensino, Pesquisa e Extensão do Campus/CS",Campus da UFSM em Cachoeira do Sul,CS,Órgão Colegiado,Formal
+31.07.02.00.0.0,Comissão de Legislação e Normas do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Órgão Colegiado,Formal
+31.07.00.00.0.0,Conselho do Campus da Universidade Federal de Santa Maria em Cachoeira do Sul,Campus da UFSM em Cachoeira do Sul,CS,Órgão Colegiado,Formal
+32.32.01.00.0.0,"Comissão de Ensino, Pesquisa e Extensão/PM",Campus da UFSM em Palmeira Das Missões,PM,Órgão Colegiado,Formal
+32.32.02.00.0.0,Comissão de Legislação e Normas/PM,Campus da UFSM em Palmeira Das Missões,PM,Órgão Colegiado,Formal
+32.32.00.00.0.0,Conselho do Campus da Universidade Federal de Santa Maria em Palmeira das Missões,Campus da UFSM em Palmeira Das Missões,PM,Órgão Colegiado,Formal
+33.04.03.00.0.0,Comissão de Ensino/FW,Campus da UFSM em Frederico Westphalen,FW,Órgão Colegiado,Formal
+33.04.05.00.0.0,Comissão de Extensão/FW,Campus da UFSM em Frederico Westphalen,FW,Órgão Colegiado,Formal
+33.04.02.00.0.0,Comissão de Gestão de Riscos/FW,Campus da UFSM em Frederico Westphalen,FW,Órgão Colegiado,Formal
+33.04.01.00.0.0,Comissão de Legislação e Normas/FW,Campus da UFSM em Frederico Westphalen,FW,Órgão Colegiado,Formal
+33.04.04.00.0.0,Comissão de Pesquisa/FW,Campus da UFSM em Frederico Westphalen,FW,Órgão Colegiado,Formal
+33.04.00.00.0.0,Conselho do Campus da Universidade Federal de Santa Maria em Frederico Westphalen,Campus da UFSM em Frederico Westphalen,FW,Órgão Colegiado,Formal
+10.00.01.00.0.0,Conselho de Administração - Conad-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgão Colegiado,Informal
+40.00.00.00.0.0,Conselho Universitário,Reitoria,REITORIA,Órgão Colegiado,Formal
+26.01.00.00.0.0,Colegiado da Unidade,Colégio Politécnico,POLI,Órgão Colegiado,Formal
+26.10.00.00.0.0,Comissão Permanente de Ensino,Colégio Politécnico,POLI,Órgão Colegiado,Formal
+26.12.00.00.0.0,Comissão Permanente de Extensão,Colégio Politécnico,POLI,Órgão Colegiado,Formal
+26.13.00.00.0.0,"Comissão Permanente de Legislação, Normas, Ensino, Pesquisa e Extensão",Colégio Politécnico,POLI,Órgão Colegiado,Formal
+26.11.00.00.0.0,Comissão Permanente de Pesquisa,Colégio Politécnico,POLI,Órgão Colegiado,Formal
+26.14.00.00.0.0,Comissão Permanente de Seleção,Colégio Politécnico,POLI,Órgão Colegiado,Formal
+25.15.00.00.0.0,"Comissão Permanente de Ensino, Pesquisa e Extensão do CTISM",Colégio Técnico Industrial de Santa Maria,CTISM,Órgão Colegiado,Formal
+01.28.00.00.0.0,Pró-Reitoria de Inovação e Empreendedorismo,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+01.10.00.00.0.0,Pró-Reitoria de Planejamento,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+01.09.00.00.0.0,Pró-Reitoria de Pós-Graduação e Pesquisa,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+93.01.00.00.0.0,Superintendente,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgão de Direção e Assessoria,Informal
+01.02.00.00.0.0,Gabinete do Vice-Reitor,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+01.07.00.00.0.0,Pró-Reitoria de Extensão,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+01.08.00.00.0.0,Pró-Reitoria de Graduação,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+01.12.00.00.0.0,Departamento de Contabilidade e Finanças,Reitoria,REITORIA,Órgão Executivo da Adm. Superior,Formal
+01.00.00.00.0.0,REITORIA,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Formal
+08.09.00.00.0.0,Cursos de Graduação,Centro de Artes e Letras,CAL,Órgão não Pertencente a Estrut. Formal,Informal
+08.10.00.00.0.0,Cursos de Pós-Graduação,Centro de Artes e Letras,CAL,Órgão não Pertencente a Estrut. Formal,Informal
+02.09.00.00.0.0,Cursos de Graduação,Centro de Ciências Naturais e Exatas,CCNE,Órgão não Pertencente a Estrut. Formal,Informal
+02.10.00.00.0.0,Cursos de Pós-Graduação,Centro de Ciências Naturais e Exatas,CCNE,Órgão não Pertencente a Estrut. Formal,Informal
+03.09.00.00.0.0,Cursos de Graduação,Centro de Ciências Rurais,CCR,Órgão não Pertencente a Estrut. Formal,Informal
+03.10.00.00.0.0,Cursos de Pós-Graduação,Centro de Ciências Rurais,CCR,Órgão não Pertencente a Estrut. Formal,Informal
+07.10.00.00.0.0,Cursos de Pós-Graduação,Centro de Tecnologia,CT,Órgão não Pertencente a Estrut. Formal,Informal
+10.04.01.02.0.0,"Comissão de Ensino, Extensão e Desenvolvimento Institucional - HUSM",Hospital Universitário de Santa Maria - HUSM,HUSM,Órgão não Pertencente a Estrut. Formal,Informal
+10.04.01.01.0.0,Comissão de Pesquisa - HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgão não Pertencente a Estrut. Formal,Informal
+99.10.00.00.0.0,Agencia Nacional de Enegia Eletrica - Aneel,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.04.00.00.0.0,Agencia Nacional de Vigilancia Sanitaria,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+01.84.02.00.1.0,Arquivo Intermediário DAG,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.15.00.00.0.0,Cefet de São Vicente,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+00.00.00.09.0.0,Chefias em Estudo,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+00.00.00.09.1.0,Chefias em Estudo,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+01.08.16.00.0.0,Coordenação Uab,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.18.00.00.0.0,Fundo Nacional de Desenv. da Educação - Fnde,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.31.00.00.0.0,Fundo Nacional de Desenvolvimento da Educ. Fnde,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.03.00.00.0.0,Fundo Nacional de Saude,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+04.09.00.00.0.0,Cursos de Graduação,Centro de Ciências da Saúde,CCS,Órgão não Pertencente a Estrut. Formal,Informal
+04.10.00.00.0.0,Cursos de Pós-Graduação,Centro de Ciências da Saúde,CCS,Órgão não Pertencente a Estrut. Formal,Informal
+06.09.00.00.0.0,Cursos de Graduação,Centro de Ciências Sociais e Humanas,CCSH,Órgão não Pertencente a Estrut. Formal,Informal
+06.10.00.00.0.0,Cursos de Pós-Graduação,Centro de Ciências Sociais e Humanas,CCSH,Órgão não Pertencente a Estrut. Formal,Informal
+05.09.00.00.0.0,Cursos de Graduação,Centro de Educação,CE,Órgão não Pertencente a Estrut. Formal,Informal
+05.10.00.00.0.0,Cursos de Pós-Graduação,Centro de Educação,CE,Órgão não Pertencente a Estrut. Formal,Informal
+09.09.00.00.0.0,Cursos de Graduação,Centro de Educação Física e Desportos,CEFD,Órgão não Pertencente a Estrut. Formal,Informal
+09.10.00.00.0.0,Cursos de Pós-Graduação,Centro de Educação Física e Desportos,CEFD,Órgão não Pertencente a Estrut. Formal,Informal
+07.09.00.00.0.0,Cursos de Graduação,Centro de Tecnologia,CT,Órgão não Pertencente a Estrut. Formal,Informal
+32.10.00.00.0.0,Cursos de Pós-Graduação,Campus da UFSM em Palmeira Das Missões,PM,Órgão não Pertencente a Estrut. Formal,Informal
+33.09.00.00.0.0,Cursos de Graduação,Campus da UFSM em Frederico Westphalen,FW,Órgão não Pertencente a Estrut. Formal,Informal
+33.10.00.00.0.0,Cursos de Pós-Graduação,Campus da UFSM em Frederico Westphalen,FW,Órgão não Pertencente a Estrut. Formal,Informal
+93.00.00.00.0.0,Colegiado Executivo EBSERH,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgão não Pertencente a Estrut. Formal,Informal
+99.16.00.00.0.0,Fundo Nacional Desenvolvimento Científico e Tecnológico,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.06.00.00.0.0,Inst. Nac. de Estudos e Pesquisas Educ.,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.05.00.00.0.0,Instituto Nacional de Desenvolvimento do Desporto,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.09.00.00.0.0,Ministerio da Cultura,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.12.00.00.0.0,Ministério da Agricultura e do Abastecimento,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.35.00.00.0.0,Ministério do Esporte,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.11.00.00.0.0,Ministério do Esporte e Turismo,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.13.00.00.0.0,Secretaria de Desenvolvimento Rural,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.08.00.00.0.0,Secretaria de Educacao Superior,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.14.00.00.0.0,Secretaria de Educação Profissional e Tecnológica,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+01.01.88.00.0.0,Sos-Comunidade,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+99.27.00.00.0.0,Universidade Federal do Rio Grande - Furg,Reitoria,REITORIA,Órgão não Pertencente a Estrut. Formal,Informal
+31.09.00.00.0.0,Cursos de Graduação,Campus da UFSM em Cachoeira do Sul,CS,Órgão não Pertencente a Estrut. Formal,Informal
+31.10.00.00.0.0,Cursos de Pós-Graduação,Campus da UFSM em Cachoeira do Sul,CS,Órgão não Pertencente a Estrut. Formal,Informal
+32.09.00.00.0.0,Cursos de Graduação,Campus da UFSM em Palmeira Das Missões,PM,Órgão não Pertencente a Estrut. Formal,Informal
+10.00.00.00.0.0,Hospital Universitário de Santa Maria - HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgão Suplementar Central,Formal
+01.29.00.00.0.0,Diretoria de Gestão Ambiental,Reitoria,REITORIA,Órgão Suplementar Central,Formal
+01.04.00.00.0.0,Diretoria de Relações Internacionais,Reitoria,REITORIA,Órgão Suplementar Central,Formal
+26.15.00.00.0.0,Gabinete de Projetos - Politécnico,Colégio Politécnico,POLI,Órgão Suplementar Setorial,Formal
+05.36.00.06.0.0,Núcleo Atividades Especiais de Extensão e Serviços - Naees,Centro de Educação,CE,Órgão Suplementar Setorial,Informal
+05.36.00.05.0.0,Núcleo de Desenvolvimento Infantil - Ndi,Centro de Educação,CE,Órgão Suplementar Setorial,Informal
+05.36.00.04.0.0,Núcleo Ens. Pesq. Ext. Educ. Especial - Nepes,Centro de Educação,CE,Órgão Suplementar Setorial,Informal
+26.16.00.00.0.0,Biblioteca Setorial,Colégio Politécnico,POLI,Órgão Suplementar Setorial,Formal
+01.34.00.00.0.0,Comissão Permanente de Pessoal Docente,Reitoria,REITORIA,Órgãos de Apoio,Formal
+05.29.00.00.0.0,Laboratório Metodologia Ensino,Centro de Educação,CE,Órgãos de Apoio,Informal
+05.34.00.00.0.0,Núcleo de Desenvolvimento Infantil,Centro de Educação,CE,Órgãos de Apoio,Informal
+05.31.00.00.0.0,Núcleo Ens. Pesq. Ext. Educ. Especial,Centro de Educação,CE,Órgãos de Apoio,Informal
+93.01.08.02.0.0,Comissões,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.04.00.0.0,Comunicacao,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.05.00.0.0,Ouvidoria,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+10.04.00.02.0.0,Gabinete de Projetos do HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Formal
+93.01.08.01.0.0,Secretaria,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.02.00.0.0,Setor de Gestão de Processos e Tecnologia da Informação,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.07.02.1.0,Setor de Urgência e Emergência,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.03.00.0.0,Setor Jurídico,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.09.02.1.0,Unidade de Almoxarifado e Produtos de Saúde,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.07.01.0.0,Unidade de Apoio Assistêncial,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.08.00.0.0,Unidade de Apoio Corporativo,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.01.01.0.0,Unidade de E-Saúde,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+93.01.06.00.0.0,Unidade de Planejamento,Hospital Universitário de Santa Maria - HUSM,HUSM,Órgãos de Apoio,Informal
+08.15.00.00.0.0,Setor de Apoio Pedagógico do CAL,Centro de Artes e Letras,CAL,Subunidade Acadêmica,Formal
+26.04.27.00.0.0,Coordenação do Ensino Médio - Politécnico,Colégio Politécnico,POLI,Subunidade Acadêmica,Formal
+26.04.32.41.0.0,Curso Pg e em Desenvolvimento de Aplicativos para Dispositivos Móveis-EAD-UAB,Colégio Politécnico,POLI,Subunidade Acadêmica,Informal
+26.04.32.00.0.0,Núcleo de Educação a Distância - Politécnico,Colégio Politécnico,POLI,Subunidade Acadêmica,Informal
+02.13.00.00.0.0,Biblioteca Setorial do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.16.00.00.0.0,Ciência Viva,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.07.00.00.0.0,Núcleo de Infraestrutura do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.06.02.00.0.0,Secretaria Integrada dos Cursos de Graduação das Ciências Exatas,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.07.03.00.0.0,Subdivisão de Gestão de Laboratórios do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.07.01.00.0.0,Subdivisão de Patrimônio do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.07.02.00.0.0,Subdivisão de Tecnologia da Informação do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+04.16.00.00.0.0,Clínica de Fonoaudiologia,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.18.00.00.0.0,Clínica de Terapia Ocupacional,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+06.19.00.00.0.0,Assistência Judiciária,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.14.02.00.0.0,Secretaria Integrada dos Cursos de Graduação do CCSH II,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.14.02.01.0.0,Subdivisão de Estágios do CCSH II,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.15.02.00.0.0,Subdivisão de Tecnologia da Informação do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+33.38.00.00.0.0,Núcleo de Assistência Estudantil/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+10.02.03.00.0.0,Coordenação Clínica Pediátrica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.06.00.0.0,Coordenação de Apoio Operacional-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.04.00.0.0,Coordenação de Manutenção-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.02.00.0.0,Coordenação de Material-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.01.00.0.0,Coordenação de Recursos Humanos-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.05.00.0.0,Coordenação de Serviços Gerais-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.03.00.0.0,Coordenação Enfermagem Clínica Médica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.05.00.0.0,Coordenação Enfermagem em Ambulatório-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.06.00.0.0,Coordenação Enfermagem em Psiquiatria-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.02.00.0.0,Coordenação Enfermagem Materno-Infantil-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.03.00.0.0,Coordenação Financeira-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+09.21.00.00.0.0,Biblioteca Setorial do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+09.06.04.00.0.0,Subdivisão de Comunicação do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+07.87.00.00.0.0,Laboratório de Ciências Espaciais,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.86.00.00.0.0,Laboratório de Engenharia e Meio Ambiente,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.06.03.00.0.0,Secretaria Integrada dos Cursos de Graduação do CT III,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+10.01.02.00.0.0,Assessoria Planejamento e Relações Públicas-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.04.01.00.0.0,"Comissão de Ensino, Pesquisa e Extensão-HUSM",Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.01.03.00.0.0,Comissão Interna de Prevenção de Acidentes - Cipa,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.04.00.0.0,Coordenação Enfermagem Cirúrgica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.07.00.0.0,Coordenação Administrativa Área Psiquiátrica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.01.00.0.0,Coordenação Clínica Médica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.02.00.0.0,Coordenação Clínica Neuro-Psiquiátrica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.04.0.0,Serviço de Anestesia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.04.04.0.0,Serviço de Clínica Cirúrgica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.02.04.0.0,Serviço de Compras e Recebimento-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.03.01.0.0,Serviço de Contabilidade e Orçamento-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.03.03.0.0,Serviço de Contas-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.05.0.0,Serviço de CTI-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.00.00.0.0,Diretoria Administrativa - HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.00.0.0,Diretoria Clínica - HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.00.00.0.0,Diretoria de Enfermagem-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.04.00.00.0.0,"Diretoria de Ensino, Pesquisa e Extensão-HUSM",Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.12.0.0,Laboratório de Análises Clínicas - LAC-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.01.0.0,Secretaria Adm. Diretoria Clínica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.00.01.0.0,Secretaria da Diretoria Administrativa-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.04.00.01.0.0,"Secretaria Direção Ensino, Pesq. e Extensão-HUSM",Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.00.02.0.0,Secretaria Diretoria de Enfermagem-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.13.0.0,Secretaria do LAC-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.03.04.0.0,Serviço de Nefrologia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.00.03.0.0,Serviço Administrativo em Educ. Continuada-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.06.03.0.0,Serviço Ambulatorial Coord. Enf. Psiquiatria-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.06.01.0.0,Serviço Arquivo Médico e Estatística - Same/HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.04.03.0.0,Serviço Centro de Material e Esterilização-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.05.01.0.0,"Serviço Comunicação, Transporte e Vigilância-HUSM",Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.02.01.0.0,Serviço de Almoxarifado-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.03.02.0.0,Serviço Internação Clínica Médica II-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.02.02.0.0,Serviço de Farmácia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.06.0.0,Serviço de Fisioterapia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.03.05.0.0,Serviço de Hemato-Oncologia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.07.0.0,Serviço de Hemoterapia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.01.01.00.0.0,Serviço de Informática-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.00.02.0.0,Serviço de Limpeza-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.03.0.0,Serviço de Obstetrícia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.02.0.0,Serviço de Patologia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.02.05.0.0,Serviço de Patrimônio-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.02.04.0.0,Serviço de Pediatria-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.10.0.0,Serviço de Radiologia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.08.0.0,Serviço de Radioterapia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.01.01.0.0,Serviço de Relações no Trabalho-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.05.02.0.0,Serviço de Rouparia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.11.0.0,Serviço de Traçados Gráficos-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.04.02.0.0,Serviço do Centro Cirúrgico-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.02.02.0.0,Serviço do Centro Obstétrico-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.05.02.0.0,Serviço Enfermagem Ambulatorial Ala I-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.05.03.0.0,Serviço Enfermagem Ambulatorial Ala II-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.05.01.0.0,Serviço Enfermagem Pronto Atendimento-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.02.01.0.0,Serviço Enfermagem Tocoginecológica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.03.01.0.0,Serviço Internação Clínica Médica I-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.06.02.0.0,Serviço Internação Unidade Paulo Guedes-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.04.01.0.0,Serviço Manutenção Equipamentos Instalações-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.05.04.0.0,Serviço Nutrição e Dietética-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.06.01.0.0,Serviço Recuperação Dependentes Químicos-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.04.01.0.0,Serviço Recuperação Pós-Anestésica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.02.03.0.0,Serviço Trat. Intensivo Recém-Nascido-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.03.03.0.0,Serviço Tratamento Intensivo Adultos-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.02.05.0.0,Serviço Tratamento Intensivo Pediátrico-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.02.00.09.0.0,Serviços Médicos do Pronto Atendimento-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.06.03.0.0,Setor Administrativo Área Ambulatorial-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.02.03.0.0,Setor Almoxarifado da Farmácia-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.06.05.0.0,Setor de Análise de Prontuários-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.05.03.0.0,Setor de Costura-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.06.02.0.0,Setor de Documentação Técnica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.01.02.0.0,Setor de Expediente-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.06.04.0.0,Setor de Secretarias de Unidade-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.03.02.0.0,Setor de Tesouraria-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.03.04.02.0.0,Setor Manutenção Área Física-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+10.05.00.01.0.0,Vice-Diretoria de Enfermagem-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Formal
+01.01.33.00.0.0,Assistente - GR (Secretaria),Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.05.01.00.0.0,Coordenadoria Administrativa - PRA,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.06.00.0.0,Coordenadoria de Cultura e Arte,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.10.00.0.0,Coordenadoria de Desenvolvimento de Ensino,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.07.02.0.0,Espaço Multidisciplinar Silveira Martins,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.29.01.00.0.0,Núcleo de Licenciamento Ambiental e Saneamento,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.01.03.0.0,Núcleo de Transporte,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.75.00.01.0.0,Secretaria Apoio Administrativo - CCOMSOC,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.33.00.01.0.0,Secretaria de Apoio Administrativo - CPAC,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.35.02.00.0.0,Seção de Nutrição-Centro - RU,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.29.03.00.0.0,Setor de Acompanhamento Administrativo e Orçamentário,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.02.01.0.0,Setor de Construção Civil,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.29.02.00.0.0,Setor de Resíduos e Produtos Químicos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.02.05.0.0,Setor de Urbanismo e Paisagismo,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.63.00.04.0.0,Setor Tipografia e Acabamento,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.14.04.0.0,Subdivisão de Educação Saúde,Reitoria,REITORIA,Subunidade Administrativa,Formal
+26.05.01.01.0.0,Apicultura,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.02.0.0,Avicultura,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.03.0.0,Bovinocultura,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.13.0.0,Compostagem,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.04.0.0,Culturas Regionais,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.05.0.0,Cunicultura,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.00.00.0.0,Departamento de Infraestrutura,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+01.04.02.00.0.0,Coordenadoria de Diplomacia Universitária,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.09.25.00.0.0,Coordenadoria de Pesquisa,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.09.01.00.0.0,Coordenadoria de Pós-Graduação,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.01.00.0.0,Coordenadoria Planejamento Acadêmico,Reitoria,REITORIA,Subunidade Administrativa,Formal
+26.06.00.00.0.0,Departamento de Pesquisa e Extensão - Politécnico,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.12.0.0,Energias Alternativas,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.06.0.0,Floricultura e Paisagismo,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.07.0.0,Fruticultura,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.14.0.0,Horticultura,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.08.0.0,Jardinagem,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.02.04.0.0,Laboratório de Carnes,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.09.0.0,Mecanização Agrícola,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.10.0.0,Ovinocultura,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.08.00.00.0.0,Secretaria Administrativa - Politécnico,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.04.15.00.1.0,Secretaria dos Cursos Pg,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.04.01.00.1.0,Secretaria dos Cursos Superiores,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.04.27.00.2.0,Secretaria dos Cursos Técnicos e Ensino Médio,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.09.00.00.0.0,Secretaria Executiva,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.02.00.0.0,Setor Agroindustrial,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.01.00.0.0,Setor Agropecuário,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.04.00.08.0.0,Setor de Estágios e Relações Empresariais,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.05.07.00.0.0,Setor de Manutenção,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.04.00.09.0.0,Setor de Registro e Controle Acadêmico,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+26.04.00.01.0.0,Supervisão Escolar,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+25.18.02.00.0.0,Núcleo Pedagógico do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.18.02.01.0.0,Setor de Acompanhamento dos Processos Educacionais do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.17.01.00.0.0,Subdivisão de Biblioteca Setorial do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.21.02.00.0.0,Subdivisão de Projetos do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+29.04.00.00.0.0,"Departamento de Ensino, Pesquisa e Extensão - UEIIA",Unidade de Educação Infantil Ipê Amarelo,UEIIA,Subunidade Administrativa,Formal
+29.03.01.00.0.0,Secretaria Escolar - UEIIA,Unidade de Educação Infantil Ipê Amarelo,UEIIA,Subunidade Administrativa,Formal
+31.08.00.00.0.0,Coordenadoria Administrativa do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.11.03.00.0.0,Divisão de Apoio Pedagógico do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.11.02.00.0.0,"Núcleo de Ensino, Pesquisa e Extensão do Campus/CS",Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.12.00.00.0.0,Núcleo de Inovação e Empreendedorismo do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.11.01.00.0.0,Secretaria Unificada dos Cursos de Graduação do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+32.32.03.00.0.0,Comissão de Gestão Ambiental/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.32.04.00.0.0,Comissão de Infraestrutura e Patrimônio/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.34.00.00.0.0,Coordenadoria Acadêmica/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+33.06.03.00.0.0,Divisão de Apoio Pedagógico/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+03.34.00.00.0.0,Departamento de Engenharia Rural,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+33.06.04.00.0.0,Subdivisão de Gestão de Laboratórios/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+05.36.00.03.0.0,Núcleo Apoio Estudante - Ânima,Centro de Educação,CE,Subunidade Administrativa,Informal
+05.36.00.02.0.0,Núcleo de Ensino de Ciências - Nec,Centro de Educação,CE,Subunidade Administrativa,Informal
+10.02.04.00.0.0,Coordenação Clínica Cirúrgica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+10.02.05.00.0.0,Coordenação Clínica Tocoginecológica-HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+01.90.00.00.0.0,Aposentados e Pensionistas,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.06.00.09.0.0,Assessoria em Processos Administrativos Disciplinares,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.98.00.00.0.0,Baixa,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.99.00.00.0.0,Bens em Disponibilidade,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.52.00.00.0.0,Casa do Estudante Campus,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.79.03.00.0.0,Coordenação Geral - Silveira Martins,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.06.00.05.0.0,Coordenadoria de Moradia Estudantil,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.53.00.01.0.0,Labinfo Ceu I,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.37.00.01.0.0,Labinfo União,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.18.03.03.0.0,Material Licitado Não Estocado,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.06.00.05.0.2,Patrimônio e Manutenção da Moradia Estudantil,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.26.30.00.0.0,PROGEP Estudo,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.35.05.00.0.0,Restaurante Universitário 2,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.37.00.00.0.0,União Universitária,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.06.00.05.0.1,Vagas e Acompanhamento da Moradia Estudantil,Reitoria,REITORIA,Subunidade Administrativa,Informal
+26.05.02.05.0.0,Laboratório de Frutas,Colégio Politécnico,POLI,Subunidade Administrativa,Informal
+26.05.02.06.0.0,Laboratório de Leite e Derivados,Colégio Politécnico,POLI,Subunidade Administrativa,Informal
+26.05.02.07.0.0,Laboratório de Panificação,Colégio Politécnico,POLI,Subunidade Administrativa,Informal
+93.01.09.03.0.0,Divisão Administrativa Financeira,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.0.0,Divisão de Apoio Diagnóstico e Terapêutica,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.04.0.0,Divisão de Enfermagem,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.01.0.0,Divisão de Gestão de Pessoas,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.0.0,Divisão de Gestão do Cuidado,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+01.53.00.00.0.0,Casa do Estudante Cidade,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.06.00.06.0.0,Casa do Estudante Pós-Graduação - PRAE,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.18.01.02.0.0,Central,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.18.00.00.0.1,Central de Aquisições,Reitoria,REITORIA,Subunidade Administrativa,Informal
+01.18.01.02.1.0,Central de Contratação de Objetos Especiais,Reitoria,REITORIA,Subunidade Administrativa,Informal
+93.01.01.02.0.0,Setor de Gestão da Pesquisa e Inovação Tecnológica,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.01.03.0.0,Setor de Gestão do Ensino,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.02.5.0,Setor de Higienização e Gestão de Resíduos,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.02.4.0,Setor de Hotelaria Hospitalar,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.02.3.0,Setor de Infraestrutura Física,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.1.0,Setor de Orçamento e Finanças,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.08.0.0,Setor de Regulação e Avaliação em Saúde,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.07.0.0,Setor de Vigilância em Saúde e Segurança do Paciente,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.06.2.0,Unidade de Abastecimento Farmacêutico,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.01.1.0,Unidade de Administração de Pessoal,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.3.3,Unidade de Apoio Operacional,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.7.0,Unidade de Atenção à Saúde da Criança e do Adolescente,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.2.0,Unidade de Atenção à Saúde da Mulher,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.02.0.0,Divisão de Logística e Infraestrutura Hospitalar,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.03.0.0,Divisão Médica,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.00.0.0,Gerência Administrativa,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.00.0.0,Gerência de Atenção à Saúde,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.01.00.0.0,Gerência de Ensino e Pesquisa,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.3.0,Setor de Administração,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.1.0,Setor de Apoio e Diagnóstico,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.2.0,Setor de Avaliação e Controladoria,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.02.2.0,Setor de Engenharia Clínica,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.06.0.0,Setor de Farmácia Hospitalar,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.5.0,Unidade de Hematologia e Oncologia,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.5.0,Unidade de Hemoterapia,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.1.2,Unidade de Laboratório de Anatomia Patológica,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.1.1,Unidade de Laboratório de Análises Clínicas,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.3.4,Unidade de Licitações,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.1.3,Unidade de Liquidação de Despesa,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.3.0,Unidade de Nutrição Clínica,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.1.2,Unidade de Pagamento e Despesa,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.9.0,Unidade de Atenção Psicossocial,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.2.0,Unidade de Centro Cirúrgico e Rpa,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.8.0,Unidade de Cirurgia Geral,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.6.0,Unidade de Clínica Médica,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.3.1,Unidade de Compras,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.2.2,Unidade de Contabilidade de Custos,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.2.1,Unidade de Contabilidade Fiscal,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.3.2,Unidade de Contratos,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.7.0,Unidade de Cuidados Intensivos e Semi-Intensivos Adulto,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.9.0,Unidade de Cuidados Intensivos e Semi-Intensivos Pediátricos e Neonatais,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.1.3,Unidade de Diagnóstico por Imagem,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.06.1.0,Unidade de Farmácia Clínica e Dispensação Farmacêutica,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.01.03.2.0,Unidade de Gerenciamento de Ativ de Graduação e Ens Técnico,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.01.03.1.0,Unidade de Gerenciamento de Ativ de Pós-Graduação,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.07.2.0,Unidade de Gestão de Riscos Assistênciais,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.3.5,Unidade de Patrimônio,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.08.2.0,"Unidade de Proc da Informação Assist, Monit e Avaliação",Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.4.0,Unidade de Processamento de Materiais Esterilizados,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.09.03.1.1,Unidade de Programação Orçamentária e Financeira,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.1.1,Unidade de Pronto Socorro,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.6.0,Unidade de Radioterapia e Quimioterapia,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.05.8.0,Unidade de Reabilitação,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.08.1.0,Unidade de Regulação Assistencial,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.07.1.0,Unidade de Vigilância em Saúde,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.3.0,Unidade do Sistema Cardiovascular,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+93.01.07.02.4.0,Unidade Neuro-Músculo-Esquelética,Hospital Universitário de Santa Maria - HUSM,HUSM,Subunidade Administrativa,Informal
+08.00.00.00.0.0,Centro de Artes e Letras,Centro de Artes e Letras,CAL,Unidade de Ensino,Formal
+02.00.00.00.0.0,Centro de Ciências Naturais e Exatas,Centro de Ciências Naturais e Exatas,CCNE,Unidade de Ensino,Formal
+03.00.00.00.0.0,Centro de Ciências Rurais,Centro de Ciências Rurais,CCR,Unidade de Ensino,Formal
+06.00.00.00.0.0,Centro de Ciências Sociais e Humanas,Centro de Ciências Sociais e Humanas,CCSH,Unidade de Ensino,Formal
+05.00.00.00.0.0,Centro de Educação,Centro de Educação,CE,Unidade de Ensino,Formal
+09.00.00.00.0.0,Centro de Educação Física e Desportos,Centro de Educação Física e Desportos,CEFD,Unidade de Ensino,Formal
+07.00.00.00.0.0,Centro de Tecnologia,Centro de Tecnologia,CT,Unidade de Ensino,Formal
+26.00.00.00.0.0,Colégio Politécnico,Colégio Politécnico,POLI,Unidade de Ensino,Formal
+29.00.00.00.0.0,Unidade de Educação Infantil Ipê Amarelo,Unidade de Educação Infantil Ipê Amarelo,UEIIA,Unidade de Ensino,Formal
+31.00.00.00.0.0,Campus da Universidade Federal de Santa Maria em Cachoeira do Sul,Campus da UFSM em Cachoeira do Sul,CS,Unidade de Ensino,Formal
+33.00.00.00.0.0,Campus da Universidade Federal de Santa Maria em Frederico Westphalen,Campus da UFSM em Frederico Westphalen,FW,Unidade de Ensino,Formal
+99.17.00.00.0.0,Minist Relac Ext - Fundação Alexandre de Gusmão,Reitoria,REITORIA,Unidade Orçamentária,Informal
+99.11.11.00.0.0,Subsecretaria de Planejamento Orçamento e Administração,Reitoria,REITORIA,Unidade Orçamentária,Informal
+00.00.00.00.0.0,Universidade Federal de Santa Maria,Reitoria,REITORIA,Unidade Universitária,Formal
+26.04.42.00.0.0,Coordenação do Curso Técnico em Cooperativismo,Colégio Politécnico,POLI,Unidade Universitária,Formal
+01.31.00.01.0.0,Assistente - CPD,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.35.00.02.0.0,Assistente do Restaurante Universitário,Reitoria,REITORIA,Assistente/Assessor,Formal
+03.10.18.00.0.0,Programa de Pós-Graduação em Residência em Área Profissional da Saúde-Medicina Veterinária,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+04.09.06.00.0.0,Curso de Odontologia,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.20.00.0.0,Programa de Pós-Graduação em Ciências Odontológicas,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.17.00.0.0,Programa de Pós-Graduação em Distúrbios Comunicação Humana,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.28.00.0.0,Programa de Residência Multiprofissional,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+03.30.00.00.0.0,Departamento de Ciências Florestais,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+03.35.00.00.0.0,Departamento de Defesa Fitossanitária,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+01.09.01.05.0.0,Núcleo de Criação e Acompanhamento de Cursos de Pós-Graduação,Reitoria,REITORIA,Subunidade Administrativa,Formal
+04.30.00.00.0.0,Departamento de Análises Clínicas e Toxicológicas,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+04.37.00.00.0.0,Departamento de Fisioterapia e Reabilitação,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+06.90.00.00.0.0,Departamento de Serviço Social,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+40.03.00.00.0.0,Auditoria Interna,Reitoria,REITORIA,Outros Órgãos,Formal
+01.18.04.02.0.0,Comissão Permanente de Cadastro de Fornecedores - SICAF,Reitoria,REITORIA,Órgão Colegiado,Formal
+01.05.00.00.0.0,Pró-Reitoria de Administração,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+01.26.00.00.0.0,Pró-Reitoria de Gestão de Pessoas,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+01.11.00.00.0.0,Pró-Reitoria de Infraestrutura,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+01.17.00.00.0.0,"Coordenadoria de Educação Básica, Técnica e Tecnológica",Reitoria,REITORIA,Órgão de Ensino Médio e Tecnológico,Formal
+01.75.00.00.0.0,Coordenadoria de Comunicação Social,Reitoria,REITORIA,Órgão Executivo da Adm. Superior,Formal
+01.03.00.00.0.0,Corregedoria Setorial,Reitoria,REITORIA,Órgão Executivo da Adm. Superior,Formal
+01.18.00.00.0.0,Departamento de Material e Patrimônio,Reitoria,REITORIA,Órgão Executivo da Adm. Superior,Formal
+01.01.00.00.0.0,Gabinete do Reitor,Reitoria,REITORIA,Órgão Executivo da Adm. Superior,Formal
+01.24.00.00.0.0,Procuradoria Federal Junto à Universidade Federal de Santa Maria,Reitoria,REITORIA,Órgão Executivo da Adm. Superior,Formal
+01.31.00.00.0.0,Centro de Processamento de Dados,Reitoria,REITORIA,Órgão Suplementar Central,Formal
+01.84.00.00.0.0,Departamento de Arquivo Geral,Reitoria,REITORIA,Órgão Suplementar Central,Formal
+01.15.00.00.0.0,Editora,Reitoria,REITORIA,Órgão Suplementar Central,Formal
+01.28.03.00.0.0,"Parque de Inovação, Ciência e Tecnologia",Reitoria,REITORIA,Órgão Suplementar Central,Formal
+03.07.00.00.0.0,Núcleo de Gestão Orçamentária do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+03.06.00.00.0.0,Núcleo de Infraestrutura do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+03.05.00.00.0.0,Secretaria Administrativa do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+03.05.01.00.0.0,Secretaria Integrada dos Cursos de Graduação Sig-Vaz/CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+03.06.01.00.0.0,Subdivisão de Patrimônio do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+03.11.00.00.0.0,Subdivisão de Projetos do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+03.06.02.00.0.0,Subdivisão de Tecnologia da Informação do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+06.14.07.00.0.0,Divisão de Apoio Administrativo Às Ciências da Comunicação,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.16.00.00.0.0,Núcleo de Gestão Orçamentária do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.14.00.00.0.0,Secretaria Administrativa do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.14.05.00.0.0,Secretaria Integrada de Departamentos do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.14.03.00.0.0,Secretaria Integrada dos Cursos de Graduação do CCSH III,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.14.05.01.0.0,Subdivisão de Concursos e Promoções do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+08.08.00.00.0.0,Núcleo de Gestão Orçamentária do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+08.06.00.00.0.0,Secretaria Administrativa do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+08.06.01.00.0.0,Secretaria Integrada de Cursos de Graduação I do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+08.06.02.00.0.0,Secretaria Integrada de Cursos de Graduação II do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+08.06.04.00.0.0,Secretaria Integrada de Departamentos do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+08.06.05.00.0.0,Subdivisão de Comunicação do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+08.16.00.00.0.0,Subdivisão de Projetos do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+02.06.05.00.0.0,Subdivisão de Comunicação do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+07.06.02.00.0.0,Secretaria Integrada dos Cursos de Graduação do CT II,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.13.00.00.0.0,Setor de Apoio Pedagógico do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.16.00.00.0.0,Subdivisão de Gestão de Qualidade,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.06.04.01.0.0,Subdivisão de Pós-Graduação do CT I,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.14.00.00.0.0,Subdivisão de Projetos do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.35.01.01.0.0,Almoxarifado dos Rus,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.12.01.00.0.0,Coordenação de Análise Contábil,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.04.00.0.0,Coordenação de Licitações,Reitoria,REITORIA,Subunidade Administrativa,Formal
+06.14.06.00.0.0,Subdivisão de Comunicação do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.14.04.02.0.0,Subdivisão de Controle Financeiro das Pós-Graduações do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.14.03.01.0.0,Subdivisão de Estágios do CCSH III,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.14.07.01.0.0,Subdivisão de Estágios do CCSH Iv,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.18.00.00.0.0,Subdivisão de Projetos do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+09.08.00.00.0.0,Núcleo de Gestão Orçamentária do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+09.07.00.00.0.0,Núcleo de Infraestrutura do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+09.06.00.00.0.0,Secretaria Administrativa do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+09.06.03.00.0.0,Secretaria Integrada de Departamentos do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+09.06.02.00.0.0,Secretaria Integrada dos Cursos de Pós-Graduação do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+09.23.00.00.0.0,Setor de Apoio Pedagógico do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+09.22.00.00.0.0,Subdivisão de Apoio Às Atividades Acadêmico-Científicas,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+07.08.00.00.0.0,Núcleo de Gestão Orçamentária do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.07.00.00.0.0,Núcleo de Infraestrutura do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.06.00.00.0.0,Secretaria Administrativa do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.12.01.02.0.0,Divisão de Contabilidade,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.02.00.0.0,Divisão de Patrimônio,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.84.01.00.0.0,Divisão de Protocolo,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.14.00.0.0,Coordenadoria de Ações Educacionais,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.04.00.0.0,Coordenadoria de Articulação e Fomento à Extensão,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.03.00.0.0,Coordenadoria de Concursos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.28.05.00.0.0,Coordenadoria de Empreendedorismo,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.04.00.0.0,"Coordenadoria de Ingresso, Mobilidade e Desenvolvimento",Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.03.00.0.0,Coordenadoria de Obras e Planejamento Ambiental e Urbano,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.13.00.0.0,Coordenadoria de Oferta e Relacionamento,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.10.01.00.0.0,Coordenadoria de Planejamento Administrativo,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.10.02.00.0.0,Coordenadoria de Planejamento Econômico,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.10.04.00.0.0,Coordenadoria de Planejamento Informacional,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.10.05.00.0.0,Coordenadoria de Projetos e Convênios,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.12.00.0.0,Coordenadoria de Registro e Matrículas,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.05.00.0.0,Coordenadoria de Saúde e Qualidade Vida do Servidor,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.28.04.00.0.0,Coordenadoria de Transferência de Tecnologia e Propriedade Intelectual,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.02.00.0.0,Coordenadoria do Sistema de Pagamentos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.10.06.00.0.0,Coordenadoria Planejamento e Avaliação Institucional,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.31.02.00.0.0,Divisão Análise e Desenvolvimento de Sistemas,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.12.01.01.0.0,Divisão de Administração Financeira,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.03.00.0.0,Divisão de Almoxarifado Central,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.31.03.00.0.0,Divisão de Apoio ao Usuário,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.31.01.00.0.0,Divisão de Suporte,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.01.00.0.0,"Divisão Material, Editais, Contratos e Importações",Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.08.02.0.0,Incubadora Social,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.09.22.00.0.0,Núcleo Administrativo de Apoio à Regulamentação em Pesquisa,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.75.00.05.0.0,Núcleo Agência Notícias,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.05.01.01.0.0,Núcleo de Administração Financeira,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.28.04.01.0.0,Núcleo de Apoio a Projetos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.03.01.00.0.0,Núcleo de Apoio Administrativo-Orçamentário da Correg,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.28.06.00.0.0,Núcleo de Apoio Administrativo-Orçamentário da PROINOVA,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.09.21.00.0.0,Núcleo de Apoio Administrativo-Orçamentário da PRPGP,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.09.25.03.0.0,Núcleo de Apoio à Pesquisa e Estruturas Multiusuárias,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.00.04.0.0,Núcleo de Apoio Orçamentário,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.02.01.0.0,Núcleo de Atendimento e Controle Orçamentário,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.04.03.0.0,Núcleo de Avaliação e Movimentação Funcional,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.01.01.0.0,Núcleo de Cadastro,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.01.04.0.0,Núcleo de Concessões,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.03.01.0.0,Núcleo de Concursos de Docentes,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.03.02.0.0,Núcleo de Concursos de Técnico-Administrativos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.09.01.04.0.0,Núcleo de Controle Acadêmico da Pós-Graduação,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.02.02.0.0,Núcleo de Controle e Manutenção do Sistema de Pagamentos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+09.07.01.00.0.0,Subdivisão de Patrimônio do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+01.26.04.02.0.0,Núcleo de Educação e Desenvolvimento,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.01.05.0.0,Núcleo de Fiscalização de Contratos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.28.03.03.0.0,Núcleo de Gestão de Infraestrutura e Patrimônio,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.09.26.01.0.0,Núcleo de Gestão de Programas Estratégicos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.13.01.0.0,Núcleo de Oferta de Disciplinas,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.01.03.0.0,Núcleo de Pensão e Aposentadoria,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.04.01.0.0,Núcleo de Pregões,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.03.06.0.0,Núcleo de Prevenção de Incêndios,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.02.03.0.0,Núcleo de Processos Judiciais,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.05.01.0.0,Núcleo de Promoção de Saúde do Trabalho,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.28.04.03.0.0,Núcleo de Propriedade Intelectual,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.28.04.02.0.0,Núcleo de Prospecção e Valoração,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.13.02.0.0,Núcleo de Relacionamento Acadêmico,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.05.02.0.0,Núcleo de Segurança no Trabalho,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.75.00.02.0.0,Núcleo Tv Universitária,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.08.03.0.0,Observatório de Direitos Humanos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.06.03.0.0,Orquestra,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.01.15.00.0.0,Ouvidoria,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.00.02.0.0,Secretaria Administrativa - PROGEP,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.10.00.02.0.0,Secretaria Apoio Administrativo - PROPLAN,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.40.00.00.0.0,Secretaria dos Conselhos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.00.02.0.0,Secretaria Geral - PROINFRA,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.00.06.0.0,Secretaria Técnica de Pessoal Docente,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.09.25.02.0.0,Núcleo de Gerência de Iniciação Científica,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.28.03.04.0.0,Núcleo de Gestão de Incubadoras Tecnológicas,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.84.01.02.0.0,Seção de Movimentação,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.84.03.01.0.0,Seção de Processamento Técnico e Pesquisas,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.31.02.02.0.0,Seção de Programação,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.12.01.01.3.0,Seção de Recebimentos e Pagamentos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.31.01.01.0.0,Seção de Rede,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.84.01.01.0.0,Seção de Registro e Controle,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.02.01.0.0,"Seção de Registro, Tombamento e Baixa",Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.01.01.0.0,Seção Elaboração Atos Convocatórios e Contratos-DEMAPA,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.12.01.01.2.0,Seção Financeira,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.03.01.0.0,Setor Administrativo - COPA,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.10.00.04.0.0,Setor de Apoio Administrativo - PROPLAN,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.02.03.0.0,Setor de Hidráulica e Saneamento,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.00.04.0.0,Setor de Importações,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.03.05.0.0,Setor de Planejamento Urbano,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.14.03.0.0,"Subdivisão de Ações Afirmativas, Sociais, Étnico-Raciais e Indígenas",Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.14.02.0.0,Subdivisão de Apoio à Aprendizagem,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.03.01.0.0,"Seção Administrativa, Processamento e Arquivo-DEMAPA",Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.18.03.02.0.0,"Seção Controle Estoque, Recepção e Expedição-DEMAPA",Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.31.02.01.0.0,Seção de Análise,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.12.01.02.1.0,Seção de Análise e Execução Orçamentária,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.06.00.03.0.0,Seção de Bolsas,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.35.04.00.0.0,Seção de Contabilidade - RU,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.12.01.02.3.0,Seção de Convênios,Reitoria,REITORIA,Subunidade Administrativa,Formal
+33.05.03.00.0.0,Setor de Tecnologia da Informação/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+33.05.04.00.0.0,Subdivisão de Assistência à Saúde/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+32.00.00.00.0.0,Campus da Universidade Federal de Santa Maria em Palmeira das Missões,Campus da UFSM em Palmeira Das Missões,PM,Unidade de Ensino,Formal
+04.33.00.00.0.0,Departamento de Enfermagem,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+04.34.00.00.0.0,Departamento de Estomatologia,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+05.10.13.00.1.0,Secretaria Esp. Grad.Formação Profes. Educ. Profissional,Centro de Educação,CE,Subunidade Acadêmica,Formal
+01.07.07.01.0.0,Subdivisão de Geoparque,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.05.03.0.0,Subdivisão de Perícia Oficial em Saúde,Reitoria,REITORIA,Subunidade Administrativa,Formal
+29.03.00.00.0.0,Departamento de Administração - UEIIA,Unidade de Educação Infantil Ipê Amarelo,UEIIA,Subunidade Administrativa,Formal
+33.06.00.00.0.0,Coordenadoria Acadêmica/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+33.05.00.00.0.0,Coordenadoria Administrativa/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+33.34.00.00.0.0,Divisão de Divulgação Institucional/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+33.35.00.00.0.0,Divisão de Projetos/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+33.05.01.00.0.0,Núcleo de Gestão Orçamentária/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+33.05.02.00.0.0,Núcleo de Infraestrutura e Patrimônio/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+33.37.00.00.0.0,Secretaria Administrativa/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+33.06.02.00.0.0,Secretaria Integrada de Cursos de Pós-Graduação/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+33.05.05.00.0.0,Secretaria Unificada de Departamentos/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+01.12.01.01.1.0,Protocolo e Arquivo - DCF,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.12.01.02.2.0,Seção de Contabilidade,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.14.01.0.0,Subdivisão de Acessibilidade,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.03.02.00.0.0,Subdivisão de Análise Preliminar e de Medidas Alternativas,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.12.02.0.0,Subdivisão de Registro de Documentos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+26.03.09.00.0.0,Setor de Transporte,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+08.06.03.00.0.0,Secretaria Integrada de Cursos de Pós-Graduação do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+08.17.00.00.0.0,Subdivisão de Apoio As Atividades Acadêmico-Científicas do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+02.11.00.00.0.0,Setor de Apoio Pedagógico do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+03.05.02.00.0.0,Secretaria Integrada dos Cursos de Graduação Sig-Afa/CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+03.05.04.00.0.0,Secretaria Integrada dos Departamentos do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+03.08.00.00.0.0,Setor de Apoio Pedagógico do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+03.05.05.00.0.0,Subdivisão de Comunicação do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+09.24.00.00.0.0,Subdivisão de Projetos do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+09.07.02.00.0.0,Subdivisão de Tecnologia da Informação do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+07.81.00.00.0.0,Laboratório de Engenharia e Processos Químicos,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.06.01.00.0.0,Coordenadoria de Apoio Organizações Comunitárias,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.26.01.00.0.0,Coordenadoria de Concessões e Registros,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.84.02.00.0.0,Divisão de Apoio Técnico Aos Arquivos Setoriais,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.06.02.0.0,Divisão de Museus,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.12.01.0.0,Núcleo de Matrículas e Fiscalização de Documentos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.75.00.03.0.0,Núcleo Rádio Universidade,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.06.02.1.0,Planetário,Reitoria,REITORIA,Subunidade Administrativa,Formal
+33.06.01.00.0.0,Secretaria Unificada de Cursos de Graduação/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+04.00.00.00.0.0,Centro de Ciências da Saúde,Centro de Ciências da Saúde,CCS,Unidade de Ensino,Formal
+04.75.00.00.0.0,Departamento de Saúde Coletiva,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+03.05.03.00.0.0,Secretaria Integrada dos Cursos de Pós-Graduação do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+29.03.02.00.0.0,Setor de Nutrição - UEIIA,Unidade de Educação Infantil Ipê Amarelo,UEIIA,Subunidade Administrativa,Formal
+04.42.00.00.0.0,Departamento de Odontologia Restauradora,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+06.15.01.00.0.0,Subdivisão de Patrimônio do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+01.09.23.00.0.0,Biotério Central,Reitoria,REITORIA,Subunidade Administrativa,Formal
+02.30.00.00.0.0,Departamento de Biologia,Centro de Ciências Naturais e Exatas,CCNE,Departamento Didático,Formal
+32.03.00.00.0.0,Vice-Direção do Campus de Palmeira das Missões,Campus da UFSM em Palmeira Das Missões,PM,Direção de Unidade de Ensino,Formal
+01.35.00.00.0.0,Restaurante Universitario,Reitoria,REITORIA,Órgão Suplementar Central,Formal
+02.08.00.00.0.0,Núcleo de Gestão Orçamentária do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.06.01.00.0.0,Secretaria Integrada dos Cursos de Graduação das Ciências Naturais,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.06.03.00.0.0,Secretaria Integrada dos Cursos de Pós-Graduação do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.06.03.01.0.0,Subdivisão de Gestão de Relatórios Institucionais,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.12.00.00.0.0,Subdivisão de Projetos do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+06.14.01.00.0.0,Secretaria Integrada dos Cursos de Graduação do CCSH I,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+06.17.00.00.0.0,Setor de Apoio Pedagógico do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+07.06.04.00.0.0,Secretaria Integrada dos Cursos de Pós-Graduação do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.93.00.00.0.0,Subdivisão de Comunicação do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.07.06.02.2.0,Museu Gama D'Eça,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.06.00.04.0.0,Núcleo de Atenção ao Estudante,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.06.01.0.0,Núcleo de Gestão Artística e Cultural,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.84.02.01.0.0,Seção de Gestão dos Arquivos Setoriais,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.11.02.0.0,Subdivisão de Educação a Distância,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.11.01.0.0,Subdivisão de Tecnologias Educacionais em Rede,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.10.04.01.0.0,Unidade de Comunicação Integrada,Reitoria,REITORIA,Subunidade Administrativa,Formal
+02.15.00.00.0.0,Jardim Botânico,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.11.01.00.0.0,Subdivisão de Gestão de Estágios do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+03.12.00.00.0.0,Biblioteca Setorial do CCR,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+06.15.00.00.0.0,Núcleo de Infraestrutura do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+05.11.00.00.0.0,Núcleo de Infraestrutura do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+07.80.00.00.0.0,Laboratório de Ciências da Computação,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.06.05.00.0.0,Secretaria Integrada de Departamentos do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.06.04.03.0.0,Subdivisão de Pós-Graduação do CT III,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.06.04.04.0.0,Subdivisão de Pós-Graduação do CT Iv,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.94.00.00.0.0,Subdivisão de Tecnologia da Informação do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.11.02.00.0.0,Coordenadoria de Manutenção,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.01.00.0.0,Coordenadoria de Serviços Gerais,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.11.00.0.0,Coordenadoria de Tecnologia Educacional,Reitoria,REITORIA,Subunidade Administrativa,Formal
+26.03.00.00.0.0,Departamento de Administração,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+04.35.00.00.0.0,Departamento de Farmácia Industrial,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+04.21.00.00.0.0,Farmácia Escola,Centro de Ciências da Saúde,CCS,Órgão Suplementar Setorial,Formal
+01.08.15.00.0.0,Biblioteca Central,Reitoria,REITORIA,Órgãos de Apoio,Formal
+26.04.00.10.0.0,Núcleo de Acompanhamento de Egressos,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+03.37.00.00.0.0,Departamento de Medicina Veterinária Preventiva,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+26.04.00.00.0.0,Departamento de Ensino,Colégio Politécnico,POLI,Departamento Didático,Formal
+08.07.00.00.0.0,Núcleo de Infraestrutura do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+03.68.00.00.0.0,Hospital Veterinário Universitário,Centro de Ciências Rurais,CCR,Subunidade Administrativa,Formal
+06.20.00.00.0.0,Biblioteca Setorial do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+07.83.00.00.0.0,Laboratório de Tecnologia Mecânica e Aeroespacial,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+07.06.01.00.0.0,Secretaria Integrada dos Cursos de Graduação do CT I,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.09.26.00.0.0,Coordenadoria de Ações e Programas Estratégicos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.84.03.00.0.0,Divisão de Arquivo Permanente,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.15.01.0.0,Núcleo de Aquisição,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.15.01.1.0,Subdivisão de Processos Técnicos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+03.36.00.00.0.0,Departamento de Fitotecnia,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+01.08.00.03.0.0,Núcleo de Apoio Administrativo-Orçamentário,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.00.04.0.0,Núcleo de Avaliação Externa e Regulação,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.01.01.0.0,"Núcleo de Estratégia, Controle e Projetos Acadêmicos",Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.10.01.0.0,Núcleo de Formação Inicial e Continuada,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.10.02.0.0,Núcleo de Projetos Pedagógicos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.09.01.03.0.0,Núcleo de Seleção e Bolsas da Pós-Graduação,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.11.01.01.0.0,Setor Administrativo - CSG,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.15.02.0.0,Setor de Referência,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.08.15.02.2.0,Subdivisão de Serviços à Pesquisa e Produção Institucional Científica,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.06.00.00.0.0,Pró-Reitoria de Assuntos Estudantis,Reitoria,REITORIA,Órgão de Direção e Assessoria,Formal
+07.06.04.02.0.0,Subdivisão de Pós-Graduação do CT II,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.01.06.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+03.40.00.00.0.0,Departamento de Zootecnia,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+04.40.00.00.0.0,Departamento de Morfologia,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+04.72.00.00.0.0,Departamento de Terapia Ocupacional,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+09.06.01.00.0.0,Secretaria Integrada dos Cursos de Graduação do CEFD,Centro de Educação Física e Desportos,CEFD,Subunidade Administrativa,Formal
+03.39.00.00.0.0,Departamento de Tecnologia e Ciência Alimentos,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+04.61.00.00.0.0,Departamento de Fonoaudiologia,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+02.06.04.00.0.0,Secretaria Integrada de Departamentos do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+01.08.15.02.1.0,Subdivisão de Periódicos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+02.71.00.00.0.0,Departamento de Bioquímica e Biologia Molecular,Centro de Ciências Naturais e Exatas,CCNE,Departamento Didático,Formal
+02.33.00.00.0.0,Departamento de Geociências,Centro de Ciências Naturais e Exatas,CCNE,Departamento Didático,Formal
+08.07.01.00.0.0,Subdivisão de Patrimônio do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+02.06.00.00.0.0,Secretaria Administrativa do CCNE,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+25.00.00.00.0.0,Colégio Técnico Industrial de Santa Maria,Colégio Técnico Industrial de Santa Maria,CTISM,Unidade de Ensino,Formal
+06.41.00.00.0.0,Departamento de Psicologia,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+01.07.08.03.1.0,Casa Verônica,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.08.01.0.0,Complexo Multicultural Antiga REITORIA,Reitoria,REITORIA,Subunidade Administrativa,Formal
+02.14.00.00.0.0,Centro de Apoio à Pesquisa Paleontológica,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+02.06.06.00.0.0,Subdivisão de Acompanhamento e Apoio à Gestão de Pessoas,Centro de Ciências Naturais e Exatas,CCNE,Subunidade Administrativa,Formal
+07.84.00.00.0.0,Laboratório de Elétrica e Eletrônica,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.24.01.00.0.0,Núcleo de Apoio Jurídico,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.04.03.0.0,Subdivisão de Divulgação e Editoração,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.06.00.01.0.0,Assistente - PRAE,Reitoria,REITORIA,Assistente/Assessor,Formal
+08.07.02.00.0.0,Subdivisão de Tecnologia da Informação do CAL,Centro de Artes e Letras,CAL,Subunidade Administrativa,Formal
+06.14.04.00.0.0,Secretaria Integrada dos Cursos de Pós-Graduação do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+07.85.00.00.0.0,Laboratório de Materiais e Construção Civil,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.08.01.02.0.0,Núcleo de Ingresso e Seleção Acadêmicos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.08.00.0.0,Coordenadoria de Cidadania,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.07.00.0.0,Coordenadoria de Desenvolvimento Regional,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.07.02.1.0,Secretaria Executiva do Espaço Multidisciplinar Silveira Martins,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.07.04.02.0.0,Subdivisão de Inserção da Extensão Nos Cursos,Reitoria,REITORIA,Subunidade Administrativa,Formal
+06.14.04.01.0.0,Subdivisão de Avaliação e Divulgação das Pós-Graduações do CCSH,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+07.91.00.00.0.0,Instituto de Energia e Mobilidade,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+01.24.02.00.0.0,Subdivisão de Protocolo,Reitoria,REITORIA,Subunidade Administrativa,Formal
+08.58.00.00.0.0,Departamento de Desenho Industrial,Centro de Artes e Letras,CAL,Departamento Didático,Formal
+04.39.00.00.0.0,Departamento de Microbiologia e Parasitologia,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+02.32.00.00.0.0,Departamento de Física,Centro de Ciências Naturais e Exatas,CCNE,Departamento Didático,Formal
+04.17.00.00.0.0,Clínica de Odontologia,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.08.00.00.0.0,Núcleo de Gestão Orçamentária do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.11.00.00.0.0,Núcleo de Infraestrutura do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.06.00.00.0.0,Secretaria Administrativa do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.06.01.00.0.0,Secretaria Integrada de Cursos de Graduação I do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.06.02.00.0.0,Secretaria Integrada de Cursos de Graduação II do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.06.03.00.0.0,Secretaria Integrada de Cursos de Pós-Graduação do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.06.04.00.0.0,Secretaria Integrada de Departamentos do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.12.00.00.0.0,Setor de Apoio Pedagógico do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.07.00.00.0.0,Subdivisão de Comunicação do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.11.01.00.0.0,Subdivisão de Patrimônio do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+04.14.00.00.0.0,Subdivisão de Projetos do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+01.04.02.10.0.0,Núcleo Integrado de Mobilidade e Internacionalização,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.04.01.00.0.0,Setor de Acompanhamento Administrativo e Orçamentário,Reitoria,REITORIA,Subunidade Administrativa,Formal
+04.19.00.00.0.0,Subdivisão de Residências do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+07.15.00.00.0.0,Biblioteca Setorial do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+31.14.00.00.0.0,Biblioteca Fora de Sede do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.11.00.00.0.0,Coordenadoria Acadêmica do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.11.04.00.0.0,Divisão de Gestão de Laboratórios do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.11.02.01.0.0,Divisão de Projetos do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.15.00.00.0.0,Núcleo de Assistência Estudantil do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.08.02.00.0.0,Núcleo de Gestão Orçamentária do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.13.00.00.0.0,Secretaria Administrativa do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.16.00.00.0.0,Setor de Comunicação do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+31.08.04.00.0.0,Subdivisão de Assistência à Saúde e Qualidade de Vida do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+32.38.00.00.0.0,Biblioteca Fora de Sede/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.33.00.00.0.0,Coordenadoria Administrativa/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.34.03.00.0.0,Divisão de Apoio Pedagógico/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.39.00.00.0.0,Divisão de Projetos/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.37.00.00.0.0,Núcleo de Assistência Estudantil/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.33.01.00.0.0,Núcleo de Gestão Orçamentária/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.33.02.00.0.0,Núcleo de Infraestrutura e Patrimônio/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.35.00.00.0.0,Secretaria Administrativa/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.34.02.00.0.0,Secretaria Integrada dos Cursos de Pós-Graduação/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.34.01.00.0.0,Secretaria Unificada dos Cursos de Graduação/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.33.05.00.0.0,Secretaria Unificada dos Departamentos/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.33.03.00.0.0,Setor de Tecnologia de Informação/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.33.04.00.0.0,Subdivisão de Assistência à Saúde/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+32.34.04.00.0.0,Subdivisão de Gestão de Laboratórios/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+31.08.01.00.0.0,"Núcleo de Infraestrutura, Materiais e Patrimônio do Campus/CS",Campus da UFSM em Cachoeira do Sul,CS,Unidade Universitária,Formal
+32.36.00.00.0.0,Divisão de Divulgação Institucional/PM,Campus da UFSM em Palmeira Das Missões,PM,Subunidade Administrativa,Formal
+05.25.00.00.0.0,Biblioteca Setorial do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.16.00.00.0.0,Divisão de Suporte de Sistemas Educacionais e Redes Digitais,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.20.00.00.0.0,Laboratório de Pesquisa e Documentação do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+31.08.03.00.0.0,Núcleo de Tecnologia da Informação do Campus/CS,Campus da UFSM em Cachoeira do Sul,CS,Subunidade Administrativa,Formal
+05.07.03.00.0.0,Secretaria Integrada de Departamentos do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.07.01.00.0.0,Secretaria Integrada de Graduação do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.07.02.00.0.0,Secretaria Integrada de Pós-Graduação do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.15.00.00.0.0,Setor de Apoio Pedagógico do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.17.00.00.0.0,Subdivisão de Avaliação Setorial do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.19.00.00.0.0,Subdivisão de Laboratórios e Núcleos do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.11.01.00.0.0,Subdivisão de Patrimônio do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.18.00.00.0.0,Subdivisão de Projetos do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+26.04.00.03.0.0,Coordenação da Cooperativa-Escola,Colégio Politécnico,POLI,Subunidade Administrativa,Formal
+05.07.04.00.0.0,Subdivisão de Comunicação do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+01.63.00.05.0.0,Setor de Almoxarifado - IU,Reitoria,REITORIA,Subunidade Administrativa,Formal
+01.63.00.00.0.0,Imprensa Universitária,Reitoria,REITORIA,Órgão Suplementar Central,Formal
+25.18.00.00.0.0,Coordenadoria de Ensino do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.17.02.00.0.0,Divisão de Comunicação e Produção Audiovisual do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.19.02.00.0.0,Divisão de Manutenção e Suporte Técnico do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.20.00.00.0.0,Núcleo de Administração do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.19.00.00.0.0,Núcleo de Infraestrutura do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.21.00.00.0.0,"Núcleo de Projetos, Inovação e Estágios do CTISM",Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.18.01.00.0.0,Núcleo de Registros Educacionais do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.17.00.00.0.0,Secretaria Administrativa do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+05.08.00.00.0.0,Núcleo de Execução e Controle Orçamentário do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+05.07.00.00.0.0,Secretaria Administrativa do CE,Centro de Educação,CE,Subunidade Administrativa,Formal
+25.21.01.00.0.0,Divisão de Estágios e Relações Empresariais e Comunitárias do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Unidade Universitária,Formal
+25.20.01.00.0.0,Subdivisão de Logística do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Unidade Universitária,Formal
+07.07.01.00.0.0,Subdivisão de Patrimônio do CT,Centro de Tecnologia,CT,Subunidade Administrativa,Formal
+04.15.00.00.0.0,Subdivisão de Acompanhamento de Concursos e Apoio à Gestão de Pessoas do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+33.36.00.00.0.0,Biblioteca Fora de Sede/FW,Campus da UFSM em Frederico Westphalen,FW,Subunidade Administrativa,Formal
+02.35.00.00.0.0,Departamento de Química,Centro de Ciências Naturais e Exatas,CCNE,Departamento Didático,Formal
+04.11.02.00.0.0,Subdivisão de Tecnologia da Informação do CCS,Centro de Ciências da Saúde,CCS,Subunidade Administrativa,Formal
+06.14.01.01.0.0,Subdivisão de Estágios do CCSH I,Centro de Ciências Sociais e Humanas,CCSH,Subunidade Administrativa,Formal
+25.18.01.02.0.0,Secretaria Integrada dos Cursos de Educação Básica do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.18.01.01.0.0,Secretaria Integrada dos Cursos de Educação Superior do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.20.02.00.0.0,Setor de Compras do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.19.01.00.0.0,Setor de Tecnologia da Informação do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+25.20.03.00.0.0,Subdivisão Setorial de Patrimônio do CTISM,Colégio Técnico Industrial de Santa Maria,CTISM,Subunidade Administrativa,Formal
+01.01.16.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.17.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.18.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.19.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.20.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.45.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.49.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.50.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.18.00.01.0.0,Assistente - DEMAPA,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.02.00.0.0,Assistente - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.47.00.0.0,Assistente - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.48.00.0.0,Assistente - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.51.00.0.0,Assistente - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.71.00.0.0,Assistente - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.11.00.01.0.0,Assistente - PROINFRA,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.01.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.03.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.11.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+01.01.12.00.0.0,Assessor - GR,Reitoria,REITORIA,Assistente/Assessor,Formal
+03.68.30.36.0.0,Dcg-Anestesiologia C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.29.3.0,Animais Selvagens Ambulatório Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.30.0.0,Animais Selvagens Internação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.30.2.0,Animais Selvagens Internação Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.30.1.0,Animais Selvagens Internação Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.30.3.0,Animais Selvagens Internação Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.41.0.0,Banco de Sangue Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.11.0.0,Biungulados Ambulatórios C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.11.2.0,Biungulados Ambulatórios Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.11.1.0,Biungulados Ambulatórios Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.11.3.0,Biungulados Ambulatórios Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.14.3.0,Biungulados Ambulatórios Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.17.0.0,Biungulados C.Cirúrgico C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.17.2.0,Biungulados C.Cirúrgico Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.17.1.0,Biungulados C.Cirúrgico Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.17.3.0,Biungulados C.Cirúrgico Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.14.0.0,Biungulados Internação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.14.2.0,Biungulados Internação Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.14.1.0,Biungulados Internação Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.20.0.0,Biungulados Isolamento C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.20.2.0,Biungulados Isolamento Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.20.1.0,Biungulados Isolamento Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.29.0.0,Animais Selvagens Ambulatório C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.29.2.0,Animais Selvagens Ambulatório Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.29.1.0,Animais Selvagens Ambulatório Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.06.2.0,Central de Esterelização Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.06.1.0,Central de Esterelização Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.06.3.0,Central de Esterelização Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.00.0.0,Centro de Custos - Hvu,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.40.0.0,Células Tronco Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.44.0.0,Cirurgia Biungulados C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.44.2.0,Cirurgia Biungulados Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.44.1.0,Cirurgia Biungulados Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.44.3.0,Cirurgia Biungulados Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.45.0.0,Cirurgia Equinos C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.45.2.0,Cirurgia Equinos Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.45.1.0,Cirurgia Equinos Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.45.3.0,Cirurgia Equinos Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.22.0.0,Cirurgia Experimental C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.22.2.0,Cirurgia Experimental Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.22.1.0,Cirurgia Experimental Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.22.3.0,Cirurgia Experimental Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.46.0.0,Cirurgia Peq. Animais C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.46.2.0,Cirurgia Peq. Animais Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.46.1.0,Cirurgia Peq. Animais Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.20.3.0,Biungulados Isolamento Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.39.0.0,Bloco V Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.38.0.0,Bloco Vi Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.06.0.0,Central de Esterelização C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.43.3.0,Clínica Cirúrgica Peq. Animais Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.42.0.0,Clínica Médica Peq. Animais C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.42.2.0,Clínica Médica Peq. Animais Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.42.1.0,Clínica Médica Peq. Animais Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.42.3.0,Clínica Médica Peq. Animais Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.31.0.0,Clínica Neuro - Oftalmo C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.31.2.0,Clínica Neuro - Oftalmo Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.31.1.0,Clínica Neuro - Oftalmo Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.31.3.0,Clínica Neuro - Oftalmo Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.35.0.0,Dcg-Prática Cirúrgica em Cães e Gatos C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.37.0.0,Dcg-Prática Hospitalar em Clínica Cirúrgica C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.04.0.0,Doação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.26.0.0,Embriolab C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.26.2.0,Embriolab Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.26.1.0,Embriolab Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.26.3.0,Embriolab Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.12.0.0,Equinos Ambulatório C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.12.2.0,Equinos Ambulatório Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.46.3.0,Cirurgia Peq. Animais Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.33.0.0,Clínica Cirúrgica C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.43.0.0,Clínica Cirúrgica Peq. Animais C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.43.2.0,Clínica Cirúrgica Peq. Animais Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.43.1.0,Clínica Cirúrgica Peq. Animais Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.15.0.0,Equinos Internação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.15.2.0,Equinos Internação Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.15.1.0,Equinos Internação Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.15.3.0,Equinos Internação Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.21.0.0,Equinos Isolamento C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.21.2.0,Equinos Isolamento Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.21.1.0,Equinos Isolamento Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.21.3.0,Equinos Isolamento Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.05.0.0,Farmácia C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.05.2.0,Farmácia Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.05.1.0,Farmácia Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.05.3.0,Farmácia Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.24.0.0,Fisioterapia C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.24.2.0,Fisioterapia Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.24.1.0,Fisioterapia Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.24.3.0,Fisioterapia Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.28.0.0,Lab. Biotec. Reprodução Animal C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.28.2.0,Lab. Biotec. Reprodução Animal Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.12.1.0,Equinos Ambulatório Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.12.3.0,Equinos Ambulatório Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.18.0.0,Equinos C.Cirúrgico C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.18.2.0,Equinos C.Cirúrgico Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.18.1.0,Equinos C.Cirúrgico Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.18.3.0,Equinos C.Cirúrgico Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.09.2.0,Laboratório Fisiopatologia da Reprodução Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.09.1.0,Laboratório Fisiopatologia da Reprodução Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.09.3.0,Laboratório Fisiopatologia da Reprodução Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.03.0.0,Lavanderia C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.34.0.0,Ortopedia e Traumatologia C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.23.0.0,Patologia Cirúrgica C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.23.2.0,Patologia Cirúrgica Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.23.1.0,Patologia Cirúrgica Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.23.3.0,Patologia Cirúrgica Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.25.0.0,Patologia Veterinária C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.25.2.0,Patologia Veterinária Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.25.1.0,Patologia Veterinária Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.25.3.0,Patologia Veterinária Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.10.0.0,Pequenos Animais Ambulatório C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.10.2.0,Pequenos Animais Ambulatório Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.10.1.0,Pequenos Animais Ambulatório Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.10.3.0,Pequenos Animais Ambulatório Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.28.1.0,Lab. Biotec. Reprodução Animal Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.28.3.0,Lab. Biotec. Reprodução Animal Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.08.0.0,Laboratório de Análises Clínicas C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.08.2.0,Laboratório de Análises Clínicas Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.08.1.0,Laboratório de Análises Clínicas Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.08.3.0,Laboratório de Análises Clínicas Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.09.0.0,Laboratório Fisiopatologia da Reprodução C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.19.0.0,Pequenos Animais Isolamento C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.19.2.0,Pequenos Animais Isolamento Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.19.1.0,Pequenos Animais Isolamento Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.19.3.0,Pequenos Animais Isolamento Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.07.3.0,Radiologia Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.07.0.0,Radiologia C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.07.2.0,Radiologia Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.07.1.0,Radiologia Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.01.0.0,Serviços Administrativos C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.32.0.0,Técnica Cirúrgica C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.27.0.0,Vencidos/Perdas C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.02.0.0,Zeladoria C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+04.09.06.50.2.8,Cariologia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.0.0,Centro de Custos Curso de Odontologia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.00.0.0,Centro de Custos Depto Odontologia Restauradora,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.00.0.0,Centros de Custos Dpto. de Estomatologia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+03.68.30.16.0.0,Pequenos Animais C.Cirúrgico C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.16.2.0,Pequenos Animais C.Cirúrgico Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.16.1.0,Pequenos Animais C.Cirúrgico Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.16.3.0,Pequenos Animais C.Cirúrgico Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.13.1.0,Pequenos Animais Internação Particular C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.13.0.0,Pequenos Animais Internação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.13.2.0,Pequenos Animais Internação Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+03.68.30.13.3.0,Pequenos Animais Internação Pós-Graduação C.Custos,Centro de Ciências Rurais,CCR,Centros de Custo,Informal
+04.34.50.02.0.0,Disciplina de Cirurgia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.08.0.0,Disciplina de Dentística I,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.09.0.0,Disciplina de Dentística II,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.10.0.0,Disciplina de Dentística III,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.06.0.0,Disciplina de Endodontia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.03.0.0,Disciplina de Estomatologia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.05.0.0,Disciplina de Materiais Dentários I,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.06.0.0,Disciplina de Materiais Dentários II,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.07.0.0,Disciplina de Materiais Dentários III,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.01.0.0,Disciplina de Odontopediatria,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.04.0.0,Disciplina de Ortodontia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.05.0.0,Disciplina de Periodontia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.04.0.0,Disciplina de Prótese Dentária Parcial Fixa,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.03.0.0,Disciplina de Prótese Dentária Parcial Removível,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.02.0.0,Disciplina de Prótese Dentária Total,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.2.2,Cirurgia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.11.0.0,Clínica de Oclusão,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.10.0.0,Clínica Integrada I,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.12.0.0,Clínica Integrada II,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.11.0.0,Clínica Integrada III,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.3.4,Clínica Integrada Iv,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.3.5,Clínica Integrada V,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.3.0,Clínicas Integradas,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.08.0.0,Disciplina de Cariologia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.1.0,Secretaria Coordenação Curso Odontologia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.42.50.01.0.0,Secretaria Depto Odontologia Restauradora,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.6.0,Setor de Cadastro,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.5.0,Setor de Esterilização,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.4.0,Setor de Manutenção,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.7.0,Setor de Triagem,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+93.01.07.05.5.1,Chefia Hemocentro/HUSM,Hospital Universitário de Santa Maria - HUSM,HUSM,Centros de Custo,Informal
+04.34.50.07.0.0,Disciplina de Radiologia Odontológica,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.34.50.09.0.0,Disciplina de Saúde Coletiva,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.2.6,Endodontia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.2.0,Estomatologia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.2.3,Estomatologia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.2.1,Odontopediatria,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.2.4,Ortodontia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.2.5,Periodontia,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.2.7,Radiologa Odontológica,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+04.09.06.50.2.9,Saúde Coletiva,Centro de Ciências da Saúde,CCS,Centros de Custo,Informal
+03.10.20.00.0.0,"Curso Pg-E Agroecologia, Educação do Campo e Inovações Sociais - EAD",Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+08.09.10.00.0.0,Curso Grad. Licenciatura Letras Espanhol/Literat.- EAD,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.06.00.0.0,Curso de Artes Cênicas,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.08.00.0.0,Curso de Artes Visuais,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.14.00.0.0,Curso de Dança - Bacharelado,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.18.00.0.0,Curso de Dança - Licenciatura,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.03.00.0.0,Curso de Desenho Industrial,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.16.00.0.0,Curso de Letras Línguas Estrangeiras - Licenciaturas,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.17.00.0.0,Curso de Letras Português - Licenciatura e Bacharelado,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.04.00.0.0,Curso de Música,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.13.00.0.0,Curso de Música e Tecnologia-Bacharelado,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.11.00.0.0,Curso Licenciatura em Teatro,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.15.00.0.0,Curso Mbya Guarani Educação Intercultural Indígena,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.10.09.00.0.0,Curso Pg-E em Música: Músicas dos Séculos XX e XXI - Performance e Pedagogia,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.09.09.00.0.0,Letras - Português e Literaturas a Distância,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.10.07.00.0.0,Pg-E Distância Tecnolog. Inform. Comunicação Aplic. Educação,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.10.11.00.0.0,Programa de Pós-Graduação em Artes da Cena,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.10.05.00.0.0,Programa de Pós-Graduação em Artes Visuais,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+08.10.03.00.0.0,Programa de Pós-Graduação em Letras,Centro de Artes e Letras,CAL,Coordenação Acadêmica,Formal
+02.09.04.00.0.0,Curso de Ciências Biológicas,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.20.00.0.0,Curso de Estatística,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.05.00.0.0,Curso de Física,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.02.00.0.0,Curso de Geografia,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.17.00.0.0,Curso de Geografia - Licenciatura a Distância - Uab,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.06.00.0.0,Curso de Matemática,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.20.00.0.0,Curso de Mestrado Profissional em Matemática,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.08.00.0.0,Curso de Meteorologia,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.21.00.0.0,Curso de Nanotecnologia e Inovação Computacional,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.18.00.0.0,Curso de Química - Licenciatura,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.13.00.0.0,Curso Graduação de Física - Licenciatura a Distância,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.16.00.0.0,Curso Superior de Tecnologia em Processos Químicos,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.18.00.0.0,Curso-Programa Pg Educação em Ciências: Química da Vida e Saúde,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.19.00.0.0,Curso-Programa Pg em Agrobiologia,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.16.00.0.0,Curso-Programa Pg em Biodiversidade Animal,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.22.00.0.0,Curso-Programa Pg em Educação Matemática e Ensino de Física,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.07.00.0.0,Curso-Programa Pg em Física,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.24.00.0.0,Curso-Programa Pg em Geografia,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.15.00.0.0,Curso-Programa Pg em Matemática,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.17.00.0.0,Curso-Programa Pg em Meteorologia,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.06.00.0.0,Curso-Programa Pg em Química,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.10.25.00.0.0,Curso-Programa Pg Profissional em Ensino de Geografia em Rede Nacional,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+02.09.19.00.0.0,Cursos de Química Industrial e Bacharelado,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+03.09.01.00.0.0,Curso de Agronomia,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.09.07.00.0.0,Curso de Licenciatura em Educação do Campo - EAD,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.09.09.00.0.0,Curso de Licenciatura em Educação do Campo - Semipresencial,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.09.04.00.0.0,Curso de Zootecnia,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.09.02.00.0.0,Curso Engenharia Florestal,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.09.03.00.0.0,Curso Medicina Veterinária,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+26.04.24.00.0.0,Coordenação do Curso Técnico em Informática,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+03.09.08.00.0.0,Curso Superior de Tecnologia em Agronegócio,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.09.06.00.0.0,Curso Superior de Tecnologia em Alimentos,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.10.01.00.0.0,Programa de Pós-Graduação em Agronomia,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.10.11.00.0.0,Programa de Pós-Graduação em Ciência do Solo,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.10.07.00.0.0,Programa de Pós-Graduação em Ciência e Tecnologia de Alimentos,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.10.03.00.0.0,Programa de Pós-Graduação em Engenharia Agrícola,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.10.08.00.0.0,Programa de Pós-Graduação em Engenharia Florestal,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+02.10.09.00.0.0,Curso-Programa Pg em Ciências Biológicas: Bioquímica Toxicológica,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Formal
+03.10.18.19.0.0,Programa de Residência Uniprofissional em Medicina Veterinária,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+04.09.07.00.0.0,Curso de Enfermagem,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.09.08.00.0.0,Curso de Farmácia,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.09.03.00.0.0,Curso de Fisioterapia,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.09.04.00.0.0,Curso de Fonoaudiologia,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.09.05.00.0.0,Curso de Medicina,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.09.10.00.0.0,Curso de Nutrição,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.30.00.0.0,Curso de Pós-Graduação em Práticas Integrativas e Complementares no Cuidado em Sáude,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.09.09.00.0.0,Curso de Terapia Ocupacional,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.24.00.0.0,Curso Pg-E em Reabilitação Físico-Motora,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.31.00.0.0,Programa de Pós-Graduação em Ciências Biológicas: Farmacologia,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.23.00.0.0,Programa de Pós-Graduação em Ciências da Saúde - Mestrado Profissional,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.14.00.0.0,Programa de Pós-Graduação em Ciências Farmacêuticas,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.19.00.0.0,Programa de Pós-Graduação em Enfermagem,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.29.00.0.0,Programa de Pós-Graduação em Saúde Coletiva,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+04.10.02.00.0.0,Programa de Residência Médica,Centro de Ciências da Saúde,CCS,Coordenação Acadêmica,Formal
+06.09.01.00.0.0,Curso de Administração,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.25.00.0.0,Curso de Administração Noturno,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.02.00.0.0,Curso de Arquivologia,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.29.00.0.0,Curso de Bacharelado em Administração,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+03.10.15.00.0.0,Programa de Pós-Graduação em Extensão Rural,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.10.04.00.0.0,Programa de Pós-Graduação em Medicina Veterinária,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+03.10.05.00.0.0,Programa de Pós-Graduação em Zootecnia,Centro de Ciências Rurais,CCR,Coordenação Acadêmica,Formal
+06.09.21.00.0.0,Curso de Comunicação Social - Publicidade e Propaganda,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.23.00.0.0,Curso de Comunicação Social - Relações Públicas,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.05.00.0.0,Curso de Direito,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.26.00.0.0,Curso de Direito Noturno,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.07.00.0.0,Curso de Filosofia,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.10.00.0.0,Curso de História Bacharelado,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.11.00.0.0,Curso de História Licenciatura,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.27.00.0.0,Curso de Licenciatura em Ciências Sociais,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.18.00.0.0,Curso de Licenciatura em Sociologia a Distância,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.12.00.0.0,Curso de Psicologia,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.16.00.0.0,Curso de Relações Internacionais,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.20.00.0.0,Curso de Serviço Social - Bacharelado (Noturno),Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.15.00.0.0,Curso Noturno de Bacharelado em Filosofia,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.28.00.0.0,Curso Pg Lato Sensu em Gestão Pública - EAD,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.29.00.0.0,Curso Pg Lato Sensu Gestão Pública Municipal - EAD,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.00.01.50.0.0,Curso Pg-E Ciência de Dados na Administração Pública - EAD,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.37.00.0.0,Curso Pg-E em Ensino de Filosofia no Ensino Médio - EAD,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.38.00.0.0,Curso Pg-E em Ensino de Sociologia no Ensino Médio - EAD,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.03.00.0.0,Curso de Ciências Contábeis,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.06.00.0.0,Curso de Ciências Econômicas,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.13.00.0.0,Curso de Ciências Sociais,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.22.00.0.0,Curso de Comunicação Social - Jornalismo,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.19.00.0.0,Curso de Comunicação Social - Produção Editorial,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.26.00.0.0,Programa de Pós-Graduação em Ciências Sociais,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.35.00.0.0,Programa de Pós-Graduação em Comunicação,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.36.00.0.0,Programa de Pós-Graduação em Direito,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.02.00.0.0,Programa de Pós-Graduação em Filosofia,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.40.00.0.0,Programa de Pós-Graduação em Gestão de Organizações Públicas,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.31.00.0.0,Programa de Pós-Graduação em História,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.22.00.0.0,Programa de Pós-Graduação em Patrimônio Cultural,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.39.00.0.0,Programa de Pós-Graduação em Psicologia,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.06.00.0.0,Programa de Pós-Graduação em Relações Internacionais,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.44.00.0.0,Programa de Pós-Graduação em Serviço Social e Políticas Públicas,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+05.09.01.00.0.0,Curso de Educação Especial,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.15.00.0.0,Curso de Educação Especial - Semipresencial,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.05.00.0.0,Curso de Educação Especial a Distância,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.14.00.0.0,Curso de Educação Especial Inclusiva,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.16.00.0.0,Curso de Formação de Professores para Educação Profissional - Semipresencial,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.11.00.0.0,Curso de Formação de Professores para Educação Profissional EAD,Centro de Educação,CE,Coordenação Acadêmica,Formal
+06.10.01.00.0.0,Curso Pg-E em Estudos de Gênero,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.13.00.0.0,Curso Pg-E Gestão de Pessoas,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.09.28.00.0.0,Curso Superior de Tecnologia em Gestão de Turismo,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.33.00.0.0,Curso-Programa Pg-M em Economia e Desenvolvimento,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.25.00.0.0,Pg-E a Distância - Gestão em Arquivos,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.10.43.00.0.0,Programa de Pós-Graduação em Administração e Ciências Contábeis,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+06.00.01.00.0.0,Programa de Pós-Graduação em Administração Pública,Centro de Ciências Sociais e Humanas,CCSH,Coordenação Acadêmica,Formal
+05.10.11.00.0.0,Pg-Distância - Especialização Lato Sensu Gestão Educacional,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.10.03.00.0.0,Programa de Pós-Graduação em Educação,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.10.20.00.0.0,Programa de Pós-Graduação em Políticas Públicas e Gestão Educacional,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.10.18.00.0.0,Programa de Pós-Graduação Mestrado Profissional em História em Rede Nacional,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.10.16.00.0.0,Programa de Pós-Graduação Mestrado Profissional em Tecnologias Educacionais em Rede,Centro de Educação,CE,Coordenação Acadêmica,Formal
+09.09.01.00.0.0,Curso de Educação Física,Centro de Educação Física e Desportos,CEFD,Coordenação Acadêmica,Formal
+09.09.03.00.0.0,Curso de Educação Física - Bacharelado,Centro de Educação Física e Desportos,CEFD,Coordenação Acadêmica,Formal
+09.10.05.00.0.0,Pg-E em Educação Física Escolar,Centro de Educação Física e Desportos,CEFD,Coordenação Acadêmica,Formal
+09.10.01.00.0.0,Programa de Pós-Graduação em Ciência Movimento Humano,Centro de Educação Física e Desportos,CEFD,Coordenação Acadêmica,Formal
+09.10.07.00.0.0,Programa de Pós-Graduação em Ciências do Movimento e Reabilitação,Centro de Educação Física e Desportos,CEFD,Coordenação Acadêmica,Formal
+09.10.06.00.0.0,Programa de Pós-Graduação em Gerontologia,Centro de Educação Física e Desportos,CEFD,Coordenação Acadêmica,Formal
+07.09.06.00.0.0,Curso Arquitetura e Urbanismo,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.12.00.0.0,Curso de Bacharelado em Sistemas de Informação,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.05.00.0.0,Curso de Ciência da Computação,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+05.09.12.00.0.0,Curso de Licenciatura em Ciências da Religião - Modalidade a Distância,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.08.00.0.0,Curso Graduação em Pedagogia a Distância,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.09.00.0.0,Curso Licenciatura Educação Especial - Noturno,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.07.00.0.0,Curso Pedagogia Licenciatura Plena Diurno,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.06.00.0.0,Curso Pedagogia Licenciatura Plena Noturno,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.10.21.00.0.0,Curso Pg-E de Gestão Pública na Educação Infantil e Docência - EAD,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.10.01.00.0.0,Curso Pg-E Gestão Educacional,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.09.13.00.0.0,Curso-Programa Especial de Formação Professores Educação Profissional,Centro de Educação,CE,Coordenação Acadêmica,Formal
+05.10.13.00.0.0,Curso-Programa Especial de Formação Professores Educação Profissional,Centro de Educação,CE,Coordenação Acadêmica,Formal
+07.10.14.00.0.0,Curso de Especialização em Eficiência Energética Aplicada Aos Processos Produtivos - EAD,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.10.11.00.0.0,"Curso Pg-E Mídias na Educação, Modalidade a Distância",Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.10.15.00.0.0,"Pg-E em Educação Ambiental, Modalidade EAD",Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.10.17.00.0.0,"Programa de Pós-Graduação em Arquitetura, Urbanismo e Paisagismo",Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.10.18.00.0.0,Programa de Pós-Graduação em Ciência da Computação,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.10.21.00.0.0,Programa de Pós-Graduação em Engenharia Civil e Ambiental,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.10.02.00.0.0,Programa de Pós-Graduação em Engenharia de Produção,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.10.01.00.0.0,Programa de Pós-Graduação em Engenharia Elétrica,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.10.19.00.0.0,Programa de Pós-Graduação em Engenharia Mecânica,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.10.16.00.0.0,Programa de Pós-Graduação em Engenharia Química,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+26.04.37.00.0.0,Coordenação do Curso Técnico em Enfermagem,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.20.00.0.0,Coordenação do Curso Técnico em Administração,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+07.09.15.00.0.0,Curso de Engenharia Ambiental e Sanitária,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.10.00.0.0,Curso de Engenharia Acústica,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.13.00.0.0,Curso de Engenharia Aeroespacial,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.01.00.0.0,Curso de Engenharia Civil,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.09.00.0.0,Curso de Engenharia de Computação,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.07.00.0.0,Curso de Engenharia de Controle e Automação,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.08.00.0.0,Curso de Engenharia de Produção,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.02.00.0.0,Curso de Engenharia Elétrica,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.14.00.0.0,Curso de Engenharia em Telecomunicações,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.03.00.0.0,Curso de Engenharia Mecânica,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+07.09.04.00.0.0,Curso de Engenharia Química,Centro de Tecnologia,CT,Coordenação Acadêmica,Formal
+26.04.25.00.0.0,Coordenação do Curso Técnico em Paisagismo,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.31.00.0.0,Coordenação do Curso Técnico em Secretariado,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.35.00.0.0,Coordenação do Curso Técnico em Zootecnia,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.15.00.0.0,Curso Pg-Mestrado Profissional em Agricultura de Precisão,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.02.00.0.0,Curso Superior de Tecnologia de Geoprocessamento,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.04.00.0.0,Curso Superior de Tecnologia em Gestão Ambiental,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.01.00.0.0,Curso Superior de Tecnologia em Gestão de Cooperativas,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.03.00.0.0,Curso Superior de Tecnologia em Sistemas para Internet,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+25.18.12.00.0.0,Coordenação Curso Técnico em Informática para Internet Integrado ao Ensino Médio,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.13.00.0.0,Coordenação Curso Técnico em Soldagem Subsequente,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+26.04.38.00.0.0,Coordenação do Curso Técnico em Agricultura,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.39.00.0.0,Coordenação do Curso Técnico em Agricultura de Precisão,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.43.00.0.0,Coordenação do Curso Técnico em Agrimensura,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.22.00.0.0,Coordenação do Curso Técnico em Agropecuária,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.33.00.0.0,Coordenação do Curso Técnico em Alimentos,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.40.00.0.0,Coordenação do Curso Técnico em Comércio,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.29.00.0.0,Coordenação do Curso Técnico em Contabilidade,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.36.00.0.0,Coordenação do Curso Técnico em Cuidados de Idosos,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.44.00.0.0,Coordenação do Curso Técnico em Enfermagem Noturno,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.34.00.0.0,Coordenação do Curso Técnico em Farmácia,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.41.00.0.0,Coordenação do Curso Técnico em Fruticultura,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+26.04.26.00.0.0,Coordenação do Curso Técnico em Meio Ambiente,Colégio Politécnico,POLI,Coordenação Acadêmica,Formal
+31.09.01.00.0.0,Curso de Arquitetura e Urbanismo - CS,Campus da UFSM em Cachoeira do Sul,CS,Coordenação Acadêmica,Formal
+31.09.06.00.0.0,Curso de Ciências de Dados e Inteligência Artificial - CS,Campus da UFSM em Cachoeira do Sul,CS,Coordenação Acadêmica,Formal
+31.09.02.00.0.0,Curso de Engenharia Agrícola - CS,Campus da UFSM em Cachoeira do Sul,CS,Coordenação Acadêmica,Formal
+31.09.05.00.0.0,Curso de Engenharia de Transportes e Logística - CS,Campus da UFSM em Cachoeira do Sul,CS,Coordenação Acadêmica,Formal
+31.09.03.00.0.0,Curso de Engenharia Elétrica - CS,Campus da UFSM em Cachoeira do Sul,CS,Coordenação Acadêmica,Formal
+31.09.04.00.0.0,Curso de Engenharia Mecânica - CS,Campus da UFSM em Cachoeira do Sul,CS,Coordenação Acadêmica,Formal
+32.09.01.00.0.0,Curso de Administração - Noturno - PM,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+32.09.07.00.0.0,Curso de Administração Diurno - PM,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+25.18.06.00.0.0,Coordenação do Curso de Automação Industrial,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.05.00.0.0,Coordenação do Curso de Eletromecânica,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.03.00.0.0,Coordenação do Curso de Eletrotécnica,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.09.00.0.0,Coordenação do Curso de Eletrônica,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.04.00.0.0,Coordenação do Curso de Mecânica,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.07.00.0.0,Coordenação do Curso de Segurança do Trabalho,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.10.00.0.0,Coordenação do Curso Técnico em Eletrotécnica Integrado,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.64.00.0.0,Coordenação do Curso Técnico em Internet das Coisas Integrado ao Ensino Médio,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.11.00.0.0,Coordenação do Curso Técnico em Mecânica Integrado,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.08.00.0.0,Coordenação Geral do Curso Proeja,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.15.00.0.0,Curso de Pós-Graduação em Formação de Professores para O Ensino de Robótica,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.14.00.0.0,Curso Mestrado Acadêmico em Educação Profissional e Tecnológica,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.18.00.0.0,Curso Superior de Tecnologia em Eletrônica Industrial,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.16.00.0.0,Curso Superior de Tecnologia em Fabricação Mecânica,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+25.18.17.00.0.0,Curso Superior de Tecnologia em Redes de Computadores,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Formal
+33.09.04.00.0.0,Curso de Relações Públicas Bacharelado - Campus FW,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.09.06.00.0.0,Curso de Sistemas de Informação - Campus FW,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.10.01.00.0.0,Programa de Pós-Graduação em Agronomia - Agricultura e Ambiente - Campus FW,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.10.02.00.0.0,Programa de Pós-Graduação em Ciência e Tecnologia Ambiental- Campus FW,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+02.09.12.00.0.0,Curso Graduação de Licenciatura em Matemática a Distância,Centro de Ciências Naturais e Exatas,CCNE,Coordenação Acadêmica,Informal
+05.10.08.00.0.0,Curso a Distância Pg-E em Educação Especial,Centro de Educação,CE,Coordenação Acadêmica,Informal
+32.09.05.00.0.0,Curso de Ciências Biológicas - PM,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+32.09.06.00.0.0,Curso de Ciências Econômicas - PM,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+32.09.02.00.0.0,Curso de Enfermagem - PM,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+32.09.04.00.0.0,Curso de Nutrição - PM,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+32.10.04.00.0.0,Curso de Pós-Graduação em Gestão e Gerenciamento das Redes de Atenção à Saúde,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+32.09.03.00.0.0,Curso de Zootecnia - PM,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+32.10.02.00.0.0,Pg-E em Gestão de Organização Pública em Saúde - Modalidade a Distância,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+32.10.01.00.0.0,Programa de Pós-Graduação em Agronegócios - PM,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+32.10.03.00.0.0,Programa de Pós-Graduação em Saúde e Ruralidade - PM,Campus da UFSM em Palmeira Das Missões,PM,Coordenação Acadêmica,Formal
+33.09.01.00.0.0,Curso de Agronomia - Campus FW,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.09.11.00.0.0,Curso de Direito - Campus FW,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.09.05.00.0.0,Curso de Engenharia Ambiental e Sanitária - Campus FW,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.09.02.00.0.0,Curso de Engenharia Florestal - Campus FW,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.09.03.00.0.0,Curso de Jornalismo Bacharelado - Campus FW,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.09.08.00.0.0,Curso de Licenciatura em Computação - Modalidade a Distância,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.09.09.00.0.0,Curso de Licenciatura em Educação Indígena - Modalidade EAD,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+33.09.10.00.0.0,Curso de Licenciatura Intercultural Indígena,Campus da UFSM em Frederico Westphalen,FW,Coordenação Acadêmica,Formal
+05.09.10.00.0.0,Curso de Educação Especial - Licenciatura EAD- Parfor,Centro de Educação,CE,Coordenação Acadêmica,Informal
+26.04.30.00.0.0,Coord-Geral da Bolsa-Formação - Pronatec,Colégio Politécnico,POLI,Coordenação Acadêmica,Informal
+26.04.28.00.0.0,Coordenação do Proeja,Colégio Politécnico,POLI,Coordenação Acadêmica,Informal
+25.04.10.00.0.0,Coord-Geral da Bolsa Formação-Pronatec,Colégio Técnico Industrial de Santa Maria,CTISM,Coordenação Acadêmica,Informal
+31.10.01.00.0.0,"Curso Pg-E Ensino de Ciências C/Ênfase em Física, Química Ou Matemática - EAD-UAB",Campus da UFSM em Cachoeira do Sul,CS,Coordenação Acadêmica,Informal
+99.02.00.00.0.0,Coord. Aperf. Pessoal de Nivel Superior - Capes,Reitoria,REITORIA,Curso/Habilitação/Opção,Informal
+02.09.20.01.0.0,Curso de Estatística,Centro de Ciências Naturais e Exatas,CCNE,Curso/Habilitação/Opção,Formal
+02.10.17.03.0.0,Curso de Pós-Graduação em Mudanças Climáticas,Centro de Ciências Naturais e Exatas,CCNE,Curso/Habilitação/Opção,Formal
+03.10.18.19.0.4,Programa de Residência Uniprofissional em Medicina Veterinária - Patologia Clínica Veterinária,Centro de Ciências Rurais,CCR,Curso/Habilitação/Opção,Informal
+99.00.00.00.0.0,Unidades Orcamentarias,Reitoria,REITORIA,Curso/Habilitação/Opção,Informal
+99.01.01.00.0.0,Universidade Federal de Santa Maria,Reitoria,REITORIA,Curso/Habilitação/Opção,Informal
+08.49.00.00.0.0,Departamento de Letras Clássicas e Lingüística,Centro de Artes e Letras,CAL,Departamento Didático,Formal
+08.37.00.00.0.0,Departamento de Letras Estrangeiras e Modernas,Centro de Artes e Letras,CAL,Departamento Didático,Formal
+08.38.00.00.0.0,Departamento de Letras Vernáculas,Centro de Artes e Letras,CAL,Departamento Didático,Formal
+08.39.00.00.0.0,Departamento de Música,Centro de Artes e Letras,CAL,Departamento Didático,Formal
+02.75.00.00.0.0,Departamento de Ecologia e Evolução,Centro de Ciências Naturais e Exatas,CCNE,Departamento Didático,Formal
+02.31.00.00.0.0,Departamento de Estatística,Centro de Ciências Naturais e Exatas,CCNE,Departamento Didático,Formal
+02.34.00.00.0.0,Departamento de Matemática,Centro de Ciências Naturais e Exatas,CCNE,Departamento Didático,Formal
+03.31.00.00.0.0,Depto da Clínica de Grandes Animais,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+03.32.00.00.0.0,Depto da Clínica de Pequenos Animais,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+03.33.00.00.0.0,Departamento de Educação Agrícola e Extensão Rural,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+03.38.00.00.0.0,Departamento de Solos,Centro de Ciências Rurais,CCR,Departamento Didático,Formal
+04.31.00.00.0.0,Departamento de Cirurgia,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+04.32.00.00.0.0,Departamento de Clínica Médica,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+08.40.00.00.0.0,Departamento de Artes Cênicas,Centro de Artes e Letras,CAL,Departamento Didático,Formal
+08.35.00.00.0.0,Departamento de Artes Visuais,Centro de Artes e Letras,CAL,Departamento Didático,Formal
+06.38.00.00.0.0,Departamento de Filosofia,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+06.40.00.00.0.0,Departamento de História,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+06.96.00.00.0.0,Departamento de Turismo,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+05.24.00.00.0.0,Departamento de Educacao Especial,Centro de Educação,CE,Departamento Didático,Formal
+05.22.00.00.0.0,Departamento de Fundamentos da Educação,Centro de Educação,CE,Departamento Didático,Formal
+05.23.00.00.0.0,Departamento de Metodologia do Ensino,Centro de Educação,CE,Departamento Didático,Formal
+05.26.00.00.0.0,Departamento de Políticas e Gestão Educacional,Centro de Educação,CE,Departamento Didático,Formal
+09.15.00.00.0.0,Departamento de Desportos Coletivos,Centro de Educação Física e Desportos,CEFD,Departamento Didático,Formal
+09.16.00.00.0.0,Departamento de Desportos Individuais,Centro de Educação Física e Desportos,CEFD,Departamento Didático,Formal
+09.17.00.00.0.0,Departamento de Métodos e Técnicas Desportivas,Centro de Educação Física e Desportos,CEFD,Departamento Didático,Formal
+07.46.00.00.0.0,Departamento de Arquitetura e Urbanismo,Centro de Tecnologia,CT,Departamento Didático,Formal
+04.60.00.00.0.0,Departamento de Fisiologia e Farmacologia,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+04.38.00.00.0.0,Departamento de Ginecologia e Obstetrícia,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+04.41.00.00.0.0,Departamento de Neuropsiquiatria,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+04.44.00.00.0.0,Departamento de Patologia,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+04.45.00.00.0.0,Departamento de Pediatria e Puericultura,Centro de Ciências da Saúde,CCS,Departamento Didático,Formal
+06.35.00.00.0.0,Departamento de Arquivologia,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+06.30.00.00.0.0,Departamento de Ciências Administrativas,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+06.33.00.00.0.0,Departamento de Ciências Contábeis,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+06.31.00.00.0.0,Departamento de Ciências da Comunicação,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+06.55.00.00.0.0,Departamento de Ciências Sociais,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+06.34.00.00.0.0,Departamento de Direito,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal
+06.95.00.00.0.0,Departamento de Economia e Relações Internacionais,Centro de Ciências Sociais e Humanas,CCSH,Departamento Didático,Formal

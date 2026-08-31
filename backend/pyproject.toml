@@ -1,0 +1,55 @@
+[tool.pylint.main]
+load-plugins = ["pylint_django"]
+# Módulo de settings do Django (necessário para pylint-django reconhecer os imports)
+django-settings-module = "gestao_risco.settings"
+# Migrations são geradas automaticamente pelo Django — nomes fora do padrão são esperados
+ignore-paths = [
+    "usuarios/migrations",
+    "riscos/migrations",
+]
+
+[tool.pylint."messages control"]
+disable = [
+    # Docstrings — Django auto-documenta via Meta e campos verbose_name
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    # Padrão Django: models, serializers e viewsets têm poucos métodos públicos
+    "too-few-public-methods",
+    # Complexidade — comum em views e funções de importação/seed
+    "too-many-locals",
+    "too-many-branches",
+    "too-many-statements",
+    # Formatação — responsabilidade do Ruff (já configurado); pylint não deve duplicar
+    "trailing-whitespace",
+    "line-too-long",
+    # Imports — falso positivo quando Django não está no PATH do pylint local;
+    # erros reais de import são capturados pela suite de testes
+    "import-error",
+    # Django ViewSet exige `request`/`pk` na assinatura mesmo quando não usados no corpo
+    "unused-argument",
+    # Seeds de teste compartilham estrutura de dados intencionalmente
+    "duplicate-code",
+    # pylint_django: falso positivo quando Django não está no PATH do pylint local
+    # (ex.: venv não ativada); CI instala tudo no mesmo env e não sofre esse problema
+    "django-not-available",
+    # Parâmetros de métodos sobrescritos do DRF foram renomeados para português
+    # (ex.: validated_data -> dados_validados, attrs -> data) — intencional no projeto
+    "arguments-renamed",
+    # Django ViewSet (ModelViewSet) herda de muitas classes por design do framework;
+    # não é algo que o projeto possa ou deva controlar
+    "too-many-ancestors",
+]
+
+[tool.pylint.format]
+max-line-length = 100
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["F", "I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["gestao_risco", "usuarios", "riscos"]
