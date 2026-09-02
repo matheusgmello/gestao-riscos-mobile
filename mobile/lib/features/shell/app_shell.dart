@@ -42,7 +42,7 @@ class _AppShellState extends State<AppShell> {
         Icons.insights,
         'Dashboard',
       ),
-      if (role.podeGerenciarEquipe && !role.ehAdmin)
+      if (role.podeGerenciarEquipe)
         const _Tab('/equipe', Icons.groups_outlined, Icons.groups, 'Equipe'),
       if (role.ehAdmin)
         const _Tab(

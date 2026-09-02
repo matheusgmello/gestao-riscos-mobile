@@ -28,4 +28,23 @@ class PdiService {
 
   Future<List<Macroprocesso>> macroprocessos() =>
       _lista('/api/riscos/macroprocessos/', Macroprocesso.fromJson);
+
+  // --- CRUD (superusuário) ---
+
+  Future<void> criar(String recurso, Map<String, dynamic> payload) =>
+      comApiError(() async {
+        await _client.dio.post('/api/riscos/$recurso/', data: payload);
+      });
+
+  Future<void> atualizar(
+    String recurso,
+    int id,
+    Map<String, dynamic> payload,
+  ) => comApiError(() async {
+    await _client.dio.patch('/api/riscos/$recurso/$id/', data: payload);
+  });
+
+  Future<void> remover(String recurso, int id) => comApiError(() async {
+    await _client.dio.delete('/api/riscos/$recurso/$id/');
+  });
 }

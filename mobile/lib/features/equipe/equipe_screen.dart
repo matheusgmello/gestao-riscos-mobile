@@ -1,14 +1,209 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/em_construcao.dart';
+import '../../core/app_feedback.dart';
+import '../../data/models/unidade_model.dart';
+import '../../data/models/usuario_model.dart';
+import '../../data/services/equipe_service.dart';
+import '../../data/services/token_service.dart';
 
-class EquipeScreen extends StatelessWidget {
+class EquipeScreen extends StatefulWidget {
   const EquipeScreen({super.key});
 
   @override
+  State<EquipeScreen> createState() => _EquipeScreenState();
+}
+
+class _EquipeScreenState extends State<EquipeScreen> {
+  final _tokens = TokenService();
+  late final EquipeService _service = EquipeService(_tokens);
+
+  List<UnidadeModel> _setores = [];
+  UnidadeModel? _setor;
+  List<UsuarioModel> _membros = [];
+  bool _carregando = true;
+  Object? _erro;
+
+  @override
+  void initState() {
+    super.initState();
+    _iniciar();
+  }
+
+  Future<void> _iniciar() async {
+    final u = await _tokens.getUsuario();
+    setState(() {
+      _setores = u?.setores ?? [];
+      _setor = _setores.isNotEmpty ? _setores.first : null;
+    });
+    await _carregarMembros();
+  }
+
+  Future<void> _carregarMembros() async {
+    if (_setor == null) {
+      setState(() => _carregando = false);
+      return;
+    }
+    setState(() {
+      _carregando = true;
+      _erro = null;
+    });
+    try {
+      final m = await _service.membros(_setor!.id);
+      if (!mounted) return;
+      setState(() {
+        _membros = m;
+        _carregando = false;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _erro = e;
+        _carregando = false;
+      });
+    }
+  }
+
+  Future<void> _adicionar() async {
+    final siape = await _pedirSiape();
+    if (siape == null || siape.isEmpty) return;
+    try {
+      await _service.adicionar(_setor!.id, siape);
+      if (!mounted) return;
+      mostrarOk(context, 'Membro adicionado.');
+      _carregarMembros();
+    } catch (e) {
+      if (mounted) mostrarErro(context, e);
+    }
+  }
+
+  Future<String?> _pedirSiape() {
+    final ctrl = TextEditingController();
+    return showDialog<String>(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: const Text('Adicionar membro'),
+        content: TextField(
+          controller: ctrl,
+          autofocus: true,
+          keyboardType: TextInputType.number,
+          decoration: const InputDecoration(labelText: 'SIAPE'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancelar'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, ctrl.text.trim()),
+            child: const Text('Adicionar'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _remover(UsuarioModel m) async {
+    if (!await confirmar(
+      context,
+      titulo: 'Remover membro',
+      mensagem: '${m.nome} sai da equipe de ${_setor!.rotulo}.',
+      confirmar: 'Remover',
+      destrutivo: true,
+    )) {
+      return;
+    }
+    try {
+      await _service.remover(_setor!.id, m.id);
+      if (!mounted) return;
+      mostrarOk(context, 'Membro removido.');
+      _carregarMembros();
+    } catch (e) {
+      if (mounted) mostrarErro(context, e);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: EmConstrucao('Equipe', 'Gestão de membros por setor — Fase 4.'),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Equipe')),
+      floatingActionButton: _setor == null
+          ? null
+          : FloatingActionButton.extended(
+              onPressed: _adicionar,
+              icon: const Icon(Icons.person_add),
+              label: const Text('Adicionar'),
+            ),
+      body: _corpo(),
+    );
+  }
+
+  Widget _corpo() {
+    if (_setores.isEmpty) {
+      return const Center(
+        child: Padding(
+          padding: EdgeInsets.all(24),
+          child: Text(
+            'Você não está vinculado a nenhuma unidade.',
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
+    }
+    return Column(
+      children: [
+        if (_setores.length > 1)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+            child: DropdownButtonFormField<int>(
+              initialValue: _setor?.id,
+              isExpanded: true,
+              decoration: const InputDecoration(labelText: 'Unidade'),
+              items: [
+                for (final s in _setores)
+                  DropdownMenuItem(value: s.id, child: Text(s.rotulo)),
+              ],
+              onChanged: (v) {
+                setState(() => _setor = _setores.firstWhere((s) => s.id == v));
+                _carregarMembros();
+              },
+            ),
+          ),
+        Expanded(child: _lista()),
+      ],
+    );
+  }
+
+  Widget _lista() {
+    if (_carregando) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (_erro != null) {
+      return Center(child: Text('$_erro'));
+    }
+    if (_membros.isEmpty) {
+      return const Center(child: Text('Nenhum membro nesta unidade.'));
+    }
+    return RefreshIndicator(
+      onRefresh: _carregarMembros,
+      child: ListView.separated(
+        padding: const EdgeInsets.fromLTRB(12, 8, 12, 88),
+        itemCount: _membros.length,
+        separatorBuilder: (_, _) => const Divider(height: 1),
+        itemBuilder: (context, i) {
+          final m = _membros[i];
+          return ListTile(
+            title: Text(m.nome),
+            subtitle: Text(
+              'SIAPE ${m.siape} · ${m.isSuperuser ? "admin" : m.cargo}',
+            ),
+            trailing: IconButton(
+              icon: const Icon(Icons.person_remove_outlined),
+              tooltip: 'Remover',
+              onPressed: () => _remover(m),
+            ),
+          );
+        },
+      ),
     );
   }
 }
