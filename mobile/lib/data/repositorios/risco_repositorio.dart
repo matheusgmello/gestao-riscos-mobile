@@ -31,9 +31,10 @@ class RiscoRepositorio {
       // primeira carga: espera o pull terminar antes de mostrar a lista.
       await MotorSync.instance.sincronizar();
       linhas = await _dao.riscos();
-    } else {
-      _sincronizarEmFundo();
     }
+    // leitura pura do cache: quem quer atualizar dispara MotorSync.sincronizar
+    // explicitamente (abertura de tela, pull-to-refresh, reconexão). Sincronizar
+    // aqui a cada leitura criava loop com o listener de estado da tela.
     return linhas.map(Risco.fromJson).toList();
   }
 

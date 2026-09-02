@@ -68,6 +68,9 @@ class _RiscosScreenState extends State<RiscosScreen> {
     _usuario = await _tokens.getUsuario();
     _carregarUnidades();
     await _recarregar();
+    // atualiza em segundo plano ao abrir; o listener de estado recarrega a
+    // lista quando o pull termina.
+    unawaited(MotorSync.instance.sincronizar());
   }
 
   Future<void> _carregarUnidades() async {
