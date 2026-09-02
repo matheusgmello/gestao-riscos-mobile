@@ -156,6 +156,15 @@ O projeto utiliza **Token Authentication** com Django REST Framework. Rotas publ
 | `ordenacao`        | string  | `asc`, `desc`, `nivel_asc`, `nivel_desc`, `prazo_asc` ou `prazo_desc`     |
 | `page`             | int     | Numero da pagina                                                           |
 | `incluir_inativos` | boolean | `true` para incluir desativados (somente superusuario)                     |
+| `modificado_apos`  | datetime| ISO 8601. Retorna so os registros com `atualizado_em` maior que o valor, **incluindo os desativados** (para o cliente propagar o soft delete). Formato invalido responde `400`. |
+
+---
+
+### Sincronizacao incremental (app mobile)
+
+- `Risco`, `PlanoAcao` e `Monitoramento` expoem `atualizado_em` (ISO 8601, UTC) e `ativo` em todas as respostas. `atualizado_em` e atualizado a cada gravacao, inclusive quando o registro e desativado (direto ou em cascata).
+- **Pull incremental:** `GET /api/riscos/planos/?modificado_apos=<iso8601>` (tambem em `acoes/` e `monitoramentos/`). O cliente guarda o maior `atualizado_em` recebido e usa na proxima chamada.
+- **Concorrencia otimista:** ao enviar `PATCH` de risco/acao/monitoramento, inclua no payload o `atualizado_em` que o cliente tinha ao editar. Se o servidor tiver uma versao mais nova, responde `409 Conflict` com `{"erro": "...", "atual": <registro atualizado>}` e nenhuma alteracao e aplicada. Sem o campo `atualizado_em` no payload, o `PATCH` sempre sobrescreve.
 
 ---
 
@@ -222,10 +231,12 @@ O projeto utiliza **Token Authentication** com Django REST Framework. Rotas publ
 
 - `GET|PATCH|DELETE /api/riscos/acoes/{id}/`
   - detalha, atualiza ou desativa (soft delete) um plano de acao.
+  - `GET` aceita `?modificado_apos=<iso8601>` (pull incremental, inclui desativados).
 
 - `GET|POST /api/riscos/monitoramentos/`
   - lista e cria registros de monitoramento;
   - suporta filtro `?risco=<uuid>` para retornar apenas os monitoramentos de um plano especifico;
+  - `GET` aceita `?modificado_apos=<iso8601>` (pull incremental, inclui desativados);
   - no payload de criacao, o campo `risco` aceita o UUID do risco (nao o ID interno).
 
 - `GET|PATCH|DELETE /api/riscos/monitoramentos/{id}/`

@@ -656,3 +656,102 @@ class TestExportarRelatorioGerencial:
         assert "relatorio-gerencial" in response["Content-Disposition"]
         assert response.content.startswith(b"%PDF")
 
+
+
+@pytest.mark.django_db
+class TestSincronizacaoIncremental:
+    def _cria_acao(self, risco):
+        return PlanoAcao.objects.create(
+            risco=risco,
+            tipo_resposta="Mitigar",
+            descricao_acao="Ação",
+            responsavel="Fulano",
+            data_inicio="2026-01-01",
+            data_fim="2026-12-31",
+            status="Em andamento",
+        )
+
+    def test_risco_expoe_atualizado_em(self, api_client, infra_risco):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        response = api_client.get(f"/api/riscos/planos/{infra_risco['risco'].uuid}/")
+        assert response.status_code == status.HTTP_200_OK
+        assert "atualizado_em" in response.data
+        assert response.data["ativo"] is True
+
+    def test_pull_incremental_filtra_por_atualizado_em(self, api_client, infra_risco):
+        from django.utils import timezone
+
+        api_client.force_authenticate(user=infra_risco["u1"])
+        corte = timezone.now().isoformat()
+
+        # nada mudou desde o corte
+        vazio = api_client.get("/api/riscos/planos/", {"modificado_apos": corte})
+        assert vazio.status_code == status.HTTP_200_OK
+        assert vazio.data["count"] == 0
+
+        # edita o risco -> passa a aparecer
+        api_client.patch(
+            f"/api/riscos/planos/{infra_risco['risco'].uuid}/",
+            {"evento": "Novo evento"},
+            format="json",
+        )
+        com_mudanca = api_client.get("/api/riscos/planos/", {"modificado_apos": corte})
+        assert com_mudanca.data["count"] == 1
+
+    def test_pull_incremental_inclui_registros_desativados(self, api_client, infra_risco):
+        from django.utils import timezone
+
+        api_client.force_authenticate(user=infra_risco["u1"])
+        corte = timezone.now().isoformat()
+        infra_risco["risco"].delete()  # soft delete
+
+        response = api_client.get("/api/riscos/planos/", {"modificado_apos": corte})
+        assert response.data["count"] == 1
+        assert response.data["results"][0]["ativo"] is False
+
+    def test_soft_delete_cascata_bumpa_atualizado_em_da_acao(self, api_client, infra_risco):
+        from django.utils import timezone
+
+        api_client.force_authenticate(user=infra_risco["u1"])
+        self._cria_acao(infra_risco["risco"])
+        corte = timezone.now().isoformat()
+
+        infra_risco["risco"].delete()
+
+        response = api_client.get("/api/riscos/acoes/", {"modificado_apos": corte})
+        assert response.data["count"] == 1
+        assert response.data["results"][0]["ativo"] is False
+
+    def test_modificado_apos_invalido_retorna_400(self, api_client, infra_risco):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        response = api_client.get("/api/riscos/planos/?modificado_apos=ontem")
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+    def test_patch_com_versao_antiga_retorna_409(self, api_client, infra_risco):
+        from datetime import timedelta
+
+        from django.utils import timezone
+
+        api_client.force_authenticate(user=infra_risco["u1"])
+        url = f"/api/riscos/planos/{infra_risco['risco'].uuid}/"
+        antiga = (timezone.now() - timedelta(hours=1)).isoformat()
+
+        response = api_client.patch(
+            url,
+            {"evento": "Edição offline", "atualizado_em": antiga},
+            format="json",
+        )
+        assert response.status_code == status.HTTP_409_CONFLICT
+        assert "atual" in response.data
+
+    def test_patch_com_versao_atual_passa(self, api_client, infra_risco):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        url = f"/api/riscos/planos/{infra_risco['risco'].uuid}/"
+        atual = api_client.get(url).data["atualizado_em"]
+
+        response = api_client.patch(
+            url,
+            {"evento": "Edição válida", "atualizado_em": atual},
+            format="json",
+        )
+        assert response.status_code == status.HTTP_200_OK

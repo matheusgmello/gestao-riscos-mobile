@@ -2,8 +2,11 @@ from collections import defaultdict
 from datetime import date
 
 from django.db.models import Q
+from django.utils import timezone
+from django.utils.dateparse import parse_datetime
 from rest_framework import permissions, status, viewsets
 from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 
 from .exporters import (
@@ -32,6 +35,47 @@ from .serializers import (
 )
 
 
+def _parse_modificado_apos(valor):
+    """Converte o parâmetro `modificado_apos` (ISO 8601) num datetime aware.
+    Lança 400 se o formato for inválido."""
+    dt = parse_datetime(valor)
+    if dt is None:
+        raise ValidationError(
+            {"modificado_apos": "Informe um timestamp ISO 8601 válido."}
+        )
+    if timezone.is_naive(dt):
+        dt = timezone.make_aware(dt)
+    return dt
+
+
+class ConcorrenciaOtimistaMixin:
+    """Rejeita PATCH/PUT quando o cliente traz um `atualizado_em` mais antigo
+    que o do servidor — evita que uma edição feita offline sobrescreva uma
+    alteração mais recente. Responde 409 com o registro atual."""
+
+    def update(self, request, *dados_args, **dados_kwargs):
+        instancia = self.get_object()
+        enviado = request.data.get('atualizado_em')
+        if enviado:
+            cliente_ts = parse_datetime(enviado)
+            if cliente_ts and timezone.is_naive(cliente_ts):
+                cliente_ts = timezone.make_aware(cliente_ts)
+            if (
+                cliente_ts
+                and instancia.atualizado_em
+                and instancia.atualizado_em > cliente_ts
+            ):
+                return Response(
+                    {
+                        "erro": "O registro foi alterado no servidor desde a "
+                                "última sincronização.",
+                        "atual": self.get_serializer(instancia).data,
+                    },
+                    status=status.HTTP_409_CONFLICT,
+                )
+        return super().update(request, *dados_args, **dados_kwargs)
+
+
 class PertenceAoSetorDoRisco(permissions.BasePermission):
     """
     Permissão que permite visualizar a qualquer gestor, mas
@@ -53,7 +97,7 @@ class PertenceAoSetorDoRisco(permissions.BasePermission):
 
         return request.user.setores.filter(id=setor_do_risco.id).exists()
 
-class RiscoViewSet(viewsets.ModelViewSet):
+class RiscoViewSet(ConcorrenciaOtimistaMixin, viewsets.ModelViewSet):
     queryset = Risco.objects.all()
     serializer_class = RiscoSerializer
     permission_classes = [permissions.IsAuthenticated, PertenceAoSetorDoRisco]
@@ -65,7 +109,12 @@ class RiscoViewSet(viewsets.ModelViewSet):
     CATEGORY_ORDER = ["Operacional", "Estratégico", "Integridade", "Imagem", "Financeiro"]
 
     def _base_manager(self):
-        """Retorna all_objects para superusuários com ?incluir_inativos=true."""
+        """Retorna all_objects para superusuários com ?incluir_inativos=true
+        ou para qualquer cliente fazendo pull incremental (?modificado_apos=),
+        que precisa enxergar os registros desativados para propagar o soft
+        delete."""
+        if self.request.query_params.get('modificado_apos'):
+            return Risco.all_objects
         if (
             self.request.user.is_superuser
             and self.request.query_params.get('incluir_inativos') == 'true'
@@ -79,6 +128,12 @@ class RiscoViewSet(viewsets.ModelViewSet):
             "objetivo__desafio",
             "macroprocesso",
         ).prefetch_related("planos_acao", "monitoramentos")
+
+        modificado_apos = self.request.query_params.get('modificado_apos')
+        if modificado_apos:
+            queryset = queryset.filter(
+                atualizado_em__gt=_parse_modificado_apos(modificado_apos)
+            )
 
         setor_id = self.request.query_params.get('setor')
         categoria = self.request.query_params.get('categoria')
@@ -415,22 +470,26 @@ class ObjetivoPDIViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     pagination_class = None
 
-class PlanoAcaoViewSet(viewsets.ModelViewSet):
+class PlanoAcaoViewSet(ConcorrenciaOtimistaMixin, viewsets.ModelViewSet):
     queryset = PlanoAcao.objects.all()
     serializer_class = PlanoAcaoSerializer
     permission_classes = [permissions.IsAuthenticated, PertenceAoSetorDoRisco]
 
     def get_queryset(self):
-        manager = (
-            PlanoAcao.all_objects
-            if self.request.user.is_superuser
+        modificado_apos = self.request.query_params.get('modificado_apos')
+        usa_todos = modificado_apos or (
+            self.request.user.is_superuser
             and self.request.query_params.get('incluir_inativos') == 'true'
-            else PlanoAcao.objects
         )
+        manager = PlanoAcao.all_objects if usa_todos else PlanoAcao.objects
         queryset = manager.select_related("risco", "risco__setor").all()
         risco_uuid = self.request.query_params.get("risco")
         if risco_uuid:
             queryset = queryset.filter(risco__uuid=risco_uuid)
+        if modificado_apos:
+            queryset = queryset.filter(
+                atualizado_em__gt=_parse_modificado_apos(modificado_apos)
+            )
         return queryset.order_by("id")
 
     def perform_update(self, serializer):
@@ -454,16 +513,24 @@ class PlanoAcaoViewSet(viewsets.ModelViewSet):
         )
 
 
-class MonitoramentoViewSet(viewsets.ModelViewSet):
+class MonitoramentoViewSet(ConcorrenciaOtimistaMixin, viewsets.ModelViewSet):
     queryset = Monitoramento.objects.all()
     serializer_class = MonitoramentoSerializer
     permission_classes = [permissions.IsAuthenticated, PertenceAoSetorDoRisco]
 
     def get_queryset(self):
-        queryset = Monitoramento.objects.select_related("risco", "risco__setor").all()
+        modificado_apos = self.request.query_params.get('modificado_apos')
+        manager = (
+            Monitoramento.all_objects if modificado_apos else Monitoramento.objects
+        )
+        queryset = manager.select_related("risco", "risco__setor").all()
         risco_uuid = self.request.query_params.get("risco")
         if risco_uuid:
             queryset = queryset.filter(risco__uuid=risco_uuid)
+        if modificado_apos:
+            queryset = queryset.filter(
+                atualizado_em__gt=_parse_modificado_apos(modificado_apos)
+            )
         return queryset.order_by("-data_verificacao")
 
     def perform_create(self, serializer):

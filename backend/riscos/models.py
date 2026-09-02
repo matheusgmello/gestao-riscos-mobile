@@ -1,6 +1,7 @@
 import uuid as uuid_lib
 
 from django.db import models
+from django.utils import timezone
 
 # Importa pelo nome técnico "Setor" (nome da tabela DB e das migrations).
 # O alias público é "UnidadeOrganizacional" — veja backend/usuarios/models.py.
@@ -20,13 +21,16 @@ class SoftDeleteModel(models.Model):
     Use `Model.all_objects` para acessar inclusive os desativados.
     """
     ativo = models.BooleanField(default=True, db_column="ativo")
+    # Atualizado a cada save(). Usado pelo pull incremental do app mobile
+    # (?modificado_apos=) e pela verificação de concorrência otimista.
+    atualizado_em = models.DateTimeField(auto_now=True, db_column="atualizado_em")
 
     objects = SoftDeleteManager()
     all_objects = models.Manager()
 
     def delete(self, *args, **kwargs):
         self.ativo = False
-        self.save(update_fields=['ativo'])
+        self.save(update_fields=['ativo', 'atualizado_em'])
 
     class Meta:
         abstract = True
@@ -123,11 +127,14 @@ class Risco(SoftDeleteModel):
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        # Cascata: desativa planos de ação e monitoramentos vinculados
-        PlanoAcao.all_objects.filter(risco=self).update(ativo=False)
-        Monitoramento.all_objects.filter(risco=self).update(ativo=False)
+        # Cascata: desativa planos de ação e monitoramentos vinculados.
+        # .update() não dispara auto_now, então marcamos atualizado_em à mão
+        # para o pull incremental propagar a desativação.
+        agora = timezone.now()
+        PlanoAcao.all_objects.filter(risco=self).update(ativo=False, atualizado_em=agora)
+        Monitoramento.all_objects.filter(risco=self).update(ativo=False, atualizado_em=agora)
         self.ativo = False
-        self.save(update_fields=['ativo'])
+        self.save(update_fields=['ativo', 'atualizado_em'])
 
     def __str__(self):
         return f"Risco {self.id} - {self.setor.label_curto}"

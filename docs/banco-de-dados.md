@@ -87,6 +87,7 @@ classDiagram
         -impResidual: Integer
         -nivelResidual: Integer
         -ativo: Boolean
+        -atualizadoEm: DateTime
         +calcularNivelRisco(): Integer
         +calcularNivelResidual(): Integer
         +delete(): void
@@ -103,6 +104,7 @@ classDiagram
         -status: StatusPlanoAcao
         -observacoes: String
         -ativo: Boolean
+        -atualizadoEm: DateTime
         +atualizarStatus(): void
         +delete(): void
     }
@@ -114,6 +116,7 @@ classDiagram
         -acoesFuturas: String
         -analiseCritica: String
         -ativo: Boolean
+        -atualizadoEm: DateTime
         +registrarAnalise(): void
         +delete(): void
     }
@@ -310,3 +313,8 @@ As entidades mais relevantes do sistema incluem:
 - `monitoramentos`
   - mantém o histórico de acompanhamento dos riscos;
   - campo `ativo`: soft delete.
+
+Todas as entidades com soft delete têm também `atualizado_em` (`auto_now`), usado
+pelo pull incremental do app mobile (`?modificado_apos=`) e pela verificação de
+concorrência otimista no `PATCH`. Ao desativar um risco, o `atualizado_em` dos
+planos de ação e monitoramentos em cascata também é atualizado.
