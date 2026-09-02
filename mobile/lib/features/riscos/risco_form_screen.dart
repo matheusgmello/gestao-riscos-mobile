@@ -331,21 +331,41 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
     );
   }
 
+  static const _escala = [
+    'Muito baixo',
+    'Baixo',
+    'Médio',
+    'Alto',
+    'Muito alto',
+  ];
+
   Widget _slider(String rotulo, int valor, ValueChanged<int> onChanged) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(width: 110, child: Text(rotulo)),
-        Expanded(
-          child: Slider(
-            value: valor.toDouble(),
-            min: 1,
-            max: 5,
-            divisions: 4,
-            label: '$valor',
-            onChanged: (v) => onChanged(v.round()),
-          ),
+        const SizedBox(height: 4),
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                rotulo,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+            ),
+            Text(
+              '$valor · ${_escala[valor - 1]}',
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
+          ],
         ),
-        SizedBox(width: 20, child: Text('$valor')),
+        Slider(
+          value: valor.toDouble(),
+          min: 1,
+          max: 5,
+          divisions: 4,
+          label: '$valor · ${_escala[valor - 1]}',
+          onChanged: (v) => onChanged(v.round()),
+        ),
       ],
     );
   }

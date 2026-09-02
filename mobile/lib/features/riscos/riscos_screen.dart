@@ -299,7 +299,7 @@ class _RiscoCard extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(16),
         child: Padding(
-          padding: const EdgeInsets.all(14),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -316,7 +316,7 @@ class _RiscoCard extends StatelessWidget {
                   NivelBadge(risco.nivelResidual),
                 ],
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 4),
               Text(
                 risco.evento,
                 maxLines: 2,
@@ -324,7 +324,7 @@ class _RiscoCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyLarge
                     ?.copyWith(fontWeight: FontWeight.w500),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               Row(
                 children: [
                   _Chip(risco.categoria),
@@ -345,7 +345,7 @@ class _RiscoCard extends StatelessWidget {
                   ],
                   const Spacer(),
                   Text(
-                    'Inerente ${risco.nivelRisco}',
+                    'inerente ${risco.nivelRisco} → residual ${risco.nivelResidual}',
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
                 ],

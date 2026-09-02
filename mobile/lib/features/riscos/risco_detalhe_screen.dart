@@ -385,27 +385,52 @@ class _AbaDados extends StatelessWidget {
         const SizedBox(height: 16),
         _NivelResumo(risco: risco),
         const SizedBox(height: 16),
-        _campo(context, 'Evento', risco.evento),
-        _campo(context, 'Causa', risco.causa),
-        _campo(context, 'Consequência', risco.consequencia),
-        _campo(context, 'Controles atuais', risco.controlesAtuais),
-        _campo(context, 'Eficácia do controle', risco.eficaciaControle),
-        if (risco.objetivo != null)
-          _campo(context, 'Objetivo PDI', risco.objetivo!.rotulo),
-        if (risco.macroprocesso != null)
-          _campo(context, 'Macroprocesso', risco.macroprocesso!.nome),
-        if (risco.periodoInicio != null)
-          _campo(
-            context,
-            'Período de ação',
-            '${risco.periodoInicio} a ${risco.periodoFim ?? '—'}',
-          ),
+        _secao(context, 'Descrição do risco', [
+          _campo(context, 'Evento', risco.evento),
+          _campo(context, 'Causa', risco.causa),
+          _campo(context, 'Consequência', risco.consequencia),
+        ]),
+        const SizedBox(height: 12),
+        _secao(context, 'Controle', [
+          _campo(context, 'Controles atuais', risco.controlesAtuais),
+          _campo(context, 'Eficácia do controle', risco.eficaciaControle),
+        ]),
+        const SizedBox(height: 12),
+        _secao(context, 'Vínculos', [
+          if (risco.objetivo != null)
+            _campo(context, 'Objetivo PDI', risco.objetivo!.rotulo),
+          if (risco.macroprocesso != null)
+            _campo(context, 'Macroprocesso', risco.macroprocesso!.nome),
+          if (risco.periodoInicio != null)
+            _campo(
+              context,
+              'Período de ação',
+              '${risco.periodoInicio} a ${risco.periodoFim ?? '—'}',
+            ),
+        ]),
       ],
     );
   }
 
+  Widget _secao(BuildContext context, String titulo, List<Widget> campos) {
+    if (campos.isEmpty) return const SizedBox.shrink();
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(14, 12, 14, 2),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(titulo, style: Theme.of(context).textTheme.titleSmall),
+            const SizedBox(height: 10),
+            ...campos,
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _campo(BuildContext context, String rotulo, String valor) => Padding(
-    padding: const EdgeInsets.only(bottom: 14),
+    padding: const EdgeInsets.only(bottom: 12),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

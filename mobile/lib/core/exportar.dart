@@ -33,10 +33,7 @@ Future<void> exportarECompartilhar(
     await SharePlus.instance.share(ShareParams(files: [XFile(arquivo.path)]));
   } catch (e) {
     if (context.mounted) {
-      mostrarErro(
-        context,
-        'Arquivo salvo, mas o compartilhamento falhou: $e',
-      );
+      mostrarErro(context, 'Arquivo salvo, mas o compartilhamento falhou: $e');
     }
   }
 }

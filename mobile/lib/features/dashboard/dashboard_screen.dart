@@ -274,11 +274,6 @@ class _PorNivel extends StatelessWidget {
                   ),
               ],
             ),
-            const SizedBox(height: 4),
-            Text(
-              '${nivel.total} riscos no total',
-              style: Theme.of(context).textTheme.labelSmall,
-            ),
           ],
         ),
       ),
@@ -315,6 +310,22 @@ class _CategoriaChart extends StatelessWidget {
               maxY: (maxV + 1),
               gridData: const FlGridData(show: false),
               borderData: FlBorderData(show: false),
+              barTouchData: BarTouchData(
+                enabled: false,
+                touchTooltipData: BarTouchTooltipData(
+                  getTooltipColor: (_) => Colors.transparent,
+                  tooltipPadding: EdgeInsets.zero,
+                  tooltipMargin: 2,
+                  getTooltipItem: (group, _, rod, _) => BarTooltipItem(
+                    '${rod.toY.toInt()}',
+                    const TextStyle(
+                      color: AppColors.textSecondary,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ),
               titlesData: FlTitlesData(
                 leftTitles: const AxisTitles(
                   sideTitles: SideTitles(showTitles: true, reservedSize: 28),
@@ -350,6 +361,7 @@ class _CategoriaChart extends StatelessWidget {
                 for (var i = 0; i < dados.length; i++)
                   BarChartGroupData(
                     x: i,
+                    showingTooltipIndicators: const [0],
                     barRods: [
                       BarChartRodData(
                         toY: dados[i].quantidade.toDouble(),
