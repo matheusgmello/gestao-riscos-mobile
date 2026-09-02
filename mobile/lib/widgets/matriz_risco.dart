@@ -27,8 +27,10 @@ class MatrizRisco extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.centerLeft,
-          child: Text('Impacto (linhas) × Probabilidade (colunas)',
-              style: labelStyle),
+          child: Text(
+            'Impacto (linhas) × Probabilidade (colunas)',
+            style: labelStyle,
+          ),
         ),
         const SizedBox(height: 6),
         for (final imp in impactos)
@@ -36,8 +38,11 @@ class MatrizRisco extends StatelessWidget {
             children: [
               SizedBox(
                 width: 16,
-                child: Text('$imp',
-                    textAlign: TextAlign.center, style: labelStyle),
+                child: Text(
+                  '$imp',
+                  textAlign: TextAlign.center,
+                  style: labelStyle,
+                ),
               ),
               for (final prob in probs)
                 Expanded(
@@ -59,8 +64,11 @@ class MatrizRisco extends StatelessWidget {
             const SizedBox(width: 16),
             for (final prob in probs)
               Expanded(
-                child: Text('$prob',
-                    textAlign: TextAlign.center, style: labelStyle),
+                child: Text(
+                  '$prob',
+                  textAlign: TextAlign.center,
+                  style: labelStyle,
+                ),
               ),
           ],
         ),

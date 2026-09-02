@@ -5,6 +5,7 @@ import '../../core/api_error.dart';
 import '../../core/form_validators.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/token_service.dart';
+import 'recuperar_senha_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -104,6 +105,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           )
                         : const Text('Entrar'),
+                  ),
+                  TextButton(
+                    onPressed: _carregando
+                        ? null
+                        : () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const RecuperarSenhaScreen(),
+                            ),
+                          ),
+                    child: const Text('Esqueci minha senha'),
                   ),
                 ],
               ),

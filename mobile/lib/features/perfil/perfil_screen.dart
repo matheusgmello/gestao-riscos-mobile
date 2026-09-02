@@ -6,6 +6,7 @@ import '../../data/models/usuario_model.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/usuario_service.dart';
+import 'editar_perfil_screen.dart';
 
 class PerfilScreen extends StatefulWidget {
   const PerfilScreen({super.key});
@@ -39,10 +40,33 @@ class _PerfilScreenState extends State<PerfilScreen> {
     if (mounted) context.go('/login');
   }
 
+  Future<void> _editar(UsuarioModel u) async {
+    final mudou = await Navigator.of(context, rootNavigator: true).push<bool>(
+      MaterialPageRoute(builder: (_) => EditarPerfilScreen(usuario: u)),
+    );
+    if (mudou == true) {
+      setState(() => _future = _carregar());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Perfil')),
+      appBar: AppBar(
+        title: const Text('Perfil'),
+        actions: [
+          FutureBuilder<UsuarioModel>(
+            future: _future,
+            builder: (context, snap) => snap.hasData
+                ? IconButton(
+                    icon: const Icon(Icons.edit_outlined),
+                    tooltip: 'Editar perfil',
+                    onPressed: () => _editar(snap.data!),
+                  )
+                : const SizedBox.shrink(),
+          ),
+        ],
+      ),
       body: FutureBuilder<UsuarioModel>(
         future: _future,
         builder: (context, snap) {
