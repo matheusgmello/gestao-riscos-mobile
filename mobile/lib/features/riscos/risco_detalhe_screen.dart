@@ -10,10 +10,8 @@ import '../../data/models/monitoramento_model.dart';
 import '../../data/models/plano_acao_model.dart';
 import '../../data/models/risco_model.dart';
 import '../../data/models/usuario_model.dart';
+import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/exportacao_service.dart';
-import '../../data/services/monitoramento_service.dart';
-import '../../data/services/plano_acao_service.dart';
-import '../../data/services/risco_service.dart';
 import '../../data/services/token_service.dart';
 import '../../widgets/nivel_badge.dart';
 import '../monitoramentos/monitoramento_form_screen.dart';
@@ -31,9 +29,7 @@ class RiscoDetalheScreen extends StatefulWidget {
 
 class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   final _tokens = TokenService();
-  late final RiscoService _riscos = RiscoService(_tokens);
-  late final PlanoAcaoService _acoesSvc = PlanoAcaoService(_tokens);
-  late final MonitoramentoService _monSvc = MonitoramentoService(_tokens);
+  late final RiscoRepositorio _repo = RiscoRepositorio(_tokens);
   late final ExportacaoService _exportacao = ExportacaoService(_tokens);
 
   UsuarioModel? _usuario;
@@ -63,10 +59,11 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
     });
     try {
       _usuario ??= await _tokens.getUsuario();
-      final risco = await _riscos.obter(widget.uuid);
-      final acoes = await _acoesSvc.listarPorRisco(widget.uuid);
-      final mons = await _monSvc.listarPorRisco(widget.uuid);
-      final hist = await _riscos.historico(widget.uuid);
+      final risco = await _repo.obter(widget.uuid);
+      if (risco == null) throw Exception('Risco não encontrado no cache.');
+      final acoes = await _repo.acoes(widget.uuid);
+      final mons = await _repo.monitoramentos(widget.uuid);
+      final hist = await _repo.historico(widget.uuid);
       if (!mounted) return;
       setState(() {
         _risco = risco;
@@ -104,7 +101,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
       return;
     }
     try {
-      await _riscos.duplicar(widget.uuid);
+      await _repo.duplicar(widget.uuid);
       _mudou = true;
       if (mounted) {
         mostrarOk(context, 'Risco duplicado.');
@@ -127,7 +124,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
       return;
     }
     try {
-      await _riscos.desativar(widget.uuid);
+      await _repo.desativarRisco(widget.uuid);
       if (mounted) {
         mostrarOk(context, 'Risco excluído.');
         Navigator.pop(context, true);
@@ -172,7 +169,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
       return;
     }
     try {
-      await _acoesSvc.desativar(a.id);
+      await _repo.desativarAcao(a.id);
       _mudou = true;
       _carregar();
     } catch (e) {
@@ -216,7 +213,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
       return;
     }
     try {
-      await _monSvc.desativar(m.id);
+      await _repo.desativarMonitoramento(m.id);
       _mudou = true;
       _carregar();
     } catch (e) {

@@ -12,6 +12,7 @@ class PlanoAcao {
     this.progresso = 0,
     this.observacoes = '',
     this.ativo = true,
+    this.atualizadoEm,
   });
 
   final int id;
@@ -26,6 +27,7 @@ class PlanoAcao {
   final int progresso;
   final String observacoes;
   final bool ativo;
+  final String? atualizadoEm;
 
   static const tiposResposta = ['Mitigar', 'Evitar', 'Transferir', 'Aceitar'];
   static const statuses = [
@@ -48,6 +50,7 @@ class PlanoAcao {
     progresso: (j['progresso'] as num?)?.toInt() ?? 0,
     observacoes: j['observacoes'] as String? ?? '',
     ativo: j['ativo'] as bool? ?? true,
+    atualizadoEm: j['atualizado_em'] as String?,
   );
 
   Map<String, dynamic> toPayload() => {

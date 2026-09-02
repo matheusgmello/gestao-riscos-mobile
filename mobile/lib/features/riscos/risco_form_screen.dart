@@ -7,7 +7,7 @@ import '../../data/models/pdi_model.dart';
 import '../../data/models/risco_model.dart';
 import '../../data/models/unidade_model.dart';
 import '../../data/services/pdi_service.dart';
-import '../../data/services/risco_service.dart';
+import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/unidade_service.dart';
 import '../../widgets/nivel_badge.dart';
@@ -24,7 +24,7 @@ class RiscoFormScreen extends StatefulWidget {
 class _RiscoFormScreenState extends State<RiscoFormScreen> {
   final _formKey = GlobalKey<FormState>();
   final _tokens = TokenService();
-  late final RiscoService _service = RiscoService(_tokens);
+  late final RiscoRepositorio _repo = RiscoRepositorio(_tokens);
 
   bool get _edicao => widget.risco != null;
 
@@ -138,9 +138,9 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
     };
     try {
       if (_edicao) {
-        await _service.atualizar(widget.risco!.uuid, payload);
+        await _repo.atualizarRisco(widget.risco!.uuid, payload);
       } else {
-        await _service.criar(payload);
+        await _repo.criarRisco(payload);
       }
       if (mounted) {
         mostrarOk(context, _edicao ? 'Risco atualizado.' : 'Risco criado.');

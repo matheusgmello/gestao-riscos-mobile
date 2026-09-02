@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/app_feedback.dart';
 import '../../core/form_validators.dart';
 import '../../data/models/monitoramento_model.dart';
-import '../../data/services/monitoramento_service.dart';
+import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/token_service.dart';
 
 class MonitoramentoFormScreen extends StatefulWidget {
@@ -23,7 +23,7 @@ class MonitoramentoFormScreen extends StatefulWidget {
 
 class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
   final _formKey = GlobalKey<FormState>();
-  late final _service = MonitoramentoService(TokenService());
+  late final _repo = RiscoRepositorio(TokenService());
 
   bool get _edicao => widget.monitoramento != null;
   bool _salvando = false;
@@ -62,9 +62,9 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
     };
     try {
       if (_edicao) {
-        await _service.atualizar(widget.monitoramento!.id, payload);
+        await _repo.atualizarMonitoramento(widget.monitoramento!.id, payload);
       } else {
-        await _service.criar(payload);
+        await _repo.criarMonitoramento(payload);
       }
       if (mounted) {
         mostrarOk(

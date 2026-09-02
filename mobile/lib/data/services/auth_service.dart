@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import '../../core/api_error.dart';
+import '../local/banco.dart';
 import '../models/auth_model.dart';
 import 'api_client.dart';
 import 'token_service.dart';
@@ -25,5 +26,8 @@ class AuthService {
     }
   }
 
-  Future<void> logout() => _tokenService.clear();
+  Future<void> logout() async {
+    await Banco.instance.limpar();
+    await _tokenService.clear();
+  }
 }

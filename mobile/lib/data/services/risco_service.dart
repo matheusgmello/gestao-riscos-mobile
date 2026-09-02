@@ -77,6 +77,56 @@ class FiltroRisco {
     if (incluirInativos) q['incluir_inativos'] = 'true';
     return q;
   }
+
+  /// Aplica busca/filtros/ordenação sobre a lista do cache local (modo offline).
+  List<Risco> aplicar(List<Risco> riscos) {
+    final termo = busca?.trim().toLowerCase() ?? '';
+    var out = riscos.where((r) {
+      if (!incluirInativos && !r.ativo) return false;
+      if (setorId != null && r.setorId != setorId) return false;
+      if (categoria != null && r.categoria != categoria) return false;
+      if (dataInicio != null &&
+          (r.periodoInicio == null ||
+              r.periodoInicio!.compareTo(dataInicio!) < 0)) {
+        return false;
+      }
+      if (dataFim != null &&
+          (r.periodoFim == null || r.periodoFim!.compareTo(dataFim!) > 0)) {
+        return false;
+      }
+      if (termo.isNotEmpty) {
+        final alvo = [
+          r.evento,
+          r.causa,
+          r.consequencia,
+          r.macroprocesso?.nome ?? '',
+          r.objetivo?.codigo ?? '',
+          r.objetivo?.descricao ?? '',
+        ].join(' ').toLowerCase();
+        if (!alvo.contains(termo)) return false;
+      }
+      return true;
+    }).toList();
+
+    int cmp(Risco a, Risco b) => switch (ordenacao) {
+      OrdenacaoRisco.recentes => (b.atualizadoEm ?? '').compareTo(
+        a.atualizadoEm ?? '',
+      ),
+      OrdenacaoRisco.antigos => (a.atualizadoEm ?? '').compareTo(
+        b.atualizadoEm ?? '',
+      ),
+      OrdenacaoRisco.nivelMaior => b.nivelResidual.compareTo(a.nivelResidual),
+      OrdenacaoRisco.nivelMenor => a.nivelResidual.compareTo(b.nivelResidual),
+      OrdenacaoRisco.prazoProximo => (a.periodoFim ?? '9999').compareTo(
+        b.periodoFim ?? '9999',
+      ),
+      OrdenacaoRisco.prazoDistante => (b.periodoFim ?? '').compareTo(
+        a.periodoFim ?? '',
+      ),
+    };
+    out.sort(cmp);
+    return out;
+  }
 }
 
 class RiscoService {

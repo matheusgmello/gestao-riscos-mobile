@@ -7,6 +7,7 @@ class Monitoramento {
     required this.analiseCritica,
     this.dataVerificacao = '',
     this.ativo = true,
+    this.atualizadoEm,
   });
 
   final int id;
@@ -16,6 +17,7 @@ class Monitoramento {
   final String analiseCritica;
   final String dataVerificacao;
   final bool ativo;
+  final String? atualizadoEm;
 
   factory Monitoramento.fromJson(Map<String, dynamic> j) => Monitoramento(
     id: (j['id'] as num).toInt(),
@@ -25,6 +27,7 @@ class Monitoramento {
     analiseCritica: j['analise_critica'] as String? ?? '',
     dataVerificacao: j['data_verificacao'] as String? ?? '',
     ativo: j['ativo'] as bool? ?? true,
+    atualizadoEm: j['atualizado_em'] as String?,
   );
 
   Map<String, dynamic> toPayload() => {

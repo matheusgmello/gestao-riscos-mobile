@@ -3,17 +3,20 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
-import '../../core/app_feedback.dart';
 import '../../core/exportar.dart';
 import '../../data/models/risco_model.dart';
 import '../../data/models/unidade_model.dart';
 import '../../data/models/usuario_model.dart';
+import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/exportacao_service.dart';
 import '../../data/services/risco_service.dart';
 import '../../data/services/token_service.dart';
+import '../../data/services/pdi_service.dart';
 import '../../data/services/unidade_service.dart';
+import '../../data/sync/motor_sync.dart';
 import '../../widgets/busca_selecao.dart';
 import '../../widgets/nivel_badge.dart';
+import '../../widgets/sync_status_bar.dart';
 import 'risco_detalhe_screen.dart';
 import 'risco_form_screen.dart';
 
@@ -26,7 +29,7 @@ class RiscosScreen extends StatefulWidget {
 
 class _RiscosScreenState extends State<RiscosScreen> {
   final _tokens = TokenService();
-  late final RiscoService _service = RiscoService(_tokens);
+  late final RiscoRepositorio _repo = RiscoRepositorio(_tokens);
   late final ExportacaoService _exportacao = ExportacaoService(_tokens);
   final _scroll = ScrollController();
   final _buscaCtrl = TextEditingController();
@@ -36,22 +39,25 @@ class _RiscosScreenState extends State<RiscosScreen> {
   List<UnidadeModel> _unidades = [];
   FiltroRisco _filtro = const FiltroRisco();
 
-  final List<Risco> _riscos = [];
-  int _page = 1;
-  bool _temMais = false;
+  List<Risco> _todos = [];
+  List<Risco> _riscos = [];
   bool _carregando = true;
-  bool _carregandoMais = false;
   Object? _erro;
+
+  StreamSubscription<EstadoSync>? _syncSub;
 
   @override
   void initState() {
     super.initState();
-    _scroll.addListener(_aoRolar);
     _iniciar();
+    _syncSub = MotorSync.instance.estado.listen((e) {
+      if (e == EstadoSync.ocioso && mounted) _recarregar();
+    });
   }
 
   @override
   void dispose() {
+    _syncSub?.cancel();
     _debounce?.cancel();
     _scroll.dispose();
     _buscaCtrl.dispose();
@@ -68,6 +74,10 @@ class _RiscosScreenState extends State<RiscosScreen> {
     try {
       final u = await UnidadeService(_tokens).listar();
       if (mounted) setState(() => _unidades = u);
+      // aquece o cache dos selects do formulário (para funcionar offline)
+      final pdi = PdiService(_tokens);
+      unawaited(pdi.objetivos());
+      unawaited(pdi.macroprocessos());
     } catch (_) {
       // filtro por unidade fica indisponível, mas a lista funciona
     }
@@ -79,14 +89,11 @@ class _RiscosScreenState extends State<RiscosScreen> {
       _erro = null;
     });
     try {
-      final pagina = await _service.listar(page: 1, filtro: _filtro);
+      final todos = await _repo.listar();
       if (!mounted) return;
       setState(() {
-        _riscos
-          ..clear()
-          ..addAll(pagina.results);
-        _page = 1;
-        _temMais = pagina.hasNext;
+        _todos = todos;
+        _riscos = _filtro.aplicar(todos);
         _carregando = false;
       });
     } catch (e) {
@@ -98,36 +105,18 @@ class _RiscosScreenState extends State<RiscosScreen> {
     }
   }
 
-  Future<void> _carregarMais() async {
-    if (_carregandoMais || !_temMais) return;
-    setState(() => _carregandoMais = true);
-    try {
-      final pagina = await _service.listar(page: _page + 1, filtro: _filtro);
-      if (!mounted) return;
-      setState(() {
-        _riscos.addAll(pagina.results);
-        _page++;
-        _temMais = pagina.hasNext;
-        _carregandoMais = false;
-      });
-    } catch (e) {
-      if (!mounted) return;
-      setState(() => _carregandoMais = false);
-      mostrarErro(context, e);
-    }
+  Future<void> _sincronizar() async {
+    await MotorSync.instance.sincronizar();
+    await _recarregar();
   }
 
-  void _aoRolar() {
-    if (_scroll.position.pixels >= _scroll.position.maxScrollExtent - 400) {
-      _carregarMais();
-    }
-  }
+  void _reaplicarFiltro() => setState(() => _riscos = _filtro.aplicar(_todos));
 
   void _aoBuscar(String v) {
     _debounce?.cancel();
-    _debounce = Timer(const Duration(milliseconds: 450), () {
+    _debounce = Timer(const Duration(milliseconds: 350), () {
       setState(() => _filtro = _filtro.copyWith(busca: v));
-      _recarregar();
+      _reaplicarFiltro();
     });
   }
 
@@ -143,7 +132,7 @@ class _RiscosScreenState extends State<RiscosScreen> {
     );
     if (novo != null) {
       setState(() => _filtro = novo);
-      _recarregar();
+      _reaplicarFiltro();
     }
   }
 
@@ -208,6 +197,7 @@ class _RiscosScreenState extends State<RiscosScreen> {
           : null,
       body: Column(
         children: [
+          const SyncStatusBar(),
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
             child: TextField(
@@ -263,24 +253,14 @@ class _RiscosScreenState extends State<RiscosScreen> {
       );
     }
     return RefreshIndicator(
-      onRefresh: _recarregar,
+      onRefresh: _sincronizar,
       child: ListView.separated(
         controller: _scroll,
         padding: const EdgeInsets.fromLTRB(12, 4, 12, 88),
-        itemCount: _riscos.length + (_temMais ? 1 : 0),
+        itemCount: _riscos.length,
         separatorBuilder: (_, _) => const SizedBox(height: 8),
-        itemBuilder: (context, i) {
-          if (i >= _riscos.length) {
-            return const Padding(
-              padding: EdgeInsets.all(16),
-              child: Center(child: CircularProgressIndicator()),
-            );
-          }
-          return _RiscoCard(
-            risco: _riscos[i],
-            onTap: () => _abrirRisco(_riscos[i]),
-          );
-        },
+        itemBuilder: (context, i) =>
+            _RiscoCard(risco: _riscos[i], onTap: () => _abrirRisco(_riscos[i])),
       ),
     );
   }
@@ -305,6 +285,14 @@ class _RiscoCard extends StatelessWidget {
             children: [
               Row(
                 children: [
+                  if (risco.pendenteSync) ...[
+                    const Icon(
+                      Icons.cloud_upload_outlined,
+                      size: 14,
+                      color: AppColors.primary,
+                    ),
+                    const SizedBox(width: 4),
+                  ],
                   Expanded(
                     child: Text(
                       risco.setorRotulo,

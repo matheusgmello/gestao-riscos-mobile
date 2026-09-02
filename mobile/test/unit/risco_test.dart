@@ -74,4 +74,70 @@ void main() {
       expect(r.faixaResidual, FaixaNivel.moderado);
     });
   });
+
+  group('FiltroRisco.aplicar', () {
+    final riscos = [
+      _risco(uuid: 'a', setor: 1, categoria: 'Operacional', nivelResidual: 12),
+      _risco(uuid: 'b', setor: 2, categoria: 'Imagem', nivelResidual: 4),
+      _risco(uuid: 'c', setor: 1, categoria: 'Operacional', ativo: false),
+    ];
+
+    test('esconde inativos por padrão', () {
+      final out = const FiltroRisco().aplicar(riscos);
+      expect(out.map((r) => r.uuid), unorderedEquals(['a', 'b']));
+    });
+
+    test('filtra por setor e categoria', () {
+      final out = const FiltroRisco(
+        setorId: 1,
+        categoria: 'Operacional',
+      ).aplicar(riscos);
+      expect(out.single.uuid, 'a');
+    });
+
+    test('ordena por nível residual', () {
+      final out = const FiltroRisco(ordenacao: OrdenacaoRisco.nivelMaior)
+          .aplicar(riscos);
+      expect(out.first.uuid, 'a');
+    });
+
+    test('busca textual no evento', () {
+      final lista = [_risco(uuid: 'x', evento: 'incêndio no laboratório')];
+      expect(const FiltroRisco(busca: 'incêndio').aplicar(lista), hasLength(1));
+      expect(const FiltroRisco(busca: 'inundação').aplicar(lista), isEmpty);
+    });
+  });
 }
+
+// --- FiltroRisco.aplicar (modo offline) ---
+
+Risco _risco({
+  String uuid = 'x',
+  int setor = 1,
+  String categoria = 'Operacional',
+  String evento = 'evento',
+  int nivelResidual = 6,
+  bool ativo = true,
+  String? atualizadoEm,
+  String? periodoFim,
+}) => Risco(
+  uuid: uuid,
+  setorId: setor,
+  objetivoId: 1,
+  macroprocessoId: 1,
+  categoria: categoria,
+  evento: evento,
+  causa: 'c',
+  consequencia: 'q',
+  controlesAtuais: 'ca',
+  eficaciaControle: 'Fraco',
+  probabilidade: 2,
+  impacto: 3,
+  nivelRisco: 6,
+  probResidual: 2,
+  impResidual: 3,
+  nivelResidual: nivelResidual,
+  ativo: ativo,
+  atualizadoEm: atualizadoEm,
+  periodoFim: periodoFim,
+);

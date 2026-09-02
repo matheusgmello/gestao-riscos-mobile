@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import '../../core/app_feedback.dart';
 import '../../core/form_validators.dart';
 import '../../data/models/plano_acao_model.dart';
-import '../../data/services/plano_acao_service.dart';
+import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/token_service.dart';
 
 class PlanoAcaoFormScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class PlanoAcaoFormScreen extends StatefulWidget {
 
 class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
   final _formKey = GlobalKey<FormState>();
-  late final _service = PlanoAcaoService(TokenService());
+  late final _repo = RiscoRepositorio(TokenService());
   static final _fmt = DateFormat('yyyy-MM-dd');
 
   bool get _edicao => widget.acao != null;
@@ -103,9 +103,9 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
     };
     try {
       if (_edicao) {
-        await _service.atualizar(widget.acao!.id, payload);
+        await _repo.atualizarAcao(widget.acao!.id, payload);
       } else {
-        await _service.criar(payload);
+        await _repo.criarAcao(payload);
       }
       if (mounted) {
         mostrarOk(context, _edicao ? 'Ação atualizada.' : 'Ação criada.');

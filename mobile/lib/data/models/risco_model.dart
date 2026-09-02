@@ -27,6 +27,9 @@ class Risco {
     this.periodoFim,
     this.possuiPlanoAcao = false,
     this.possuiMonitoramento = false,
+    this.ativo = true,
+    this.atualizadoEm,
+    this.pendenteSync = false,
   });
 
   final String uuid;
@@ -53,6 +56,17 @@ class Risco {
   final String? periodoFim;
   final bool possuiPlanoAcao;
   final bool possuiMonitoramento;
+
+  /// `false` = registro desativado (soft delete). Usado pelo cache offline
+  /// para propagar a exclusão feita no servidor.
+  final bool ativo;
+
+  /// `atualizado_em` do servidor (ISO 8601). Cursor do pull incremental e
+  /// versão-base enviada no PATCH para a checagem de concorrência.
+  final String? atualizadoEm;
+
+  /// `true` quando há uma alteração local ainda não sincronizada.
+  final bool pendenteSync;
 
   FaixaNivel get faixaInerente => FaixaNivel.of(nivelRisco);
   FaixaNivel get faixaResidual => FaixaNivel.of(nivelResidual);
@@ -98,6 +112,9 @@ class Risco {
       periodoFim: periodo is Map ? periodo['data_fim'] as String? : null,
       possuiPlanoAcao: j['possui_plano_acao'] as bool? ?? false,
       possuiMonitoramento: j['possui_monitoramento'] as bool? ?? false,
+      ativo: j['ativo'] as bool? ?? true,
+      atualizadoEm: j['atualizado_em'] as String?,
+      pendenteSync: j['pendente_sync'] as bool? ?? false,
     );
   }
 
