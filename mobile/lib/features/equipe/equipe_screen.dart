@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../core/app_feedback.dart';
@@ -5,6 +7,8 @@ import '../../data/models/unidade_model.dart';
 import '../../data/models/usuario_model.dart';
 import '../../data/services/equipe_service.dart';
 import '../../data/services/token_service.dart';
+import '../../data/sync/conectividade.dart';
+import '../../widgets/sync_status_bar.dart';
 
 class EquipeScreen extends StatefulWidget {
   const EquipeScreen({super.key});
@@ -23,10 +27,22 @@ class _EquipeScreenState extends State<EquipeScreen> {
   bool _carregando = true;
   Object? _erro;
 
+  bool _online = Conectividade.instance.online;
+  StreamSubscription<bool>? _conSub;
+
   @override
   void initState() {
     super.initState();
     _iniciar();
+    _conSub = Conectividade.instance.mudancas.listen((v) {
+      if (mounted) setState(() => _online = v);
+    });
+  }
+
+  @override
+  void dispose() {
+    _conSub?.cancel();
+    super.dispose();
   }
 
   Future<void> _iniciar() async {
@@ -126,14 +142,16 @@ class _EquipeScreenState extends State<EquipeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Equipe')),
-      floatingActionButton: _setor == null
+      floatingActionButton: (_setor == null || !_online)
           ? null
           : FloatingActionButton.extended(
               onPressed: _adicionar,
               icon: const Icon(Icons.person_add),
               label: const Text('Adicionar'),
             ),
-      body: _corpo(),
+      body: Column(
+        children: [const SyncStatusBar(), Expanded(child: _corpo())],
+      ),
     );
   }
 
@@ -196,11 +214,13 @@ class _EquipeScreenState extends State<EquipeScreen> {
             subtitle: Text(
               'SIAPE ${m.siape} · ${m.isSuperuser ? "admin" : m.cargo}',
             ),
-            trailing: IconButton(
-              icon: const Icon(Icons.person_remove_outlined),
-              tooltip: 'Remover',
-              onPressed: () => _remover(m),
-            ),
+            trailing: _online
+                ? IconButton(
+                    icon: const Icon(Icons.person_remove_outlined),
+                    tooltip: 'Remover',
+                    onPressed: () => _remover(m),
+                  )
+                : null,
           );
         },
       ),

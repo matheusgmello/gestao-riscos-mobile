@@ -57,6 +57,9 @@ class DaoSync {
   // --- Leitura do cache ---
 
   Future<List<Map<String, dynamic>>> riscos() => _lista(Recurso.risco);
+  Future<List<Map<String, dynamic>>> acoes() => _lista(Recurso.acao);
+  Future<List<Map<String, dynamic>>> monitoramentos() =>
+      _lista(Recurso.monitoramento);
   Future<List<Map<String, dynamic>>> acoesDoRisco(String uuid) =>
       _lista(Recurso.acao, uuid);
   Future<List<Map<String, dynamic>>> monitoramentosDoRisco(String uuid) =>

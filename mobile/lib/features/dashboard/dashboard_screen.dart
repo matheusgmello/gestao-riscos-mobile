@@ -10,6 +10,7 @@ import '../../data/services/token_service.dart';
 import '../../data/services/unidade_service.dart';
 import '../../widgets/busca_selecao.dart';
 import '../../widgets/matriz_risco.dart';
+import '../../widgets/sync_status_bar.dart';
 import '../riscos/risco_detalhe_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -99,7 +100,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ],
       ),
-      body: _corpo(),
+      body: Column(
+        children: [const SyncStatusBar(), Expanded(child: _corpo())],
+      ),
     );
   }
 

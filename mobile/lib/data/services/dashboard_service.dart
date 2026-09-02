@@ -1,5 +1,9 @@
+import 'package:dio/dio.dart';
+
 import '../../core/api_error.dart';
+import '../local/dashboard_local.dart';
 import '../models/dashboard_model.dart';
+import '../sync/conectividade.dart';
 import 'api_client.dart';
 import 'token_service.dart';
 
@@ -51,13 +55,20 @@ class DashboardService {
 
   final ApiClient _client;
 
+  /// Busca a analítica no servidor. Offline (ou sem rede) reconstrói o mesmo
+  /// payload a partir do cache local — ver [dashboardDoCache].
   Future<Dashboard> carregar([
     FiltroDashboard filtro = const FiltroDashboard(),
-  ]) => comApiError(() async {
-    final res = await _client.dio.get(
-      '/api/riscos/planos/dashboard/',
-      queryParameters: filtro.toQuery(),
-    );
-    return Dashboard.fromJson(res.data as Map<String, dynamic>);
-  });
+  ]) async {
+    try {
+      final res = await _client.dio.get(
+        '/api/riscos/planos/dashboard/',
+        queryParameters: filtro.toQuery(),
+      );
+      return Dashboard.fromJson(res.data as Map<String, dynamic>);
+    } on DioException catch (e) {
+      if (Conectividade.instance.online) throw ApiError.fromDio(e);
+      return dashboardDoCache(filtro);
+    }
+  }
 }

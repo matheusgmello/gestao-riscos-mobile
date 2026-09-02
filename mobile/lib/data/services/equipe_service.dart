@@ -1,4 +1,5 @@
 import '../../core/api_error.dart';
+import '../local/cache_lista.dart';
 import '../models/usuario_model.dart';
 import 'api_client.dart';
 import 'token_service.dart';
@@ -9,15 +10,20 @@ class EquipeService {
 
   final ApiClient _client;
 
-  Future<List<UsuarioModel>> membros(int setorId) => comApiError(() async {
-    final res = await _client.dio.get(
-      '/api/usuarios/setores/$setorId/membros/',
-    );
-    return (res.data as List<dynamic>)
-        .whereType<Map<String, dynamic>>()
-        .map(UsuarioModel.fromJson)
-        .toList();
-  });
+  /// Lista os membros da unidade. Cache-through: offline devolve a última
+  /// equipe vista (somente leitura — a tela esconde adicionar/remover).
+  Future<List<UsuarioModel>> membros(int setorId) => listaComCache(
+    chave: 'equipe:$setorId',
+    fromJson: UsuarioModel.fromJson,
+    buscar: () => comApiError(() async {
+      final res = await _client.dio.get(
+        '/api/usuarios/setores/$setorId/membros/',
+      );
+      return (res.data as List<dynamic>)
+          .whereType<Map<String, dynamic>>()
+          .toList();
+    }),
+  );
 
   Future<void> adicionar(int setorId, String siape) => comApiError(() async {
     await _client.dio.post(
