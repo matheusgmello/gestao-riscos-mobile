@@ -70,3 +70,12 @@ class ApiError implements Exception {
   @override
   String toString() => message;
 }
+
+/// Executa [fn] convertendo qualquer `DioException` em [ApiError].
+Future<T> comApiError<T>(Future<T> Function() fn) async {
+  try {
+    return await fn();
+  } on DioException catch (e) {
+    throw ApiError.fromDio(e);
+  }
+}
