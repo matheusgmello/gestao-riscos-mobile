@@ -7,12 +7,7 @@ void main() {
     final d = Dashboard.fromJson({
       'total_planos': 9,
       'riscos_criticos': 4,
-      'riscos_por_nivel': {
-        'extremo': 1,
-        'alto': 3,
-        'moderado': 4,
-        'baixo': 1,
-      },
+      'riscos_por_nivel': {'extremo': 1, 'alto': 3, 'moderado': 4, 'baixo': 1},
       'status_tratamentos': {
         'em_andamento': 4,
         'concluidas': 1,

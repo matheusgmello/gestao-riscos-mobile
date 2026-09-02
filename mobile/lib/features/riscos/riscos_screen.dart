@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/app_feedback.dart';
+import '../../core/exportar.dart';
 import '../../data/models/risco_model.dart';
 import '../../data/models/unidade_model.dart';
 import '../../data/models/usuario_model.dart';
+import '../../data/services/exportacao_service.dart';
 import '../../data/services/risco_service.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/unidade_service.dart';
@@ -25,6 +27,7 @@ class RiscosScreen extends StatefulWidget {
 class _RiscosScreenState extends State<RiscosScreen> {
   final _tokens = TokenService();
   late final RiscoService _service = RiscoService(_tokens);
+  late final ExportacaoService _exportacao = ExportacaoService(_tokens);
   final _scroll = ScrollController();
   final _buscaCtrl = TextEditingController();
   Timer? _debounce;
@@ -166,6 +169,26 @@ class _RiscosScreenState extends State<RiscosScreen> {
       appBar: AppBar(
         title: const Text('Riscos'),
         actions: [
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.ios_share),
+            tooltip: 'Exportar',
+            onSelected: (v) => exportarECompartilhar(
+              context,
+              () => v == 'excel'
+                  ? _exportacao.listaExcel(_filtro)
+                  : _exportacao.relatorioPdf(_filtro),
+            ),
+            itemBuilder: (_) => const [
+              PopupMenuItem(
+                value: 'excel',
+                child: Text('Planilha (Excel) da lista'),
+              ),
+              PopupMenuItem(
+                value: 'pdf',
+                child: Text('Relatório gerencial (PDF)'),
+              ),
+            ],
+          ),
           IconButton(
             icon: Badge(
               isLabelVisible: _filtro.temFiltroAtivo,

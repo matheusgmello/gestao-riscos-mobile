@@ -13,16 +13,20 @@ DioException _erro(int status, dynamic body) {
 
 void main() {
   test('extrai {"erro": ...}', () {
-    final e = ApiError.fromDio(_erro(400, {'erro': 'SIAPE ou senha inválidos.'}));
+    final e = ApiError.fromDio(
+      _erro(400, {'erro': 'SIAPE ou senha inválidos.'}),
+    );
     expect(e.message, 'SIAPE ou senha inválidos.');
     expect(e.statusCode, 400);
   });
 
   test('extrai primeiro erro de campo do DRF', () {
-    final e = ApiError.fromDio(_erro(400, {
-      'senha': ['A senha deve ter pelo menos 8 caracteres.'],
-      'email': ['Já existe usuário com este e-mail.'],
-    }));
+    final e = ApiError.fromDio(
+      _erro(400, {
+        'senha': ['A senha deve ter pelo menos 8 caracteres.'],
+        'email': ['Já existe usuário com este e-mail.'],
+      }),
+    );
     expect(e.message, 'A senha deve ter pelo menos 8 caracteres.');
     expect(e.fields, isNotNull);
     expect(e.fields!.keys, containsAll(['senha', 'email']));

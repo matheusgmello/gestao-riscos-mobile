@@ -4,7 +4,8 @@ import 'package:gestao_risco_mobile/data/models/page_response.dart';
 class _Item {
   _Item(this.id);
   final int id;
-  static _Item fromJson(Map<String, dynamic> j) => _Item((j['id'] as num).toInt());
+  static _Item fromJson(Map<String, dynamic> j) =>
+      _Item((j['id'] as num).toInt());
 }
 
 void main() {
@@ -25,10 +26,11 @@ void main() {
   });
 
   test('fromDrf sem next não tem próxima página', () {
-    final page = PageResponse.fromDrf(
-      {'count': 2, 'next': null, 'results': []},
-      _Item.fromJson,
-    );
+    final page = PageResponse.fromDrf({
+      'count': 2,
+      'next': null,
+      'results': [],
+    }, _Item.fromJson);
     expect(page.hasNext, isFalse);
   });
 

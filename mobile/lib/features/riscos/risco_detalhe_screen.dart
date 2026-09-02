@@ -3,12 +3,14 @@ import 'package:intl/intl.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/app_feedback.dart';
+import '../../core/exportar.dart';
 import '../../core/role.dart';
 import '../../data/models/historico_model.dart';
 import '../../data/models/monitoramento_model.dart';
 import '../../data/models/plano_acao_model.dart';
 import '../../data/models/risco_model.dart';
 import '../../data/models/usuario_model.dart';
+import '../../data/services/exportacao_service.dart';
 import '../../data/services/monitoramento_service.dart';
 import '../../data/services/plano_acao_service.dart';
 import '../../data/services/risco_service.dart';
@@ -32,6 +34,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   late final RiscoService _riscos = RiscoService(_tokens);
   late final PlanoAcaoService _acoesSvc = PlanoAcaoService(_tokens);
   late final MonitoramentoService _monSvc = MonitoramentoService(_tokens);
+  late final ExportacaoService _exportacao = ExportacaoService(_tokens);
 
   UsuarioModel? _usuario;
   Risco? _risco;
@@ -234,6 +237,21 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
           appBar: AppBar(
             title: const Text('Risco'),
             actions: [
+              if (_risco != null)
+                PopupMenuButton<String>(
+                  icon: const Icon(Icons.ios_share),
+                  tooltip: 'Exportar',
+                  onSelected: (v) => exportarECompartilhar(
+                    context,
+                    () => v == 'excel'
+                        ? _exportacao.riscoExcel(widget.uuid)
+                        : _exportacao.riscoPdf(widget.uuid),
+                  ),
+                  itemBuilder: (_) => const [
+                    PopupMenuItem(value: 'excel', child: Text('Excel')),
+                    PopupMenuItem(value: 'pdf', child: Text('PDF')),
+                  ],
+                ),
               if (_podeEscrever && _risco != null)
                 PopupMenuButton<String>(
                   onSelected: (v) {
