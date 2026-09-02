@@ -30,15 +30,27 @@ class _AppShellState extends State<AppShell> {
 
   static List<_Tab> _tabsPara(Role role) {
     return [
-      const _Tab('/riscos', Icons.warning_amber_outlined, Icons.warning_amber,
-          'Riscos'),
-      const _Tab('/dashboard', Icons.insights_outlined, Icons.insights,
-          'Dashboard'),
+      const _Tab(
+        '/riscos',
+        Icons.warning_amber_outlined,
+        Icons.warning_amber,
+        'Riscos',
+      ),
+      const _Tab(
+        '/dashboard',
+        Icons.insights_outlined,
+        Icons.insights,
+        'Dashboard',
+      ),
       if (role.podeGerenciarEquipe && !role.ehAdmin)
         const _Tab('/equipe', Icons.groups_outlined, Icons.groups, 'Equipe'),
       if (role.ehAdmin)
-        const _Tab('/admin', Icons.admin_panel_settings_outlined,
-            Icons.admin_panel_settings, 'Admin'),
+        const _Tab(
+          '/admin',
+          Icons.admin_panel_settings_outlined,
+          Icons.admin_panel_settings,
+          'Admin',
+        ),
       const _Tab('/perfil', Icons.person_outline, Icons.person, 'Perfil'),
     ];
   }

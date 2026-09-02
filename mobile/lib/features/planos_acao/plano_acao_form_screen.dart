@@ -8,11 +8,7 @@ import '../../data/services/plano_acao_service.dart';
 import '../../data/services/token_service.dart';
 
 class PlanoAcaoFormScreen extends StatefulWidget {
-  const PlanoAcaoFormScreen({
-    super.key,
-    required this.riscoUuid,
-    this.acao,
-  });
+  const PlanoAcaoFormScreen({super.key, required this.riscoUuid, this.acao});
 
   final String riscoUuid;
   final PlanoAcao? acao;
@@ -127,7 +123,8 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(_edicao ? 'Editar plano de ação' : 'Novo plano de ação')),
+        title: Text(_edicao ? 'Editar plano de ação' : 'Novo plano de ação'),
+      ),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(12),
@@ -138,7 +135,10 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
                     height: 20,
                     width: 20,
                     child: CircularProgressIndicator(
-                        strokeWidth: 2, color: Colors.white))
+                      strokeWidth: 2,
+                      color: Colors.white,
+                    ),
+                  )
                 : Text(_edicao ? 'Salvar' : 'Criar'),
           ),
         ),
@@ -151,8 +151,9 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
             DropdownButtonFormField<String>(
               initialValue: _tipoResposta,
               isExpanded: true,
-              decoration:
-                  const InputDecoration(labelText: 'Tipo de resposta *'),
+              decoration: const InputDecoration(
+                labelText: 'Tipo de resposta *',
+              ),
               items: [
                 for (final t in PlanoAcao.tiposResposta)
                   DropdownMenuItem(value: t, child: Text(t)),
@@ -165,7 +166,9 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
               controller: _descricao,
               minLines: 2,
               maxLines: 4,
-              decoration: const InputDecoration(labelText: 'Descrição da ação *'),
+              decoration: const InputDecoration(
+                labelText: 'Descrição da ação *',
+              ),
               validator: (v) => FormValidators.obrigatorio(v, 'Descrição'),
             ),
             const SizedBox(height: 12),
@@ -183,13 +186,19 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
             Row(
               children: [
                 Expanded(
-                  child: _campoData('Início *', _inicio,
-                      () => _escolherData(inicio: true)),
+                  child: _campoData(
+                    'Início *',
+                    _inicio,
+                    () => _escolherData(inicio: true),
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: _campoData(
-                      'Fim *', _fim, () => _escolherData(inicio: false)),
+                    'Fim *',
+                    _fim,
+                    () => _escolherData(inicio: false),
+                  ),
                 ),
               ],
             ),
@@ -206,8 +215,10 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
               onChanged: (v) => setState(() => _status = v),
             ),
             const SizedBox(height: 16),
-            Text('Progresso: ${_progresso.round()}%',
-                style: Theme.of(context).textTheme.labelMedium),
+            Text(
+              'Progresso: ${_progresso.round()}%',
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
             Slider(
               value: _progresso,
               max: 100,
@@ -233,9 +244,9 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
       onTap: onTap,
       child: InputDecorator(
         decoration: InputDecoration(labelText: rotulo),
-        child: Text(valor == null
-            ? 'Selecionar'
-            : DateFormat('dd/MM/yyyy').format(valor)),
+        child: Text(
+          valor == null ? 'Selecionar' : DateFormat('dd/MM/yyyy').format(valor),
+        ),
       ),
     );
   }

@@ -2,7 +2,11 @@
 // Endpoints sem paginação (/api/riscos/desafios|objetivos|macroprocessos/).
 
 class DesafioPdi {
-  const DesafioPdi({required this.id, required this.numero, required this.descricao});
+  const DesafioPdi({
+    required this.id,
+    required this.numero,
+    required this.descricao,
+  });
 
   final int id;
   final int numero;
@@ -11,10 +15,10 @@ class DesafioPdi {
   String get rotulo => '$numero. $descricao';
 
   factory DesafioPdi.fromJson(Map<String, dynamic> j) => DesafioPdi(
-        id: (j['id'] as num).toInt(),
-        numero: (j['numero'] as num?)?.toInt() ?? 0,
-        descricao: j['descricao'] as String? ?? '',
-      );
+    id: (j['id'] as num).toInt(),
+    numero: (j['numero'] as num?)?.toInt() ?? 0,
+    descricao: j['descricao'] as String? ?? '',
+  );
 }
 
 class ObjetivoPdi {
@@ -53,7 +57,7 @@ class Macroprocesso {
   final String nome;
 
   factory Macroprocesso.fromJson(Map<String, dynamic> j) => Macroprocesso(
-        id: (j['id'] as num).toInt(),
-        nome: j['nome'] as String? ?? '',
-      );
+    id: (j['id'] as num).toInt(),
+    nome: j['nome'] as String? ?? '',
+  );
 }

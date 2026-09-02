@@ -32,19 +32,20 @@ class PlanoAcaoService {
 
   Future<PlanoAcao> criar(Map<String, dynamic> payload) =>
       comApiError(() async {
-        final res =
-            await _client.dio.post('/api/riscos/acoes/', data: payload);
+        final res = await _client.dio.post('/api/riscos/acoes/', data: payload);
         return PlanoAcao.fromJson(res.data as Map<String, dynamic>);
       });
 
   Future<PlanoAcao> atualizar(int id, Map<String, dynamic> payload) =>
       comApiError(() async {
-        final res =
-            await _client.dio.patch('/api/riscos/acoes/$id/', data: payload);
+        final res = await _client.dio.patch(
+          '/api/riscos/acoes/$id/',
+          data: payload,
+        );
         return PlanoAcao.fromJson(res.data as Map<String, dynamic>);
       });
 
   Future<void> desativar(int id) => comApiError(() async {
-        await _client.dio.delete('/api/riscos/acoes/$id/');
-      });
+    await _client.dio.delete('/api/riscos/acoes/$id/');
+  });
 }

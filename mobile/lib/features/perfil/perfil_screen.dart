@@ -59,8 +59,10 @@ class _PerfilScreenState extends State<PerfilScreen> {
               _linha('Nome', u.nome),
               _linha('SIAPE', u.siape),
               _linha('E-mail', u.email ?? '—'),
-              _linha('Cargo',
-                  u.isSuperuser ? 'Administrador do sistema' : u.cargo),
+              _linha(
+                'Cargo',
+                u.isSuperuser ? 'Administrador do sistema' : u.cargo,
+              ),
               const SizedBox(height: 8),
               Text('Setores', style: Theme.of(context).textTheme.titleMedium),
               if (u.setores.isEmpty) const Text('Nenhum setor vinculado.'),
@@ -79,13 +81,13 @@ class _PerfilScreenState extends State<PerfilScreen> {
   }
 
   Widget _linha(String rotulo, String valor) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(rotulo, style: Theme.of(context).textTheme.labelMedium),
-            Text(valor, style: Theme.of(context).textTheme.bodyLarge),
-          ],
-        ),
-      );
+    padding: const EdgeInsets.symmetric(vertical: 6),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(rotulo, style: Theme.of(context).textTheme.labelMedium),
+        Text(valor, style: Theme.of(context).textTheme.bodyLarge),
+      ],
+    ),
+  );
 }

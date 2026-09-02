@@ -31,19 +31,23 @@ class MonitoramentoService {
 
   Future<Monitoramento> criar(Map<String, dynamic> payload) =>
       comApiError(() async {
-        final res = await _client.dio
-            .post('/api/riscos/monitoramentos/', data: payload);
+        final res = await _client.dio.post(
+          '/api/riscos/monitoramentos/',
+          data: payload,
+        );
         return Monitoramento.fromJson(res.data as Map<String, dynamic>);
       });
 
   Future<Monitoramento> atualizar(int id, Map<String, dynamic> payload) =>
       comApiError(() async {
-        final res = await _client.dio
-            .patch('/api/riscos/monitoramentos/$id/', data: payload);
+        final res = await _client.dio.patch(
+          '/api/riscos/monitoramentos/$id/',
+          data: payload,
+        );
         return Monitoramento.fromJson(res.data as Map<String, dynamic>);
       });
 
   Future<void> desativar(int id) => comApiError(() async {
-        await _client.dio.delete('/api/riscos/monitoramentos/$id/');
-      });
+    await _client.dio.delete('/api/riscos/monitoramentos/$id/');
+  });
 }

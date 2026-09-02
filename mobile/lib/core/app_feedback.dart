@@ -5,10 +5,9 @@ import 'app_colors.dart';
 void mostrarErro(BuildContext context, Object erro) {
   ScaffoldMessenger.of(context)
     ..hideCurrentSnackBar()
-    ..showSnackBar(SnackBar(
-      content: Text('$erro'),
-      backgroundColor: AppColors.error,
-    ));
+    ..showSnackBar(
+      SnackBar(content: Text('$erro'), backgroundColor: AppColors.error),
+    );
 }
 
 void mostrarOk(BuildContext context, String msg) {

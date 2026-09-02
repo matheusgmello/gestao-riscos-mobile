@@ -161,8 +161,8 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
       body: _carregando
           ? const Center(child: CircularProgressIndicator())
           : _erroCarga != null
-              ? Center(child: Text('$_erroCarga'))
-              : _form(),
+          ? Center(child: Text('$_erroCarga'))
+          : _form(),
       bottomNavigationBar: _carregando || _erroCarga != null
           ? null
           : SafeArea(
@@ -175,7 +175,10 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
                           height: 20,
                           width: 20,
                           child: CircularProgressIndicator(
-                              strokeWidth: 2, color: Colors.white))
+                            strokeWidth: 2,
+                            color: Colors.white,
+                          ),
+                        )
                       : Text(_edicao ? 'Salvar' : 'Criar risco'),
                 ),
               ),
@@ -224,8 +227,7 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
               for (final m in _macroprocessos)
                 DropdownMenuItem(value: m.id, child: Text(m.nome)),
             ],
-            validator: (v) =>
-                v == null ? 'Selecione o macroprocesso.' : null,
+            validator: (v) => v == null ? 'Selecione o macroprocesso.' : null,
             onChanged: (v) => setState(() => _macroprocessoId = v),
           ),
           const SizedBox(height: 12),
@@ -248,8 +250,9 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
           DropdownButtonFormField<String>(
             initialValue: _eficacia,
             isExpanded: true,
-            decoration:
-                const InputDecoration(labelText: 'Eficácia do controle *'),
+            decoration: const InputDecoration(
+              labelText: 'Eficácia do controle *',
+            ),
             items: [
               for (final e in Risco.eficacias)
                 DropdownMenuItem(value: e, child: Text(e)),
@@ -280,16 +283,16 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
   }
 
   Widget _multiline(TextEditingController c, String label) => Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-        child: TextFormField(
-          controller: c,
-          maxLines: 3,
-          minLines: 2,
-          decoration: InputDecoration(labelText: label),
-          validator: (v) =>
-              FormValidators.obrigatorio(v, label.replaceAll(' *', '')),
-        ),
-      );
+    padding: const EdgeInsets.only(bottom: 12),
+    child: TextFormField(
+      controller: c,
+      maxLines: 3,
+      minLines: 2,
+      decoration: InputDecoration(labelText: label),
+      validator: (v) =>
+          FormValidators.obrigatorio(v, label.replaceAll(' *', '')),
+    ),
+  );
 
   Widget _blocoEscala(
     String titulo, {
@@ -308,16 +311,20 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
             Row(
               children: [
                 Expanded(
-                  child: Text(titulo,
-                      style: Theme.of(context).textTheme.titleSmall),
+                  child: Text(
+                    titulo,
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
                 ),
                 NivelBadge(nivel),
               ],
             ),
             _slider('Probabilidade', prob, onProb),
             _slider('Impacto', impacto, onImpacto),
-            Text('Faixa: ${FaixaNivel.of(nivel).rotulo}',
-                style: Theme.of(context).textTheme.labelSmall),
+            Text(
+              'Faixa: ${FaixaNivel.of(nivel).rotulo}',
+              style: Theme.of(context).textTheme.labelSmall,
+            ),
           ],
         ),
       ),

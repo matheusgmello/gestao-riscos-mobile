@@ -12,14 +12,13 @@ class PdiService {
   Future<List<T>> _lista<T>(
     String path,
     T Function(Map<String, dynamic>) fromJson,
-  ) =>
-      comApiError(() async {
-        final res = await _client.dio.get(path);
-        return (res.data as List<dynamic>)
-            .whereType<Map<String, dynamic>>()
-            .map(fromJson)
-            .toList();
-      });
+  ) => comApiError(() async {
+    final res = await _client.dio.get(path);
+    return (res.data as List<dynamic>)
+        .whereType<Map<String, dynamic>>()
+        .map(fromJson)
+        .toList();
+  });
 
   Future<List<DesafioPdi>> desafios() =>
       _lista('/api/riscos/desafios/', DesafioPdi.fromJson);

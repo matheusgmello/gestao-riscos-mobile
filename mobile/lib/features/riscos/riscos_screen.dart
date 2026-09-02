@@ -10,6 +10,7 @@ import '../../data/models/usuario_model.dart';
 import '../../data/services/risco_service.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/unidade_service.dart';
+import '../../widgets/busca_selecao.dart';
 import '../../widgets/nivel_badge.dart';
 import 'risco_detalhe_screen.dart';
 import 'risco_form_screen.dart';
@@ -98,8 +99,7 @@ class _RiscosScreenState extends State<RiscosScreen> {
     if (_carregandoMais || !_temMais) return;
     setState(() => _carregandoMais = true);
     try {
-      final pagina =
-          await _service.listar(page: _page + 1, filtro: _filtro);
+      final pagina = await _service.listar(page: _page + 1, filtro: _filtro);
       if (!mounted) return;
       setState(() {
         _riscos.addAll(pagina.results);
@@ -115,8 +115,7 @@ class _RiscosScreenState extends State<RiscosScreen> {
   }
 
   void _aoRolar() {
-    if (_scroll.position.pixels >=
-        _scroll.position.maxScrollExtent - 400) {
+    if (_scroll.position.pixels >= _scroll.position.maxScrollExtent - 400) {
       _carregarMais();
     }
   }
@@ -146,17 +145,16 @@ class _RiscosScreenState extends State<RiscosScreen> {
   }
 
   Future<void> _novoRisco() async {
-    final criado = await Navigator.of(context).push<bool>(
-      MaterialPageRoute(builder: (_) => const RiscoFormScreen()),
-    );
+    final criado = await Navigator.of(
+      context,
+      rootNavigator: true,
+    ).push<bool>(MaterialPageRoute(builder: (_) => const RiscoFormScreen()));
     if (criado == true) _recarregar();
   }
 
   Future<void> _abrirRisco(Risco r) async {
-    final mudou = await Navigator.of(context).push<bool>(
-      MaterialPageRoute(
-        builder: (_) => RiscoDetalheScreen(uuid: r.uuid),
-      ),
+    final mudou = await Navigator.of(context, rootNavigator: true).push<bool>(
+      MaterialPageRoute(builder: (_) => RiscoDetalheScreen(uuid: r.uuid)),
     );
     if (mudou == true) _recarregar();
   }
@@ -191,7 +189,10 @@ class _RiscosScreenState extends State<RiscosScreen> {
             padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
             child: TextField(
               controller: _buscaCtrl,
-              onChanged: _aoBuscar,
+              onChanged: (v) {
+                setState(() {});
+                _aoBuscar(v);
+              },
               decoration: InputDecoration(
                 hintText: 'Buscar evento, causa, responsável...',
                 prefixIcon: const Icon(Icons.search),
@@ -201,6 +202,7 @@ class _RiscosScreenState extends State<RiscosScreen> {
                         icon: const Icon(Icons.close),
                         onPressed: () {
                           _buscaCtrl.clear();
+                          setState(() {});
                           _aoBuscar('');
                         },
                       ),
@@ -296,9 +298,7 @@ class _RiscoCard extends StatelessWidget {
                 risco.evento,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
+                style: Theme.of(context).textTheme.bodyLarge
                     ?.copyWith(fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 10),
@@ -307,16 +307,24 @@ class _RiscoCard extends StatelessWidget {
                   _Chip(risco.categoria),
                   const SizedBox(width: 8),
                   if (risco.possuiPlanoAcao)
-                    const Icon(Icons.task_alt,
-                        size: 16, color: AppColors.textMuted),
+                    const Icon(
+                      Icons.task_alt,
+                      size: 16,
+                      color: AppColors.textMuted,
+                    ),
                   if (risco.possuiMonitoramento) ...[
                     const SizedBox(width: 6),
-                    const Icon(Icons.monitor_heart_outlined,
-                        size: 16, color: AppColors.textMuted),
+                    const Icon(
+                      Icons.monitor_heart_outlined,
+                      size: 16,
+                      color: AppColors.textMuted,
+                    ),
                   ],
                   const Spacer(),
-                  Text('Inerente ${risco.nivelRisco}',
-                      style: Theme.of(context).textTheme.labelSmall),
+                  Text(
+                    'Inerente ${risco.nivelRisco}',
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
                 ],
               ),
             ],
@@ -339,11 +347,14 @@ class _Chip extends StatelessWidget {
         color: AppColors.primarySurface,
         borderRadius: BorderRadius.circular(999),
       ),
-      child: Text(texto,
-          style: const TextStyle(
-              fontSize: 12,
-              color: AppColors.primary,
-              fontWeight: FontWeight.w500)),
+      child: Text(
+        texto,
+        style: const TextStyle(
+          fontSize: 12,
+          color: AppColors.primary,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
     );
   }
 }
@@ -368,18 +379,17 @@ class _Estado extends StatelessWidget {
         const SizedBox(height: 80),
         Icon(icone, size: 56, color: AppColors.grey400),
         const SizedBox(height: 12),
-        Text(titulo,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          titulo,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         const SizedBox(height: 4),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Text(detalhe, textAlign: TextAlign.center),
         ),
-        if (acao != null) ...[
-          const SizedBox(height: 16),
-          Center(child: acao!),
-        ],
+        if (acao != null) ...[const SizedBox(height: 16), Center(child: acao!)],
       ],
     );
   }
@@ -403,11 +413,22 @@ class _FiltroSheet extends StatefulWidget {
 class _FiltroSheetState extends State<_FiltroSheet> {
   late FiltroRisco _f = widget.filtro;
 
+  UnidadeModel? _unidadeSelecionada() {
+    for (final u in widget.unidades) {
+      if (u.id == _f.setorId) return u;
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(
-          16, 16, 16, MediaQuery.of(context).viewInsets.bottom + 16),
+        16,
+        16,
+        16,
+        MediaQuery.of(context).viewInsets.bottom + 16,
+      ),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -415,18 +436,17 @@ class _FiltroSheetState extends State<_FiltroSheet> {
           children: [
             Text('Filtros', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 16),
-            DropdownButtonFormField<int?>(
-              initialValue: _f.setorId,
-              isExpanded: true,
-              decoration: const InputDecoration(labelText: 'Unidade'),
-              items: [
-                const DropdownMenuItem(value: null, child: Text('Todas')),
-                for (final u in widget.unidades)
-                  DropdownMenuItem(value: u.id, child: Text(u.rotulo)),
-              ],
-              onChanged: (v) => setState(() => _f = v == null
-                  ? _f.copyWith(limparSetor: true)
-                  : _f.copyWith(setorId: v)),
+            BuscaSelecao<UnidadeModel>(
+              label: 'Unidade',
+              rotuloVazio: 'Todas',
+              itens: widget.unidades,
+              rotulo: (u) => u.rotulo,
+              selecionado: _unidadeSelecionada(),
+              onChanged: (u) => setState(
+                () => _f = u == null
+                    ? _f.copyWith(limparSetor: true)
+                    : _f.copyWith(setorId: u.id),
+              ),
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<String?>(
@@ -438,9 +458,11 @@ class _FiltroSheetState extends State<_FiltroSheet> {
                 for (final c in Risco.categorias)
                   DropdownMenuItem(value: c, child: Text(c)),
               ],
-              onChanged: (v) => setState(() => _f = v == null
-                  ? _f.copyWith(limparCategoria: true)
-                  : _f.copyWith(categoria: v)),
+              onChanged: (v) => setState(
+                () => _f = v == null
+                    ? _f.copyWith(limparCategoria: true)
+                    : _f.copyWith(categoria: v),
+              ),
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<OrdenacaoRisco>(
@@ -451,8 +473,7 @@ class _FiltroSheetState extends State<_FiltroSheet> {
                 for (final o in OrdenacaoRisco.values)
                   DropdownMenuItem(value: o, child: Text(o.rotulo)),
               ],
-              onChanged: (v) =>
-                  setState(() => _f = _f.copyWith(ordenacao: v)),
+              onChanged: (v) => setState(() => _f = _f.copyWith(ordenacao: v)),
             ),
             if (widget.podeVerInativos) ...[
               const SizedBox(height: 4),
@@ -470,11 +491,12 @@ class _FiltroSheetState extends State<_FiltroSheet> {
                 Expanded(
                   child: TextButton(
                     onPressed: () => Navigator.pop(
-                        context,
-                        FiltroRisco(
-                          busca: widget.filtro.busca,
-                          ordenacao: OrdenacaoRisco.recentes,
-                        )),
+                      context,
+                      FiltroRisco(
+                        busca: widget.filtro.busca,
+                        ordenacao: OrdenacaoRisco.recentes,
+                      ),
+                    ),
                     child: const Text('Limpar'),
                   ),
                 ),

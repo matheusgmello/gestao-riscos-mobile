@@ -15,8 +15,7 @@ class UsuarioService {
   Future<UsuarioModel> me() async {
     try {
       final res = await _client.dio.get('/api/usuarios/me/');
-      final usuario =
-          UsuarioModel.fromJson(res.data as Map<String, dynamic>);
+      final usuario = UsuarioModel.fromJson(res.data as Map<String, dynamic>);
       await _tokenService.updateUsuario(usuario);
       return usuario;
     } on DioException catch (e) {

@@ -80,15 +80,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       labelText: 'Senha',
                       suffixIcon: IconButton(
-                        icon: Icon(_ocultarSenha
-                            ? Icons.visibility_outlined
-                            : Icons.visibility_off_outlined),
+                        icon: Icon(
+                          _ocultarSenha
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                        ),
                         onPressed: () =>
                             setState(() => _ocultarSenha = !_ocultarSenha),
                       ),
                     ),
-                    validator: (v) =>
-                        FormValidators.obrigatorio(v, 'Senha'),
+                    validator: (v) => FormValidators.obrigatorio(v, 'Senha'),
                   ),
                   const SizedBox(height: 24),
                   ElevatedButton(

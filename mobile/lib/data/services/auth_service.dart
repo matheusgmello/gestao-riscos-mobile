@@ -17,8 +17,7 @@ class AuthService {
         '/api/usuarios/login/',
         data: LoginRequest(siape: siape, senha: senha).toJson(),
       );
-      final login =
-          LoginResponse.fromJson(res.data as Map<String, dynamic>);
+      final login = LoginResponse.fromJson(res.data as Map<String, dynamic>);
       await _tokenService.saveSession(login);
       return login;
     } on DioException catch (e) {

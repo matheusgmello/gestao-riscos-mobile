@@ -67,8 +67,10 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
         await _service.criar(payload);
       }
       if (mounted) {
-        mostrarOk(context,
-            _edicao ? 'Monitoramento atualizado.' : 'Monitoramento criado.');
+        mostrarOk(
+          context,
+          _edicao ? 'Monitoramento atualizado.' : 'Monitoramento criado.',
+        );
         Navigator.pop(context, true);
       }
     } catch (e) {
@@ -83,8 +85,8 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(
-              _edicao ? 'Editar monitoramento' : 'Novo monitoramento')),
+        title: Text(_edicao ? 'Editar monitoramento' : 'Novo monitoramento'),
+      ),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(12),
@@ -95,7 +97,10 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
                     height: 20,
                     width: 20,
                     child: CircularProgressIndicator(
-                        strokeWidth: 2, color: Colors.white))
+                      strokeWidth: 2,
+                      color: Colors.white,
+                    ),
+                  )
                 : Text(_edicao ? 'Salvar' : 'Criar'),
           ),
         ),
@@ -115,14 +120,14 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
   }
 
   Widget _campo(TextEditingController c, String label) => Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-        child: TextFormField(
-          controller: c,
-          minLines: 3,
-          maxLines: 6,
-          decoration: InputDecoration(labelText: label),
-          validator: (v) =>
-              FormValidators.obrigatorio(v, label.replaceAll(' *', '')),
-        ),
-      );
+    padding: const EdgeInsets.only(bottom: 12),
+    child: TextFormField(
+      controller: c,
+      minLines: 3,
+      maxLines: 6,
+      decoration: InputDecoration(labelText: label),
+      validator: (v) =>
+          FormValidators.obrigatorio(v, label.replaceAll(' *', '')),
+    ),
+  );
 }

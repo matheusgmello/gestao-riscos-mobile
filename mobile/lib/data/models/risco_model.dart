@@ -91,10 +91,10 @@ class Risco {
       nivelResidual: (j['nivel_residual'] as num?)?.toInt() ?? 0,
       setor: sd is Map<String, dynamic> ? UnidadeModel.fromJson(sd) : null,
       objetivo: od is Map<String, dynamic> ? ObjetivoPdi.fromJson(od) : null,
-      macroprocesso:
-          md is Map<String, dynamic> ? Macroprocesso.fromJson(md) : null,
-      periodoInicio:
-          periodo is Map ? periodo['data_inicio'] as String? : null,
+      macroprocesso: md is Map<String, dynamic>
+          ? Macroprocesso.fromJson(md)
+          : null,
+      periodoInicio: periodo is Map ? periodo['data_inicio'] as String? : null,
       periodoFim: periodo is Map ? periodo['data_fim'] as String? : null,
       possuiPlanoAcao: j['possui_plano_acao'] as bool? ?? false,
       possuiMonitoramento: j['possui_monitoramento'] as bool? ?? false,
@@ -104,18 +104,18 @@ class Risco {
   /// Payload de criação/edição. Nunca envia `nivel_risco`/`nivel_residual`
   /// (calculados no backend).
   Map<String, dynamic> toPayload() => {
-        'setor': setorId,
-        'objetivo': objetivoId,
-        'macroprocesso': macroprocessoId,
-        'categoria': categoria,
-        'evento': evento,
-        'causa': causa,
-        'consequencia': consequencia,
-        'controles_atuais': controlesAtuais,
-        'eficacia_controle': eficaciaControle,
-        'probabilidade': probabilidade,
-        'impacto': impacto,
-        'prob_residual': probResidual,
-        'imp_residual': impResidual,
-      };
+    'setor': setorId,
+    'objetivo': objetivoId,
+    'macroprocesso': macroprocessoId,
+    'categoria': categoria,
+    'evento': evento,
+    'causa': causa,
+    'consequencia': consequencia,
+    'controles_atuais': controlesAtuais,
+    'eficacia_controle': eficaciaControle,
+    'probabilidade': probabilidade,
+    'impacto': impacto,
+    'prob_residual': probResidual,
+    'imp_residual': impResidual,
+  };
 }

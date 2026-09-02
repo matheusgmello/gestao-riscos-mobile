@@ -82,9 +82,9 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   }
 
   Future<void> _editar() async {
-    final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(
-      builder: (_) => RiscoFormScreen(risco: _risco),
-    ));
+    final ok = await Navigator.of(context, rootNavigator: true).push<bool>(
+      MaterialPageRoute(builder: (_) => RiscoFormScreen(risco: _risco)),
+    );
     if (ok == true) {
       _mudou = true;
       _carregar();
@@ -92,10 +92,12 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   }
 
   Future<void> _duplicar() async {
-    if (!await confirmar(context,
-        titulo: 'Duplicar risco',
-        mensagem: 'Cria uma cópia deste risco com os planos de ação.',
-        confirmar: 'Duplicar')) {
+    if (!await confirmar(
+      context,
+      titulo: 'Duplicar risco',
+      mensagem: 'Cria uma cópia deste risco com os planos de ação.',
+      confirmar: 'Duplicar',
+    )) {
       return;
     }
     try {
@@ -111,12 +113,14 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   }
 
   Future<void> _excluir() async {
-    if (!await confirmar(context,
-        titulo: 'Excluir risco',
-        mensagem:
-            'O risco e seus planos de ação e monitoramentos serão desativados.',
-        confirmar: 'Excluir',
-        destrutivo: true)) {
+    if (!await confirmar(
+      context,
+      titulo: 'Excluir risco',
+      mensagem:
+          'O risco e seus planos de ação e monitoramentos serão desativados.',
+      confirmar: 'Excluir',
+      destrutivo: true,
+    )) {
       return;
     }
     try {
@@ -131,9 +135,11 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   }
 
   Future<void> _novaAcao() async {
-    final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(
-      builder: (_) => PlanoAcaoFormScreen(riscoUuid: widget.uuid),
-    ));
+    final ok = await Navigator.of(context, rootNavigator: true).push<bool>(
+      MaterialPageRoute(
+        builder: (_) => PlanoAcaoFormScreen(riscoUuid: widget.uuid),
+      ),
+    );
     if (ok == true) {
       _mudou = true;
       _carregar();
@@ -141,10 +147,11 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   }
 
   Future<void> _editarAcao(PlanoAcao a) async {
-    final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(
-      builder: (_) =>
-          PlanoAcaoFormScreen(riscoUuid: widget.uuid, acao: a),
-    ));
+    final ok = await Navigator.of(context, rootNavigator: true).push<bool>(
+      MaterialPageRoute(
+        builder: (_) => PlanoAcaoFormScreen(riscoUuid: widget.uuid, acao: a),
+      ),
+    );
     if (ok == true) {
       _mudou = true;
       _carregar();
@@ -152,11 +159,13 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   }
 
   Future<void> _excluirAcao(PlanoAcao a) async {
-    if (!await confirmar(context,
-        titulo: 'Excluir plano de ação',
-        mensagem: 'Esta ação será desativada.',
-        confirmar: 'Excluir',
-        destrutivo: true)) {
+    if (!await confirmar(
+      context,
+      titulo: 'Excluir plano de ação',
+      mensagem: 'Esta ação será desativada.',
+      confirmar: 'Excluir',
+      destrutivo: true,
+    )) {
       return;
     }
     try {
@@ -169,9 +178,11 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   }
 
   Future<void> _novoMonitoramento() async {
-    final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(
-      builder: (_) => MonitoramentoFormScreen(riscoUuid: widget.uuid),
-    ));
+    final ok = await Navigator.of(context, rootNavigator: true).push<bool>(
+      MaterialPageRoute(
+        builder: (_) => MonitoramentoFormScreen(riscoUuid: widget.uuid),
+      ),
+    );
     if (ok == true) {
       _mudou = true;
       _carregar();
@@ -179,10 +190,12 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   }
 
   Future<void> _editarMonitoramento(Monitoramento m) async {
-    final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(
-      builder: (_) =>
-          MonitoramentoFormScreen(riscoUuid: widget.uuid, monitoramento: m),
-    ));
+    final ok = await Navigator.of(context, rootNavigator: true).push<bool>(
+      MaterialPageRoute(
+        builder: (_) =>
+            MonitoramentoFormScreen(riscoUuid: widget.uuid, monitoramento: m),
+      ),
+    );
     if (ok == true) {
       _mudou = true;
       _carregar();
@@ -190,11 +203,13 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   }
 
   Future<void> _excluirMonitoramento(Monitoramento m) async {
-    if (!await confirmar(context,
-        titulo: 'Excluir monitoramento',
-        mensagem: 'Este registro será desativado.',
-        confirmar: 'Excluir',
-        destrutivo: true)) {
+    if (!await confirmar(
+      context,
+      titulo: 'Excluir monitoramento',
+      mensagem: 'Este registro será desativado.',
+      confirmar: 'Excluir',
+      destrutivo: true,
+    )) {
       return;
     }
     try {
@@ -228,8 +243,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
                   },
                   itemBuilder: (_) => const [
                     PopupMenuItem(value: 'editar', child: Text('Editar')),
-                    PopupMenuItem(
-                        value: 'duplicar', child: Text('Duplicar')),
+                    PopupMenuItem(value: 'duplicar', child: Text('Duplicar')),
                     PopupMenuItem(value: 'excluir', child: Text('Excluir')),
                   ],
                 ),
@@ -267,8 +281,9 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
               Text('$_erro', textAlign: TextAlign.center),
               const SizedBox(height: 12),
               FilledButton(
-                  onPressed: _carregar,
-                  child: const Text('Tentar de novo')),
+                onPressed: _carregar,
+                child: const Text('Tentar de novo'),
+              ),
             ],
           ),
         ),
@@ -327,21 +342,25 @@ class _AbaDados extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: Text(risco.setorRotulo,
-                  style: Theme.of(context).textTheme.titleMedium),
+              child: Text(
+                risco.setorRotulo,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
             ),
             Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
               decoration: BoxDecoration(
                 color: AppColors.primarySurface,
                 borderRadius: BorderRadius.circular(999),
               ),
-              child: Text(risco.categoria,
-                  style: const TextStyle(
-                      color: AppColors.primary,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12)),
+              child: Text(
+                risco.categoria,
+                style: const TextStyle(
+                  color: AppColors.primary,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                ),
+              ),
             ),
           ],
         ),
@@ -358,24 +377,29 @@ class _AbaDados extends StatelessWidget {
         if (risco.macroprocesso != null)
           _campo(context, 'Macroprocesso', risco.macroprocesso!.nome),
         if (risco.periodoInicio != null)
-          _campo(context, 'Período de ação',
-              '${risco.periodoInicio} a ${risco.periodoFim ?? '—'}'),
+          _campo(
+            context,
+            'Período de ação',
+            '${risco.periodoInicio} a ${risco.periodoFim ?? '—'}',
+          ),
       ],
     );
   }
 
   Widget _campo(BuildContext context, String rotulo, String valor) => Padding(
-        padding: const EdgeInsets.only(bottom: 14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(rotulo, style: Theme.of(context).textTheme.labelMedium),
-            const SizedBox(height: 2),
-            Text(valor.isEmpty ? '—' : valor,
-                style: Theme.of(context).textTheme.bodyLarge),
-          ],
+    padding: const EdgeInsets.only(bottom: 14),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(rotulo, style: Theme.of(context).textTheme.labelMedium),
+        const SizedBox(height: 2),
+        Text(
+          valor.isEmpty ? '—' : valor,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
-      );
+      ],
+    ),
+  );
 }
 
 class _NivelResumo extends StatelessWidget {
@@ -389,13 +413,23 @@ class _NivelResumo extends StatelessWidget {
         padding: const EdgeInsets.all(14),
         child: Row(
           children: [
-            _coluna(context, 'Inerente', risco.probabilidade, risco.impacto,
-                risco.nivelRisco),
+            _coluna(
+              context,
+              'Inerente',
+              risco.probabilidade,
+              risco.impacto,
+              risco.nivelRisco,
+            ),
             const SizedBox(width: 12),
             const Icon(Icons.arrow_forward, color: AppColors.textMuted),
             const SizedBox(width: 12),
-            _coluna(context, 'Residual', risco.probResidual,
-                risco.impResidual, risco.nivelResidual),
+            _coluna(
+              context,
+              'Residual',
+              risco.probResidual,
+              risco.impResidual,
+              risco.nivelResidual,
+            ),
           ],
         ),
       ),
@@ -410,8 +444,10 @@ class _NivelResumo extends StatelessWidget {
           const SizedBox(height: 6),
           NivelBadge(n),
           const SizedBox(height: 4),
-          Text('prob $p × impacto $i',
-              style: Theme.of(context).textTheme.labelSmall),
+          Text(
+            'prob $p × impacto $i',
+            style: Theme.of(context).textTheme.labelSmall,
+          ),
         ],
       ),
     );
@@ -487,20 +523,19 @@ class _AcaoCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text(acao.tipoResposta,
-                      style: Theme.of(context).textTheme.titleSmall),
+                  child: Text(
+                    acao.tipoResposta,
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
                 ),
                 _StatusChip(acao.status),
                 if (podeEscrever)
                   PopupMenuButton<String>(
                     padding: EdgeInsets.zero,
-                    onSelected: (v) =>
-                        v == 'editar' ? onEditar() : onExcluir(),
+                    onSelected: (v) => v == 'editar' ? onEditar() : onExcluir(),
                     itemBuilder: (_) => const [
-                      PopupMenuItem(
-                          value: 'editar', child: Text('Editar')),
-                      PopupMenuItem(
-                          value: 'excluir', child: Text('Excluir')),
+                      PopupMenuItem(value: 'editar', child: Text('Editar')),
+                      PopupMenuItem(value: 'excluir', child: Text('Excluir')),
                     ],
                   ),
               ],
@@ -508,10 +543,14 @@ class _AcaoCard extends StatelessWidget {
             const SizedBox(height: 4),
             Text(acao.descricaoAcao),
             const SizedBox(height: 8),
-            Text('Responsável: ${acao.responsavel}',
-                style: Theme.of(context).textTheme.labelMedium),
-            Text('${acao.dataInicio} a ${acao.dataFim}',
-                style: Theme.of(context).textTheme.labelSmall),
+            Text(
+              'Responsável: ${acao.responsavel}',
+              style: Theme.of(context).textTheme.labelMedium,
+            ),
+            Text(
+              '${acao.dataInicio} a ${acao.dataFim}',
+              style: Theme.of(context).textTheme.labelSmall,
+            ),
             const SizedBox(height: 8),
             ClipRRect(
               borderRadius: BorderRadius.circular(999),
@@ -521,8 +560,10 @@ class _AcaoCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 2),
-            Text('${acao.progresso}%',
-                style: Theme.of(context).textTheme.labelSmall),
+            Text(
+              '${acao.progresso}%',
+              style: Theme.of(context).textTheme.labelSmall,
+            ),
           ],
         ),
       ),
@@ -548,9 +589,10 @@ class _StatusChip extends StatelessWidget {
         color: cor.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(999),
       ),
-      child: Text(status,
-          style: TextStyle(
-              color: cor, fontSize: 11, fontWeight: FontWeight.w600)),
+      child: Text(
+        status,
+        style: TextStyle(color: cor, fontSize: 11, fontWeight: FontWeight.w600),
+      ),
     );
   }
 }
@@ -589,13 +631,10 @@ class _MonitoramentoCard extends StatelessWidget {
                 if (podeEscrever)
                   PopupMenuButton<String>(
                     padding: EdgeInsets.zero,
-                    onSelected: (v) =>
-                        v == 'editar' ? onEditar() : onExcluir(),
+                    onSelected: (v) => v == 'editar' ? onEditar() : onExcluir(),
                     itemBuilder: (_) => const [
-                      PopupMenuItem(
-                          value: 'editar', child: Text('Editar')),
-                      PopupMenuItem(
-                          value: 'excluir', child: Text('Excluir')),
+                      PopupMenuItem(value: 'editar', child: Text('Editar')),
+                      PopupMenuItem(value: 'excluir', child: Text('Excluir')),
                     ],
                   ),
               ],
@@ -603,8 +642,7 @@ class _MonitoramentoCard extends StatelessWidget {
             const SizedBox(height: 6),
             _linha(context, 'Resultados', monitoramento.resultados),
             _linha(context, 'Ações futuras', monitoramento.acoesFuturas),
-            _linha(
-                context, 'Análise crítica', monitoramento.analiseCritica),
+            _linha(context, 'Análise crítica', monitoramento.analiseCritica),
           ],
         ),
       ),
@@ -612,15 +650,15 @@ class _MonitoramentoCard extends StatelessWidget {
   }
 
   Widget _linha(BuildContext context, String r, String v) => Padding(
-        padding: const EdgeInsets.only(bottom: 6),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(r, style: Theme.of(context).textTheme.labelMedium),
-            Text(v.isEmpty ? '—' : v),
-          ],
-        ),
-      );
+    padding: const EdgeInsets.only(bottom: 6),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(r, style: Theme.of(context).textTheme.labelMedium),
+        Text(v.isEmpty ? '—' : v),
+      ],
+    ),
+  );
 }
 
 class _AbaHistorico extends StatelessWidget {
@@ -642,8 +680,7 @@ class _AbaHistorico extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(e.descricao,
-                style: Theme.of(context).textTheme.bodyLarge),
+            Text(e.descricao, style: Theme.of(context).textTheme.bodyLarge),
             const SizedBox(height: 2),
             Text(
               '${e.usuarioNome} · ${e.dataHora != null ? fmt.format(e.dataHora!.toLocal()) : ''}',
