@@ -10,6 +10,8 @@ import '../../data/services/pdi_service.dart';
 import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/unidade_service.dart';
+import '../../widgets/estado.dart';
+import '../../widgets/guarda_form.dart';
 import '../../widgets/nivel_badge.dart';
 
 class RiscoFormScreen extends StatefulWidget {
@@ -30,6 +32,7 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
 
   bool _carregando = true;
   bool _salvando = false;
+  bool _sujo = false;
   Object? _erroCarga;
 
   List<UnidadeModel> _setores = [];
@@ -156,39 +159,52 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(_edicao ? 'Editar risco' : 'Novo risco')),
-      body: _carregando
-          ? const Center(child: CircularProgressIndicator())
-          : _erroCarga != null
-          ? Center(child: Text('$_erroCarga'))
-          : _form(),
-      bottomNavigationBar: _carregando || _erroCarga != null
-          ? null
-          : SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: FilledButton(
-                  onPressed: _salvando ? null : _salvar,
-                  child: _salvando
-                      ? SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Theme.of(context).colorScheme.onPrimary,
-                          ),
-                        )
-                      : Text(_edicao ? 'Salvar' : 'Criar risco'),
+    return GuardaForm(
+      sujo: _sujo && !_salvando,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(_edicao ? 'Editar risco' : 'Novo risco'),
+          leading: IconButton(
+            icon: const Icon(Icons.close),
+            tooltip: 'Cancelar',
+            onPressed: () => Navigator.maybePop(context),
+          ),
+        ),
+        body: _carregando
+            ? const Center(child: CircularProgressIndicator())
+            : _erroCarga != null
+            ? EstadoErro(erro: _erroCarga!, onTentar: _carregar)
+            : _form(),
+        bottomNavigationBar: _carregando || _erroCarga != null
+            ? null
+            : SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: FilledButton(
+                    onPressed: _salvando ? null : _salvar,
+                    child: _salvando
+                        ? SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Theme.of(context).colorScheme.onPrimary,
+                            ),
+                          )
+                        : Text(_edicao ? 'Salvar' : 'Criar risco'),
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 
   Widget _form() {
     return Form(
       key: _formKey,
+      onChanged: () {
+        if (!_sujo) setState(() => _sujo = true);
+      },
       child: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -265,17 +281,52 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
             'Risco inerente',
             prob: _prob,
             impacto: _impacto,
-            onProb: (v) => setState(() => _prob = v),
-            onImpacto: (v) => setState(() => _impacto = v),
+            onProb: (v) => setState(() {
+              _prob = v;
+              _sujo = true;
+            }),
+            onImpacto: (v) => setState(() {
+              _impacto = v;
+              _sujo = true;
+            }),
           ),
           const SizedBox(height: 16),
           _blocoEscala(
             'Risco residual',
             prob: _probResidual,
             impacto: _impResidual,
-            onProb: (v) => setState(() => _probResidual = v),
-            onImpacto: (v) => setState(() => _impResidual = v),
+            onProb: (v) => setState(() {
+              _probResidual = v;
+              _sujo = true;
+            }),
+            onImpacto: (v) => setState(() {
+              _impResidual = v;
+              _sujo = true;
+            }),
           ),
+          if (_probResidual * _impResidual > _prob * _impacto) ...[
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Icon(
+                  Icons.warning_amber_rounded,
+                  size: 18,
+                  color: Theme.of(context).colorScheme.error,
+                ),
+                const SizedBox(width: 6),
+                Expanded(
+                  child: Text(
+                    'O risco residual está maior que o inerente. O residual '
+                    'é o risco após os controles — normalmente deve ser menor.',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Theme.of(context).colorScheme.error,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
           const SizedBox(height: 8),
         ],
       ),

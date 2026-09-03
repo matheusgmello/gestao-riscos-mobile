@@ -8,6 +8,7 @@ import '../../data/services/token_service.dart';
 import '../../data/services/unidade_service.dart';
 import '../../data/services/usuario_service.dart';
 import '../../widgets/busca_selecao.dart';
+import '../../widgets/guarda_form.dart';
 
 class GestorFormScreen extends StatefulWidget {
   const GestorFormScreen({super.key, this.gestor});
@@ -26,6 +27,7 @@ class _GestorFormScreenState extends State<GestorFormScreen> {
   bool get _edicao => widget.gestor != null;
   bool _carregando = true;
   bool _salvando = false;
+  bool _sujo = false;
 
   List<UnidadeModel> _unidades = [];
   final _siape = TextEditingController();
@@ -118,20 +120,29 @@ class _GestorFormScreenState extends State<GestorFormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(_edicao ? 'Editar gestor' : 'Novo gestor')),
+    return GuardaForm(
+      sujo: _sujo && !_salvando,
+      child: Scaffold(
+      appBar: AppBar(
+        title: Text(_edicao ? 'Editar gestor' : 'Novo gestor'),
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          tooltip: 'Cancelar',
+          onPressed: () => Navigator.maybePop(context),
+        ),
+      ),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: FilledButton(
             onPressed: _salvando ? null : _salvar,
             child: _salvando
-                ? const SizedBox(
+                ? SizedBox(
                     height: 20,
                     width: 20,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   )
                 : Text(_edicao ? 'Salvar' : 'Criar'),
@@ -142,6 +153,9 @@ class _GestorFormScreenState extends State<GestorFormScreen> {
           ? const Center(child: CircularProgressIndicator())
           : Form(
               key: _formKey,
+              onChanged: () {
+                if (!_sujo) setState(() => _sujo = true);
+              },
               child: ListView(
                 padding: const EdgeInsets.all(16),
                 children: [
@@ -198,7 +212,10 @@ class _GestorFormScreenState extends State<GestorFormScreen> {
                   for (final id in _setoresIds)
                     Chip(
                       label: Text(_rotuloUnidade(id)),
-                      onDeleted: () => setState(() => _setoresIds.remove(id)),
+                      onDeleted: () => setState(() {
+                        _setoresIds.remove(id);
+                        _sujo = true;
+                      }),
                     ),
                   const SizedBox(height: 8),
                   BuscaSelecao<UnidadeModel>(
@@ -211,12 +228,18 @@ class _GestorFormScreenState extends State<GestorFormScreen> {
                     rotulo: (u) => u.rotulo,
                     selecionado: null,
                     onChanged: (u) {
-                      if (u != null) setState(() => _setoresIds.add(u.id));
+                      if (u != null) {
+                        setState(() {
+                          _setoresIds.add(u.id);
+                          _sujo = true;
+                        });
+                      }
                     },
                   ),
                 ],
               ),
             ),
+      ),
     );
   }
 }

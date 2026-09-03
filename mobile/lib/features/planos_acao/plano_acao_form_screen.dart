@@ -6,6 +6,7 @@ import '../../core/form_validators.dart';
 import '../../data/models/plano_acao_model.dart';
 import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/token_service.dart';
+import '../../widgets/guarda_form.dart';
 
 class PlanoAcaoFormScreen extends StatefulWidget {
   const PlanoAcaoFormScreen({super.key, required this.riscoUuid, this.acao});
@@ -24,6 +25,7 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
 
   bool get _edicao => widget.acao != null;
   bool _salvando = false;
+  bool _sujo = false;
 
   String? _tipoResposta;
   String? _status;
@@ -70,7 +72,10 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
       lastDate: DateTime(2035),
     );
     if (d != null) {
-      setState(() => inicio ? _inicio = d : _fim = d);
+      setState(() {
+        inicio ? _inicio = d : _fim = d;
+        _sujo = true;
+      });
     }
   }
 
@@ -121,9 +126,16 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GuardaForm(
+      sujo: _sujo && !_salvando,
+      child: Scaffold(
       appBar: AppBar(
         title: Text(_edicao ? 'Editar plano de ação' : 'Novo plano de ação'),
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          tooltip: 'Cancelar',
+          onPressed: () => Navigator.maybePop(context),
+        ),
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
@@ -145,6 +157,9 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
       ),
       body: Form(
         key: _formKey,
+        onChanged: () {
+          if (!_sujo) setState(() => _sujo = true);
+        },
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
@@ -224,7 +239,10 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
               max: 100,
               divisions: 20,
               label: '${_progresso.round()}%',
-              onChanged: (v) => setState(() => _progresso = v),
+              onChanged: (v) => setState(() {
+                _progresso = v;
+                _sujo = true;
+              }),
             ),
             const SizedBox(height: 4),
             TextFormField(
@@ -235,6 +253,7 @@ class _PlanoAcaoFormScreenState extends State<PlanoAcaoFormScreen> {
             ),
           ],
         ),
+      ),
       ),
     );
   }

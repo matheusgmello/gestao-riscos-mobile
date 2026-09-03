@@ -6,6 +6,7 @@ import '../../core/form_validators.dart';
 import '../../data/models/usuario_model.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/usuario_service.dart';
+import '../../widgets/guarda_form.dart';
 
 class EditarPerfilScreen extends StatefulWidget {
   const EditarPerfilScreen({super.key, required this.usuario});
@@ -27,6 +28,7 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
 
   bool _trocarSenha = false;
   bool _salvando = false;
+  bool _sujo = false;
 
   @override
   void dispose() {
@@ -65,20 +67,29 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Editar perfil')),
+    return GuardaForm(
+      sujo: _sujo && !_salvando,
+      child: Scaffold(
+      appBar: AppBar(
+        title: const Text('Editar perfil'),
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          tooltip: 'Cancelar',
+          onPressed: () => Navigator.maybePop(context),
+        ),
+      ),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: FilledButton(
             onPressed: _salvando ? null : _salvar,
             child: _salvando
-                ? const SizedBox(
+                ? SizedBox(
                     height: 20,
                     width: 20,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   )
                 : const Text('Salvar'),
@@ -87,6 +98,9 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
       ),
       body: Form(
         key: _formKey,
+        onChanged: () {
+          if (!_sujo) setState(() => _sujo = true);
+        },
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
@@ -101,7 +115,10 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
               contentPadding: EdgeInsets.zero,
               title: const Text('Trocar senha'),
               value: _trocarSenha,
-              onChanged: (v) => setState(() => _trocarSenha = v),
+              onChanged: (v) => setState(() {
+                _trocarSenha = v;
+                _sujo = true;
+              }),
             ),
             if (_trocarSenha) ...[
               TextFormField(
@@ -131,6 +148,7 @@ class _EditarPerfilScreenState extends State<EditarPerfilScreen> {
             ],
           ],
         ),
+      ),
       ),
     );
   }

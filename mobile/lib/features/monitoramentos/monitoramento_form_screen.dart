@@ -5,6 +5,7 @@ import '../../core/form_validators.dart';
 import '../../data/models/monitoramento_model.dart';
 import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/token_service.dart';
+import '../../widgets/guarda_form.dart';
 
 class MonitoramentoFormScreen extends StatefulWidget {
   const MonitoramentoFormScreen({
@@ -27,6 +28,7 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
 
   bool get _edicao => widget.monitoramento != null;
   bool _salvando = false;
+  bool _sujo = false;
 
   final _resultados = TextEditingController();
   final _acoesFuturas = TextEditingController();
@@ -83,9 +85,16 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GuardaForm(
+      sujo: _sujo && !_salvando,
+      child: Scaffold(
       appBar: AppBar(
         title: Text(_edicao ? 'Editar monitoramento' : 'Novo monitoramento'),
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          tooltip: 'Cancelar',
+          onPressed: () => Navigator.maybePop(context),
+        ),
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
@@ -107,6 +116,9 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
       ),
       body: Form(
         key: _formKey,
+        onChanged: () {
+          if (!_sujo) setState(() => _sujo = true);
+        },
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
@@ -115,6 +127,7 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
             _campo(_analise, 'Análise crítica *'),
           ],
         ),
+      ),
       ),
     );
   }
