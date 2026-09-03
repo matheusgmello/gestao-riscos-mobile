@@ -11,6 +11,11 @@ class NivelBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final faixa = FaixaNivel.of(nivel);
+    // O âmbar do nível "Moderado" não tem contraste com branco.
+    final corTexto =
+        ThemeData.estimateBrightnessForColor(faixa.cor) == Brightness.dark
+        ? Colors.white
+        : Colors.black87;
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: compacto ? 8 : 10,
@@ -23,7 +28,7 @@ class NivelBadge extends StatelessWidget {
       child: Text(
         compacto ? '$nivel' : '${faixa.rotulo} · $nivel',
         style: TextStyle(
-          color: Colors.white,
+          color: corTexto,
           fontWeight: FontWeight.w600,
           fontSize: compacto ? 12 : 13,
         ),

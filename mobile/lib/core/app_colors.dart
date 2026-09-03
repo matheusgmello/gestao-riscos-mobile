@@ -47,24 +47,30 @@ class AppColors {
   static const darkOutline = Color(0xFF60646C);
   static const darkContainerAlt = Color(0xFF262931);
 
-  // --- Legado (telas ainda usam) — mapeadas ao tema claro ---
-  static const background = lightBackground;
-  static const surface = lightSurface;
+  // --- Legado: só tema claro. Em código novo use Theme.of(context).colorScheme.
+  @Deprecated('use colorScheme.surface') static const background = lightBackground;
+  @Deprecated('use colorScheme.surface') static const surface = lightSurface;
+  @Deprecated('use colorScheme.primaryContainer')
   static const primarySurface = lightPrimarySurface;
-  static const textPrimary = lightTextPrimary;
+  @Deprecated('use colorScheme.onSurface') static const textPrimary = lightTextPrimary;
+  @Deprecated('use colorScheme.onSurfaceVariant')
   static const textSecondary = lightTextSecondary;
+  @Deprecated('use colorScheme.onSurfaceVariant')
   static const textMuted = lightTextMuted;
-  static const textHint = Color(0xFF9A9DA1);
-  static const border = lightBorder;
-  static const fieldBg = lightField;
+  @Deprecated('use colorScheme.onSurfaceVariant') static const textHint = Color(0xFF9A9DA1);
+  @Deprecated('use colorScheme.outline') static const border = lightBorder;
+  @Deprecated('use inputDecorationTheme') static const fieldBg = lightField;
+  @Deprecated('use colorScheme.surfaceContainerHighest')
   static const grey100 = lightContainerAlt;
-  static const grey200 = lightBorder;
-  static const grey400 = lightOutline;
+  @Deprecated('use colorScheme.outline') static const grey200 = lightBorder;
+  @Deprecated('use colorScheme.outline') static const grey400 = lightOutline;
 
   static const error = Color(0xFFBA1A1A);
   static const errorSurface = Color(0xFFF9DEDC);
 
-  // --- Faixas de nível de risco (iguais nos dois temas) ---
+  // --- Faixas de nível de risco (iguais nos dois temas). Codificam dado, não
+  // marca — constantes de propósito. Para texto sobre elas use
+  // ThemeData.estimateBrightnessForColor (o âmbar pede texto escuro).
   static const nivelBaixo = Color(0xFF2E7D32);
   static const nivelModerado = Color(0xFFF9A825);
   static const nivelAlto = Color(0xFFEF6C00);

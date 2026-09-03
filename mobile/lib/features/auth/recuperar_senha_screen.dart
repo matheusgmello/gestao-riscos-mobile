@@ -133,12 +133,12 @@ class _RecuperarSenhaScreenState extends State<RecuperarSenhaScreen> {
               ElevatedButton(
                 onPressed: _carregando ? null : _acaoEtapa,
                 child: _carregando
-                    ? const SizedBox(
+                    ? SizedBox(
                         height: 20,
                         width: 20,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.onPrimary,
                         ),
                       )
                     : Text(_rotuloBotao()),
@@ -183,10 +183,15 @@ class _RecuperarSenhaScreenState extends State<RecuperarSenhaScreen> {
                 radius: 14,
                 backgroundColor: p <= i
                     ? Theme.of(context).colorScheme.primary
-                    : Theme.of(context).dividerColor,
+                    : Theme.of(context).colorScheme.surfaceContainerHighest,
                 child: Text(
                   '${p + 1}',
-                  style: const TextStyle(color: Colors.white, fontSize: 12),
+                  style: TextStyle(
+                    color: p <= i
+                        ? Theme.of(context).colorScheme.onPrimary
+                        : Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontSize: 12,
+                  ),
                 ),
               ),
               const SizedBox(height: 4),

@@ -3,78 +3,68 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 class AppTheme {
-  static ThemeData get light => _build(
-    scheme: const ColorScheme(
-      brightness: Brightness.light,
-      primary: AppColors.ufsmAzul,
-      onPrimary: Colors.white,
-      primaryContainer: AppColors.lightPrimarySurface,
-      onPrimaryContainer: AppColors.lightOnPrimarySurface,
-      secondary: AppColors.ufsmAzulClaro,
-      onSecondary: Colors.white,
-      error: AppColors.error,
-      onError: Colors.white,
-      surface: AppColors.lightSurface,
-      onSurface: AppColors.lightTextPrimary,
-      onSurfaceVariant: AppColors.lightTextMuted,
-      outline: AppColors.lightOutline,
-      surfaceContainerHighest: AppColors.lightContainerAlt,
-    ),
-    background: AppColors.lightBackground,
-    field: AppColors.lightField,
-    border: AppColors.lightBorder,
-    cardBorder: AppColors.lightContainerAlt,
-  );
+  static ThemeData get light => _build(_schemeLight, Brightness.light);
+  static ThemeData get dark => _build(_schemeDark, Brightness.dark);
 
-  static ThemeData get dark => _build(
-    scheme: const ColorScheme(
-      brightness: Brightness.dark,
-      primary: AppColors.darkPrimary,
-      onPrimary: AppColors.ufsmAzulEscuro,
-      primaryContainer: AppColors.darkPrimarySurface,
-      onPrimaryContainer: AppColors.darkOnPrimarySurface,
-      secondary: AppColors.darkPrimary,
-      onSecondary: AppColors.ufsmAzulEscuro,
-      error: Color(0xFFFFB4AB),
-      onError: Color(0xFF690005),
-      surface: AppColors.darkSurface,
-      onSurface: AppColors.darkTextPrimary,
-      onSurfaceVariant: AppColors.darkTextMuted,
-      outline: AppColors.darkOutline,
-      surfaceContainerHighest: AppColors.darkContainerAlt,
-    ),
-    background: AppColors.darkBackground,
-    field: AppColors.darkField,
-    border: AppColors.darkBorder,
-    cardBorder: AppColors.darkBorder,
-  );
+  /// Deriva a paleta inteira (containers, tons, superfícies) do azul UFSM e
+  /// só sobrescreve os papéis que a identidade fixa.
+  static final _schemeLight =
+      ColorScheme.fromSeed(
+        seedColor: AppColors.ufsmAzul,
+        brightness: Brightness.light,
+      ).copyWith(
+        primary: AppColors.ufsmAzul,
+        onPrimary: Colors.white,
+        primaryContainer: AppColors.lightPrimarySurface,
+        onPrimaryContainer: AppColors.lightOnPrimarySurface,
+        secondaryContainer: AppColors.lightPrimarySurface,
+        onSecondaryContainer: AppColors.lightOnPrimarySurface,
+        surface: AppColors.lightSurface,
+        onSurface: AppColors.lightTextPrimary,
+        onSurfaceVariant: AppColors.lightTextMuted,
+        outline: AppColors.lightOutline,
+        surfaceContainerHighest: AppColors.lightContainerAlt,
+        error: AppColors.error,
+        onError: Colors.white,
+      );
 
-  static ThemeData _build({
-    required ColorScheme scheme,
-    required Color background,
-    required Color field,
-    required Color border,
-    required Color cardBorder,
-  }) {
-    final onPrimaryAppBar = scheme.brightness == Brightness.light
-        ? Colors.white
-        : scheme.onSurface;
-    final appBarBg = scheme.brightness == Brightness.light
-        ? AppColors.ufsmAzul
-        : scheme.surface;
+  static final _schemeDark =
+      ColorScheme.fromSeed(
+        seedColor: AppColors.ufsmAzul,
+        brightness: Brightness.dark,
+      ).copyWith(
+        primary: AppColors.darkPrimary,
+        onPrimary: AppColors.ufsmAzulEscuro,
+        primaryContainer: AppColors.darkPrimarySurface,
+        onPrimaryContainer: AppColors.darkOnPrimarySurface,
+        secondaryContainer: AppColors.darkPrimarySurface,
+        onSecondaryContainer: AppColors.darkOnPrimarySurface,
+        surface: AppColors.darkSurface,
+        onSurface: AppColors.darkTextPrimary,
+        onSurfaceVariant: AppColors.darkTextMuted,
+        outline: AppColors.darkOutline,
+        surfaceContainerHighest: AppColors.darkContainerAlt,
+      );
+
+  static ThemeData _build(ColorScheme scheme, Brightness brightness) {
+    final claro = brightness == Brightness.light;
+    final appBarBg = claro ? AppColors.ufsmAzul : scheme.surfaceContainer;
+    final appBarFg = claro ? Colors.white : scheme.onSurface;
 
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
-      scaffoldBackgroundColor: background,
+      scaffoldBackgroundColor: claro
+          ? AppColors.lightBackground
+          : AppColors.darkBackground,
       appBarTheme: AppBarTheme(
         backgroundColor: appBarBg,
-        foregroundColor: onPrimaryAppBar,
+        foregroundColor: appBarFg,
         elevation: 0,
-        scrolledUnderElevation: 0,
+        scrolledUnderElevation: claro ? 0 : 2,
         centerTitle: false,
         titleTextStyle: TextStyle(
-          color: onPrimaryAppBar,
+          color: appBarFg,
           fontSize: 18,
           fontWeight: FontWeight.bold,
         ),
@@ -94,7 +84,7 @@ class AppTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: field,
+        fillColor: claro ? AppColors.lightField : AppColors.darkField,
         alignLabelWithHint: true,
         floatingLabelBehavior: FloatingLabelBehavior.always,
         contentPadding: const EdgeInsets.symmetric(
@@ -103,11 +93,11 @@ class AppTheme {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: border),
+          borderSide: BorderSide(color: scheme.outline),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: border),
+          borderSide: BorderSide(color: scheme.outline),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -119,7 +109,9 @@ class AppTheme {
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: cardBorder),
+          side: BorderSide(
+            color: claro ? AppColors.lightContainerAlt : AppColors.darkBorder,
+          ),
         ),
         margin: EdgeInsets.zero,
       ),

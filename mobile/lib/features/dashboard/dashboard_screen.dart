@@ -10,6 +10,7 @@ import '../../data/services/token_service.dart';
 import '../../data/services/unidade_service.dart';
 import '../../widgets/busca_selecao.dart';
 import '../../widgets/matriz_risco.dart';
+import '../../widgets/nivel_badge.dart';
 import '../../widgets/sync_status_bar.dart';
 import '../riscos/risco_detalhe_screen.dart';
 
@@ -449,7 +450,6 @@ class _PrioritarioCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final r = prioritario.risco;
-    final faixa = FaixaNivel.of(r.nivelResidual);
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       child: InkWell(
@@ -470,24 +470,7 @@ class _PrioritarioCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 5,
-                    ),
-                    decoration: BoxDecoration(
-                      color: faixa.cor,
-                      borderRadius: BorderRadius.circular(999),
-                    ),
-                    child: Text(
-                      '${faixa.rotulo} · ${r.nivelResidual}',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
+                  NivelBadge(r.nivelResidual),
                 ],
               ),
               const SizedBox(height: 6),

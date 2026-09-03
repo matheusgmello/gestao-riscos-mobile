@@ -20,8 +20,8 @@ class Preferencias {
   static Future<void> carregar() async {
     try {
       final f = await _arquivo();
-      if (!f.existsSync()) return;
-      tema.value = ThemeMode.values.byName(f.readAsStringSync().trim());
+      if (!await f.exists()) return;
+      tema.value = ThemeMode.values.byName((await f.readAsString()).trim());
     } catch (_) {
       // mantém o padrão (sistema)
     }
@@ -30,7 +30,7 @@ class Preferencias {
   static Future<void> definirTema(ThemeMode modo) async {
     tema.value = modo;
     try {
-      (await _arquivo()).writeAsStringSync(modo.name);
+      await (await _arquivo()).writeAsString(modo.name);
     } catch (_) {}
   }
 }

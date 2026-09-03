@@ -87,6 +87,10 @@ class _Celula extends StatelessWidget {
   Widget build(BuildContext context) {
     final cor = FaixaNivel.of(score).cor;
     final ativa = quantidade > 0;
+    final corTexto =
+        ThemeData.estimateBrightnessForColor(cor) == Brightness.dark
+        ? Colors.white
+        : Colors.black87;
     return Container(
       decoration: BoxDecoration(
         color: cor.withValues(alpha: ativa ? 0.92 : 0.16),
@@ -96,8 +100,8 @@ class _Celula extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         ativa ? '$quantidade' : '',
-        style: const TextStyle(
-          color: Colors.white,
+        style: TextStyle(
+          color: corTexto,
           fontWeight: FontWeight.bold,
           fontSize: 13,
         ),
