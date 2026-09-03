@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/api_error.dart';
+import '../../core/preferencias.dart';
 import '../../data/models/usuario_model.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/token_service.dart';
@@ -91,6 +92,10 @@ class _PerfilScreenState extends State<PerfilScreen> {
               Text('Setores', style: Theme.of(context).textTheme.titleMedium),
               if (u.setores.isEmpty) const Text('Nenhum setor vinculado.'),
               for (final s in u.setores) Text('• ${s.rotulo}'),
+              const SizedBox(height: 20),
+              Text('Aparência', style: Theme.of(context).textTheme.titleMedium),
+              const SizedBox(height: 8),
+              const _SeletorTema(),
               const SizedBox(height: 24),
               OutlinedButton.icon(
                 onPressed: _sair,
@@ -114,4 +119,37 @@ class _PerfilScreenState extends State<PerfilScreen> {
       ],
     ),
   );
+}
+
+class _SeletorTema extends StatelessWidget {
+  const _SeletorTema();
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: Preferencias.tema,
+      builder: (context, modo, _) => SegmentedButton<ThemeMode>(
+        segments: const [
+          ButtonSegment(
+            value: ThemeMode.system,
+            label: Text('Sistema'),
+            icon: Icon(Icons.brightness_auto),
+          ),
+          ButtonSegment(
+            value: ThemeMode.light,
+            label: Text('Claro'),
+            icon: Icon(Icons.light_mode),
+          ),
+          ButtonSegment(
+            value: ThemeMode.dark,
+            label: Text('Escuro'),
+            icon: Icon(Icons.dark_mode),
+          ),
+        ],
+        selected: {modo},
+        showSelectedIcon: false,
+        onSelectionChanged: (s) => Preferencias.definirTema(s.first),
+      ),
+    );
+  }
 }

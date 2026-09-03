@@ -34,7 +34,9 @@ class _SyncStatusBarState extends State<SyncStatusBar> {
 
   @override
   Widget build(BuildContext context) {
-    final ({IconData icone, String texto, Color cor})? info = _info();
+    final ({IconData icone, String texto, Color cor})? info = _info(
+      Theme.of(context).colorScheme,
+    );
     if (info == null) return const SizedBox.shrink();
     return Material(
       color: info.cor.withValues(alpha: 0.12),
@@ -66,7 +68,7 @@ class _SyncStatusBarState extends State<SyncStatusBar> {
     );
   }
 
-  ({IconData icone, String texto, Color cor})? _info() {
+  ({IconData icone, String texto, Color cor})? _info(ColorScheme cores) {
     if (!_online) {
       final p = _resumo.pendentes;
       return (
@@ -74,14 +76,14 @@ class _SyncStatusBarState extends State<SyncStatusBar> {
         texto: p > 0
             ? 'Offline · $p ${p == 1 ? "alteração" : "alterações"} aguardando envio'
             : 'Offline · mostrando dados salvos',
-        cor: AppColors.textMuted,
+        cor: cores.onSurfaceVariant,
       );
     }
     if (_estado == EstadoSync.sincronizando) {
       return (
         icone: Icons.sync,
         texto: 'Sincronizando...',
-        cor: AppColors.primary,
+        cor: cores.primary,
       );
     }
     if (_resumo.conflitos > 0) {
@@ -97,7 +99,7 @@ class _SyncStatusBarState extends State<SyncStatusBar> {
         icone: Icons.cloud_upload_outlined,
         texto:
             '${_resumo.pendentes} ${_resumo.pendentes == 1 ? "alteração pendente" : "alterações pendentes"} · toque para enviar',
-        cor: AppColors.primary,
+        cor: cores.primary,
       );
     }
     return null;

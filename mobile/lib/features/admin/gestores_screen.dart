@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../core/app_colors.dart';
 import '../../core/app_feedback.dart';
 import '../../data/models/usuario_model.dart';
 import '../../data/services/token_service.dart';
@@ -197,11 +196,13 @@ class _GestoresScreenState extends State<GestoresScreen> {
             ),
             leading: CircleAvatar(
               backgroundColor: g.ativo
-                  ? AppColors.primarySurface
-                  : AppColors.grey100,
+                  ? Theme.of(context).colorScheme.primaryContainer
+                  : Theme.of(context).colorScheme.surfaceContainerHighest,
               child: Icon(
                 g.ativo ? Icons.person : Icons.person_off,
-                color: g.ativo ? AppColors.primary : AppColors.grey400,
+                color: g.ativo
+                    ? Theme.of(context).colorScheme.onPrimaryContainer
+                    : Theme.of(context).colorScheme.outline,
               ),
             ),
             trailing: PopupMenuButton<String>(

@@ -3,42 +3,87 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 class AppTheme {
-  static ThemeData get light {
-    const colorScheme = ColorScheme(
+  static ThemeData get light => _build(
+    scheme: const ColorScheme(
       brightness: Brightness.light,
-      primary: AppColors.primary,
-      onPrimary: AppColors.textOnPrimary,
-      primaryContainer: AppColors.primarySurface,
-      onPrimaryContainer: AppColors.primaryDark,
-      secondary: AppColors.primaryLight,
+      primary: AppColors.ufsmAzul,
+      onPrimary: Colors.white,
+      primaryContainer: AppColors.lightPrimarySurface,
+      onPrimaryContainer: AppColors.lightOnPrimarySurface,
+      secondary: AppColors.ufsmAzulClaro,
       onSecondary: Colors.white,
       error: AppColors.error,
       onError: Colors.white,
-      surface: AppColors.surface,
-      onSurface: AppColors.textPrimary,
-    );
+      surface: AppColors.lightSurface,
+      onSurface: AppColors.lightTextPrimary,
+      onSurfaceVariant: AppColors.lightTextMuted,
+      outline: AppColors.lightOutline,
+      surfaceContainerHighest: AppColors.lightContainerAlt,
+    ),
+    background: AppColors.lightBackground,
+    field: AppColors.lightField,
+    border: AppColors.lightBorder,
+    cardBorder: AppColors.lightContainerAlt,
+  );
+
+  static ThemeData get dark => _build(
+    scheme: const ColorScheme(
+      brightness: Brightness.dark,
+      primary: AppColors.darkPrimary,
+      onPrimary: AppColors.ufsmAzulEscuro,
+      primaryContainer: AppColors.darkPrimarySurface,
+      onPrimaryContainer: AppColors.darkOnPrimarySurface,
+      secondary: AppColors.darkPrimary,
+      onSecondary: AppColors.ufsmAzulEscuro,
+      error: Color(0xFFFFB4AB),
+      onError: Color(0xFF690005),
+      surface: AppColors.darkSurface,
+      onSurface: AppColors.darkTextPrimary,
+      onSurfaceVariant: AppColors.darkTextMuted,
+      outline: AppColors.darkOutline,
+      surfaceContainerHighest: AppColors.darkContainerAlt,
+    ),
+    background: AppColors.darkBackground,
+    field: AppColors.darkField,
+    border: AppColors.darkBorder,
+    cardBorder: AppColors.darkBorder,
+  );
+
+  static ThemeData _build({
+    required ColorScheme scheme,
+    required Color background,
+    required Color field,
+    required Color border,
+    required Color cardBorder,
+  }) {
+    final onPrimaryAppBar = scheme.brightness == Brightness.light
+        ? Colors.white
+        : scheme.onSurface;
+    final appBarBg = scheme.brightness == Brightness.light
+        ? AppColors.ufsmAzul
+        : scheme.surface;
 
     return ThemeData(
       useMaterial3: true,
-      colorScheme: colorScheme,
-      scaffoldBackgroundColor: AppColors.background,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
+      colorScheme: scheme,
+      scaffoldBackgroundColor: background,
+      appBarTheme: AppBarTheme(
+        backgroundColor: appBarBg,
+        foregroundColor: onPrimaryAppBar,
         elevation: 0,
         scrolledUnderElevation: 0,
         centerTitle: false,
         titleTextStyle: TextStyle(
-          color: Colors.white,
+          color: onPrimaryAppBar,
           fontSize: 18,
           fontWeight: FontWeight.bold,
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
-          foregroundColor: Colors.white,
-          disabledBackgroundColor: AppColors.grey200,
+          backgroundColor: scheme.primary,
+          foregroundColor: scheme.onPrimary,
+          disabledBackgroundColor: scheme.surfaceContainerHighest,
           minimumSize: const Size(double.infinity, 52),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -49,7 +94,7 @@ class AppTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: AppColors.fieldBg,
+        fillColor: field,
         alignLabelWithHint: true,
         floatingLabelBehavior: FloatingLabelBehavior.always,
         contentPadding: const EdgeInsets.symmetric(
@@ -58,23 +103,23 @@ class AppTheme {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: AppColors.border),
+          borderSide: BorderSide(color: border),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: AppColors.border),
+          borderSide: BorderSide(color: border),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
+          borderSide: BorderSide(color: scheme.primary, width: 1.5),
         ),
       ),
       cardTheme: CardThemeData(
-        color: AppColors.surface,
+        color: scheme.surface,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: AppColors.grey100),
+          side: BorderSide(color: cardBorder),
         ),
         margin: EdgeInsets.zero,
       ),

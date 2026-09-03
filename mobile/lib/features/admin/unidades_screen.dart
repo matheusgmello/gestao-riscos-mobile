@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../core/app_colors.dart';
 import '../../core/app_feedback.dart';
 import '../../data/models/unidade_model.dart';
 import '../../data/services/token_service.dart';
@@ -211,7 +210,9 @@ class _UnidadesScreenState extends State<UnidadesScreen> {
       child: Chip(
         label: Text(valor ?? rotulo),
         avatar: const Icon(Icons.arrow_drop_down, size: 18),
-        backgroundColor: valor != null ? AppColors.primarySurface : null,
+        backgroundColor: valor != null
+            ? Theme.of(context).colorScheme.primaryContainer
+            : null,
       ),
     );
   }

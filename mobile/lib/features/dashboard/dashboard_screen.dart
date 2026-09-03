@@ -117,7 +117,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.cloud_off, size: 48, color: AppColors.grey400),
+              Icon(
+                Icons.cloud_off,
+                size: 48,
+                color: Theme.of(context).colorScheme.outline,
+              ),
               const SizedBox(height: 12),
               Text('$_erro', textAlign: TextAlign.center),
               const SizedBox(height: 12),
@@ -176,13 +180,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
   );
 
   Widget _kpis(Dashboard d) {
+    final primaria = Theme.of(context).colorScheme.primary;
     final itens = [
-      ('Total de riscos', '${d.totalPlanos}', AppColors.primary),
+      ('Total de riscos', '${d.totalPlanos}', primaria),
       ('Críticos', '${d.riscosCriticos}', AppColors.nivelAlto),
       (
         'Cobertura monit.',
         '${d.coberturaMonitoramento.toStringAsFixed(0)}%',
-        AppColors.primary,
+        primaria,
       ),
       (
         'Taxa de mitigação',
@@ -321,8 +326,8 @@ class _CategoriaChart extends StatelessWidget {
                   tooltipMargin: 2,
                   getTooltipItem: (group, _, rod, _) => BarTooltipItem(
                     '${rod.toY.toInt()}',
-                    const TextStyle(
-                      color: AppColors.textSecondary,
+                    TextStyle(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),
@@ -368,7 +373,7 @@ class _CategoriaChart extends StatelessWidget {
                     barRods: [
                       BarChartRodData(
                         toY: dados[i].quantidade.toDouble(),
-                        color: AppColors.primary,
+                        color: Theme.of(context).colorScheme.primary,
                         width: 22,
                         borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(4),
@@ -407,11 +412,11 @@ class _RankingUnidades extends StatelessWidget {
               dense: true,
               leading: CircleAvatar(
                 radius: 14,
-                backgroundColor: AppColors.primarySurface,
+                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
                 child: Text(
                   '${i + 1}',
-                  style: const TextStyle(
-                    color: AppColors.primary,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
                   ),

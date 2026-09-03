@@ -365,13 +365,13 @@ class _AbaDados extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
               decoration: BoxDecoration(
-                color: AppColors.primarySurface,
+                color: Theme.of(context).colorScheme.primaryContainer,
                 borderRadius: BorderRadius.circular(999),
               ),
               child: Text(
                 risco.categoria,
-                style: const TextStyle(
-                  color: AppColors.primary,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
                   fontWeight: FontWeight.w500,
                   fontSize: 12,
                 ),
@@ -461,7 +461,10 @@ class _NivelResumo extends StatelessWidget {
               risco.nivelRisco,
             ),
             const SizedBox(width: 12),
-            const Icon(Icons.arrow_forward, color: AppColors.textMuted),
+            Icon(
+              Icons.arrow_forward,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
             const SizedBox(width: 12),
             _coluna(
               context,
@@ -618,9 +621,9 @@ class _StatusChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = status.toLowerCase();
-    Color cor = AppColors.grey400;
+    Color cor = Theme.of(context).colorScheme.outline;
     if (s.contains('conclu')) cor = AppColors.nivelBaixo;
-    if (s.contains('andamento')) cor = AppColors.primary;
+    if (s.contains('andamento')) cor = Theme.of(context).colorScheme.primary;
     if (s.contains('atras')) cor = AppColors.nivelExtremo;
     return Container(
       margin: const EdgeInsets.only(right: 4),

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../core/app_colors.dart';
 import '../../core/exportar.dart';
 import '../../data/models/risco_model.dart';
 import '../../data/models/unidade_model.dart';
@@ -289,10 +288,10 @@ class _RiscoCard extends StatelessWidget {
               Row(
                 children: [
                   if (risco.pendenteSync) ...[
-                    const Icon(
+                    Icon(
                       Icons.cloud_upload_outlined,
                       size: 14,
-                      color: AppColors.primary,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                     const SizedBox(width: 4),
                   ],
@@ -321,17 +320,17 @@ class _RiscoCard extends StatelessWidget {
                   _Chip(risco.categoria),
                   const SizedBox(width: 8),
                   if (risco.possuiPlanoAcao)
-                    const Icon(
+                    Icon(
                       Icons.task_alt,
                       size: 16,
-                      color: AppColors.textMuted,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                   if (risco.possuiMonitoramento) ...[
                     const SizedBox(width: 6),
-                    const Icon(
+                    Icon(
                       Icons.monitor_heart_outlined,
                       size: 16,
-                      color: AppColors.textMuted,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                   ],
                   const Spacer(),
@@ -355,17 +354,18 @@ class _Chip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cores = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
-        color: AppColors.primarySurface,
+        color: cores.primaryContainer,
         borderRadius: BorderRadius.circular(999),
       ),
       child: Text(
         texto,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 12,
-          color: AppColors.primary,
+          color: cores.onPrimaryContainer,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -391,7 +391,7 @@ class _Estado extends StatelessWidget {
     return ListView(
       children: [
         const SizedBox(height: 80),
-        Icon(icone, size: 56, color: AppColors.grey400),
+        Icon(icone, size: 56, color: Theme.of(context).colorScheme.outline),
         const SizedBox(height: 12),
         Text(
           titulo,
