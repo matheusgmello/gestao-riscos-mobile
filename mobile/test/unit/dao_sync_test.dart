@@ -108,10 +108,28 @@ void main() {
     await dao.remapearRisco('local-1', 'REAL');
 
     expect(await dao.risco('local-1'), isNull);
-    expect(await dao.risco('REAL'), isNotNull);
+    final remapeado = await dao.risco('REAL');
+    expect(remapeado, isNotNull);
+    // o uuid dentro do JSON e o flag pendente também acompanham o remap
+    expect(remapeado!['uuid'], 'REAL');
+    expect(remapeado['pendente_sync'], isFalse);
     final acoes = await dao.acoesDoRisco('REAL');
     expect(acoes, hasLength(1));
     final fila = await dao.fila();
     expect(fila.first.payload!['risco'], 'REAL');
+  });
+
+  test('_comMeta injeta o uuid da linha quando falta no JSON', () async {
+    // simula linha remapeada por versão antiga (JSON sem uuid)
+    final db = Banco.testDb!;
+    await db.insert('cache_riscos', {
+      'uuid': 'REAL',
+      'risco_uuid': 'REAL',
+      'json': '{"evento":"E"}',
+      'ativo': 1,
+      'pendente': 0,
+    });
+    final r = await dao.risco('REAL');
+    expect(r!['uuid'], 'REAL');
   });
 }

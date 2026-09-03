@@ -91,6 +91,10 @@ class DaoSync {
 
   Map<String, dynamic> _comMeta(Map<String, Object?> row) {
     final json = jsonDecode(row['json'] as String) as Map<String, dynamic>;
+    // Autocura: o remapeamento pós-sync troca a chave da linha mas pode não
+    // ter reescrito o id dentro do JSON.
+    if (row['uuid'] != null) json['uuid'] ??= row['uuid'];
+    if (row['id'] != null) json['id'] ??= row['id'];
     json['pendente_sync'] = (row['pendente'] as int? ?? 0) == 1;
     json['ativo'] = (row['ativo'] as int? ?? 1) == 1;
     return json;
@@ -263,9 +267,19 @@ class DaoSync {
   Future<void> remapearRisco(String local, String real) async {
     final d = await _db;
     await d.transaction((t) async {
+      final atual = await t.query(
+        'cache_riscos',
+        where: 'uuid = ?',
+        whereArgs: [local],
+      );
+      final json = atual.isEmpty
+          ? <String, dynamic>{}
+          : jsonDecode(atual.first['json'] as String) as Map<String, dynamic>;
+      json['uuid'] = real;
+      // já sincronizado — deixa o aplicarDoServidor seguinte sobrescrever.
       await t.update(
         'cache_riscos',
-        {'uuid': real, 'risco_uuid': real},
+        {'uuid': real, 'risco_uuid': real, 'json': jsonEncode(json), 'pendente': 0},
         where: 'uuid = ?',
         whereArgs: [local],
       );
