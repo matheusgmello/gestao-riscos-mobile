@@ -13,6 +13,7 @@ import '../../data/models/usuario_model.dart';
 import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/exportacao_service.dart';
 import '../../data/services/token_service.dart';
+import '../../widgets/categoria_chip.dart';
 import '../../widgets/estado.dart';
 import '../../widgets/nivel_badge.dart';
 import '../monitoramentos/monitoramento_form_screen.dart';
@@ -243,7 +244,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
             actions: [
               if (_risco != null)
                 PopupMenuButton<String>(
-                  icon: const Icon(Icons.ios_share),
+                  icon: const Icon(Icons.share_outlined),
                   tooltip: 'Exportar',
                   onSelected: (v) => exportarECompartilhar(
                     context,
@@ -360,21 +361,7 @@ class _AbaDados extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primaryContainer,
-                borderRadius: BorderRadius.circular(999),
-              ),
-              child: Text(
-                risco.categoria,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onPrimaryContainer,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                ),
-              ),
-            ),
+            CategoriaChip(risco.categoria),
           ],
         ),
         const SizedBox(height: 16),
@@ -517,7 +504,7 @@ class _AbaLista extends StatelessWidget {
     return Stack(
       children: [
         if (itens.isEmpty)
-          Center(child: Text(vazio))
+          EstadoVazio(icone: Icons.inbox_outlined, titulo: vazio)
         else
           ListView(
             padding: const EdgeInsets.fromLTRB(12, 12, 12, 88),

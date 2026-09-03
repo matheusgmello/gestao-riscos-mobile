@@ -50,9 +50,14 @@ class MatrizRisco extends StatelessWidget {
                     aspectRatio: 1,
                     child: Padding(
                       padding: const EdgeInsets.all(2),
-                      child: _Celula(
-                        quantidade: _qtd(prob, imp),
-                        score: prob * imp,
+                      child: Semantics(
+                        label:
+                            'Probabilidade $prob, impacto $imp: '
+                            '${_qtd(prob, imp)} riscos',
+                        child: _Celula(
+                          quantidade: _qtd(prob, imp),
+                          score: prob * imp,
+                        ),
                       ),
                     ),
                   ),

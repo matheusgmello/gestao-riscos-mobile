@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../core/api_error.dart';
+import '../../core/app_colors.dart';
+import '../../core/app_feedback.dart';
 import '../../core/form_validators.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/token_service.dart';
@@ -36,11 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await _auth.login(_siape.text.trim(), _senha.text);
       if (mounted) context.go('/riscos');
-    } on ApiError catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(e.message)));
-      }
+    } catch (e) {
+      if (mounted) mostrarErro(context, e);
     } finally {
       if (mounted) setState(() => _carregando = false);
     }
@@ -48,24 +46,65 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Faixa de marca: azul UFSM fixo nos dois temas (momento de identidade).
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(24),
-            child: Form(
-              key: _formKey,
+      backgroundColor: AppColors.ufsmAzul,
+      body: Column(
+        children: [
+          SafeArea(
+            bottom: false,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(28, 36, 28, 28),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Gestão de Risco UFSM',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headlineSmall,
+                  const Icon(
+                    Icons.shield_outlined,
+                    color: Colors.white,
+                    size: 40,
                   ),
-                  const SizedBox(height: 32),
-                  TextFormField(
+                  const SizedBox(height: 14),
+                  Text(
+                    'Gestão de Risco',
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'UFSM',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Colors.white70,
+                      letterSpacing: 2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(28),
+                ),
+              ),
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(24, 32, 24, 24),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        'Entrar',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      const SizedBox(height: 20),
+                      TextFormField(
                     controller: _siape,
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
@@ -116,11 +155,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                     child: const Text('Esqueci minha senha'),
                   ),
-                ],
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

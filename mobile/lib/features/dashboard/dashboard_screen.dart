@@ -1,4 +1,3 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
@@ -103,7 +102,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
       body: Column(
-        children: [const SyncStatusBar(), Expanded(child: _corpo())],
+        children: [
+          const SyncStatusBar(),
+          if (_filtro.setorId != null) _chipUnidade(),
+          Expanded(child: _corpo()),
+        ],
+      ),
+    );
+  }
+
+  Widget _chipUnidade() {
+    final achadas = _unidades.where((u) => u.id == _filtro.setorId);
+    final nome = achadas.isEmpty ? '${_filtro.setorId}' : achadas.first.rotulo;
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 4, 12, 0),
+        child: InputChip(
+          label: Text('Unidade: $nome'),
+          visualDensity: VisualDensity.compact,
+          onDeleted: () {
+            setState(() => _filtro = _filtro.copyWith(limparSetor: true));
+            _carregar();
+          },
+        ),
       ),
     );
   }
@@ -273,6 +295,8 @@ class _PorNivel extends StatelessWidget {
   }
 }
 
+/// Lista horizontal — uma linha por categoria: rótulo, barra proporcional e
+/// contagem. Escala pra qualquer número de categorias e é lida pelo TalkBack.
 class _CategoriaChart extends StatelessWidget {
   const _CategoriaChart({required this.dados});
   final List<CategoriaContagem> dados;
@@ -287,87 +311,55 @@ class _CategoriaChart extends StatelessWidget {
         ),
       );
     }
+    final cores = Theme.of(context).colorScheme;
     final maxV = dados
         .map((d) => d.quantidade)
-        .fold<int>(0, (a, b) => a > b ? a : b)
-        .toDouble();
+        .fold<int>(1, (a, b) => a > b ? a : b);
     return Card(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 16, 16, 8),
-        child: SizedBox(
-          height: 200,
-          child: BarChart(
-            BarChartData(
-              alignment: BarChartAlignment.spaceAround,
-              maxY: (maxV + 1),
-              gridData: const FlGridData(show: false),
-              borderData: FlBorderData(show: false),
-              barTouchData: BarTouchData(
-                enabled: false,
-                touchTooltipData: BarTouchTooltipData(
-                  getTooltipColor: (_) => Colors.transparent,
-                  tooltipPadding: EdgeInsets.zero,
-                  tooltipMargin: 2,
-                  getTooltipItem: (group, _, rod, _) => BarTooltipItem(
-                    '${rod.toY.toInt()}',
-                    TextStyle(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
-                    ),
-                  ),
-                ),
-              ),
-              titlesData: FlTitlesData(
-                leftTitles: const AxisTitles(
-                  sideTitles: SideTitles(showTitles: true, reservedSize: 28),
-                ),
-                topTitles: const AxisTitles(
-                  sideTitles: SideTitles(showTitles: false),
-                ),
-                rightTitles: const AxisTitles(
-                  sideTitles: SideTitles(showTitles: false),
-                ),
-                bottomTitles: AxisTitles(
-                  sideTitles: SideTitles(
-                    showTitles: true,
-                    reservedSize: 42,
-                    getTitlesWidget: (v, meta) {
-                      final i = v.toInt();
-                      if (i < 0 || i >= dados.length) {
-                        return const SizedBox.shrink();
-                      }
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        child: Column(
+          children: [
+            for (final d in dados)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Semantics(
+                  label: '${d.nome}: ${d.quantidade} riscos',
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 92,
                         child: Text(
-                          dados[i].nome,
-                          style: const TextStyle(fontSize: 10),
-                          textAlign: TextAlign.center,
+                          d.nome,
+                          style: Theme.of(context).textTheme.bodySmall,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                      );
-                    },
-                  ),
-                ),
-              ),
-              barGroups: [
-                for (var i = 0; i < dados.length; i++)
-                  BarChartGroupData(
-                    x: i,
-                    showingTooltipIndicators: const [0],
-                    barRods: [
-                      BarChartRodData(
-                        toY: dados[i].quantidade.toDouble(),
-                        color: Theme.of(context).colorScheme.primary,
-                        width: 22,
-                        borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(4),
+                      ),
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(999),
+                          child: LinearProgressIndicator(
+                            value: d.quantidade / maxV,
+                            minHeight: 10,
+                            backgroundColor: cores.surfaceContainerHighest,
+                            valueColor: AlwaysStoppedAnimation(cores.primary),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 26,
+                        child: Text(
+                          '${d.quantidade}',
+                          textAlign: TextAlign.end,
+                          style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ),
                     ],
                   ),
-              ],
-            ),
-          ),
+                ),
+              ),
+          ],
         ),
       ),
     );

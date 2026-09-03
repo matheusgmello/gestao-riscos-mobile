@@ -14,6 +14,7 @@ import '../../data/services/pdi_service.dart';
 import '../../data/services/unidade_service.dart';
 import '../../data/sync/motor_sync.dart';
 import '../../widgets/busca_selecao.dart';
+import '../../widgets/categoria_chip.dart';
 import '../../widgets/estado.dart';
 import '../../widgets/nivel_badge.dart';
 import '../../widgets/sync_status_bar.dart';
@@ -162,7 +163,7 @@ class _RiscosScreenState extends State<RiscosScreen> {
         title: const Text('Riscos'),
         actions: [
           PopupMenuButton<String>(
-            icon: const Icon(Icons.ios_share),
+            icon: const Icon(Icons.share_outlined),
             tooltip: 'Exportar',
             onSelected: (v) => exportarECompartilhar(
               context,
@@ -225,11 +226,61 @@ class _RiscosScreenState extends State<RiscosScreen> {
               ),
             ),
           ),
+          _chipsFiltro(),
           Expanded(child: _corpo()),
         ],
       ),
     );
   }
+
+  Widget _chipsFiltro() {
+    final f = _filtro;
+    final chips = <Widget>[];
+    if (f.setorId != null) {
+      final achadas = _unidades.where((u) => u.id == f.setorId);
+      final nome = achadas.isEmpty ? '${f.setorId}' : achadas.first.rotulo;
+      chips.add(
+        _chip('Unidade: $nome', () {
+          setState(() => _filtro = f.copyWith(limparSetor: true));
+          _reaplicarFiltro();
+        }),
+      );
+    }
+    if (f.categoria != null) {
+      chips.add(
+        _chip('Categoria: ${f.categoria}', () {
+          setState(() => _filtro = f.copyWith(limparCategoria: true));
+          _reaplicarFiltro();
+        }),
+      );
+    }
+    if (f.incluirInativos) {
+      chips.add(
+        _chip('Inclui inativos', () {
+          setState(() => _filtro = f.copyWith(incluirInativos: false));
+          _reaplicarFiltro();
+        }),
+      );
+    }
+    if (chips.isEmpty) return const SizedBox.shrink();
+    return SizedBox(
+      height: 44,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        children: [
+          for (final c in chips)
+            Padding(padding: const EdgeInsets.only(right: 8), child: c),
+        ],
+      ),
+    );
+  }
+
+  Widget _chip(String texto, VoidCallback onRemover) => InputChip(
+    label: Text(texto),
+    onDeleted: onRemover,
+    visualDensity: VisualDensity.compact,
+  );
 
   Widget _corpo() {
     if (_carregando) {
@@ -317,7 +368,7 @@ class _RiscoCard extends StatelessWidget {
               const SizedBox(height: 8),
               Row(
                 children: [
-                  _Chip(risco.categoria),
+                  CategoriaChip(risco.categoria),
                   const SizedBox(width: 8),
                   if (risco.possuiPlanoAcao)
                     Icon(
@@ -342,31 +393,6 @@ class _RiscoCard extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _Chip extends StatelessWidget {
-  const _Chip(this.texto);
-  final String texto;
-
-  @override
-  Widget build(BuildContext context) {
-    final cores = Theme.of(context).colorScheme;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: cores.primaryContainer,
-        borderRadius: BorderRadius.circular(999),
-      ),
-      child: Text(
-        texto,
-        style: TextStyle(
-          fontSize: 12,
-          color: cores.onPrimaryContainer,
-          fontWeight: FontWeight.w500,
         ),
       ),
     );
