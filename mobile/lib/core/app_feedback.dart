@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
+import 'api_error.dart';
 
 void mostrarErro(BuildContext context, Object erro) {
+  final cores = Theme.of(context).colorScheme;
   ScaffoldMessenger.of(context)
     ..hideCurrentSnackBar()
     ..showSnackBar(
-      SnackBar(content: Text('$erro'), backgroundColor: AppColors.error),
+      SnackBar(
+        content: Text(mensagemDeErro(erro)),
+        backgroundColor: cores.error,
+      ),
     );
 }
 
@@ -37,7 +41,9 @@ Future<bool> confirmar(
         TextButton(
           onPressed: () => Navigator.pop(context, true),
           style: destrutivo
-              ? TextButton.styleFrom(foregroundColor: AppColors.error)
+              ? TextButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.error,
+                )
               : null,
           child: Text(confirmar),
         ),

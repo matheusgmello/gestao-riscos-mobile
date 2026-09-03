@@ -6,6 +6,7 @@ import '../../core/app_feedback.dart';
 import '../../data/models/unidade_model.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/unidade_service.dart';
+import '../../widgets/estado.dart';
 import 'unidade_form_screen.dart';
 
 class UnidadesScreen extends StatefulWidget {
@@ -219,13 +220,17 @@ class _UnidadesScreenState extends State<UnidadesScreen> {
 
   Widget _lista() {
     if (_carregando) {
-      return const Center(child: CircularProgressIndicator());
+      return const SkeletonLista(altura: 68);
     }
     if (_erro != null) {
-      return Center(child: Text('$_erro'));
+      return EstadoErro(erro: _erro!, onTentar: _recarregar);
     }
     if (_unidades.isEmpty) {
-      return const Center(child: Text('Nenhuma unidade.'));
+      return const EstadoVazio(
+        icone: Icons.apartment_outlined,
+        titulo: 'Nenhuma unidade',
+        detalhe: 'Nenhuma unidade para a busca ou filtros atuais.',
+      );
     }
     return RefreshIndicator(
       onRefresh: _recarregar,

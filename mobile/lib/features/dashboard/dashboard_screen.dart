@@ -9,6 +9,7 @@ import '../../data/services/dashboard_service.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/unidade_service.dart';
 import '../../widgets/busca_selecao.dart';
+import '../../widgets/estado.dart';
 import '../../widgets/matriz_risco.dart';
 import '../../widgets/nivel_badge.dart';
 import '../../widgets/sync_status_bar.dart';
@@ -109,30 +110,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Widget _corpo() {
     if (_carregando) {
-      return const Center(child: CircularProgressIndicator());
+      return const SkeletonLista(itens: 4, altura: 120);
     }
     if (_erro != null || _dados == null) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.cloud_off,
-                size: 48,
-                color: Theme.of(context).colorScheme.outline,
-              ),
-              const SizedBox(height: 12),
-              Text('$_erro', textAlign: TextAlign.center),
-              const SizedBox(height: 12),
-              FilledButton(
-                onPressed: _carregar,
-                child: const Text('Tentar de novo'),
-              ),
-            ],
-          ),
-        ),
+      return EstadoErro(
+        erro: _erro ?? 'Sem dados para exibir.',
+        onTentar: _carregar,
       );
     }
     final d = _dados!;

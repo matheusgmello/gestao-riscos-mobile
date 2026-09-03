@@ -14,6 +14,7 @@ import '../../data/services/pdi_service.dart';
 import '../../data/services/unidade_service.dart';
 import '../../data/sync/motor_sync.dart';
 import '../../widgets/busca_selecao.dart';
+import '../../widgets/estado.dart';
 import '../../widgets/nivel_badge.dart';
 import '../../widgets/sync_status_bar.dart';
 import 'risco_detalhe_screen.dart';
@@ -232,26 +233,25 @@ class _RiscosScreenState extends State<RiscosScreen> {
 
   Widget _corpo() {
     if (_carregando) {
-      return const Center(child: CircularProgressIndicator());
+      return const SkeletonLista();
     }
     if (_erro != null) {
-      return _Estado(
-        icone: Icons.cloud_off,
-        titulo: 'Não foi possível carregar',
-        detalhe: '$_erro',
-        acao: FilledButton(
-          onPressed: _recarregar,
-          child: const Text('Tentar de novo'),
-        ),
-      );
+      return EstadoErro(erro: _erro!, onTentar: _recarregar);
     }
     if (_riscos.isEmpty) {
-      return _Estado(
+      return EstadoVazio(
         icone: Icons.inbox_outlined,
         titulo: 'Nenhum risco',
         detalhe: _filtro.temFiltroAtivo
             ? 'Nenhum resultado para os filtros atuais.'
             : 'Ainda não há riscos cadastrados.',
+        acao: (!_filtro.temFiltroAtivo && (_usuario?.setores.isNotEmpty ?? false))
+            ? FilledButton.icon(
+                onPressed: _novoRisco,
+                icon: const Icon(Icons.add),
+                label: const Text('Criar o primeiro risco'),
+              )
+            : null,
       );
     }
     return RefreshIndicator(
@@ -369,42 +369,6 @@ class _Chip extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
-    );
-  }
-}
-
-class _Estado extends StatelessWidget {
-  const _Estado({
-    required this.icone,
-    required this.titulo,
-    required this.detalhe,
-    this.acao,
-  });
-
-  final IconData icone;
-  final String titulo;
-  final String detalhe;
-  final Widget? acao;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        const SizedBox(height: 80),
-        Icon(icone, size: 56, color: Theme.of(context).colorScheme.outline),
-        const SizedBox(height: 12),
-        Text(
-          titulo,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        const SizedBox(height: 4),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
-          child: Text(detalhe, textAlign: TextAlign.center),
-        ),
-        if (acao != null) ...[const SizedBox(height: 16), Center(child: acao!)],
-      ],
     );
   }
 }

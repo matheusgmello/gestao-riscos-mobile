@@ -71,6 +71,16 @@ class ApiError implements Exception {
   String toString() => message;
 }
 
+/// Mensagem exibível para qualquer erro que chegue num `catch`. Usar sempre
+/// isto ao mostrar erro pro usuário — nunca `'$e'` cru (vaza `DioException`,
+/// `Exception:` etc.).
+String mensagemDeErro(Object erro) {
+  if (erro is ApiError) return erro.message;
+  if (erro is DioException) return ApiError.fromDio(erro).message;
+  final texto = erro.toString();
+  return texto.startsWith('Exception: ') ? texto.substring(11) : texto;
+}
+
 /// Executa [fn] convertendo qualquer `DioException` em [ApiError].
 Future<T> comApiError<T>(Future<T> Function() fn) async {
   try {

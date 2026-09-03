@@ -13,10 +13,17 @@ import '../../data/models/usuario_model.dart';
 import '../../data/repositorios/risco_repositorio.dart';
 import '../../data/services/exportacao_service.dart';
 import '../../data/services/token_service.dart';
+import '../../widgets/estado.dart';
 import '../../widgets/nivel_badge.dart';
 import '../monitoramentos/monitoramento_form_screen.dart';
 import '../planos_acao/plano_acao_form_screen.dart';
 import 'risco_form_screen.dart';
+
+/// Cor de texto/ícone sobre a AppBar (branco no tema claro, onSurface no
+/// escuro) — usada nas abas para não fixar branco.
+Color _corAppBar(BuildContext context) =>
+    Theme.of(context).appBarTheme.foregroundColor ??
+    Theme.of(context).colorScheme.onSurface;
 
 class RiscoDetalheScreen extends StatefulWidget {
   const RiscoDetalheScreen({super.key, required this.uuid});
@@ -263,12 +270,15 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
                   ],
                 ),
             ],
-            bottom: const TabBar(
-              labelColor: Colors.white,
-              unselectedLabelColor: Colors.white70,
-              indicatorColor: Colors.white,
-              labelStyle: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-              tabs: [
+            bottom: TabBar(
+              labelColor: _corAppBar(context),
+              unselectedLabelColor: _corAppBar(context).withValues(alpha: 0.7),
+              indicatorColor: _corAppBar(context),
+              labelStyle: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+              tabs: const [
                 Tab(text: 'Dados'),
                 Tab(text: 'Ações'),
                 Tab(text: 'Monitor.'),
@@ -287,21 +297,9 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
       return const Center(child: CircularProgressIndicator());
     }
     if (_erro != null || _risco == null) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text('$_erro', textAlign: TextAlign.center),
-              const SizedBox(height: 12),
-              FilledButton(
-                onPressed: _carregar,
-                child: const Text('Tentar de novo'),
-              ),
-            ],
-          ),
-        ),
+      return EstadoErro(
+        erro: _erro ?? 'Risco não encontrado.',
+        onTentar: _carregar,
       );
     }
     return TabBarView(

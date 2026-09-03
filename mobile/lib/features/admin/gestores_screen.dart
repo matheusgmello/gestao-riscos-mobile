@@ -6,6 +6,7 @@ import '../../core/app_feedback.dart';
 import '../../data/models/usuario_model.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/usuario_service.dart';
+import '../../widgets/estado.dart';
 import 'gestor_form_screen.dart';
 
 class GestoresScreen extends StatefulWidget {
@@ -165,13 +166,19 @@ class _GestoresScreenState extends State<GestoresScreen> {
 
   Widget _lista() {
     if (_carregando) {
-      return const Center(child: CircularProgressIndicator());
+      return const SkeletonLista(altura: 68);
     }
     if (_erro != null) {
-      return Center(child: Text('$_erro'));
+      return EstadoErro(erro: _erro!, onTentar: _recarregar);
     }
     if (_gestores.isEmpty) {
-      return const Center(child: Text('Nenhum gestor.'));
+      return EstadoVazio(
+        icone: Icons.badge_outlined,
+        titulo: 'Nenhum gestor',
+        detalhe: _busca?.isNotEmpty ?? false
+            ? 'Nenhum resultado para "${_busca!}".'
+            : 'Cadastre o primeiro gestor pelo botão abaixo.',
+      );
     }
     return RefreshIndicator(
       onRefresh: _recarregar,

@@ -8,6 +8,7 @@ import '../../data/models/usuario_model.dart';
 import '../../data/services/equipe_service.dart';
 import '../../data/services/token_service.dart';
 import '../../data/sync/conectividade.dart';
+import '../../widgets/estado.dart';
 import '../../widgets/sync_status_bar.dart';
 
 class EquipeScreen extends StatefulWidget {
@@ -80,10 +81,12 @@ class _EquipeScreenState extends State<EquipeScreen> {
   }
 
   Future<void> _adicionar() async {
+    final setor = _setor;
+    if (setor == null) return;
     final siape = await _pedirSiape();
     if (siape == null || siape.isEmpty) return;
     try {
-      await _service.adicionar(_setor!.id, siape);
+      await _service.adicionar(setor.id, siape);
       if (!mounted) return;
       mostrarOk(context, 'Membro adicionado.');
       _carregarMembros();
@@ -92,44 +95,54 @@ class _EquipeScreenState extends State<EquipeScreen> {
     }
   }
 
-  Future<String?> _pedirSiape() {
+  Future<String?> _pedirSiape() async {
     final ctrl = TextEditingController();
-    return showDialog<String>(
-      context: context,
-      builder: (_) => AlertDialog(
-        title: const Text('Adicionar membro'),
-        content: TextField(
-          controller: ctrl,
-          autofocus: true,
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(labelText: 'SIAPE'),
+    try {
+      return await showDialog<String>(
+        context: context,
+        builder: (_) => AlertDialog(
+          title: const Text('Adicionar membro'),
+          content: TextField(
+            controller: ctrl,
+            autofocus: true,
+            keyboardType: TextInputType.number,
+            decoration: const InputDecoration(labelText: 'SIAPE'),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancelar'),
+            ),
+            FilledButton(
+              onPressed: () {
+                final v = ctrl.text.trim();
+                if (v.isEmpty || int.tryParse(v) == null) return;
+                Navigator.pop(context, v);
+              },
+              child: const Text('Adicionar'),
+            ),
+          ],
         ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancelar'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(context, ctrl.text.trim()),
-            child: const Text('Adicionar'),
-          ),
-        ],
-      ),
-    );
+      );
+    } finally {
+      ctrl.dispose();
+    }
   }
 
   Future<void> _remover(UsuarioModel m) async {
+    final setor = _setor;
+    if (setor == null) return;
     if (!await confirmar(
       context,
       titulo: 'Remover membro',
-      mensagem: '${m.nome} sai da equipe de ${_setor!.rotulo}.',
+      mensagem: '${m.nome} sai da equipe de ${setor.rotulo}.',
       confirmar: 'Remover',
       destrutivo: true,
     )) {
       return;
     }
     try {
-      await _service.remover(_setor!.id, m.id);
+      await _service.remover(setor.id, m.id);
       if (!mounted) return;
       mostrarOk(context, 'Membro removido.');
       _carregarMembros();
@@ -193,13 +206,17 @@ class _EquipeScreenState extends State<EquipeScreen> {
 
   Widget _lista() {
     if (_carregando) {
-      return const Center(child: CircularProgressIndicator());
+      return const SkeletonLista(altura: 68);
     }
     if (_erro != null) {
-      return Center(child: Text('$_erro'));
+      return EstadoErro(erro: _erro!, onTentar: _carregarMembros);
     }
     if (_membros.isEmpty) {
-      return const Center(child: Text('Nenhum membro nesta unidade.'));
+      return const EstadoVazio(
+        icone: Icons.groups_outlined,
+        titulo: 'Nenhum membro',
+        detalhe: 'Esta unidade ainda não tem gestores vinculados.',
+      );
     }
     return RefreshIndicator(
       onRefresh: _carregarMembros,

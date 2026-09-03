@@ -5,6 +5,7 @@ import '../../core/form_validators.dart';
 import '../../data/models/pdi_model.dart';
 import '../../data/services/pdi_service.dart';
 import '../../data/services/token_service.dart';
+import '../../widgets/estado.dart';
 
 class PdiScreen extends StatelessWidget {
   const PdiScreen({super.key});
@@ -348,29 +349,18 @@ class _ListaPdi<T> extends StatelessWidget {
         future: future,
         builder: (context, snap) {
           if (snap.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
+            return const SkeletonLista(altura: 56);
           }
           if (snap.hasError) {
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(24),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('${snap.error}', textAlign: TextAlign.center),
-                    const SizedBox(height: 12),
-                    FilledButton(
-                      onPressed: onRefresh,
-                      child: const Text('Tentar de novo'),
-                    ),
-                  ],
-                ),
-              ),
-            );
+            return EstadoErro(erro: snap.error!, onTentar: onRefresh);
           }
           final itens = snap.data ?? [];
           if (itens.isEmpty) {
-            return const Center(child: Text('Nada cadastrado.'));
+            return const EstadoVazio(
+              icone: Icons.list_alt_outlined,
+              titulo: 'Nada cadastrado',
+              detalhe: 'Use o botão + para adicionar o primeiro item.',
+            );
           }
           return ListView.separated(
             padding: const EdgeInsets.fromLTRB(4, 4, 4, 88),

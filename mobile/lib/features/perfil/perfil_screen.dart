@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/api_error.dart';
 import '../../core/preferencias.dart';
 import '../../data/models/usuario_model.dart';
+import '../../widgets/estado.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/token_service.dart';
 import '../../data/services/usuario_service.dart';
@@ -75,7 +76,10 @@ class _PerfilScreenState extends State<PerfilScreen> {
             return const Center(child: CircularProgressIndicator());
           }
           if (snap.hasError) {
-            return Center(child: Text('${snap.error}'));
+            return EstadoErro(
+              erro: snap.error!,
+              onTentar: () => setState(() => _future = _carregar()),
+            );
           }
           final u = snap.data!;
           return ListView(
