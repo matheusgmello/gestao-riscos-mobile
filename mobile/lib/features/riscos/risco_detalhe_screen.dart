@@ -50,6 +50,9 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   Object? _erro;
   bool _mudou = false;
 
+  /// Chave real após a carga (a tela pode ter sido aberta com a temporária).
+  String get _uuid => _risco?.uuid ?? widget.uuid;
+
   bool get _podeEscrever =>
       _risco != null &&
       podeEscreverNoSetor(_risco!.setorId, _usuario?.setoresIds ?? const []);
@@ -69,9 +72,11 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
       _usuario ??= await _tokens.getUsuario();
       final risco = await _repo.obter(widget.uuid);
       if (risco == null) throw Exception('Risco não encontrado no cache.');
-      final acoes = await _repo.acoes(widget.uuid);
-      final mons = await _repo.monitoramentos(widget.uuid);
-      final hist = await _repo.historico(widget.uuid);
+      // pode ter sido aberto com a chave temporária; usa o uuid resolvido
+      final uuid = risco.uuid;
+      final acoes = await _repo.acoes(uuid);
+      final mons = await _repo.monitoramentos(uuid);
+      final hist = await _repo.historico(uuid);
       if (!mounted) return;
       setState(() {
         _risco = risco;
@@ -109,7 +114,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
       return;
     }
     try {
-      await _repo.duplicar(widget.uuid);
+      await _repo.duplicar(_uuid);
       _mudou = true;
       if (mounted) {
         mostrarOk(context, 'Risco duplicado.');
@@ -132,7 +137,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
       return;
     }
     try {
-      await _repo.desativarRisco(widget.uuid);
+      await _repo.desativarRisco(_uuid);
       if (mounted) {
         mostrarOk(context, 'Risco excluído.');
         Navigator.pop(context, true);
@@ -145,7 +150,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   Future<void> _novaAcao() async {
     final ok = await Navigator.of(context, rootNavigator: true).push<bool>(
       MaterialPageRoute(
-        builder: (_) => PlanoAcaoFormScreen(riscoUuid: widget.uuid),
+        builder: (_) => PlanoAcaoFormScreen(riscoUuid: _uuid),
       ),
     );
     if (ok == true) {
@@ -157,7 +162,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   Future<void> _editarAcao(PlanoAcao a) async {
     final ok = await Navigator.of(context, rootNavigator: true).push<bool>(
       MaterialPageRoute(
-        builder: (_) => PlanoAcaoFormScreen(riscoUuid: widget.uuid, acao: a),
+        builder: (_) => PlanoAcaoFormScreen(riscoUuid: _uuid, acao: a),
       ),
     );
     if (ok == true) {
@@ -188,7 +193,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
   Future<void> _novoMonitoramento() async {
     final ok = await Navigator.of(context, rootNavigator: true).push<bool>(
       MaterialPageRoute(
-        builder: (_) => MonitoramentoFormScreen(riscoUuid: widget.uuid),
+        builder: (_) => MonitoramentoFormScreen(riscoUuid: _uuid),
       ),
     );
     if (ok == true) {
@@ -201,7 +206,7 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
     final ok = await Navigator.of(context, rootNavigator: true).push<bool>(
       MaterialPageRoute(
         builder: (_) =>
-            MonitoramentoFormScreen(riscoUuid: widget.uuid, monitoramento: m),
+            MonitoramentoFormScreen(riscoUuid: _uuid, monitoramento: m),
       ),
     );
     if (ok == true) {
@@ -249,8 +254,8 @@ class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
                   onSelected: (v) => exportarECompartilhar(
                     context,
                     () => v == 'excel'
-                        ? _exportacao.riscoExcel(widget.uuid)
-                        : _exportacao.riscoPdf(widget.uuid),
+                        ? _exportacao.riscoExcel(_uuid)
+                        : _exportacao.riscoPdf(_uuid),
                   ),
                   itemBuilder: (_) => const [
                     PopupMenuItem(value: 'excel', child: Text('Excel')),

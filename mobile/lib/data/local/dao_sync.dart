@@ -325,6 +325,22 @@ class DaoSync {
           );
         }
       }
+      // redirecionamento p/ telas abertas com a chave temporária
+      await t.insert('cache_estatico', {
+        'chave': 'remap:$local',
+        'json': real,
+      }, conflictAlgorithm: ConflictAlgorithm.replace);
     });
+  }
+
+  /// UUID real de um risco criado offline, se já foi sincronizado.
+  Future<String?> uuidRemapeado(String local) async {
+    final d = await _db;
+    final r = await d.query(
+      'cache_estatico',
+      where: 'chave = ?',
+      whereArgs: ['remap:$local'],
+    );
+    return r.isEmpty ? null : r.first['json'] as String;
   }
 }

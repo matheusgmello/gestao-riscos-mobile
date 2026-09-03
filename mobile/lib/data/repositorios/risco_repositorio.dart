@@ -41,10 +41,17 @@ class RiscoRepositorio {
   Future<Risco?> obter(String uuid) async {
     final local = await _dao.risco(uuid);
     if (local != null) return Risco.fromJson(local);
+    // tela aberta com a chave temporária de um risco que já sincronizou
+    if (uuid.startsWith('local-')) {
+      final real = await _dao.uuidRemapeado(uuid);
+      if (real != null) {
+        final r = await _dao.risco(real);
+        if (r != null) return Risco.fromJson(r);
+      }
+    }
     if (Conectividade.instance.online) {
       try {
-        final r = await _riscos.obter(uuid);
-        return r;
+        return await _riscos.obter(uuid);
       } catch (_) {
         return null;
       }

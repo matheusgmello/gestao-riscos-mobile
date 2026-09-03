@@ -117,6 +117,8 @@ void main() {
     expect(acoes, hasLength(1));
     final fila = await dao.fila();
     expect(fila.first.payload!['risco'], 'REAL');
+    // redirecionamento p/ telas abertas com a chave temporária
+    expect(await dao.uuidRemapeado('local-1'), 'REAL');
   });
 
   test('_comMeta injeta o uuid da linha quando falta no JSON', () async {
