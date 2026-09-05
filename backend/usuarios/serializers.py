@@ -88,11 +88,19 @@ class AdminEditarUsuarioSerializer(serializers.ModelSerializer):
         fields = ['nome', 'email', 'cargo', 'id_setores']
 
     def update(self, instance, validated_data):
+        from django.utils import timezone
+
         setores = validated_data.pop('setores', None)
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         if setores is not None:
             instance.setores.set(setores)
+            # mesma regra do adicionar/remover_membro: ficar sem setor liga o
+            # contador de bloqueio; voltar a ter setor o desliga.
+            if instance.setores.exists():
+                instance.sem_equipe_desde = None
+            elif instance.sem_equipe_desde is None:
+                instance.sem_equipe_desde = timezone.now()
         instance.save()
         return instance
 

@@ -24,6 +24,7 @@ from .models import (
     PlanoAcao,
     Risco,
 )
+from .permissions import ApenasSuperusuarioParaEscrita, PertenceAoSetorDoRisco
 from .serializers import (
     DesafioPDISerializer,
     HistoricoPlanoSerializer,
@@ -75,27 +76,6 @@ class ConcorrenciaOtimistaMixin:
                 )
         return super().update(request, *dados_args, **dados_kwargs)
 
-
-class PertenceAoSetorDoRisco(permissions.BasePermission):
-    """
-    Permissão que permite visualizar a qualquer gestor, mas
-    restringe a edição apenas a gestores vinculados ao setor do risco.
-    """
-    def has_object_permission(self, request, view, obj):
-        # Métodos de leitura (GET, HEAD, OPTIONS) são permitidos para qualquer gestor logado
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        
-        # Para edição, verifica se o setor do risco está entre os setores do usuário
-        # obj pode ser um Risco ou ter uma relação direta com Risco
-        if isinstance(obj, Risco):
-            setor_do_risco = obj.setor
-        elif hasattr(obj, 'risco'):
-            setor_do_risco = obj.risco.setor
-        else:
-            return False
-
-        return request.user.setores.filter(id=setor_do_risco.id).exists()
 
 class RiscoViewSet(ConcorrenciaOtimistaMixin, viewsets.ModelViewSet):
     queryset = Risco.objects.all()
@@ -455,19 +435,19 @@ class RiscoViewSet(ConcorrenciaOtimistaMixin, viewsets.ModelViewSet):
 class DesafioPDIViewSet(viewsets.ModelViewSet):
     queryset = DesafioPDI.objects.all()
     serializer_class = DesafioPDISerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [ApenasSuperusuarioParaEscrita]
     pagination_class = None
 
 class MacroprocessoViewSet(viewsets.ModelViewSet):
     queryset = Macroprocesso.objects.all()
     serializer_class = MacroprocessoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [ApenasSuperusuarioParaEscrita]
     pagination_class = None
 
 class ObjetivoPDIViewSet(viewsets.ModelViewSet):
     queryset = ObjetivoPDI.objects.all()
     serializer_class = ObjetivoPDISerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [ApenasSuperusuarioParaEscrita]
     pagination_class = None
 
 class PlanoAcaoViewSet(ConcorrenciaOtimistaMixin, viewsets.ModelViewSet):

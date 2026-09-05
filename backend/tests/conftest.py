@@ -68,6 +68,19 @@ def usuario_superuser(db, setor_oficial):
 
 
 @pytest.fixture
+def usuario_gestor_adm(db, setor_oficial):
+    usuario = Usuario.objects.create_user(
+        siape="3333333",
+        password="senha_adm",
+        nome="Gestor Administrador",
+        email="gestor_adm@ufsm.br",
+        cargo="gestor_adm",
+    )
+    usuario.setores.add(setor_oficial)
+    return usuario
+
+
+@pytest.fixture
 def usuario_outro_setor(db, setor_secundario):
     usuario = Usuario.objects.create_user(
         siape="2222222",

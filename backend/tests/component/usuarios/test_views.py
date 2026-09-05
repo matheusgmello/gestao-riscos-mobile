@@ -156,7 +156,8 @@ class TestUsuarioViews:
         response = api_client.post(url, payload, format='json')
         
         assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert response.data["erro"] == "Este código expirou."
+        # mensagem genérica (código expirado e código errado não viram oráculo)
+        assert response.data["erro"] == "Código inválido ou expirado. Solicite um novo."
 
     def test_redefinir_senha_sucesso(self, api_client, usuario):
         from usuarios.models import CodigoRecuperacao

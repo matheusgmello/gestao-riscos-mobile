@@ -56,9 +56,13 @@ O projeto utiliza **Token Authentication** com Django REST Framework. Rotas publ
 
 ### Unidades e equipe
 
-- `GET /api/usuarios/setores/`
-  - lista as unidades/departamentos disponiveis;
-  - endpoint publico, nao exige autenticacao.
+- `GET /api/usuarios/setores/` e `GET /api/usuarios/setores/{id}/`
+  - listam/retornam as unidades/departamentos disponiveis;
+  - endpoints publicos, nao exigem autenticacao.
+
+- `POST/PUT/PATCH/DELETE /api/usuarios/setores/` e `.../{id}/desativar/`
+  - criacao, edicao e (des)ativacao de unidades;
+  - **exigem superusuario** — sem token retorna `401`, gestor comum retorna `403`.
 
 - `GET /api/usuarios/setores/admin/`
   - listagem administrativa completa com busca, filtros e paginacao;
@@ -106,14 +110,11 @@ O projeto utiliza **Token Authentication** com Django REST Framework. Rotas publ
 
 ### Estrutura estrategica (PDI)
 
-- `GET /api/riscos/desafios/`
-  - lista os desafios do PDI.
+- `GET /api/riscos/desafios/`, `GET /api/riscos/objetivos/`, `GET /api/riscos/macroprocessos/`
+  - listam a estrutura do PDI; leitura para qualquer gestor logado.
 
-- `GET /api/riscos/objetivos/`
-  - lista os objetivos do PDI; filtrados por desafio no frontend.
-
-- `GET /api/riscos/macroprocessos/`
-  - lista os macroprocessos vinculaveis a um risco.
+- `POST/PUT/PATCH/DELETE` nesses mesmos recursos
+  - **exigem superusuario** — sem token `401`, gestor comum `403`.
 
 ---
 
@@ -252,5 +253,8 @@ O projeto utiliza **Token Authentication** com Django REST Framework. Rotas publ
 - operacoes `DELETE` nos recursos de riscos sao **soft delete**: os dados permanecem no banco marcados como `ativo=False`;
 - campos `nivel_risco` e `nivel_residual` sao calculados automaticamente pelo backend no `save()` do model;
 - identificadores publicos (URLs, respostas da API) usam sempre `uuid` — IDs internos sequenciais nunca sao expostos ao cliente;
-- a edicao de riscos respeita o vinculo do usuario com a unidade correspondente (permissao `PertenceAoSetorDoRisco`);
+- a edicao de riscos (e a criacao de `acoes`/`monitoramentos`) respeita o vinculo do usuario com a unidade do risco (permissao `PertenceAoSetorDoRisco`); gestor de outro setor recebe `403`;
+- a estrutura do PDI (`desafios`/`objetivos`/`macroprocessos`) e as unidades (`setores`) sao leitura para qualquer usuario mas so o superusuario escreve;
+- sem token de autenticacao, endpoints protegidos retornam `401`; autenticado sem o perfil necessario, `403`;
+- o codigo de recuperacao de senha vale 1 minuto, e de uso unico, e um novo pedido invalida o anterior; codigo errado, expirado ou ja usado devolvem a mesma mensagem generica;
 - gestores sem setor ha mais de 7 dias tem o acesso bloqueado automaticamente; o campo `sem_equipe_desde` na resposta de `/api/usuarios/me/` indica quando o bloqueio comecara.

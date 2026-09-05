@@ -34,6 +34,30 @@ def _query_int(request, nome, padrao):
     except (TypeError, ValueError):
         return padrao
 
+
+# Janela de validade do código de recuperação. Constante (não setting) — se um
+# dia precisar variar por ambiente, vira `getattr(settings, ...)`.
+JANELA_CODIGO_RECUPERACAO = timedelta(minutes=1)
+
+# Mensagem única para "código errado", "expirado" e "já usado": não vira
+# oráculo que diz ao atacante em que estado o código está.
+_ERRO_CODIGO = 'Código inválido ou expirado. Solicite um novo.'
+
+
+def _codigo_de_recuperacao_valido(email, codigo):
+    """Retorna o registro se o código bate e está dentro da janela; senão
+    `None`. Apaga o registro expirado de passagem."""
+    if not email or not codigo:
+        return None
+    try:
+        registro = CodigoRecuperacao.objects.get(email=email, codigo=codigo)
+    except CodigoRecuperacao.DoesNotExist:
+        return None
+    if timezone.now() > registro.criado_em + JANELA_CODIGO_RECUPERACAO:
+        registro.delete()
+        return None
+    return registro
+
 class EnviarCodigoRecuperacaoView(APIView):
     """
     Gera e "envia" um código de 6 dígitos para o e-mail informado.
@@ -92,19 +116,9 @@ class ValidarCodigoRecuperacaoView(APIView):
         if not email or not codigo:
             return Response({'erro': 'E-mail e código são obrigatórios.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        try:
-            registro = CodigoRecuperacao.objects.get(email=email, codigo=codigo)
-            
-            # Verifica expiração (1 minuto)
-            agora = timezone.now()
-            if agora > registro.criado_em + timedelta(minutes=1):
-                registro.delete()
-                return Response({'erro': 'Este código expirou.'}, status=status.HTTP_400_BAD_REQUEST)
-            
-            return Response({'mensagem': 'Código validado com sucesso!'})
-            
-        except CodigoRecuperacao.DoesNotExist:
-            return Response({'erro': 'Código inválido.'}, status=status.HTTP_400_BAD_REQUEST)
+        if _codigo_de_recuperacao_valido(email, codigo) is None:
+            return Response({'erro': _ERRO_CODIGO}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'mensagem': 'Código validado com sucesso!'})
 
 
 class RedefinirSenhaView(APIView):
@@ -128,39 +142,64 @@ class RedefinirSenhaView(APIView):
         if len(nova_senha) < 8:
             return Response({'erro': 'A senha deve ter pelo menos 8 caracteres.'}, status=status.HTTP_400_BAD_REQUEST)
 
+        registro = _codigo_de_recuperacao_valido(email, codigo)
+        if registro is None:
+            return Response({'erro': _ERRO_CODIGO}, status=status.HTTP_400_BAD_REQUEST)
+
         try:
-            # Valida o código uma última vez por segurança
-            registro = CodigoRecuperacao.objects.get(email=email, codigo=codigo)
-            
-            # Verifica expiração (1 minuto)
-            agora = timezone.now()
-            if agora > registro.criado_em + timedelta(minutes=1):
-                registro.delete()
-                return Response({'erro': 'O tempo para redefinir a senha expirou.'}, status=status.HTTP_400_BAD_REQUEST)
-            
-            # Atualiza a senha do usuário
             usuario = Usuario.objects.get(email=email)
-            usuario.set_password(nova_senha)
-            usuario.save()
-            
-            # Remove o código usado
-            registro.delete()
-            
-            return Response({'mensagem': 'Senha redefinida com sucesso!'})
-            
-        except (CodigoRecuperacao.DoesNotExist, Usuario.DoesNotExist):
-            return Response({'erro': 'Dados inválidos ou sessão expirada.'}, status=status.HTTP_400_BAD_REQUEST)
+        except Usuario.DoesNotExist:
+            return Response({'erro': _ERRO_CODIGO}, status=status.HTTP_400_BAD_REQUEST)
+
+        usuario.set_password(nova_senha)
+        usuario.save()
+        registro.delete()  # código de uso único
+        return Response({'mensagem': 'Senha redefinida com sucesso!'})
 
 
 class UnidadeOrganizacionalViewSet(viewsets.ModelViewSet):
     """
     CRUD completo de Setores da UFSM.
     Inclui gestão de equipe (membros).
+
+    Leitura (`list`, `retrieve`) é pública — os selects de unidade do app
+    não exigem login. Toda escrita exige superusuário (checada em
+    `get_permissions` + reforçada dentro de cada método).
     """
     queryset = UnidadeOrganizacional.objects.filter(ativo=True).order_by("sigla_centro", "nome")
     serializer_class = UnidadeOrganizacionalSerializer
-    permission_classes = [AllowAny] # Aberto para cadastro
     pagination_class = None
+
+    _acoes_publicas = {"list", "retrieve"}
+
+    def get_permissions(self):
+        if getattr(self, "action", None) in self._acoes_publicas:
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
+    def create(self, request, *args, **kwargs):
+        if not _usuario_eh_superusuario(request.user):
+            return Response(
+                {'erro': 'Apenas administradores podem cadastrar unidades.'},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        return super().create(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        if not _usuario_eh_superusuario(request.user):
+            return Response(
+                {'erro': 'Apenas administradores podem remover unidades.'},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        return super().destroy(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        if not _usuario_eh_superusuario(request.user):
+            return Response(
+                {'erro': 'Apenas administradores podem editar unidades.'},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        return super().update(request, *args, **kwargs)
 
     def partial_update(self, request, *args, **kwargs):
         if not _usuario_eh_superusuario(request.user):
