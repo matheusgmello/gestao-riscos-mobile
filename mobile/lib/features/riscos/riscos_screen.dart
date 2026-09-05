@@ -22,16 +22,33 @@ import 'risco_detalhe_screen.dart';
 import 'risco_form_screen.dart';
 
 class RiscosScreen extends StatefulWidget {
-  const RiscosScreen({super.key});
+  const RiscosScreen({
+    super.key,
+    this.repo,
+    this.exportacao,
+    this.unidades,
+    this.pdi,
+    this.tokens,
+  });
+
+  final RiscoRepositorio? repo;
+  final ExportacaoService? exportacao;
+  final UnidadeService? unidades;
+  final PdiService? pdi;
+  final TokenService? tokens;
 
   @override
   State<RiscosScreen> createState() => _RiscosScreenState();
 }
 
 class _RiscosScreenState extends State<RiscosScreen> {
-  final _tokens = TokenService();
-  late final RiscoRepositorio _repo = RiscoRepositorio(_tokens);
-  late final ExportacaoService _exportacao = ExportacaoService(_tokens);
+  late final TokenService _tokens = widget.tokens ?? TokenService();
+  late final RiscoRepositorio _repo = widget.repo ?? RiscoRepositorio(_tokens);
+  late final ExportacaoService _exportacao =
+      widget.exportacao ?? ExportacaoService(_tokens);
+  late final UnidadeService _unidadeService =
+      widget.unidades ?? UnidadeService(_tokens);
+  late final PdiService _pdi = widget.pdi ?? PdiService(_tokens);
   final _scroll = ScrollController();
   final _buscaCtrl = TextEditingController();
   Timer? _debounce;
@@ -76,12 +93,11 @@ class _RiscosScreenState extends State<RiscosScreen> {
 
   Future<void> _carregarUnidades() async {
     try {
-      final u = await UnidadeService(_tokens).listar();
+      final u = await _unidadeService.listar();
       if (mounted) setState(() => _unidades = u);
       // aquece o cache dos selects do formulário (para funcionar offline)
-      final pdi = PdiService(_tokens);
-      unawaited(pdi.objetivos());
-      unawaited(pdi.macroprocessos());
+      unawaited(_pdi.objetivos());
+      unawaited(_pdi.macroprocessos());
     } catch (_) {
       // filtro por unidade fica indisponível, mas a lista funciona
     }

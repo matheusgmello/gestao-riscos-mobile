@@ -12,15 +12,18 @@ import '../../widgets/estado.dart';
 import '../../widgets/sync_status_bar.dart';
 
 class EquipeScreen extends StatefulWidget {
-  const EquipeScreen({super.key});
+  const EquipeScreen({super.key, this.service, this.tokens});
+
+  final EquipeService? service;
+  final TokenService? tokens;
 
   @override
   State<EquipeScreen> createState() => _EquipeScreenState();
 }
 
 class _EquipeScreenState extends State<EquipeScreen> {
-  final _tokens = TokenService();
-  late final EquipeService _service = EquipeService(_tokens);
+  late final TokenService _tokens = widget.tokens ?? TokenService();
+  late final EquipeService _service = widget.service ?? EquipeService(_tokens);
 
   List<UnidadeModel> _setores = [];
   UnidadeModel? _setor;

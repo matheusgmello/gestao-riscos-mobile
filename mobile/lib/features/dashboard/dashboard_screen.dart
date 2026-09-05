@@ -15,15 +15,22 @@ import '../../widgets/sync_status_bar.dart';
 import '../riscos/risco_detalhe_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+  const DashboardScreen({super.key, this.service, this.unidades, this.tokens});
+
+  final DashboardService? service;
+  final UnidadeService? unidades;
+  final TokenService? tokens;
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  final _tokens = TokenService();
-  late final DashboardService _service = DashboardService(_tokens);
+  late final TokenService _tokens = widget.tokens ?? TokenService();
+  late final DashboardService _service =
+      widget.service ?? DashboardService(_tokens);
+  late final UnidadeService _unidadeService =
+      widget.unidades ?? UnidadeService(_tokens);
 
   List<UnidadeModel> _unidades = [];
   FiltroDashboard _filtro = const FiltroDashboard();
@@ -45,7 +52,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Future<void> _carregarUnidades() async {
     try {
-      final u = await UnidadeService(_tokens).listar();
+      final u = await _unidadeService.listar();
       if (mounted) setState(() => _unidades = u);
     } catch (_) {
       // filtro por unidade indisponível

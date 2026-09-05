@@ -11,14 +11,20 @@ import '../../data/services/usuario_service.dart';
 import 'editar_perfil_screen.dart';
 
 class PerfilScreen extends StatefulWidget {
-  const PerfilScreen({super.key});
+  const PerfilScreen({super.key, this.service, this.auth, this.tokens});
+
+  final UsuarioService? service;
+  final AuthService? auth;
+  final TokenService? tokens;
 
   @override
   State<PerfilScreen> createState() => _PerfilScreenState();
 }
 
 class _PerfilScreenState extends State<PerfilScreen> {
-  final _service = UsuarioService(TokenService());
+  late final TokenService _tokens = widget.tokens ?? TokenService();
+  late final UsuarioService _service = widget.service ?? UsuarioService(_tokens);
+  late final AuthService _auth = widget.auth ?? AuthService(_tokens);
   late Future<UsuarioModel> _future;
 
   @override
@@ -31,14 +37,14 @@ class _PerfilScreenState extends State<PerfilScreen> {
     try {
       return await _service.me();
     } on ApiError {
-      final cache = await TokenService().getUsuario();
+      final cache = await _tokens.getUsuario();
       if (cache != null) return cache;
       rethrow;
     }
   }
 
   Future<void> _sair() async {
-    await AuthService(TokenService()).logout();
+    await _auth.logout();
     if (mounted) context.go('/login');
   }
 

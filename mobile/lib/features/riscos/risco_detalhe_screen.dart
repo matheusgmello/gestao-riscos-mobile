@@ -27,18 +27,28 @@ Color _corAppBar(BuildContext context) =>
     Theme.of(context).colorScheme.onSurface;
 
 class RiscoDetalheScreen extends StatefulWidget {
-  const RiscoDetalheScreen({super.key, required this.uuid});
+  const RiscoDetalheScreen({
+    super.key,
+    required this.uuid,
+    this.repo,
+    this.exportacao,
+    this.tokens,
+  });
 
   final String uuid;
+  final RiscoRepositorio? repo;
+  final ExportacaoService? exportacao;
+  final TokenService? tokens;
 
   @override
   State<RiscoDetalheScreen> createState() => _RiscoDetalheScreenState();
 }
 
 class _RiscoDetalheScreenState extends State<RiscoDetalheScreen> {
-  final _tokens = TokenService();
-  late final RiscoRepositorio _repo = RiscoRepositorio(_tokens);
-  late final ExportacaoService _exportacao = ExportacaoService(_tokens);
+  late final TokenService _tokens = widget.tokens ?? TokenService();
+  late final RiscoRepositorio _repo = widget.repo ?? RiscoRepositorio(_tokens);
+  late final ExportacaoService _exportacao =
+      widget.exportacao ?? ExportacaoService(_tokens);
 
   UsuarioModel? _usuario;
   Risco? _risco;

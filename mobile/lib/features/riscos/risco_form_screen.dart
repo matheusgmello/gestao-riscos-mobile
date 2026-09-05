@@ -15,9 +15,20 @@ import '../../widgets/guarda_form.dart';
 import '../../widgets/nivel_badge.dart';
 
 class RiscoFormScreen extends StatefulWidget {
-  const RiscoFormScreen({super.key, this.risco});
+  const RiscoFormScreen({
+    super.key,
+    this.risco,
+    this.repo,
+    this.pdi,
+    this.unidades,
+    this.tokens,
+  });
 
   final Risco? risco;
+  final RiscoRepositorio? repo;
+  final PdiService? pdi;
+  final UnidadeService? unidades;
+  final TokenService? tokens;
 
   @override
   State<RiscoFormScreen> createState() => _RiscoFormScreenState();
@@ -25,8 +36,11 @@ class RiscoFormScreen extends StatefulWidget {
 
 class _RiscoFormScreenState extends State<RiscoFormScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _tokens = TokenService();
-  late final RiscoRepositorio _repo = RiscoRepositorio(_tokens);
+  late final TokenService _tokens = widget.tokens ?? TokenService();
+  late final RiscoRepositorio _repo = widget.repo ?? RiscoRepositorio(_tokens);
+  late final PdiService _pdi = widget.pdi ?? PdiService(_tokens);
+  late final UnidadeService _unidadeService =
+      widget.unidades ?? UnidadeService(_tokens);
 
   bool get _edicao => widget.risco != null;
 
@@ -78,10 +92,9 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
   Future<void> _carregar() async {
     try {
       final usuario = await _tokens.getUsuario();
-      final pdi = PdiService(_tokens);
-      final todosSetores = await UnidadeService(_tokens).listar();
-      final objetivos = await pdi.objetivos();
-      final macros = await pdi.macroprocessos();
+      final todosSetores = await _unidadeService.listar();
+      final objetivos = await _pdi.objetivos();
+      final macros = await _pdi.macroprocessos();
       if (!mounted) return;
 
       final meusIds = usuario?.setoresIds ?? const [];

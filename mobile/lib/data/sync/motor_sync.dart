@@ -21,13 +21,24 @@ class ResumoSync {
 /// Roda em primeiro plano: ao abrir o app, quando a conexão volta e no
 /// pull-to-refresh. Sem isolate / WorkManager.
 class MotorSync {
-  MotorSync._() {
-    Conectividade.instance.aoVoltar.listen((_) => sincronizar());
+  MotorSync._(this._dio) {
+    _sub = Conectividade.instance.aoVoltar.listen((_) => sincronizar());
   }
-  static final MotorSync instance = MotorSync._();
 
+  static MotorSync? _instance;
+  static MotorSync get instance =>
+      _instance ??= MotorSync._(ApiClient(TokenService()).dio);
+
+  /// Recria o motor com um Dio controlado (testes). Também re-liga o listener
+  /// à instância atual de Conectividade.
+  static void definirParaTeste(Dio dio) {
+    _instance?._sub?.cancel();
+    _instance = MotorSync._(dio);
+  }
+
+  StreamSubscription<bool>? _sub;
   final _dao = DaoSync.instance;
-  final Dio _dio = ApiClient(TokenService()).dio;
+  final Dio _dio;
 
   final _estado = StreamController<EstadoSync>.broadcast();
   final _resumo = StreamController<ResumoSync>.broadcast();

@@ -4,17 +4,45 @@ import 'package:go_router/go_router.dart';
 import '../../core/role.dart';
 import '../../data/services/token_service.dart';
 
+/// Abas visíveis para um papel. Pura — testável sem montar o widget.
+List<AbaShell> tabsPara(Role role) => [
+  const AbaShell(
+    '/riscos',
+    Icons.warning_amber_outlined,
+    Icons.warning_amber,
+    'Riscos',
+  ),
+  const AbaShell(
+    '/dashboard',
+    Icons.insights_outlined,
+    Icons.insights,
+    'Dashboard',
+  ),
+  if (role.podeGerenciarEquipe)
+    const AbaShell('/equipe', Icons.groups_outlined, Icons.groups, 'Equipe'),
+  if (role.ehAdmin)
+    const AbaShell(
+      '/admin',
+      Icons.admin_panel_settings_outlined,
+      Icons.admin_panel_settings,
+      'Admin',
+    ),
+  const AbaShell('/perfil', Icons.person_outline, Icons.person, 'Perfil'),
+];
+
 class AppShell extends StatefulWidget {
-  const AppShell({super.key, required this.child});
+  const AppShell({super.key, required this.child, this.tokens});
 
   final Widget child;
+  final TokenService? tokens;
 
   @override
   State<AppShell> createState() => _AppShellState();
 }
 
 class _AppShellState extends State<AppShell> {
-  List<_Tab> _tabs = _tabsPara(Role.gestor);
+  late final TokenService _tokens = widget.tokens ?? TokenService();
+  List<AbaShell> _tabs = tabsPara(Role.gestor);
 
   @override
   void initState() {
@@ -23,36 +51,9 @@ class _AppShellState extends State<AppShell> {
   }
 
   Future<void> _carregarPapel() async {
-    final role = (await TokenService().getUsuario())?.role ?? Role.gestor;
+    final role = (await _tokens.getUsuario())?.role ?? Role.gestor;
     if (!mounted) return;
-    setState(() => _tabs = _tabsPara(role));
-  }
-
-  static List<_Tab> _tabsPara(Role role) {
-    return [
-      const _Tab(
-        '/riscos',
-        Icons.warning_amber_outlined,
-        Icons.warning_amber,
-        'Riscos',
-      ),
-      const _Tab(
-        '/dashboard',
-        Icons.insights_outlined,
-        Icons.insights,
-        'Dashboard',
-      ),
-      if (role.podeGerenciarEquipe)
-        const _Tab('/equipe', Icons.groups_outlined, Icons.groups, 'Equipe'),
-      if (role.ehAdmin)
-        const _Tab(
-          '/admin',
-          Icons.admin_panel_settings_outlined,
-          Icons.admin_panel_settings,
-          'Admin',
-        ),
-      const _Tab('/perfil', Icons.person_outline, Icons.person, 'Perfil'),
-    ];
+    setState(() => _tabs = tabsPara(role));
   }
 
   int _indexAtual(BuildContext context) {
@@ -82,8 +83,9 @@ class _AppShellState extends State<AppShell> {
   }
 }
 
-class _Tab {
-  const _Tab(this.path, this.icon, this.activeIcon, this.label);
+class AbaShell {
+  const AbaShell(this.path, this.icon, this.activeIcon, this.label);
+
   final String path;
   final IconData icon;
   final IconData activeIcon;
