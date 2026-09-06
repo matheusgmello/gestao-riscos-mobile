@@ -366,7 +366,12 @@ class _AbaDados extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.fromLTRB(
+        16,
+        16,
+        16,
+        16 + MediaQuery.of(context).padding.bottom,
+      ),
       children: [
         Row(
           children: [
@@ -516,13 +521,14 @@ class _AbaLista extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final margemBarra = MediaQuery.of(context).padding.bottom;
     return Stack(
       children: [
         if (itens.isEmpty)
           EstadoVazio(icone: Icons.inbox_outlined, titulo: vazio)
         else
           ListView(
-            padding: const EdgeInsets.fromLTRB(12, 12, 12, 88),
+            padding: EdgeInsets.fromLTRB(12, 12, 12, 88 + margemBarra),
             children: [
               for (final w in itens) ...[w, const SizedBox(height: 8)],
             ],
@@ -530,7 +536,7 @@ class _AbaLista extends StatelessWidget {
         if (podeEscrever)
           Positioned(
             right: 16,
-            bottom: 16,
+            bottom: 16 + margemBarra,
             child: FloatingActionButton.extended(
               onPressed: onNovo,
               icon: const Icon(Icons.add),
@@ -715,7 +721,12 @@ class _AbaHistorico extends StatelessWidget {
     }
     final fmt = DateFormat('dd/MM/yyyy HH:mm');
     return ListView.separated(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.fromLTRB(
+        16,
+        16,
+        16,
+        16 + MediaQuery.of(context).padding.bottom,
+      ),
       itemCount: entradas.length,
       separatorBuilder: (_, _) => const Divider(height: 20),
       itemBuilder: (context, i) {

@@ -447,7 +447,9 @@ class _FiltroSheetState extends State<_FiltroSheet> {
         16,
         16,
         16,
-        MediaQuery.of(context).viewInsets.bottom + 16,
+        MediaQuery.of(context).viewInsets.bottom +
+            MediaQuery.of(context).padding.bottom +
+            16,
       ),
       child: SingleChildScrollView(
         child: Column(

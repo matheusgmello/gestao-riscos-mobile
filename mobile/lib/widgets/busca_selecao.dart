@@ -90,7 +90,8 @@ class _SheetBuscaState<T> extends State<_SheetBusca<T>> {
               .toList();
     return Padding(
       padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom,
+        bottom: MediaQuery.of(context).viewInsets.bottom +
+            MediaQuery.of(context).padding.bottom,
       ),
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.75,

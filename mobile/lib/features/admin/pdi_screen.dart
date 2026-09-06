@@ -363,7 +363,12 @@ class _ListaPdi<T> extends StatelessWidget {
             );
           }
           return ListView.separated(
-            padding: const EdgeInsets.fromLTRB(4, 4, 4, 88),
+            padding: EdgeInsets.fromLTRB(
+              4,
+              4,
+              4,
+              88 + MediaQuery.of(context).padding.bottom,
+            ),
             itemCount: itens.length,
             separatorBuilder: (_, _) => const Divider(height: 1),
             itemBuilder: (context, i) => ListTile(
