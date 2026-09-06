@@ -13,6 +13,14 @@ Desenvolvido para a disciplina de Programação Mobile, a partir do sistema web 
 
 ---
 
+## Preview
+
+| Lista de riscos (tema claro) | Dashboard (tema escuro) |
+|:---:|:---:|
+| <img src="docs/images/previewapp.png" width="280"> | <img src="docs/images/previewapp2.jpg" width="280"> |
+
+---
+
 ## Tecnologias
 
 | Camada | Tecnologias |
