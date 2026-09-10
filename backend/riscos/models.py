@@ -116,6 +116,11 @@ class Risco(SoftDeleteModel):
     imp_residual = models.IntegerField(db_column="imp_residual") # 1-5
     nivel_residual = models.IntegerField(db_column="nivel_residual", editable=False)
 
+    # Local onde o risco foi identificado (capturado pelo GPS do celular).
+    # Opcional — as duas coordenadas andam juntas ou nenhuma.
+    latitude = models.FloatField(null=True, blank=True, db_column="latitude")
+    longitude = models.FloatField(null=True, blank=True, db_column="longitude")
+
     class Meta:
         db_table = "riscos"
         verbose_name = "Risco"

@@ -56,4 +56,22 @@ void main() {
       findsNothing,
     );
   });
+
+  testWidgets('"Usar localização atual" mostra as coordenadas capturadas',
+      (tester) async {
+    await tester.pumpWidget(_tela(RiscoFormScreen(
+      repo: FakeRiscoRepositorio(),
+      pdi: FakePdiService(),
+      unidades: FakeUnidadeService(unidades: [unidade(id: 1)]),
+      tokens: tokensComUsuario(setores: [1]),
+      capturarLocal: () async => (latitude: -29.71349, longitude: -53.71614),
+    )));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Usar localização atual'));
+    await tester.pumpAndSettle();
+
+    expect(find.textContaining('-29.71349, -53.71614'), findsOneWidget);
+    expect(find.text('Remover'), findsOneWidget);
+  });
 }

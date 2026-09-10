@@ -125,7 +125,8 @@ O projeto utiliza **Token Authentication** com Django REST Framework. Rotas publ
   - superusuarios podem incluir registros desativados com `?incluir_inativos=true`.
 
 - `POST /api/riscos/planos/`
-  - cria um novo plano de risco (apenas para setores do usuario).
+  - cria um novo plano de risco (apenas para setores do usuario);
+  - `latitude` e `longitude` (float) sao **opcionais** — local onde o risco foi identificado, capturado pelo GPS do app. Enviar as duas juntas ou nenhuma; fora de `[-90, 90]` / `[-180, 180]` responde `400`.
 
 - `GET /api/riscos/planos/{uuid}/`
   - retorna um plano especifico com todos os detalhes.

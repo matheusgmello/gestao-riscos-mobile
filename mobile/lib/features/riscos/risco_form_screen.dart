@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/app_feedback.dart';
 import '../../core/form_validators.dart';
+import '../../core/localizacao.dart';
 import '../../core/nivel_risco.dart';
 import '../../data/models/pdi_model.dart';
 import '../../data/models/risco_model.dart';
@@ -22,6 +23,7 @@ class RiscoFormScreen extends StatefulWidget {
     this.pdi,
     this.unidades,
     this.tokens,
+    this.capturarLocal,
   });
 
   final Risco? risco;
@@ -29,6 +31,9 @@ class RiscoFormScreen extends StatefulWidget {
   final PdiService? pdi;
   final UnidadeService? unidades;
   final TokenService? tokens;
+
+  /// Injetável em teste — captura da posição atual do GPS.
+  final Future<Coordenada> Function()? capturarLocal;
 
   @override
   State<RiscoFormScreen> createState() => _RiscoFormScreenState();
@@ -63,6 +68,8 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
   final _consequencia = TextEditingController();
   final _controles = TextEditingController();
   int _prob = 3, _impacto = 3, _probResidual = 2, _impResidual = 2;
+  double? _latitude, _longitude;
+  bool _capturandoLocal = false;
 
   @override
   void initState() {
@@ -87,6 +94,26 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
     _impacto = r.impacto;
     _probResidual = r.probResidual;
     _impResidual = r.impResidual;
+    _latitude = r.latitude;
+    _longitude = r.longitude;
+  }
+
+  Future<void> _usarLocalizacaoAtual() async {
+    setState(() => _capturandoLocal = true);
+    try {
+      final c = await (widget.capturarLocal ?? capturarLocalizacao)();
+      if (!mounted) return;
+      setState(() {
+        _latitude = c.latitude;
+        _longitude = c.longitude;
+        _sujo = true;
+        _capturandoLocal = false;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _capturandoLocal = false);
+      mostrarErro(context, e);
+    }
   }
 
   Future<void> _carregar() async {
@@ -151,6 +178,8 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
       'impacto': _impacto,
       'prob_residual': _probResidual,
       'imp_residual': _impResidual,
+      'latitude': _latitude,
+      'longitude': _longitude,
     };
     try {
       if (_edicao) {
@@ -290,6 +319,8 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
             onChanged: (v) => setState(() => _eficacia = v),
           ),
           const SizedBox(height: 24),
+          _blocoLocalizacao(),
+          const SizedBox(height: 16),
           _blocoEscala(
             'Risco inerente',
             prob: _prob,
@@ -342,6 +373,67 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
           ],
           const SizedBox(height: 8),
         ],
+      ),
+    );
+  }
+
+  Widget _blocoLocalizacao() {
+    final tem = _latitude != null && _longitude != null;
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Localização (opcional)',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Onde o risco foi identificado no campus.',
+              style: Theme.of(context).textTheme.labelSmall,
+            ),
+            const SizedBox(height: 8),
+            if (tem)
+              Row(
+                children: [
+                  const Icon(Icons.place_outlined, size: 18),
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: Text(
+                      '${_latitude!.toStringAsFixed(5)}, '
+                      '${_longitude!.toStringAsFixed(5)}',
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: _capturandoLocal
+                        ? null
+                        : () => setState(() {
+                            _latitude = null;
+                            _longitude = null;
+                            _sujo = true;
+                          }),
+                    child: const Text('Remover'),
+                  ),
+                ],
+              ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: OutlinedButton.icon(
+                onPressed: _capturandoLocal ? null : _usarLocalizacaoAtual,
+                icon: _capturandoLocal
+                    ? const SizedBox(
+                        height: 16,
+                        width: 16,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Icon(Icons.my_location),
+                label: Text(tem ? 'Atualizar localização' : 'Usar localização atual'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

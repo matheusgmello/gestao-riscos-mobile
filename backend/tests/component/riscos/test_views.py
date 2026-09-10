@@ -755,3 +755,76 @@ class TestSincronizacaoIncremental:
             format="json",
         )
         assert response.status_code == status.HTTP_200_OK
+
+
+@pytest.mark.django_db
+class TestRiscoGeolocalizacao:
+    def _payload_base(self, infra):
+        return {
+            "setor": infra["s1"].id,
+            "objetivo": infra["risco"].objetivo.id,
+            "macroprocesso": infra["risco"].macroprocesso.id,
+            "categoria": "Operacional",
+            "evento": "E", "causa": "C", "consequencia": "C",
+            "controles_atuais": "C", "eficacia_controle": "Satisfatório",
+            "probabilidade": 2, "impacto": 2, "prob_residual": 1, "imp_residual": 1,
+        }
+
+    def test_cria_risco_com_coordenadas(self, api_client, infra_risco):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        payload = self._payload_base(infra_risco) | {
+            "latitude": -29.71349, "longitude": -53.71614,
+        }
+        resp = api_client.post("/api/riscos/planos/", payload, format="json")
+        assert resp.status_code == status.HTTP_201_CREATED
+        risco = Risco.objects.get(uuid=resp.data["uuid"])
+        assert risco.latitude == pytest.approx(-29.71349)
+        assert risco.longitude == pytest.approx(-53.71614)
+        assert resp.data["latitude"] == pytest.approx(-29.71349)
+
+    def test_cria_risco_sem_coordenadas(self, api_client, infra_risco):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        resp = api_client.post(
+            "/api/riscos/planos/", self._payload_base(infra_risco), format="json"
+        )
+        assert resp.status_code == status.HTTP_201_CREATED
+        risco = Risco.objects.get(uuid=resp.data["uuid"])
+        assert risco.latitude is None
+        assert risco.longitude is None
+
+    def test_latitude_fora_do_intervalo(self, api_client, infra_risco):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        payload = self._payload_base(infra_risco) | {"latitude": 200, "longitude": 0}
+        resp = api_client.post("/api/riscos/planos/", payload, format="json")
+        assert resp.status_code == status.HTTP_400_BAD_REQUEST
+        assert "latitude" in resp.data
+
+    def test_coordenada_solitaria_e_rejeitada(self, api_client, infra_risco):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        payload = self._payload_base(infra_risco) | {"latitude": -29.7}
+        resp = api_client.post("/api/riscos/planos/", payload, format="json")
+        assert resp.status_code == status.HTTP_400_BAD_REQUEST
+        assert "latitude" in resp.data
+
+    def test_patch_parcial_sem_tocar_em_localizacao(self, api_client, infra_risco):
+        # risco com coords; PATCH que só muda o evento não deve falhar na validação
+        infra_risco["risco"].latitude = -29.7
+        infra_risco["risco"].longitude = -53.7
+        infra_risco["risco"].save()
+        api_client.force_authenticate(user=infra_risco["u1"])
+        url = f"/api/riscos/planos/{infra_risco['risco'].uuid}/"
+        resp = api_client.patch(url, {"evento": "novo"}, format="json")
+        assert resp.status_code == status.HTTP_200_OK
+
+    def test_patch_remove_coordenadas(self, api_client, infra_risco):
+        infra_risco["risco"].latitude = -29.7
+        infra_risco["risco"].longitude = -53.7
+        infra_risco["risco"].save()
+        api_client.force_authenticate(user=infra_risco["u1"])
+        url = f"/api/riscos/planos/{infra_risco['risco'].uuid}/"
+        resp = api_client.patch(
+            url, {"latitude": None, "longitude": None}, format="json"
+        )
+        assert resp.status_code == status.HTTP_200_OK
+        infra_risco["risco"].refresh_from_db()
+        assert infra_risco["risco"].latitude is None

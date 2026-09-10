@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../core/api_error.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_feedback.dart';
 import '../../core/exportar.dart';
+import '../../core/localizacao.dart';
 import '../../core/role.dart';
 import '../../data/models/historico_model.dart';
 import '../../data/models/monitoramento_model.dart';
@@ -410,8 +412,37 @@ class _AbaDados extends StatelessWidget {
               '${risco.periodoInicio} a ${risco.periodoFim ?? '—'}',
             ),
         ]),
+        if (risco.temLocalizacao) ...[
+          const SizedBox(height: 12),
+          _secao(context, 'Localização', [
+            _campo(
+              context,
+              'Coordenadas',
+              '${risco.latitude!.toStringAsFixed(5)}, '
+              '${risco.longitude!.toStringAsFixed(5)}',
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                onPressed: () => _verNoMapa(context, risco),
+                icon: const Icon(Icons.map_outlined),
+                label: const Text('Ver no mapa'),
+              ),
+            ),
+            const SizedBox(height: 10),
+          ]),
+        ],
       ],
     );
+  }
+
+  Future<void> _verNoMapa(BuildContext context, Risco risco) async {
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      await abrirNoMapa(risco.latitude!, risco.longitude!);
+    } catch (e) {
+      messenger.showSnackBar(SnackBar(content: Text(mensagemDeErro(e))));
+    }
   }
 
   Widget _secao(BuildContext context, String titulo, List<Widget> campos) {

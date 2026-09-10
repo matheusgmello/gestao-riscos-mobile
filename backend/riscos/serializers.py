@@ -48,8 +48,9 @@ class RiscoSerializer(serializers.ModelSerializer):
             'macroprocesso', 'macroprocesso_detalhes', 'categoria', 'evento',
             'causa', 'consequencia', 'controles_atuais', 'eficacia_controle',
             'probabilidade', 'impacto', 'nivel_risco', 'prob_residual',
-            'imp_residual', 'nivel_residual', 'ativo', 'atualizado_em',
-            'periodo_acao', 'possui_plano_acao', 'possui_monitoramento',
+            'imp_residual', 'nivel_residual', 'latitude', 'longitude', 'ativo',
+            'atualizado_em', 'periodo_acao', 'possui_plano_acao',
+            'possui_monitoramento',
         ]
         read_only_fields = ['ativo', 'atualizado_em']
 
@@ -75,6 +76,21 @@ class RiscoSerializer(serializers.ModelSerializer):
             valor = data.get(campo)
             if valor is not None and not 1 <= valor <= 5:
                 erros[campo] = "O valor deve estar entre 1 e 5."
+
+        # Coordenadas: valida só quando alguma delas veio no payload. Num PATCH
+        # parcial que não mexe em localização, completa com o valor da instância.
+        if 'latitude' in data or 'longitude' in data:
+            atual_lat = getattr(self.instance, 'latitude', None)
+            atual_lng = getattr(self.instance, 'longitude', None)
+            lat = data.get('latitude', atual_lat)
+            lng = data.get('longitude', atual_lng)
+            if (lat is None) != (lng is None):
+                erros['latitude'] = "Informe latitude e longitude juntas ou nenhuma."
+            if lat is not None and not -90 <= lat <= 90:
+                erros['latitude'] = "Latitude deve estar entre -90 e 90."
+            if lng is not None and not -180 <= lng <= 180:
+                erros['longitude'] = "Longitude deve estar entre -180 e 180."
+
         if erros:
             raise ValidationError(erros)
         return data

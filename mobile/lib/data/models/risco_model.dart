@@ -20,6 +20,8 @@ class Risco {
     required this.probResidual,
     required this.impResidual,
     required this.nivelResidual,
+    this.latitude,
+    this.longitude,
     this.setor,
     this.objetivo,
     this.macroprocesso,
@@ -48,6 +50,12 @@ class Risco {
   final int probResidual;
   final int impResidual;
   final int nivelResidual;
+
+  /// Local onde o risco foi identificado (GPS). As duas andam juntas ou nenhuma.
+  final double? latitude;
+  final double? longitude;
+
+  bool get temLocalizacao => latitude != null && longitude != null;
 
   final UnidadeModel? setor;
   final ObjetivoPdi? objetivo;
@@ -103,6 +111,8 @@ class Risco {
       probResidual: (j['prob_residual'] as num?)?.toInt() ?? 1,
       impResidual: (j['imp_residual'] as num?)?.toInt() ?? 1,
       nivelResidual: (j['nivel_residual'] as num?)?.toInt() ?? 0,
+      latitude: (j['latitude'] as num?)?.toDouble(),
+      longitude: (j['longitude'] as num?)?.toDouble(),
       setor: sd is Map<String, dynamic> ? UnidadeModel.fromJson(sd) : null,
       objetivo: od is Map<String, dynamic> ? ObjetivoPdi.fromJson(od) : null,
       macroprocesso: md is Map<String, dynamic>
@@ -134,5 +144,7 @@ class Risco {
     'impacto': impacto,
     'prob_residual': probResidual,
     'imp_residual': impResidual,
+    'latitude': latitude,
+    'longitude': longitude,
   };
 }

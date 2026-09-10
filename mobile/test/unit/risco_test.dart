@@ -75,6 +75,33 @@ void main() {
     });
   });
 
+  group('Risco — localização', () {
+    Map<String, dynamic> base() => {
+      'uuid': 'abc', 'setor': 1, 'objetivo': 2, 'macroprocesso': 3,
+      'categoria': 'Operacional', 'evento': 'e', 'causa': 'c',
+      'consequencia': 'q', 'controles_atuais': 'ca', 'eficacia_controle': 'Fraco',
+      'probabilidade': 2, 'impacto': 2, 'nivel_risco': 4,
+      'prob_residual': 1, 'imp_residual': 1, 'nivel_residual': 1,
+    };
+
+    test('fromJson lê latitude/longitude', () {
+      final r = Risco.fromJson(base()..addAll({'latitude': -29.7, 'longitude': -53.7}));
+      expect(r.latitude, -29.7);
+      expect(r.longitude, -53.7);
+      expect(r.temLocalizacao, isTrue);
+    });
+
+    test('sem coordenadas: temLocalizacao false', () {
+      expect(Risco.fromJson(base()).temLocalizacao, isFalse);
+    });
+
+    test('toPayload sempre carrega as duas chaves (permite limpar na edição)', () {
+      final p = Risco.fromJson(base()).toPayload();
+      expect(p.containsKey('latitude'), isTrue);
+      expect(p['latitude'], isNull);
+    });
+  });
+
   group('FiltroRisco.aplicar', () {
     final riscos = [
       _risco(uuid: 'a', setor: 1, categoria: 'Operacional', nivelResidual: 12),
