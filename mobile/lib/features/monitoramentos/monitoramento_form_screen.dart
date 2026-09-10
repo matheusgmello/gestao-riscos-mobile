@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../../core/app_feedback.dart';
+import '../../core/foto_evidencia.dart';
 import '../../core/form_validators.dart';
 import '../../data/models/monitoramento_model.dart';
 import '../../data/repositorios/risco_repositorio.dart';
@@ -12,10 +15,16 @@ class MonitoramentoFormScreen extends StatefulWidget {
     super.key,
     required this.riscoUuid,
     this.monitoramento,
+    this.repo,
+    this.capturarFoto,
   });
 
   final String riscoUuid;
   final Monitoramento? monitoramento;
+  final RiscoRepositorio? repo;
+
+  /// Injetável em teste — captura da foto pela câmera, devolve o caminho local.
+  final Future<String?> Function()? capturarFoto;
 
   @override
   State<MonitoramentoFormScreen> createState() =>
@@ -24,11 +33,15 @@ class MonitoramentoFormScreen extends StatefulWidget {
 
 class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
   final _formKey = GlobalKey<FormState>();
-  late final _repo = RiscoRepositorio(TokenService());
+  late final _repo = widget.repo ?? RiscoRepositorio(TokenService());
 
   bool get _edicao => widget.monitoramento != null;
   bool _salvando = false;
   bool _sujo = false;
+  bool _capturandoFoto = false;
+
+  /// Caminho da nova foto tirada nesta edição (ainda não enviada).
+  String? _fotoPath;
 
   final _resultados = TextEditingController();
   final _acoesFuturas = TextEditingController();
@@ -42,6 +55,7 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
       _resultados.text = m.resultados;
       _acoesFuturas.text = m.acoesFuturas;
       _analise.text = m.analiseCritica;
+      _fotoPath = m.fotoLocalPath;
     }
   }
 
@@ -51,6 +65,25 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
     _acoesFuturas.dispose();
     _analise.dispose();
     super.dispose();
+  }
+
+  Future<void> _tirarFoto() async {
+    setState(() => _capturandoFoto = true);
+    try {
+      final caminho = await (widget.capturarFoto ?? tirarFotoEvidencia)();
+      if (!mounted) return;
+      setState(() {
+        if (caminho != null) {
+          _fotoPath = caminho;
+          _sujo = true;
+        }
+        _capturandoFoto = false;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _capturandoFoto = false);
+      mostrarErro(context, e);
+    }
   }
 
   Future<void> _salvar() async {
@@ -64,9 +97,13 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
     };
     try {
       if (_edicao) {
-        await _repo.atualizarMonitoramento(widget.monitoramento!.id, payload);
+        await _repo.atualizarMonitoramento(
+          widget.monitoramento!.id,
+          payload,
+          fotoLocalPath: _fotoPath,
+        );
       } else {
-        await _repo.criarMonitoramento(payload);
+        await _repo.criarMonitoramento(payload, fotoLocalPath: _fotoPath);
       }
       if (mounted) {
         mostrarOk(
@@ -88,46 +125,119 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
     return GuardaForm(
       sujo: _sujo && !_salvando,
       child: Scaffold(
-      appBar: AppBar(
-        title: Text(_edicao ? 'Editar monitoramento' : 'Novo monitoramento'),
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          tooltip: 'Cancelar',
-          onPressed: () => Navigator.maybePop(context),
+        appBar: AppBar(
+          title: Text(_edicao ? 'Editar monitoramento' : 'Novo monitoramento'),
+          leading: IconButton(
+            icon: const Icon(Icons.close),
+            tooltip: 'Cancelar',
+            onPressed: () => Navigator.maybePop(context),
+          ),
         ),
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: FilledButton(
-            onPressed: _salvando ? null : _salvar,
-            child: _salvando
-                ? SizedBox(
-                    height: 20,
-                    width: 20,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ),
-                  )
-                : Text(_edicao ? 'Salvar' : 'Criar'),
+        bottomNavigationBar: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: FilledButton(
+              onPressed: _salvando ? null : _salvar,
+              child: _salvando
+                  ? SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    )
+                  : Text(_edicao ? 'Salvar' : 'Criar'),
+            ),
+          ),
+        ),
+        body: Form(
+          key: _formKey,
+          onChanged: () {
+            if (!_sujo) setState(() => _sujo = true);
+          },
+          child: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              _campo(_resultados, 'Resultados *'),
+              _campo(_acoesFuturas, 'Ações futuras *'),
+              _campo(_analise, 'Análise crítica *'),
+              _blocoFoto(),
+            ],
           ),
         ),
       ),
-      body: Form(
-        key: _formKey,
-        onChanged: () {
-          if (!_sujo) setState(() => _sujo = true);
-        },
-        child: ListView(
-          padding: const EdgeInsets.all(16),
+    );
+  }
+
+  Widget _blocoFoto() {
+    final servidor = widget.monitoramento?.foto;
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _campo(_resultados, 'Resultados *'),
-            _campo(_acoesFuturas, 'Ações futuras *'),
-            _campo(_analise, 'Análise crítica *'),
+            Text(
+              'Evidência (foto)',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            const SizedBox(height: 8),
+            if (_fotoPath != null)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.file(
+                  File(_fotoPath!),
+                  height: 160,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              )
+            else if (servidor != null && servidor.isNotEmpty)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  servidor,
+                  height: 160,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
+                ),
+              ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                OutlinedButton.icon(
+                  onPressed: _capturandoFoto ? null : _tirarFoto,
+                  icon: _capturandoFoto
+                      ? const SizedBox(
+                          height: 16,
+                          width: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Icon(Icons.photo_camera_outlined),
+                  label: Text(
+                    _fotoPath != null || (servidor?.isNotEmpty ?? false)
+                        ? 'Trocar foto'
+                        : 'Tirar foto',
+                  ),
+                ),
+                if (_fotoPath != null) ...[
+                  const SizedBox(width: 8),
+                  TextButton(
+                    onPressed: _capturandoFoto
+                        ? null
+                        : () => setState(() {
+                            _fotoPath = null;
+                            _sujo = true;
+                          }),
+                    child: const Text('Remover'),
+                  ),
+                ],
+              ],
+            ),
           ],
         ),
-      ),
       ),
     );
   }

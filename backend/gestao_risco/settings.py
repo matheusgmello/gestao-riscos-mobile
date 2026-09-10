@@ -107,6 +107,41 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Mídia (fotos de evidência dos monitoramentos).
+# Com MINIO_ENDPOINT_URL definido, os uploads vão para um object storage
+# S3-compatível (MinIO). Sem ele, sistema de arquivos local — usado em
+# desenvolvimento e nos testes.
+MEDIA_URL = os.environ.get('MEDIA_URL', '/media/')
+MEDIA_ROOT = BASE_DIR / 'media'
+
+if os.environ.get('MINIO_ENDPOINT_URL'):
+    _MINIO_BUCKET = os.environ.get('MINIO_BUCKET', 'gestao-risco')
+    _MINIO_PUBLIC = os.environ.get('MINIO_PUBLIC_DOMAIN')
+    STORAGES = {
+        'default': {
+            'BACKEND': 'storages.backends.s3.S3Storage',
+            'OPTIONS': {
+                'bucket_name': _MINIO_BUCKET,
+                'endpoint_url': os.environ['MINIO_ENDPOINT_URL'],
+                'access_key': os.environ.get('MINIO_ACCESS_KEY', 'minioadmin'),
+                'secret_key': os.environ.get('MINIO_SECRET_KEY', 'minioadmin'),
+                # URL path-style que o celular consegue abrir: <host>/<bucket>/<key>.
+                # O endpoint interno 'minio:9000' não resolve fora da rede do compose.
+                'custom_domain': (
+                    f'{_MINIO_PUBLIC}/{_MINIO_BUCKET}' if _MINIO_PUBLIC else None
+                ),
+                'addressing_style': 'path',
+                'url_protocol': 'http:',
+                # bucket com download anônimo -> URL limpa, sem assinatura
+                'querystring_auth': False,
+                'file_overwrite': False,
+            },
+        },
+        'staticfiles': {
+            'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+        },
+    }
+
 CORS_ALLOW_ALL_ORIGINS = os.environ.get('CORS_ALLOW_ALL_ORIGINS', 'True') == 'True'
 
 # Configuração de e-mail

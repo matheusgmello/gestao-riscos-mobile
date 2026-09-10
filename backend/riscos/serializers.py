@@ -104,10 +104,14 @@ class PlanoAcaoSerializer(serializers.ModelSerializer):
 
 class MonitoramentoSerializer(serializers.ModelSerializer):
     risco = serializers.SlugRelatedField(slug_field='uuid', queryset=Risco.objects.all())
+    foto = serializers.ImageField(required=False, allow_null=True)
 
     class Meta:
         model = Monitoramento
         fields = '__all__'
+        # sem isto, um POST multipart (upload de foto) manda BooleanField
+        # ausente como False e desativa o registro na criação
+        read_only_fields = ['ativo', 'atualizado_em', 'data_verificacao']
 
 class HistoricoPlanoSerializer(serializers.ModelSerializer):
     class Meta:

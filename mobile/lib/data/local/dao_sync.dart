@@ -76,6 +76,14 @@ class DaoSync {
     return _comMeta(rows.first);
   }
 
+  /// Linha do cache de um filho (ação/monitoramento) pela chave inteira.
+  Future<Map<String, dynamic>?> porId(Recurso r, Object id) async {
+    final d = await _db;
+    final rows = await d.query(r.tabela, where: '${r.pk} = ?', whereArgs: [id]);
+    if (rows.isEmpty) return null;
+    return _comMeta(rows.first);
+  }
+
   Future<List<Map<String, dynamic>>> _lista(
     Recurso r, [
     String? riscoUuid,

@@ -240,10 +240,12 @@ O projeto utiliza **Token Authentication** com Django REST Framework. Rotas publ
   - lista e cria registros de monitoramento;
   - suporta filtro `?risco=<uuid>` para retornar apenas os monitoramentos de um plano especifico;
   - `GET` aceita `?modificado_apos=<iso8601>` (pull incremental, inclui desativados);
-  - no payload de criacao, o campo `risco` aceita o UUID do risco (nao o ID interno).
+  - no payload de criacao, o campo `risco` aceita o UUID do risco (nao o ID interno);
+  - `foto` (opcional) — imagem de evidencia enviada via `multipart/form-data`. Na leitura, retorna a URL absoluta do arquivo. O storage e MinIO (S3) quando `MINIO_ENDPOINT_URL` esta definido, senao o sistema de arquivos local.
 
 - `GET|PATCH|DELETE /api/riscos/monitoramentos/{id}/`
-  - detalha, atualiza ou desativa (soft delete) um monitoramento.
+  - detalha, atualiza ou desativa (soft delete) um monitoramento;
+  - `PATCH` com `multipart/form-data` troca a `foto`; para a checagem de concorrencia, envie `atualizado_em` como campo do formulario.
 
 ---
 

@@ -140,16 +140,39 @@ class RiscoRepositorio {
       _atualizarFilho(Recurso.acao, id, payload);
   Future<void> desativarAcao(int id) => _desativarFilho(Recurso.acao, id);
 
-  Future<void> criarMonitoramento(Map<String, dynamic> payload) =>
-      _criarFilho(Recurso.monitoramento, payload);
-  Future<void> atualizarMonitoramento(int id, Map<String, dynamic> payload) =>
-      _atualizarFilho(Recurso.monitoramento, id, payload);
+  Future<void> criarMonitoramento(
+    Map<String, dynamic> payload, {
+    String? fotoLocalPath,
+  }) => _criarFilho(
+    Recurso.monitoramento,
+    payload,
+    fotoLocalPath: fotoLocalPath,
+  );
+  Future<void> atualizarMonitoramento(
+    int id,
+    Map<String, dynamic> payload, {
+    String? fotoLocalPath,
+  }) => _atualizarFilho(
+    Recurso.monitoramento,
+    id,
+    payload,
+    fotoLocalPath: fotoLocalPath,
+  );
   Future<void> desativarMonitoramento(int id) =>
       _desativarFilho(Recurso.monitoramento, id);
 
-  Future<void> _criarFilho(Recurso r, Map<String, dynamic> payload) async {
+  Future<void> _criarFilho(
+    Recurso r,
+    Map<String, dynamic> payload, {
+    String? fotoLocalPath,
+  }) async {
     final id = _tempId();
-    final json = {...payload, 'id': id, 'ativo': true};
+    final json = {
+      ...payload,
+      'id': id,
+      'ativo': true,
+      'foto_local_path': ?fotoLocalPath,
+    };
     await _dao.salvarLocal(r, id, json);
     await _dao.enfileirar(r, 'criar', '$id', payload: payload);
     _sincronizarEmFundo();
@@ -158,9 +181,15 @@ class RiscoRepositorio {
   Future<void> _atualizarFilho(
     Recurso r,
     int id,
-    Map<String, dynamic> payload,
-  ) async {
-    final json = {...payload, 'id': id, 'ativo': true};
+    Map<String, dynamic> payload, {
+    String? fotoLocalPath,
+  }) async {
+    final json = {
+      ...payload,
+      'id': id,
+      'ativo': true,
+      'foto_local_path': ?fotoLocalPath,
+    };
     await _dao.salvarLocal(r, id, json);
     await _dao.enfileirar(r, 'atualizar', '$id', payload: payload);
     _sincronizarEmFundo();

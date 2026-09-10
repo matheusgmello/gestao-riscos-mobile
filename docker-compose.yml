@@ -15,6 +15,35 @@ services:
       timeout: 5s
       retries: 10
 
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      - MINIO_ROOT_USER=${MINIO_ACCESS_KEY:-minioadmin}
+      - MINIO_ROOT_PASSWORD=${MINIO_SECRET_KEY:-minioadmin}
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_started
+    entrypoint: >
+      /bin/sh -c "
+      until mc alias set local http://minio:9000 $${MINIO_ACCESS_KEY:-minioadmin} $${MINIO_SECRET_KEY:-minioadmin}; do sleep 1; done;
+      mc mb -p local/$${MINIO_BUCKET:-gestao-risco};
+      mc anonymous set download local/$${MINIO_BUCKET:-gestao-risco};
+      "
+
   backend:
     build:
       context: .
@@ -27,11 +56,19 @@ services:
       - SECRET_KEY=${SECRET_KEY:-django-insecure-development-only-key}
       - DEBUG=${DEBUG:-True}
       - ALLOWED_HOSTS=${ALLOWED_HOSTS:-*}
+      - MINIO_ENDPOINT_URL=${MINIO_ENDPOINT_URL:-http://minio:9000}
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY:-minioadmin}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY:-minioadmin}
+      - MINIO_BUCKET=${MINIO_BUCKET:-gestao-risco}
+      - MINIO_PUBLIC_DOMAIN=${MINIO_PUBLIC_DOMAIN:-10.0.2.2:9000}
     ports:
       - "8000:8000"
     depends_on:
       db:
         condition: service_healthy
+      minio:
+        condition: service_started
 
 volumes:
   postgres_data:
+  minio_data:

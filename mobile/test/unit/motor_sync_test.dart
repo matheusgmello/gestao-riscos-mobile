@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gestao_risco_mobile/data/local/banco.dart';
@@ -114,5 +116,50 @@ void main() {
 
     await MotorSync.instance.sincronizar();
     expect(await dao.fila(), hasLength(1)); // não descartou
+  });
+
+  test('monitoramento com foto local: envia multipart e apaga o arquivo', () async {
+    final arquivo = File(
+      '${Directory.systemTemp.path}/evid_${DateTime.now().microsecondsSinceEpoch}.png',
+    )..writeAsBytesSync([137, 80, 78, 71]);
+
+    await dao.salvarLocal(Recurso.monitoramento, -3, {
+      'id': -3,
+      'risco': 'r1',
+      'resultados': 'R',
+      'foto_local_path': arquivo.path,
+    });
+    await dao.enfileirar(
+      Recurso.monitoramento,
+      'criar',
+      '-3',
+      payload: {'risco': 'r1', 'resultados': 'R'},
+    );
+
+    Object? corpoRecebido;
+    dio.interceptors.insert(
+      0,
+      InterceptorsWrapper(onRequest: (o, h) {
+        if (o.path.endsWith('/monitoramentos/') && o.method == 'POST') {
+          corpoRecebido = o.data;
+        }
+        h.next(o);
+      }),
+    );
+    adapter.onPost(
+      '/api/riscos/monitoramentos/',
+      (s) => s.reply(201, {'id': 50, 'risco': 'r1', 'resultados': 'R',
+          'foto': 'http://x/media/monitoramentos/evid.png'}),
+      data: Matchers.any,
+    );
+
+    await MotorSync.instance.sincronizar();
+
+    // enviou como multipart, esvaziou a fila e apagou o arquivo local
+    expect(corpoRecebido, isA<FormData>());
+    expect(await dao.fila(), isEmpty);
+    expect(arquivo.existsSync(), isFalse);
+    final mons = await dao.monitoramentosDoRisco('r1');
+    expect(mons.single['foto'], contains('media/monitoramentos'));
   });
 }

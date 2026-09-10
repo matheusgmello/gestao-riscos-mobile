@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:path/path.dart' as p;
 
 import '../local/dao_sync.dart';
 import '../services/api_client.dart';
@@ -109,9 +111,13 @@ class MotorSync {
     for (final item in await _dao.fila()) {
       final path = _paths[item.recurso]!;
       try {
+        final fotoLocal = await _fotoPendente(item);
         switch (item.operacao) {
           case 'criar':
-            final res = await _dio.post(path, data: item.payload);
+            final res = await _dio.post(
+              path,
+              data: await _corpo(item.payload, fotoLocal),
+            );
             final corpo = res.data as Map<String, dynamic>;
             if (item.recurso == Recurso.risco) {
               await _dao.remapearRisco(item.chave, corpo['uuid'] as String);
@@ -120,6 +126,7 @@ class MotorSync {
               await _dao.removerLocal(item.recurso, int.parse(item.chave));
               await _dao.aplicarDoServidor(item.recurso, corpo);
             }
+            _apagarArquivo(fotoLocal);
           case 'atualizar':
             final body = {
               ...?item.payload,
@@ -127,11 +134,15 @@ class MotorSync {
                 'atualizado_em': item.baseAtualizadoEm,
             };
             try {
-              final res = await _dio.patch('$path${item.chave}/', data: body);
+              final res = await _dio.patch(
+                '$path${item.chave}/',
+                data: await _corpo(body, fotoLocal),
+              );
               await _forcarDoServidor(
                 item.recurso,
                 res.data as Map<String, dynamic>,
               );
+              _apagarArquivo(fotoLocal);
             } on DioException catch (e) {
               if (e.response?.statusCode == 409) {
                 _conflitosSessao++;
@@ -177,5 +188,42 @@ class MotorSync {
   Future<void> _forcarDoServidor(Recurso r, Map<String, dynamic> json) async {
     await _dao.removerLocal(r, r == Recurso.risco ? json['uuid'] : json['id']);
     await _dao.aplicarDoServidor(r, json);
+  }
+
+  /// Caminho da foto ainda não enviada de um monitoramento na fila, se o
+  /// arquivo existe no disco.
+  Future<String?> _fotoPendente(ItemFila item) async {
+    if (item.recurso != Recurso.monitoramento) return null;
+    if (item.operacao != 'criar' && item.operacao != 'atualizar') return null;
+    final cache = await _dao.porId(
+      Recurso.monitoramento,
+      int.parse(item.chave),
+    );
+    final caminho = cache?['foto_local_path'] as String?;
+    if (caminho == null || !File(caminho).existsSync()) return null;
+    return caminho;
+  }
+
+  /// Corpo da requisição: `FormData` multipart quando há foto para enviar,
+  /// senão o próprio mapa de texto (JSON).
+  Future<Object?> _corpo(
+    Map<String, dynamic>? campos,
+    String? fotoLocal,
+  ) async {
+    if (fotoLocal == null) return campos;
+    return FormData.fromMap({
+      ...?campos,
+      'foto': await MultipartFile.fromFile(
+        fotoLocal,
+        filename: p.basename(fotoLocal),
+      ),
+    });
+  }
+
+  void _apagarArquivo(String? caminho) {
+    if (caminho == null) return;
+    try {
+      File(caminho).deleteSync();
+    } catch (_) {}
   }
 }

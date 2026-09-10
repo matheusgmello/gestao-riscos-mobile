@@ -201,6 +201,10 @@ class Monitoramento(SoftDeleteModel):
     resultados = models.TextField(db_column="resultados")
     acoes_futuras = models.TextField(db_column="acoes_futuras")
     analise_critica = models.TextField(db_column="analise_critica")
+    # Foto de evidência tirada em campo pelo app. Opcional, uma por monitoramento.
+    foto = models.ImageField(
+        upload_to="monitoramentos/", null=True, blank=True, db_column="foto"
+    )
 
     class Meta:
         db_table = "monitoramentos"

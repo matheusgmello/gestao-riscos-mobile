@@ -155,3 +155,22 @@ def risco_com_monitoramento(db, risco_com_plano):
         analise_critica="Analise critica",
     )
     return risco_com_plano
+
+
+@pytest.fixture
+def media_tmp(settings, tmp_path):
+    """Aponta o upload de mídia para um diretório temporário (não suja o repo)."""
+    settings.MEDIA_ROOT = str(tmp_path / "media")
+    return settings.MEDIA_ROOT
+
+
+@pytest.fixture
+def imagem_png():
+    """Bytes de um PNG 1x1 válido, para o ImageField aceitar (Pillow valida)."""
+    import base64
+    from django.core.files.uploadedfile import SimpleUploadedFile
+
+    dados = base64.b64decode(
+        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    )
+    return SimpleUploadedFile("evidencia.png", dados, content_type="image/png")

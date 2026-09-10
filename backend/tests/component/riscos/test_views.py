@@ -543,6 +543,61 @@ class TestMonitoramentoViewSet:
 
 
 @pytest.mark.django_db
+class TestMonitoramentoFotoEvidencia:
+    def _campos(self, risco):
+        return {
+            "risco": str(risco.uuid),
+            "resultados": "R", "acoes_futuras": "A", "analise_critica": "C",
+        }
+
+    def test_cria_com_foto_multipart(self, api_client, infra_risco, media_tmp, imagem_png):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        resp = api_client.post(
+            "/api/riscos/monitoramentos/",
+            self._campos(infra_risco["risco"]) | {"foto": imagem_png},
+            format="multipart",
+        )
+        assert resp.status_code == status.HTTP_201_CREATED
+        assert resp.data["foto"] is not None
+        assert resp.data["foto"].startswith("http")
+        assert Monitoramento.objects.get(pk=resp.data["id"]).foto
+
+    def test_cria_sem_foto(self, api_client, infra_risco):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        resp = api_client.post(
+            "/api/riscos/monitoramentos/",
+            self._campos(infra_risco["risco"]),
+            format="json",
+        )
+        assert resp.status_code == status.HTTP_201_CREATED
+        assert resp.data["foto"] is None
+
+    def test_troca_a_foto_no_patch(self, api_client, infra_risco, media_tmp, imagem_png):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        criado = api_client.post(
+            "/api/riscos/monitoramentos/",
+            self._campos(infra_risco["risco"]) | {"foto": imagem_png},
+            format="multipart",
+        ).data
+
+        import base64
+
+        from django.core.files.uploadedfile import SimpleUploadedFile
+
+        png = base64.b64decode(
+            "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+        )
+        nova = SimpleUploadedFile("segunda.png", png, content_type="image/png")
+        resp = api_client.patch(
+            f"/api/riscos/monitoramentos/{criado['id']}/",
+            {"foto": nova},
+            format="multipart",
+        )
+        assert resp.status_code == status.HTTP_200_OK
+        assert "segunda" in resp.data["foto"]
+
+
+@pytest.mark.django_db
 class TestPlanoAcaoFiltroUUID:
     def test_filtra_acoes_por_uuid_do_risco(self, api_client, infra_risco):
         # o endpoint de acoes deve aceitar uuid do risco como filtro
@@ -841,3 +896,4 @@ class TestRiscoGeolocalizacao:
         assert resp.status_code == status.HTTP_200_OK
         infra_risco["risco"].refresh_from_db()
         assert infra_risco["risco"].latitude is None
+

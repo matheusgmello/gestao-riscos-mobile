@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -722,6 +724,10 @@ class _MonitoramentoCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 6),
+            if (monitoramento.temFoto) ...[
+              _FotoEvidencia(monitoramento: monitoramento),
+              const SizedBox(height: 8),
+            ],
             _linha(context, 'Resultados', monitoramento.resultados),
             _linha(context, 'Ações futuras', monitoramento.acoesFuturas),
             _linha(context, 'Análise crítica', monitoramento.analiseCritica),
@@ -741,6 +747,48 @@ class _MonitoramentoCard extends StatelessWidget {
       ],
     ),
   );
+}
+
+/// Miniatura da foto de evidência; toca para abrir em tela cheia.
+class _FotoEvidencia extends StatelessWidget {
+  const _FotoEvidencia({required this.monitoramento});
+  final Monitoramento monitoramento;
+
+  ImageProvider get _provider => monitoramento.fotoLocalPath != null
+      ? FileImage(File(monitoramento.fotoLocalPath!))
+      : NetworkImage(monitoramento.foto!) as ImageProvider;
+
+  @override
+  Widget build(BuildContext context) {
+    final pendente = monitoramento.fotoLocalPath != null;
+    return GestureDetector(
+      onTap: () => showDialog<void>(
+        context: context,
+        builder: (_) => Dialog(
+          child: InteractiveViewer(child: Image(image: _provider)),
+        ),
+      ),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image(
+              image: _provider,
+              height: 64,
+              width: 64,
+              fit: BoxFit.cover,
+              errorBuilder: (_, _, _) => const Icon(Icons.broken_image_outlined),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Text(
+            pendente ? 'Foto pendente de envio' : 'Foto de evidência',
+            style: Theme.of(context).textTheme.labelMedium,
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _AbaHistorico extends StatelessWidget {
