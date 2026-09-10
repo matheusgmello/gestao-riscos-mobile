@@ -24,6 +24,7 @@ class RiscoFormScreen extends StatefulWidget {
     this.unidades,
     this.tokens,
     this.capturarLocal,
+    this.resolverEndereco,
   });
 
   final Risco? risco;
@@ -34,6 +35,9 @@ class RiscoFormScreen extends StatefulWidget {
 
   /// Injetável em teste — captura da posição atual do GPS.
   final Future<Coordenada> Function()? capturarLocal;
+
+  /// Injetável em teste — geocoding reverso (coords -> endereço).
+  final Future<String?> Function(double lat, double lng)? resolverEndereco;
 
   @override
   State<RiscoFormScreen> createState() => _RiscoFormScreenState();
@@ -69,6 +73,7 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
   final _controles = TextEditingController();
   int _prob = 3, _impacto = 3, _probResidual = 2, _impResidual = 2;
   double? _latitude, _longitude;
+  String? _endereco;
   bool _capturandoLocal = false;
 
   @override
@@ -96,16 +101,22 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
     _impResidual = r.impResidual;
     _latitude = r.latitude;
     _longitude = r.longitude;
+    _endereco = r.endereco;
   }
 
   Future<void> _usarLocalizacaoAtual() async {
     setState(() => _capturandoLocal = true);
     try {
       final c = await (widget.capturarLocal ?? capturarLocalizacao)();
+      final endereco = await (widget.resolverEndereco ?? enderecoDe)(
+        c.latitude,
+        c.longitude,
+      );
       if (!mounted) return;
       setState(() {
         _latitude = c.latitude;
         _longitude = c.longitude;
+        _endereco = endereco;
         _sujo = true;
         _capturandoLocal = false;
       });
@@ -180,6 +191,7 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
       'imp_residual': _impResidual,
       'latitude': _latitude,
       'longitude': _longitude,
+      'endereco': _endereco,
     };
     try {
       if (_edicao) {
@@ -397,13 +409,30 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
             const SizedBox(height: 8),
             if (tem)
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.place_outlined, size: 18),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 2),
+                    child: Icon(Icons.place_outlined, size: 18),
+                  ),
                   const SizedBox(width: 6),
                   Expanded(
-                    child: Text(
-                      '${_latitude!.toStringAsFixed(5)}, '
-                      '${_longitude!.toStringAsFixed(5)}',
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (_endereco != null)
+                          Text(
+                            _endereco!,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        Text(
+                          '${_latitude!.toStringAsFixed(5)}, '
+                          '${_longitude!.toStringAsFixed(5)}',
+                          style: _endereco != null
+                              ? Theme.of(context).textTheme.labelSmall
+                              : null,
+                        ),
+                      ],
                     ),
                   ),
                   TextButton(
@@ -412,6 +441,7 @@ class _RiscoFormScreenState extends State<RiscoFormScreen> {
                         : () => setState(() {
                             _latitude = null;
                             _longitude = null;
+                            _endereco = null;
                             _sujo = true;
                           }),
                     child: const Text('Remover'),

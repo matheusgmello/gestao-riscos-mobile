@@ -47,6 +47,8 @@ dependencies:
   path: ^1.9.1
   connectivity_plus: ^7.3.1
   geolocator: ^13.0.1
+  # 4.x compila com android-35; 3.x fixa android-33 e quebra com o AGP 9.1.
+  geocoding: ^4.0.0
   url_launcher: ^6.3.1
 
 dev_dependencies:

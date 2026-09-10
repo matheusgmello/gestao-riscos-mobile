@@ -127,6 +127,7 @@ O projeto utiliza **Token Authentication** com Django REST Framework. Rotas publ
 - `POST /api/riscos/planos/`
   - cria um novo plano de risco (apenas para setores do usuario);
   - `latitude` e `longitude` (float) sao **opcionais** — local onde o risco foi identificado, capturado pelo GPS do app. Enviar as duas juntas ou nenhuma; fora de `[-90, 90]` / `[-180, 180]` responde `400`.
+  - `endereco` (string, ate 255) e **opcional** — endereco aproximado resolvido pelo app (geocoding reverso) no momento da captura; apenas para exibicao.
 
 - `GET /api/riscos/planos/{uuid}/`
   - retorna um plano especifico com todos os detalhes.

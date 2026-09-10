@@ -120,6 +120,11 @@ class Risco(SoftDeleteModel):
     # Opcional — as duas coordenadas andam juntas ou nenhuma.
     latitude = models.FloatField(null=True, blank=True, db_column="latitude")
     longitude = models.FloatField(null=True, blank=True, db_column="longitude")
+    # Endereço aproximado resolvido no app (geocoding reverso) no momento da
+    # captura. Texto livre, apenas para exibição.
+    endereco = models.CharField(
+        max_length=255, null=True, blank=True, db_column="endereco"
+    )
 
     class Meta:
         db_table = "riscos"

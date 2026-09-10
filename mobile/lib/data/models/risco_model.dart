@@ -22,6 +22,7 @@ class Risco {
     required this.nivelResidual,
     this.latitude,
     this.longitude,
+    this.endereco,
     this.setor,
     this.objetivo,
     this.macroprocesso,
@@ -54,6 +55,9 @@ class Risco {
   /// Local onde o risco foi identificado (GPS). As duas andam juntas ou nenhuma.
   final double? latitude;
   final double? longitude;
+
+  /// Endereço aproximado (rua/bairro) resolvido no momento da captura.
+  final String? endereco;
 
   bool get temLocalizacao => latitude != null && longitude != null;
 
@@ -113,6 +117,7 @@ class Risco {
       nivelResidual: (j['nivel_residual'] as num?)?.toInt() ?? 0,
       latitude: (j['latitude'] as num?)?.toDouble(),
       longitude: (j['longitude'] as num?)?.toDouble(),
+      endereco: j['endereco'] as String?,
       setor: sd is Map<String, dynamic> ? UnidadeModel.fromJson(sd) : null,
       objetivo: od is Map<String, dynamic> ? ObjetivoPdi.fromJson(od) : null,
       macroprocesso: md is Map<String, dynamic>
@@ -146,5 +151,6 @@ class Risco {
     'imp_residual': impResidual,
     'latitude': latitude,
     'longitude': longitude,
+    'endereco': endereco,
   };
 }

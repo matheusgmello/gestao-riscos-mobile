@@ -415,6 +415,8 @@ class _AbaDados extends StatelessWidget {
         if (risco.temLocalizacao) ...[
           const SizedBox(height: 12),
           _secao(context, 'Localização', [
+            if (risco.endereco != null && risco.endereco!.isNotEmpty)
+              _campo(context, 'Endereço', risco.endereco!),
             _campo(
               context,
               'Coordenadas',

@@ -1,3 +1,4 @@
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -40,6 +41,36 @@ Future<Coordenada> capturarLocalizacao({
 
   final p = await posicao();
   return (latitude: p.latitude, longitude: p.longitude);
+}
+
+/// Endereço aproximado de uma coordenada (geocoder nativo do Android/iOS,
+/// sem API key). Devolve `null` se o geocoder não achar nada ou falhar —
+/// a UI cai de volta para só as coordenadas.
+Future<String?> enderecoDe(
+  double latitude,
+  double longitude, {
+  Future<List<Placemark>> Function(double, double)? geocoder,
+}) async {
+  try {
+    final lugares = await (geocoder ?? placemarkFromCoordinates)(
+      latitude,
+      longitude,
+    );
+    if (lugares.isEmpty) return null;
+    final p = lugares.first;
+    final rua = [
+      p.street,
+      if ((p.subThoroughfare ?? '').isNotEmpty) p.subThoroughfare,
+    ].where((s) => (s ?? '').isNotEmpty).join(', ');
+    final partes = [
+      if (rua.isNotEmpty) rua,
+      p.subLocality,
+      p.locality,
+    ].where((s) => (s ?? '').isNotEmpty).cast<String>().toList();
+    return partes.isEmpty ? null : partes.join(' — ');
+  } catch (_) {
+    return null;
+  }
 }
 
 /// Abre a localização no app de mapas do sistema (URI `geo:`). Sem SDK, sem key.

@@ -782,6 +782,19 @@ class TestRiscoGeolocalizacao:
         assert risco.longitude == pytest.approx(-53.71614)
         assert resp.data["latitude"] == pytest.approx(-29.71349)
 
+    def test_cria_risco_com_endereco(self, api_client, infra_risco):
+        api_client.force_authenticate(user=infra_risco["u1"])
+        payload = self._payload_base(infra_risco) | {
+            "latitude": -29.71, "longitude": -53.71,
+            "endereco": "Av. Roraima, 1000 — Camobi",
+        }
+        resp = api_client.post("/api/riscos/planos/", payload, format="json")
+        assert resp.status_code == status.HTTP_201_CREATED
+        assert resp.data["endereco"] == "Av. Roraima, 1000 — Camobi"
+        assert Risco.objects.get(uuid=resp.data["uuid"]).endereco == (
+            "Av. Roraima, 1000 — Camobi"
+        )
+
     def test_cria_risco_sem_coordenadas(self, api_client, infra_risco):
         api_client.force_authenticate(user=infra_risco["u1"])
         resp = api_client.post(

@@ -48,9 +48,9 @@ class RiscoSerializer(serializers.ModelSerializer):
             'macroprocesso', 'macroprocesso_detalhes', 'categoria', 'evento',
             'causa', 'consequencia', 'controles_atuais', 'eficacia_controle',
             'probabilidade', 'impacto', 'nivel_risco', 'prob_residual',
-            'imp_residual', 'nivel_residual', 'latitude', 'longitude', 'ativo',
-            'atualizado_em', 'periodo_acao', 'possui_plano_acao',
-            'possui_monitoramento',
+            'imp_residual', 'nivel_residual', 'latitude', 'longitude',
+            'endereco', 'ativo', 'atualizado_em', 'periodo_acao',
+            'possui_plano_acao', 'possui_monitoramento',
         ]
         read_only_fields = ['ativo', 'atualizado_em']
 
