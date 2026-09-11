@@ -20,7 +20,7 @@ void main() {
       home: MonitoramentoFormScreen(
         riscoUuid: 'r1',
         repo: FakeRiscoRepositorio(),
-        capturarFoto: () async => png.path,
+        capturarFoto: (_) async => png.path,
       ),
     ));
     await tester.pumpAndSettle();

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../core/app_feedback.dart';
 import '../../core/foto_evidencia.dart';
@@ -23,8 +24,8 @@ class MonitoramentoFormScreen extends StatefulWidget {
   final Monitoramento? monitoramento;
   final RiscoRepositorio? repo;
 
-  /// Injetável em teste — captura da foto pela câmera, devolve o caminho local.
-  final Future<String?> Function()? capturarFoto;
+  /// Injetável em teste — captura/seleção da foto, devolve o caminho local.
+  final Future<String?> Function(ImageSource)? capturarFoto;
 
   @override
   State<MonitoramentoFormScreen> createState() =>
@@ -67,10 +68,12 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
     super.dispose();
   }
 
-  Future<void> _tirarFoto() async {
+  Future<void> _escolherFoto(ImageSource origem) async {
     setState(() => _capturandoFoto = true);
     try {
-      final caminho = await (widget.capturarFoto ?? tirarFotoEvidencia)();
+      final capturar = widget.capturarFoto ??
+          (ImageSource o) => tirarFotoEvidencia(origem: o);
+      final caminho = await capturar(origem);
       if (!mounted) return;
       setState(() {
         if (caminho != null) {
@@ -205,10 +208,15 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
                 ),
               ),
             const SizedBox(height: 8),
-            Row(
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: [
                 OutlinedButton.icon(
-                  onPressed: _capturandoFoto ? null : _tirarFoto,
+                  onPressed: _capturandoFoto
+                      ? null
+                      : () => _escolherFoto(ImageSource.camera),
                   icon: _capturandoFoto
                       ? const SizedBox(
                           height: 16,
@@ -222,8 +230,14 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
                         : 'Tirar foto',
                   ),
                 ),
-                if (_fotoPath != null) ...[
-                  const SizedBox(width: 8),
+                OutlinedButton.icon(
+                  onPressed: _capturandoFoto
+                      ? null
+                      : () => _escolherFoto(ImageSource.gallery),
+                  icon: const Icon(Icons.photo_library_outlined),
+                  label: const Text('Escolher da galeria'),
+                ),
+                if (_fotoPath != null)
                   TextButton(
                     onPressed: _capturandoFoto
                         ? null
@@ -233,7 +247,6 @@ class _MonitoramentoFormScreenState extends State<MonitoramentoFormScreen> {
                           }),
                     child: const Text('Remover'),
                   ),
-                ],
               ],
             ),
           ],
