@@ -7,12 +7,12 @@ from django.core.mail import send_mail
 from django.db.models import Q
 from django.utils import timezone
 from rest_framework import generics, status, viewsets
-from rest_framework.authtoken.models import Token
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_simplejwt.tokens import AccessToken
 
 from .models import CodigoRecuperacao, UnidadeOrganizacional, Usuario
 from .serializers import (
@@ -387,9 +387,9 @@ class LoginView(APIView):
         usuario = authenticate(request, username=siape, password=senha)
         
         if usuario is not None:
-            token, _ = Token.objects.get_or_create(user=usuario)
+            token = AccessToken.for_user(usuario)
             return Response({
-                'token': token.key,
+                'token': str(token),
                 'usuario': UsuarioSerializer(usuario).data
             })
         return Response(

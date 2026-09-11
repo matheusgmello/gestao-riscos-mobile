@@ -168,6 +168,7 @@ def media_tmp(settings, tmp_path):
 def imagem_png():
     """Bytes de um PNG 1x1 válido, para o ImageField aceitar (Pillow valida)."""
     import base64
+
     from django.core.files.uploadedfile import SimpleUploadedFile
 
     dados = base64.b64decode(

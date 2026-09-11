@@ -44,7 +44,7 @@ def _payload_risco(setor, objetivo, macro):
 # --------------------------------------------------------------------------- #
 
 class TestSemTokenRecebe401:
-    """Sem autenticação: 401 (WWW-Authenticate: Token), nunca 403."""
+    """Sem autenticação: 401 (WWW-Authenticate: Bearer), nunca 403."""
 
     def test_criar_risco_sem_token(self, api_client, setor_oficial, objetivo_padrao, macroprocesso_padrao):
         resp = api_client.post(

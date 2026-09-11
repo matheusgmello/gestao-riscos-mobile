@@ -11,7 +11,6 @@ Limpa usuários e planos existentes e recria dados realistas para demonstração
 from datetime import date
 
 from django.core.management.base import BaseCommand
-from rest_framework.authtoken.models import Token
 
 from riscos.models import Macroprocesso, Monitoramento, ObjetivoPDI, PlanoAcao, Risco
 from usuarios.importacao_unidades import importar_unidades_csv
@@ -634,7 +633,6 @@ class Command(BaseCommand):
 
         setor_admin = _obter_setor(*ADMIN["setor_admin"])
         admin.setores.add(setor_admin)
-        Token.objects.get_or_create(user=admin)
 
         # ── Gestores ──────────────────────────────────────────────────────────
         self.stdout.write("→ Criando gestores...")
@@ -652,7 +650,6 @@ class Command(BaseCommand):
 
             setores = [_obter_setor(sigla, nome) for sigla, nome in dados["setores"]]
             usuario.setores.set(setores)
-            Token.objects.get_or_create(user=usuario)
 
         # ── Planos de risco ───────────────────────────────────────────────────
         self.stdout.write("→ Criando planos de risco...")

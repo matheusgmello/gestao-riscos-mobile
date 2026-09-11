@@ -5,8 +5,9 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../models/auth_model.dart';
 import '../models/usuario_model.dart';
 
-/// Sessão persistida. O backend usa `TokenAuthentication` do DRF: o token
-/// não expira e não há refresh — basta guardá-lo e enviá-lo no header.
+/// Sessão persistida. O backend emite um JWT de acesso com vida longa: o
+/// token não expira na prática e não há refresh — basta guardá-lo e
+/// enviá-lo no header.
 class TokenService {
   static const _storage = FlutterSecureStorage();
 

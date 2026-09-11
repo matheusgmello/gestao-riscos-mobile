@@ -7,7 +7,7 @@ O backend expoe uma API REST organizada em dois grandes grupos:
 - `/api/usuarios/`
 - `/api/riscos/`
 
-O projeto utiliza **Token Authentication** com Django REST Framework. Rotas publicas sao apenas login, recuperacao de senha e listagem simples de unidades. Todas as demais exigem token valido no header `Authorization: Token <token>`.
+O projeto utiliza **autenticacao via JWT** (`djangorestframework-simplejwt`), com um unico token de acesso de vida longa (10 anos) e sem refresh. Rotas publicas sao apenas login, recuperacao de senha e listagem simples de unidades. Todas as demais exigem token valido no header `Authorization: Bearer <token>`.
 
 ---
 

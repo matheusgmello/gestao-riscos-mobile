@@ -3,9 +3,9 @@ import 'package:dio/dio.dart';
 import '../../core/env.dart';
 import 'token_service.dart';
 
-/// Dio configurado com a base da API e o token DRF no header.
-/// Em `401` a sessão é limpa; a próxima navegação cai no `redirect` do
-/// go_router e volta para o login. Não há refresh.
+/// Dio configurado com a base da API e o JWT (token de acesso, vida longa,
+/// sem refresh) no header. Em `401` a sessão é limpa; a próxima navegação
+/// cai no `redirect` do go_router e volta para o login.
 class ApiClient {
   ApiClient(this._tokenService) {
     _dio = Dio(
@@ -22,7 +22,7 @@ class ApiClient {
         onRequest: (options, handler) async {
           final token = await _tokenService.getToken();
           if (token != null && token.isNotEmpty) {
-            options.headers['Authorization'] = 'Token $token';
+            options.headers['Authorization'] = 'Bearer $token';
           }
           handler.next(options);
         },
