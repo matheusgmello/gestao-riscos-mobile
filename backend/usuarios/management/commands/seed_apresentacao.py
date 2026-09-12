@@ -1,10 +1,11 @@
 """
 Seed de apresentação do SIGR-UFSM.
 
-Limpa usuários e planos existentes e recria dados realistas para demonstração:
+Limpa usuários e planos existentes e recria um conjunto enxuto de dados para
+demonstração (vídeo/apresentação, navegação rápida no mobile):
 - 1 administrador (conta do apresentador), vinculado ao CT/DCTA
-- 18 gestores — cada equipe tem pelo menos 1 gestor_adm e 1 gestor
-- 9 planos de risco — um por setor de cada gestor cadastrado
+- 3 gestores — 1 gestor_adm (CCNE) e 2 gestores comuns (CT/DCTA e CCSH)
+- 5 planos de risco em 5 centros distintos (CT, CCNE, CCSH, POLI, CAL)
 - Senha padrão para todos: 12345678
 """
 
@@ -27,29 +28,7 @@ ADMIN = {
 }
 
 GESTORES = [
-    # ── CCR ──────────────────────────────────────────────────────────────────
-    {
-        "siape": "1847293",
-        "nome": "Maria Cláudia Fonseca",
-        "email": "maria.fonseca@ufsm.br",
-        "cargo": "gestor_adm",
-        "setores": [("CCR", "Centro de Ciências Rurais")],
-    },
-    {
-        "siape": "1023847",
-        "nome": "Luiz Fernando Becker",
-        "email": "luiz.becker@ufsm.br",
-        "cargo": "gestor",
-        "setores": [("CCR", "Centro de Ciências Rurais")],
-    },
-    # ── CT / DCTA ─────────────────────────────────────────────────────────────
-    {
-        "siape": "2356184",
-        "nome": "João Paulo Silveira",
-        "email": "joao.silveira@ufsm.br",
-        "cargo": "gestor_adm",
-        "setores": [("CT", "Departamento de Computação Aplicada")],
-    },
+    # ── CT / DCTA (mesmo setor do admin) ────────────────────────────────────
     {
         "siape": "2094815",
         "nome": "Patrícia Moraes Lima",
@@ -65,102 +44,13 @@ GESTORES = [
         "cargo": "gestor_adm",
         "setores": [("CCNE", "Centro de Ciências Naturais e Exatas")],
     },
-    {
-        "siape": "3074512",
-        "nome": "Ana Beatriz Rodrigues",
-        "email": "ana.rodrigues@ufsm.br",
-        "cargo": "gestor",
-        "setores": [("CCNE", "Centro de Ciências Naturais e Exatas")],
-    },
     # ── CCSH ─────────────────────────────────────────────────────────────────
-    {
-        "siape": "4852037",
-        "nome": "Sandra Vieira Duarte",
-        "email": "sandra.duarte@ufsm.br",
-        "cargo": "gestor_adm",
-        "setores": [("CCSH", "Centro de Ciências Sociais e Humanas")],
-    },
     {
         "siape": "4198627",
         "nome": "Carlos Eduardo Nunes",
         "email": "carlos.nunes@ufsm.br",
         "cargo": "gestor",
         "setores": [("CCSH", "Centro de Ciências Sociais e Humanas")],
-    },
-    # ── CE ───────────────────────────────────────────────────────────────────
-    {
-        "siape": "5914038",
-        "nome": "Paulo Henrique Mota",
-        "email": "paulo.mota@ufsm.br",
-        "cargo": "gestor_adm",
-        "setores": [("CE", "Centro de Educação")],
-    },
-    {
-        "siape": "5263049",
-        "nome": "Fernanda Lima Costa",
-        "email": "fernanda.costa@ufsm.br",
-        "cargo": "gestor",
-        "setores": [("CE", "Centro de Educação")],
-    },
-    # ── CT / EPS ─────────────────────────────────────────────────────────────
-    {
-        "siape": "6047192",
-        "nome": "Camila Ramos Ferreira",
-        "email": "camila.ferreira@ufsm.br",
-        "cargo": "gestor_adm",
-        "setores": [("CT", "Departamento de Engenharia de Produção e Sistemas")],
-    },
-    {
-        "siape": "6381720",
-        "nome": "Rafael Andrade Souza",
-        "email": "rafael.souza@ufsm.br",
-        "cargo": "gestor",
-        "setores": [("CT", "Departamento de Engenharia de Produção e Sistemas")],
-    },
-    # ── PM ───────────────────────────────────────────────────────────────────
-    {
-        "siape": "7183064",
-        "nome": "Diego Oliveira Teixeira",
-        "email": "diego.teixeira@ufsm.br",
-        "cargo": "gestor_adm",
-        "setores": [("PM", "Campus da Universidade Federal de Santa Maria em Palmeira das Missões")],
-    },
-    {
-        "siape": "7492053",
-        "nome": "Juliana Pereira Martins",
-        "email": "juliana.martins@ufsm.br",
-        "cargo": "gestor",
-        "setores": [("PM", "Campus da Universidade Federal de Santa Maria em Palmeira das Missões")],
-    },
-    # ── POLI ─────────────────────────────────────────────────────────────────
-    {
-        "siape": "8062947",
-        "nome": "Renata Gomes Pinheiro",
-        "email": "renata.pinheiro@ufsm.br",
-        "cargo": "gestor_adm",
-        "setores": [("POLI", "Colégio Politécnico")],
-    },
-    {
-        "siape": "8517364",
-        "nome": "Marcelo Santos Alves",
-        "email": "marcelo.alves@ufsm.br",
-        "cargo": "gestor",
-        "setores": [("POLI", "Colégio Politécnico")],
-    },
-    # ── CAL ──────────────────────────────────────────────────────────────────
-    {
-        "siape": "9305821",
-        "nome": "Leonardo Castro Freitas",
-        "email": "leonardo.freitas@ufsm.br",
-        "cargo": "gestor_adm",
-        "setores": [("CAL", "Centro de Artes e Letras")],
-    },
-    {
-        "siape": "9630481",
-        "nome": "Vanessa Oliveira Cruz",
-        "email": "vanessa.cruz@ufsm.br",
-        "cargo": "gestor",
-        "setores": [("CAL", "Centro de Artes e Letras")],
     },
 ]
 
@@ -267,64 +157,6 @@ PLANOS = [
         },
     },
 
-    # 3 — Financeiro · Alto (nivel_residual = 3×4 = 12)
-    {
-        "setor": ("PM", "Campus da Universidade Federal de Santa Maria em Palmeira das Missões"),
-        "objetivo": "SF-D5-03",
-        "macroprocesso": "Orçamento e Finanças",
-        "categoria": "Financeiro",
-        "evento": (
-            "Contingenciamento orçamentário imprevisto comprometendo atividades "
-            "fins do campus de Palmeira das Missões."
-        ),
-        "causa": (
-            "Dependência quase exclusiva do orçamento federal com baixa "
-            "captação de recursos externos e reserva de contingência inexistente."
-        ),
-        "consequencia": (
-            "Paralisação de projetos de pesquisa, extensão e manutenção "
-            "predial, com reflexo no atendimento à comunidade local."
-        ),
-        "controles_atuais": (
-            "Revisão trimestral das dotações orçamentárias e priorização "
-            "reativa conforme demanda dos departamentos."
-        ),
-        "eficacia_controle": "Fraco",
-        "probabilidade": 4,
-        "impacto": 4,
-        "prob_residual": 3,
-        "imp_residual": 4,
-        "plano": {
-            "tipo_resposta": "Mitigar",
-            "descricao_acao": (
-                "Elaborar plano de captação de recursos via projetos externos "
-                "(FINEP, CNPq, parcerias municipais) e constituir fundo de reserva "
-                "com 5% do orçamento anual."
-            ),
-            "responsavel": "Juliana Pereira Martins",
-            "parceiros": "Pró-Reitoria de Planejamento, Prefeitura Municipal",
-            "data_inicio": date(2026, 4, 15),
-            "data_fim": date(2026, 12, 15),
-            "status": "Em andamento",
-            "progresso": 20,
-            "observacoes": "",
-        },
-        "monitoramento": {
-            "resultados": (
-                "Levantamento de editais de fomento externo realizado. "
-                "Três projetos submetidos ao CNPq em março/2026."
-            ),
-            "acoes_futuras": (
-                "Aguardar resultado dos projetos submetidos e articular "
-                "convênio com prefeitura para contrapartida em extensão."
-            ),
-            "analise_critica": (
-                "Ações em andamento dentro do prazo. Risco de não aprovação "
-                "dos projetos mantém nível alto até confirmação de recursos."
-            ),
-        },
-    },
-
     # 4 — Integridade · Moderado (nivel_residual = 2×3 = 6)
     {
         "setor": ("CCSH", "Centro de Ciências Sociais e Humanas"),
@@ -366,49 +198,6 @@ PLANOS = [
             "status": "Em andamento",
             "progresso": 50,
             "observacoes": "Minuta da resolução em análise pela procuradoria jurídica.",
-        },
-    },
-
-    # 5 — Imagem · Moderado (nivel_residual = 2×2 = 4)
-    {
-        "setor": ("CE", "Centro de Educação"),
-        "objetivo": "PR-D5-03",
-        "macroprocesso": "Comunicação Institucional",
-        "categoria": "Imagem",
-        "evento": (
-            "Gestão inadequada da comunicação em situações de crise "
-            "envolvendo denúncias ou episódios de repercussão pública."
-        ),
-        "causa": (
-            "Ausência de protocolo formal de gestão de crise, fluxo de "
-            "comunicação descentralizado e sem porta-voz definido."
-        ),
-        "consequencia": (
-            "Amplificação negativa nas redes sociais, perda de confiança "
-            "da comunidade e dificuldade de resposta institucional tempestiva."
-        ),
-        "controles_atuais": (
-            "Comunicação reativamente coordenada pela direção e "
-            "assessoria de comunicação central, sem protocolo específico."
-        ),
-        "eficacia_controle": "Inexistente",
-        "probabilidade": 3,
-        "impacto": 3,
-        "prob_residual": 2,
-        "imp_residual": 2,
-        "plano": {
-            "tipo_resposta": "Mitigar",
-            "descricao_acao": (
-                "Elaborar protocolo de gestão de crise comunicacional, "
-                "designar porta-voz e realizar simulado de crise com a equipe."
-            ),
-            "responsavel": "Fernanda Lima Costa",
-            "parceiros": "Assessoria de Comunicação UFSM, Diretoria CE",
-            "data_inicio": date(2026, 6, 1),
-            "data_fim": date(2026, 10, 31),
-            "status": "Não iniciada",
-            "progresso": 0,
-            "observacoes": "",
         },
     },
 
@@ -456,95 +245,6 @@ PLANOS = [
                 "Planejamento 2026 antecipado com sucesso. Redução de 40% no "
                 "tempo médio de processos licitatórios em relação ao ano anterior."
             ),
-        },
-    },
-
-    # 7 — Operacional · Moderado (nivel_residual = 3×3 = 9) — CCR
-    {
-        "setor": ("CCR", "Centro de Ciências Rurais"),
-        "objetivo": "PR-D7-01",
-        "macroprocesso": "Controle Ambiental",
-        "categoria": "Operacional",
-        "evento": (
-            "Perda de áreas experimentais e culturas de pesquisa em campo "
-            "decorrente de eventos climáticos extremos não previstos."
-        ),
-        "causa": (
-            "Ausência de seguro agrícola para áreas experimentais, inexistência "
-            "de plano de contingência climática e dependência de irrigação manual."
-        ),
-        "consequencia": (
-            "Interrupção de pesquisas de longa duração, perda de investimento "
-            "em insumos e impacto nos resultados de projetos financiados."
-        ),
-        "controles_atuais": (
-            "Monitoramento meteorológico pontual e adoção de calendário agrícola "
-            "padrão sem ajuste dinâmico para variações climáticas."
-        ),
-        "eficacia_controle": "Fraco",
-        "probabilidade": 4,
-        "impacto": 4,
-        "prob_residual": 3,
-        "imp_residual": 3,
-        "plano": {
-            "tipo_resposta": "Mitigar",
-            "descricao_acao": (
-                "Contratar seguro para áreas experimentais, instalar sistema "
-                "de irrigação automatizado e elaborar plano de contingência "
-                "climática com rotas alternativas de cultivo."
-            ),
-            "responsavel": "Maria Cláudia Fonseca",
-            "parceiros": "Pró-Reitoria de Pesquisa, EMBRAPA",
-            "data_inicio": date(2026, 3, 1),
-            "data_fim": date(2026, 9, 30),
-            "status": "Em andamento",
-            "progresso": 25,
-            "observacoes": "Contato iniciado com seguradora em fevereiro/2026.",
-        },
-    },
-
-    # 8 — Estratégico · Alto (nivel_residual = 4×3 = 12) — CT/EPS
-    {
-        "setor": ("CT", "Departamento de Engenharia de Produção e Sistemas"),
-        "objetivo": "AI-D5-02",
-        "macroprocesso": "Pessoas",
-        "categoria": "Estratégico",
-        "evento": (
-            "Déficit de docentes qualificados em áreas específicas do curso de "
-            "Engenharia de Produção, com risco de descredenciamento de disciplinas."
-        ),
-        "causa": (
-            "Alta taxa de aposentadoria no quadro docente, dificuldade de "
-            "reposição por exigências do concurso público e baixa atratividade "
-            "salarial frente ao mercado privado."
-        ),
-        "consequencia": (
-            "Sobrecarga dos docentes remanescentes, queda na qualidade do ensino "
-            "e risco de avaliação negativa pelo MEC no próximo ciclo."
-        ),
-        "controles_atuais": (
-            "Redistribuição de carga horária entre docentes disponíveis e "
-            "contratação eventual de substitutos por processo seletivo simplificado."
-        ),
-        "eficacia_controle": "Fraco",
-        "probabilidade": 4,
-        "impacto": 4,
-        "prob_residual": 4,
-        "imp_residual": 3,
-        "plano": {
-            "tipo_resposta": "Mitigar",
-            "descricao_acao": (
-                "Solicitar abertura de concurso público prioritário para as "
-                "vagas críticas, mapear professores colaboradores e firmar "
-                "acordo de cooperação com setor produtivo para docência compartilhada."
-            ),
-            "responsavel": "Rafael Andrade Souza",
-            "parceiros": "Pró-Reitoria de Gestão de Pessoas, Direção do CT",
-            "data_inicio": date(2026, 4, 1),
-            "data_fim": date(2027, 3, 31),
-            "status": "Não iniciada",
-            "progresso": 0,
-            "observacoes": "Aguarda abertura de edital para concurso público federal.",
         },
     },
 
